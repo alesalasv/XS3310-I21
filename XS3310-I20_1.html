@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>XS3310 Teoría Estadística</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Prof. Marcela Alfaro Córdoba" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# XS3310 Teoría Estadística
+## I Semestre 2020
+### Prof. Marcela Alfaro Córdoba
+### 03/03/2020 (updated: 2020-03-03)
+
+---
+
+
+
+
+
+## Acerca de mí
+
+* Profesora Invitada 3er año de la Escuela de Estadística, UCR.
+* Bachillerato en Estadística, Universidad de Costa Rica
+* MSc en Estadística, Iowa State University
+* PhD en Estadística, North Carolina State University
+* Orcid: https://orcid.org/0000-0002-7703-3578
+
+Mis temas de investigación se relacionan con el desarrollo de nuevos métodos estadísticos para responder preguntas científicas relativas a las ciencias naturales. Además de la teoría estadística, tengo un interés por aprender temas de ciencia de datos, ciencia abierta, reproducible y el rol que tienen en el desarrollo científico a nivel global. 
+
+Me gustan las comunidades: 
+
+* Escuelas de Ciencias de Datos para la Investigación CODATA-RDA. 
+* R-ladies SJO / ConectaR 2021 / Plenaria RDA 16
+* 500 Científicas Costa Rica
+
+Más información en: https://malfaro2.github.io/
+
+---
+
+## Acerca de mí
+
+&lt;img src="https://yawgmoth.github.io/CI-0129/assets/img/cats.jpg" width="80%"/&gt;
+
+---
+
+
+## Acerca de Uds
+
+* Quiero que me digan su nombre, año de carrera, por lo menos un objetivo específico que quieran alcanzar al finalizar este curso, y algo que gusten compartir con la clase.
+
+## Programa del curso
+
+http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf
+
+* Lectura del programa
+* Exámenes: viernes 17 de abril y 12 de junio de 1 a 4pm (lugar por confirmar)
+* Matrícula en Mediación Virtual: es de carácter obligatorio, las evaluaciones de al menos tres proyectos y quices se harán mediante esta plataforma.
+* https://mediacionvirtual.ucr.ac.cr -- por favor actualizar su correo de preferencia en el formulario de Google (detalles más adelante).
+* Firma del acta del programa de clase
+* Tutorial de Slack
+
+---
+class: center, middle
+
+## Hoja de información
+
+Por favor llene la siguiente forma de Google que contiene las siguientes preguntas:
+
+**http://bit.ly/XS3310_cuestionario**
+
+
+
+---
+
+## En Resumen:
+
+Antes de la siguiente clase, deberán completar las siguientes tareas:
+
+0. Firmar el acta de inicio de lecciones.
+1. Inscribirse en mediación virtual.
+2. Instalar Slack y aprender a usarlo.
+3. Contestar el cuestionario de google que está en http://bit.ly/XS3310_cuestionario
+4. Reservar en sus agendas los dos viernes de examen.
+
+--
+
+## ¿PREGUNTAS O COMENTARIOS?
+
+---
+
+class: center, middle
+
+# Hasta ahora en la carrera de Estadística:
+
+En medio del auge de ciencia de datos, datos grandes, y tantas puertas que la tecnología nos ha abierto.
+
+![Ciencia de Datos vs Estadística](figs/ciencia_de_datos.png)
+
+## ¿Para qué necesitamos Teoría Estadística?
+---
+
+class: center, middle
+
+# Hasta ahora en la carrera de Estadística:
+
+ ¿Qué vimos en modelos probabilísticos discretos y contínuos?
+
+## https://seeing-theory.brown.edu
+
+
+---
+
+# Repaso de Inferencia Estadística
+
+* Estadística Descriptiva vs Estadística Inferencial
+
+  - En grupos de 2 personas:
+  
+  * Escojan uno artículo de la lista de Slack, y lo declaran (comentándolo) en Slack (en orden de llegada).
+  * Discutan si se trata de estadística descriptiva o inferencial.
+  * Preséntenlo al grupo.
+  * Tienen 15 mins.
+  
+ [Noticia 1](https://elpais.com/economia/2020-03-03/el-empleo-aumenta-en-febrero-con-casi-86000-nuevos-afiliados.html) -  [Noticia 2](https://elpais.com/ciencia/2020-03-02/como-se-compara-el-coronavirus-con-la-gripe-los-numeros-dicen-que-es-peor.html)  - [Noticia 3](https://www.theguardian.com/science/2020/mar/03/study-finds-parrots-weigh-up-probabilities-to-make-decisions)  - [Noticia 4](https://elpais.com/ciencia/2020-02-27/este-es-el-coste-en-carbono-que-tienen-las-entregas-a-domicilio-y-asi-se-podria-evitar.html) - [Noticia 5](https://elpais.com/especiales/2020/elecciones-estados-unidos/pronosticos/) - [Noticia 6](http://www.laprensalibre.cr/Noticias/detalle/161503/nasa-revela-una-caida-de-la-contaminacion-en-china-por-el-coronavirus) 
+ 
+ PUeden escoger otras, estas son sugerencias. 
+
+
+
+---
+
+# Repaso de Inferencia Estadística
+
+
+* Muestra aleatoria
+
+* Parámetro
+
+* Estadístico
+
+* Estimador 
+
+
+---
+
+
+# Parámetros, estadísticos y estimadores
+	
+	
+## Muestra aleatoria (m.a.)
+
+Sean `\(X_{1}, X_{2}, ... , X_{n}\)` un conjunto de variables aleatorias (v.a.) independientes e idénticamente distribuidas; este conjunto se denomina *muestra aleatoria* de una población infinita.
+
+## Estadístico
+
+Es una función de la muestra aleatoria, `\(T=f\left(X_{1}, X_{2}, ... , X_{n}\right)\)`. Un estadístico es a su vez una variable aleatoria y como tal tiene su propia distribución, denominada distribución muestral, con sus parámetros correspondientes.
+
+---
+
+# Parámetros, estadísticos y estimadores
+	
+Ejemplo:
+
+1. Media muestral: `\(\bar{X} =\frac{\sum_{j=1}^n{ {X}_j } }{n}\)`
+
+Se sabe que `\(E\left(\bar{X}\right)=\mu\)` y `\(Var\left(\bar{X}\right)=\frac{\sigma^2}{n}\)`, donde `\(\mu\)` y `\(\sigma^2\)` son la media y variancia poblacional. La distribución de `\(\bar{X}\)` va a depender de la distribución de la población. No obstante, con muestras grandes podemos hacer uso del Teorema del Límite Central, el cual dice:
+
+`$$Z_{n} = \frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{\text{d}} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$`
+
+O lo que es equivalente a decir que `\(\bar{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty\)`.
+
+---
+
+# Parámetros, estadísticos y estimadores
+	
+Ejemplo:
+
+2. Variancia muestral: `\(S^{2} = \frac{\sum{\left(X_{j}-\bar{X}\right)^2}}{n-1}\)`
+
+Podemos demostrar que `\(E\left(S^2\right)=\sigma^2\)` y `\(Var\left(S^2\right)=\frac{2\sigma^4}{n-1}\)`.
+
+Prueba: En la sección siguiente, probaremos que si la población es `\(N\left(\mu,\sigma^2\right)\)` entonces `\(\frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}\left(n-1\right)\)`. Además sabemos que el valor esperado de una ji-cuadrado son sus grados de libertad y la varianza son dos veces los grados de libertad. Por lo tanto,
+
+$$ E\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = n-1  \\
+    \Rightarrow \frac{\left(n-1\right)E\left(S^2\right)}{\sigma^2} = n-1 \\
+	  \Rightarrow E\left(S^2\right) = \sigma^2 $$
+
+---
+
+# Parámetros, estadísticos y estimadores
+	
+Ejemplo:
+
+Podemos hacer lo mismo para encontrar la varianza cuando la población es Normal:
+
+$$  Var\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = 2\left(n-1\right) $$ 
+
+$$ \Rightarrow \frac{\left(n-1\right)^2}{\sigma^4}Var\left(S^2\right) = 2\left(n-1\right) \\
+\Rightarrow Var\left(S^2\right) = \frac{2\sigma^4}{n-1} $$
+
+---
+
+class: center, middle
+
+# ¡Gracias!
+
+Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
+
+El chakra viene de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
