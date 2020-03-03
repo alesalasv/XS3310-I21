@@ -24,5 +24,10 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="XS3310-I20_3.html">Clase 3</a> </td> 
     <td> Práctica </td>
   </tr>
+      <tr>
+    <td> 20 de marzo </td>
+    <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td> 
+    <td> Práctica </td>
+  </tr>
 </table>
 
