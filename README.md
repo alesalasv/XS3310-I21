@@ -1,5 +1,6 @@
 La información del curso está en Mediación Virtual, este repositorio es para el material de clase.
 
+[Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf)
 
 <table style="width:100%">
   <tr>
