@@ -1,4 +1,4 @@
-# XS3310 Teoría Estadística
+# Teoría Estadística, I Semestre 2020
 
 El material completo está en Mediación Virtual, este repositorio es para el material de clase.
 
