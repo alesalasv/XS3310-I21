@@ -1,5 +1,3 @@
-# Teoría Estadística, I Semestre 2020
-
 La información del curso está en Mediación Virtual, este repositorio es para el material de clase.
 
 
