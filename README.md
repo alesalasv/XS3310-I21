@@ -12,17 +12,17 @@ El material completo está en Mediación Virtual
   </tr>
   <tr>
     <td> 10 de marzo </td>
-    <td>  <a href="XS3310-I20_1">Clase 1</a> </td> 
+    <td>  <a href="XS3310-I20_1.html">Clase 1</a> </td> 
     <td> Llenar cuestionario, Slack, Mediación Virtual </td>
   </tr>
   <tr>
     <td> 13 de marzo </td>
-    <td>  <a href="https://malfaro2.github.io/XS3310-I20/XS3310-I20_2">Clase 2</a> </td> 
+    <td>  <a href="XS3310-I20_2.html">Clase 2</a> </td> 
     <td> Práctica </td>
   </tr>
     <tr>
     <td> 17 de marzo </td>
-    <td>  <a href="https://malfaro2.github.io/XS3310-I20/XS3310-I20_3">Clase 3</a> </td> 
+    <td>  <a href="XS3310-I20_3.html">Clase 3</a> </td> 
     <td> Práctica </td>
   </tr>
 </table>
