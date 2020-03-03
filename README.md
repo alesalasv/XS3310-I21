@@ -1,7 +1,6 @@
 # XS3310 Teoría Estadística
-# Universidad de Costa Rica
 
-El material completo está en Mediación Virtual
+El material completo está en Mediación Virtual, este repositorio es para el material de clase.
 
 
 <table style="width:100%">
