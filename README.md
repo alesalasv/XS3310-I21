@@ -20,7 +20,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
   <tr>
     <td> 13 de marzo </td>
     <td>  <a href="XS3310-I20_2.html">Clase 2</a> </td> 
-    <td> Práctica </td>
+    <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
     <tr>
     <td> 17 de marzo </td>
