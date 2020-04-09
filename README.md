@@ -44,7 +44,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/q0NI2tftYWg">Comentarios sobre la cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/YW1ZG1Hgg_k">Primer ejemplo sobre la cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
-    <td> Práctica: 9.9 - 9.36 de Mendenhall </td>
+    <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
    <tr>
     <td> 17 de abril </td>
@@ -53,7 +53,31 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
           <a href="https://youtu.be/vzG_dIdV5MA">Suficiencia</a> <br>
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
+    <td> Práctica 9.9 - 9.36 de Mendenhall </td>
+  </tr>
+   <tr>
+    <td> 21 de abril </td>
+    <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
+    <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a>
+          <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a>
+          <a href="https://www.youtube.com/watch?v=38qjzQ0PRRE">Esperanza condicional</a>
+          <a href="https://www.youtube.com/watch?v=o4O8eKhd0u0">Teorema de Rao-Blackwell</a>
+          <a href="https://www.youtube.com/watch?v=K3PKgkFKqMA">Ejemplos de aplicaci&oacute;n del teorema de Rao-Blackwell</a>
+          <a href="https://www.youtube.com/watch?v=rgZ-BiwRf2o">Completez</a>
+          <a href="https://www.youtube.com/watch?v=et3U9snQTgk">Teorema de Lehmann-Sheff&eacute;</a>
+          <a href="https://www.youtube.com/watch?v=RS_xpKi5bXU">Ejemplo de aplicaci&oacute;n del teorema de Lehmann-Sheff&eacute;</a>
+          <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a>
+          <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a>
+          <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a>
+          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> </td> 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
+  </tr>
+     <tr>
+    <td> 24 de abril </td>
+    <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
+    <td>  </td> 
+    <td> Práctica Casella: Capítulo 6 Ejercicios (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud.
+Casella: Capítulo 7 Ejercicios (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
   </tr>
 </table>
 
