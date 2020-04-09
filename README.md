@@ -6,12 +6,14 @@ La información del curso está en Mediación Virtual, este repositorio es para 
 
 [Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf)
 
+[Programa ajustado](XS3310_programa_ajustado.pdf)
+
 <table style="width:100%">
   <tr>
-    <th> Fecha </th>
-    <th> Clase </th>
-     <th> Vídeos </th>
-    <th> Tareas </th>
+    <th width="15%"> Fecha </th>
+    <th width="10%">  Clase </th>
+     <th width="50%">  Vídeos </th>
+    <th width="25%">  Tareas </th>
   </tr>
   <tr>
     <td> 10 de marzo </td>
@@ -58,26 +60,33 @@ La información del curso está en Mediación Virtual, este repositorio es para 
    <tr>
     <td> 21 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a>
-          <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a>
-          <a href="https://www.youtube.com/watch?v=38qjzQ0PRRE">Esperanza condicional</a>
-          <a href="https://www.youtube.com/watch?v=o4O8eKhd0u0">Teorema de Rao-Blackwell</a>
-          <a href="https://www.youtube.com/watch?v=K3PKgkFKqMA">Ejemplos de aplicaci&oacute;n del teorema de Rao-Blackwell</a>
-          <a href="https://www.youtube.com/watch?v=rgZ-BiwRf2o">Completez</a>
-          <a href="https://www.youtube.com/watch?v=et3U9snQTgk">Teorema de Lehmann-Sheff&eacute;</a>
-          <a href="https://www.youtube.com/watch?v=RS_xpKi5bXU">Ejemplo de aplicaci&oacute;n del teorema de Lehmann-Sheff&eacute;</a>
-          <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a>
-          <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a>
-          <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a>
-          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> </td> 
+    <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
+          <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a> <br>
+          <a href="https://www.youtube.com/watch?v=38qjzQ0PRRE">Esperanza condicional</a> <br>
+          <a href="https://www.youtube.com/watch?v=o4O8eKhd0u0">Teorema de Rao-Blackwell</a> <br>
+          <a href="https://www.youtube.com/watch?v=K3PKgkFKqMA">Ejemplos de aplicaci&oacute;n del teorema de Rao-Blackwell</a> <br>
+          <a href="https://www.youtube.com/watch?v=rgZ-BiwRf2o">Completez</a> <br>
+          <a href="https://www.youtube.com/watch?v=et3U9snQTgk">Teorema de Lehmann-Sheff&eacute;</a> <br>
+          <a href="https://www.youtube.com/watch?v=RS_xpKi5bXU">Ejemplo de aplicaci&oacute;n del teorema de Lehmann-Sheff&eacute;</a> <br>
+          <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a> <br>
+          <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br>
+          <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br>
+          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br> </td> 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
   </tr>
      <tr>
     <td> 24 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
-    <td>  </td> 
-    <td> Práctica Casella: Capítulo 6 Ejercicios (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud.
-Casella: Capítulo 7 Ejercicios (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
+    <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
+<a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
+<a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+<a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+<a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+<a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y m&aacute;xima verosimilitud</a> <br>
+<a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a> <br>
+</td> 
+    <td> Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
+Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
   </tr>
 </table>
 
