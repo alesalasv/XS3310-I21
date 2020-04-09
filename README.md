@@ -48,7 +48,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
   </tr>
    <tr>
     <td> 17 de abril </td>
-    <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
+    <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
           <a href="https://youtu.be/vzG_dIdV5MA">Suficiencia</a> <br>
