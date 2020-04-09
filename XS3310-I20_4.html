@@ -3,7 +3,7 @@
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Prof. Marcela Alfaro Córdoba" />
+    <meta name="author" content="Grupos 001 - 002" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -13,8 +13,8 @@ class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
 ## I Semestre 2020
-### Prof. Marcela Alfaro Córdoba
-### 03/03/2020 (updated: 2020-03-03)
+### Grupos 001 - 002
+### 14/04/2020 (updated: 2020-04-09)
 
 ---
 
@@ -25,13 +25,158 @@ class: center, middle, inverse, title-slide
 
 # ¿Qué vamos a discutir hoy?
 
-* Propiedades de los estimadores: eficiente, consistente y suficiente.
+* Mapa de recursos ¿dónde encuentro qué?
+* ¿Qué podemos esperar de estos 50 mins de clase?
+
+
+* Definición 1.2 Error y sesgo (ejemplo)
+* Definición 1.3 Estimadores asintóticamente insesgados
+* Definición 1.4 ECM (demostración y ejemplo)
+* Eficiencia (ejemplo y motivación)
+* Definición 2.1 Eficiencia relativa
+* Teorema 2.1 (Cramer-Rao)
+
+---
+ 
+# Vídeos
+
+Temas anteriores a esta clase (para repaso):
+
+* [Población y muestra](https://youtu.be/JLNaZ1TxS_8)
+* [¿Qué es la estadística inferencial?](https://youtu.be/N_Bnk9Wq7E4)
+* [¿Qué es la estimación puntual?](https://youtu.be/-9who67ocEQ)
+* [Muestras aleatorias, estadísticas y estimadores](https://youtu.be/muIrBvecff8)
+* [Insesgamiento](https://youtu.be/-VQvT1ZV8dc)
+
+
+Temas para esta clase:
+
+* [Insesgamiento asintótico](https://youtu.be/zuuNAjb-fx8)
+* [Sesgo y error cuadrático medio](https://youtu.be/ya03V8ySoBI)
+* [Eficiencia](https://youtu.be/GD4lUmIo9_g)
+* [Información de Fisher](https://youtu.be/7O-an8MOL7g)
+* [Cota inferior de Cramér-Rao](https://youtu.be/e8BhHJKB5Ks)
+* [Comentarios sobre la cota inferior de Cramér-Rao](https://youtu.be/q0NI2tftYWg)
+* [Primer ejemplo sobre la cota inferior de Cramér-Rao](https://youtu.be/YW1ZG1Hgg_k)
+* [Segundo ejemplo sobre la cota inferior de Cramér-Rao](https://youtu.be/faFsaP1YE4U)
+
+
+---
+ 
+# Mapa de recursos
+
+* Vídeos: links se postearán en las presentaciones, pero también estarán disponibles antes de la clase en Mediación y en el repo de Github.
+* Material resumen de Mauricio: está en Slack y en Mediación Virtual.
+* Diapositivas: en el repo de Github.
+* Ejercicios recomendados: en Mediación Virtual y en las diapositivas.
+* Horas consulta: vía Slack, o zoom de ser necesario. Ver horario en el programa modificado.
+
+---
+ 
+# ¿Qué podemos esperar de estos 50 mins de clase?
+
+* Énfasis en demostraciones o ejercicios que NO están en los vídeos.
+* Las dudas se harán por escrito (puede ser antes de clase) y se resolverán en la próxima clase o si no hay tiempo, entonces en horas consulta.
+* Son solo 50 mins, por lo que no podemos esperar lo mismo que en la clase presencial. 
+* ¿Por qué se hace así? porque las clases sincrónicas son las de más difícil acceso para poblaciones vulnerables, por lo que en esta clase daremos recursos asincrónicos (vídeos, material escrito, ejercicios y prácticas) para reemplazar las clases que ya conocíamos.
+
+---
+
+# Sesgo y Variancia
+
+&gt; Definición 1.6. Error y Sesgo. La diferencia entre un estimador `\(\hat{\theta}\)` y el parámetro que estima `\(\theta\)` se considera ERROR en la estimación `\(error = \hat{\theta} - \theta\)`
+
+No obstante, si `\(\hat{\theta}\)` es insesgado se tiene que el valor esperado del error es cero: `\(E\left(error\right) = E\left(\hat{\theta} - \theta\right) = E(\hat{\theta}) - \theta = 0\)`. Esto significa que las estimaciones varian alrededor de `\(\theta\)` en igual proporción para diferentes muestras.
+
+
+Sin embargo, si `\(E(\hat{\theta}) \neq \theta\)` se dice que hay un SESGO en la estimación. Este sesgo se ve representado por el valor
+		
+`$$B(\hat{\theta}) =  E(\hat{\theta}) - \theta$$`
+	
+---
+
+# Sesgo y Variancia
+
+Ejemplo: Encuentre el sesgo para los ejemplos anteriores. 
+
+Solución:
+	
+a. Sabemos que `\(E(X_{\left(n\right)}) = \frac{n\theta}{n+1}\)`, por lo que tenemos 
+`\(B(\hat{\theta}) = E(X_{\left(n\right)}) - \theta = \frac{n\theta}{n+1} - \theta = \frac{-\theta}{n+1}\)`
+		
+Podemos notar como el sesgo es negativo. Esto significa que `\(X_{\left(n\right)}\)` está sub-estimando el valor real de `\(\theta\)`, lo cual es de esperar con el máximo muestral.
+		
+b. En este caso obtuvimos que `\(E(X_{\left(1\right)}) = \frac{2n\beta}{2n-1}\)`, por lo tanto 
+		
+`\(B(X_{\left(1\right)}) = E(X_{\left(1\right)}) - \beta = \frac{2n\beta}{2n-1} - \beta = \frac{\beta}{2n-1}\)`
+		
+En este caso el sesgo es positivo, indicando que el estimador está sobre-estimando el valor real de `\(\beta\)`, lo cual es usual al utilizar el mínimo muestral.
+
+---
+
+# Estimadores asintóticamente insesgados
+
+&gt; Definición 1.7. Estimadores asintóticamente insesgados. Algunos estimadores, aunque no son insesgados, cumplen que `\(\lim_{n \to +\infty}{B(\hat{\theta})} =0\)`, es decir, el sesgo tiende a cero cuando n tiende a infinito. A estos estimadores se les llama asintóticamente insesgados. 
+
+Ejemplo. Determine si los estimadores de los últimos dos ejemplos son asintóticamente insesgados para sus respectivos parámetros.
+	
+Solución: 
+	
+a. `\(\lim_{n \to +\infty}{B(X_{\left(n\right)})} = \lim_{n \to +\infty}{\frac{-\theta}{n+1}} = 0\)`
+
+b. `\(\lim_{n \to +\infty}{B(X_{\left(1\right)})} = \lim_{n \to +\infty}{\frac{\beta}{2n-1}} = 0\)`
+
+Se cumple que ambos estimadores son asintóticamente insesgados para sus respectivos parámetros.
+	
+NOTA: También se cumple que un estimador `\(\hat{\theta}\)` es asintóticamente insesgado para `\(\theta\)` si `\(\lim_{n\rightarrow\infty}{E(\hat{\theta})} = \theta\)`.
+	
+---
+
+# Sesgo y ECM
+
+NOTA: Si un estimador `\(\hat{\theta}\)` es insesgado para `\(\theta\)` se cumple que `\(ECM(\hat{\theta}) = Var(\hat{\theta})\)`. 
+	
+&lt;img src="XS3310-I20_4_files/figure-html/unnamed-chunk-1-1.png" width="100%" /&gt;
+
+---
+
+# Sesgo asintótico
+
+&lt;img src="XS3310-I20_4_files/figure-html/unnamed-chunk-2-1.png" width="100%" /&gt;
+---
+
+# Error Cuadrático Medio (ECM)
+
+&gt; Definicion 1.8. Error cuadrático medio. Supongamos que `\(\hat{\theta}\)` es un estimador de un parámetro `\(\theta\)`, se define el `\(\underline{error cuadrático medio}\)` de `\(\hat{\theta}\)`, denotado como `\(ECM(\hat{\theta})\)`, por `\(ECM(\hat{\theta}) = E\left[\left(\hat{\theta}-\theta\right)^2\right]\)`
+
+&gt; Teorema 1.22. Si `\(\hat{\theta}\)` es un estimador de `\(\theta\)`, entonces
+`\(ECM(\hat{\theta}) = Var(\hat{\theta}) + \left[B(\hat{\theta})\right]^2\)`
+
+Prueba:
+
+`\(ECM(\hat{\theta}) = E\left[\left(\hat{\theta}-\theta\right)^2\right] = E\left[\left(\left[\hat{\theta} - E(\hat{\theta})\right] + \left[E(\hat{\theta}) - \theta \right]\right)^2\right] = E\left[\left(\left[\hat{\theta} - E(\hat{\theta})\right] + B(\hat{\theta})\right)^2\right]\)`
+	
+`\(= E\left[\left(\hat{\theta} - E(\hat{\theta})\right)^{2} + 2\left(\hat{\theta} - E(\hat{\theta})\right)B(\hat{\theta}) +B(\hat{\theta})^{2}\right]\)`
+	
+`\(= E\left[\left(\hat{\theta} - E(\hat{\theta})\right)^{2}\right] + 2B(\hat{\theta}) E\left(\hat{\theta} - E(\hat{\theta})\right) + B(\hat{\theta})^{2}\)`
+	
+`\(= Var(\hat{\theta}) +  2B(\hat{\theta}) \cdot 0 + B(\hat{\theta})^{2} = Var(\hat{\theta}) +  B(\hat{\theta})^{2}\)`
+	
+---
+
+# Error Cuadrático Medio
+
+Ejemplo: Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria tal que `\(X_{j} \sim Pareto \left(2,\beta\right)\)` y `\(X_{\left(1\right)}\)` es un estimador de `\(\beta\)`, determine el error cuadrático medio de `\(X_{\left(1\right)}\)`. 
+	
+Solución: Se demostró que `\(X_{(1)} \sim Pareto\left(2n,\beta\right)\)` y que `\(B\left(X_{\left(1\right)}\right) = \frac{\beta}{2n-1}\)`. También sabemos que `\(Var\left(X_{\left(1\right)}\right) = \frac{2n\beta^{2}}{\left(2n-1\right)^{2}\left(2n-2\right)}\)`. Por lo tanto,
+	
+`\(ECM(X_{\left(1\right)}) = \frac{2n\beta^{2}}{\left(2n-1\right)^{2}\left(2n-2\right)} + \frac{\beta^2}{\left(2n-1\right)^2} = \frac{4n\beta^{2} - 2\beta^{2}}{\left(2n-1\right)^{2}\left(2n-2\right)} = \frac{\beta^2}{\left(2n-1\right)\left(n-1\right)}\)`
 
 ---
 
 # Eficiencia
 	
-La eficiencia de un estimador está relacionada a la variabilidad de dicho estimador, la cual se ve representada por el error cuadrático medio. 
+La eficiencia de un estimador está relacionada a la variabilidad de dicho estimador, la cual se ve representada por el error cuadrático medio. Empezaremos con un ejemplo que compare la variabilidad entre dos estimadores: 
 	
 Ejemplo: Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que 
 	
@@ -93,15 +238,16 @@ Solución: Podemos notar que los estimadores insesgados serían los siguientes:
 		
 `\(Var(\hat{\theta}_{2}) = Var\left(\frac{5n+1}{5n}X_{(n)}\right) = \frac{\left(5n+1\right)^2}{25n^2}Var(X_{(n)})= \frac{\left(5n+1\right)^2}{25n^2} \cdot \frac{5n\theta^2}{\left(5n+1\right)^{2}\left(5n+2\right)} = \frac{\theta^2}{5n\left(5n+2\right)}\)`
 
-En este caso `\(\frac{\theta^2}{5n\left(5n+2\right)} &lt; \frac{\theta^2}{35n} \forall n &gt; 1\)`. 
-		
-Se dice que `\(\hat{\theta}_{2}\)` es relativamente más eficiente que `\(\hat{\theta}_{1}\)`.
 
 ---
 
 # Eficiencia
 
-En general, si se tienen dos estimadores insesgados de un parámetro `\(\theta\)`, es más eficiente aquel que tiene menor variancia. Si se comparan estimadores sesgados se comparan los errores cuadráticos medios en lugar de las variancias. 
+En este caso `\(\frac{\theta^2}{5n\left(5n+2\right)} &lt; \frac{\theta^2}{35n} \forall n &gt; 1\)`. 
+		
+Se dice que `\(\hat{\theta}_{2}\)` es relativamente más eficiente que `\(\hat{\theta}_{1}\)`.
+
+NOTA: En general, si se tienen dos estimadores insesgados de un parámetro `\(\theta\)`, es más eficiente aquel que tiene menor variancia. Si se comparan estimadores sesgados se comparan los errores cuadráticos medios en lugar de las variancias. 
 	
 &gt; Definicion 1.9. Eficiencia relativa. Si `\(\hat{\theta}_{1}\)` y `\(\hat{\theta}_{2}\)` son estimadores insesgados de un parámetro `\(\theta\)`, se define la *eficiencia relativa* de `\(\hat{\theta}_{1}\)` con respecto a `\(\hat{\theta}_{2}\)`: 
   `\(eff(\hat{\theta}_{1},\hat{\theta}_{2}) = \frac{Var(\hat{\theta}_{2})}{Var(\hat{\theta}_{1})}\)`
@@ -124,7 +270,7 @@ Podemos apreciar la eficiencia relativa de estos dos estimadores en la Figura 2.
 
 # Eficiencia
 
-Para buscar la eficiencia al estimar un parámetro se requiere determinar el estimador insesgado `\(\hat{\theta}\)` que tiene variancia mínima. 
+En general, para buscar la eficiencia al estimar un parámetro se requiere determinar el estimador insesgado `\(\hat{\theta}\)` que tiene variancia mínima. 
 
 &gt; Teorema 1.22. Desigualdad de Cramer-Rao. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria sobre una población con parámetro desconocido `\(\theta\)` con función de densidad `\(f_{X}(x|\theta)\)`, cuyo dominio no depende de `\(\theta\)`. Si `\(\hat{\theta}\)` es un estimador insesgado para `\(\theta\)`, entonces en general: `\(Var(\hat{\theta}) \geq I(\theta)\)` donde `\(I(\theta)\)` se llama la **información de Fisher** y se define como `\(I(\theta) = \left[nE\left(-\frac{\partial^{2}\ln(f_{X}(x))}{\partial \theta^{2}}\right)\right]^{-1}\)`. Si `\(Var(\hat{\theta}) = I(\theta)\)` entonces `\(\hat{\theta}\)` es un estimador insesgado de variancia mínima para `\(\theta\)`. 
 
@@ -145,291 +291,46 @@ Sabemos que en este caso `\(f_{X}(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\
 De antemano ya sabiamos que `\(Var(\overline{X}) = \frac{\sigma^2}{n}\)` que como vemos es igual a la información de Fisher para `\(\mu\)`, por lo que podemos concluir que `\(\overline{X}\)` es un estimador insesgado de variancia mínima para `\(\mu\)`. 
 
 ---
+# Ejercicios
 
-# Consistencia
-	
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0,\theta)\)` y sean `\(\overline{X}\)` y `\(X_{(n)}\)` estimadores de `\(\theta\)`. 
-	
-Podemos encontrar que `\(E(\overline{X}) = \frac{\theta}{2}\)` y `\(E(X_{(n)}) = \frac{n\theta}{n+1}\)`, por lo que `\(\overline{X}\)` y `\(X_{(n)}\)` son estimadores sesgados. No obstante podemos construir estimadores insesgados a partir de ellos que queden de la forma `\(\hat{\theta}_{1} = 2\overline{X}\)` y `\(\hat{\theta}_{2} = \frac{n+1}{n}X_{(n)}\)`, respectivamente. 
-	
-También podemos encontrar que la variancias de estos dos estimadores son las siguientes:
-	
-`\(Var(\hat{\theta}_{1}) = \frac{\theta^2}{3n} \qquad Var(\hat{\theta}_{2}) = \frac{\theta^2}{n(n+2)}\)`
-	
-El interés ahora yace en ver si estos estimadores se aproximan cada vez más al valor verdadero de `\(\theta\)` conforme aumentamos el tamaño de muestra y obtenemos más información. Y si ambos cumplen esto también nos podría interesar cuál lo hace de manera más rápida. 
+1. Sea `\(X_1, . . . , X_n\)` denote una variable aleatoria que se distribuye como Uniforme `\((0, \theta)\)`, con `\(\theta &gt;0\)` es un parámetro desconocido. Denote `\(\bar{X}\)` como la media muestral.
 
----
+a) ¿Es `\(\bar{X}\)` un estimador insesgado para `\(\theta\)`? Explique su respuesta.
 
-# Consistencia
+b) Encuentre un estimador insesgado para `\(\theta\)`.
 
-Haciendo una simulación, con `\(\theta\)` = 5, podemos observar que ambos estimadores convergen a `\(\theta\)` conforme el tamaño de muestra va aumentando. Podemos decir que `\(\hat{\theta}_{1}\)` y `\(\hat{\theta}_{2}\)` son estimadores consistentes para estimar `\(\theta\)`. 
-	
-![Figura 1. Consistencia para dos estimadores insesgados de `\(\theta\)`](figs/consistencia.jpg)
+c) Encuentre la variancia del estimador de la parte anterior. 
+
+d) Sugiera un estimador alternativo para `\(\theta\)`.
 
 ---
+# Ejercicios
 
-# Consistencia
 
-&gt; Definición 1.10. Consistencia. Se dice que un estimador `\(\hat{\theta}\)` es consistente para estimar `\(\theta\)` ( `\(\hat{\theta}\)` converge en probabilidad a `\(\theta\)` ) si `\(\forall \varepsilon&gt;0\)` se cumple que: `\(\lim_{n \to +\infty}P\left(\left|\hat{\theta}-\theta\right|\leq \varepsilon\right) = 1\)`
-		
-O lo que es equivalente: `\(\lim_{n \to +\infty} P\left(\left|\hat{\theta}-\theta\right|&gt; \varepsilon\right) = 0\)`
+2. Sean `\(X_1, . . . , X_n, X_{n + 1}, . . . , X_{n+m}\)` variables aleatorias independientes e idénticamente distribuidas con densidad Normal de media `\(\mu\)` y varianza `\(\sigma^2_X\)`. Se desea estimar `\(\mu\)`, pero los valores individuales de la variables se han extraviado y se dispone sólo de las medias:
 
-&gt; Teorema 1.23. Si `\(\hat{\theta}\)` es un estimador de `\(\theta\)` entonces `\(\hat{\theta}\)` es un estimador consistente si:
+`\(\bar{X_1}=\frac{1}{n}\sum_{i=1}^{n}X_i\)`, `\(\bar{X_2}=\frac{1}{m}\sum_{i=n+1}^{n+m}X_i\)`
 
-&gt; a. `\(\hat{\theta}\)` es insesgado para `\(\theta\)` 
-
-&gt; b. `\(\lim_{n \to +\infty} Var(\hat{\theta}) = 0\)`
+Para integrar las dos fuentes de información se utiliza un estimador de la forma `\(\hat{X} = \lambda \bar{X_1} + (1 − \lambda)\bar{X_2}\)`, donde `\(0 \leq \lambda \leq 1\)`. 
+Probar que un estimador de este tipo es insesgado para `\(\mu\)` indicando además qué valor define el mejor `\(\lambda\)` de todos ellos.
 
 ---
+# Ejercicios
 
-# Consistencia
+Ejercicios recomendados: 8.1 - 8.20, 9.1 - 9.8, 9.9 - 9.36, 9.37 - 9.55, 9.56 - 9.68 de Mendenhall
 
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0,\theta)\)` y sean `\(\hat{\theta}_{1} = 2\overline{X}\)` y `\(\hat{\theta}_{2} = \frac{n+1}{n}X_{(n)}\)` dos estimadores de `\(\theta\)`. Demuestre que estos estimadores son consistentes para estimar `\(\theta\)`.
-	
-Solución. Ya sabemos que `\(\hat{\theta}_{1}\)` y `\(\hat{\theta}_{2}\)` son estimadores insesgados de `\(\theta\)`, por lo que se cumple la primera condición del Teorema 3.1; solo nos hace falta demostrar la segunda propiedad:
-	
-`\(\lim_{n \to +\infty}Var(\hat{\theta}_{1}) = \lim_{n \to +\infty}\frac{\theta^2}{3n} = 0\)`
-	
-`\(\lim_{n \to +\infty}Var(\hat{\theta}_{2}) = \lim_{n \to +\infty}\frac{\theta^2}{n(n+2)} = 0\)`
-	
-Como ambos estimadores cumplen ser insesgados y tener variancias que tienden a cero conforme el tamaño de muestra tiende a infinito entonces se cumple que ambos son estimadores consistentes para `\(\theta\)`. 
-
----
-
-# Consistencia
-
-No obstante, si observamos el gráfico de la consistencia de `\(X_{(n)}\)` podemos notar como este también tiene un comportamiento consistente pero sin ser un estimador insesgado. Esto significa que la Definición 1.10 abarca muchos más estimadores que el Teorema 1.23. 
-![Figura 2. Consistencia para el máximo de una `\(Unif(0,\theta)\)`](figs/max_consist.jpg)
----
-
-# Consistencia
-
-A continuación demostraremos que `\(X_{(n)}\)` es consistente para `\(\theta\)` por medio de la definición.
-
-Ejemplo. Sean `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0,\theta)\)` y `\(X_{(n)}\)` un estimador de `\(\theta\)`. Demuestre que `\(X_{(n)}\)` es consistente para estimar `\(\theta\)`.
-	
-Solución. Como `\(X_{(n)}\)` es un estimador sesgado para `\(\theta\)` no podemos hacer uso del Teorema 3.1 por lo que debemos usar la definición de consistencia. Como esta nos pide encontrar probabilidades y sabemos que `\(X_{(n)}\sim Potencial(n,\theta)\)` vamos a recordar la función de distribución de `\(X_{(n)}\)`:
-	
-`\(F_{X_{(n)}}(x) = \begin{cases} 0\quad si \quad x \leq 0 \\ \left(\frac{x}{\theta}\right)^{n} \quad si\quad 0&lt;x&lt;\theta \\ 1\quad si\quad x \geq \theta \end{cases}\)`
----
-
-# Consistencia
-
-Con esto podemos desarrollar la probabilidad en la definición:
-	
-`\(P\left(\left|X_{(n)}-\theta\right|\leq \varepsilon\right) = P\left(-\varepsilon \leq X_{(n)}-\theta\leq \varepsilon\right) = P\left(\theta - \varepsilon \leq X_{(n)} \leq \theta + \varepsilon\right) =\)` 
-`\(F_{X_{(n)}}(\theta + \varepsilon) - F_{X_{(n)}}(\theta - \varepsilon)\)`
-
-Sabemos que `\(F_{X_{(n)}}(\theta + \varepsilon) = 1 \quad \forall \varepsilon &gt; 0\)` ya que `\(\theta + \varepsilon &gt; \theta\)`. No obstante, dependiendo del valor de `\(\varepsilon\)` puede que `\(\theta - \varepsilon\)` sea menor a 0 o esté entre 0 y `\(\theta\)`, por lo que  `\(F_{X_{(n)}}(\theta - \varepsilon)\)` puede tomar distintos valores dependiendo de `\(\varepsilon\)`:
-
-`\(F_{X_{(n)}}(\theta - \varepsilon) = \begin{cases} \left(\frac{\theta - \varepsilon}{\theta}\right)^{n} \quad si \quad 0 &lt; \varepsilon &lt; \theta \\ 0 \quad si \quad \varepsilon \geq \theta \end{cases}\)`
-	
-Por lo tanto, aplicando la definición, obtenemos:
-	
-`\(\lim_{n \to +\infty} P\left(\left|X_{(n)}-\theta\right|\leq \varepsilon\right) = \lim_{n \to +\infty}\left(F_{X_{(n)}}(\theta + \varepsilon) - F_{X_{(n)}}(\theta - \varepsilon)\right) = 1 - \lim_{n \to +\infty}F_{X_{(n)}}(\theta - \varepsilon)\)`
-	
-`\(=\begin{cases} 1 - \lim_{n \to +\infty}\left(\frac{\theta - \varepsilon}{\theta}\right)^{n} \quad si \quad 0 &lt; \varepsilon &lt; \theta \\ 1 \quad si \quad \varepsilon \geq \theta \end{cases} = 1 \quad \forall \varepsilon &gt; 0\)`
----
-
-# Consistencia
-
-Como se cumple la definición entonces concluimos que `\(X_{(n)}\)` es un estimador consistente para `\(\theta\)`.
-	
-&gt; Teorema 1.24. Suponga que `\(\hat{\theta}\)` es un estimador consistente para estimar `\(\theta\)` y que `\(\hat{\phi}\)` es un estimador consistente para `\(\phi\)`, entonces:
-
-&gt; `\(\hat{\theta} \pm \hat{\phi}\)` es consistente para estimar `\(\theta \pm \phi\)`
-
-&gt; `\(\hat{\theta} \cdot \hat{\phi}\)` es consistente para estimar `\(\theta \cdot \phi\)`
-
-&gt; `\(\frac{\hat{\theta}}{\hat{\phi}}\)` es consistente para estimar `\(\frac{\theta}{\phi}\)`
-
-&gt; Si `\(g(\cdot)\)` es una función continua en `\(\theta\)` entonces `\(g(\hat{\theta})\)` es consistente para estimar `\(g(\theta)\)`
-
----
-
-# Consistencia
-
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población Normal con media `\(\mu\)` y variancia `\(\sigma^2\)`. 
-	
-a. Demuestre que `\(S^2\)` es un estimador consistente para `\(\sigma^2\)`. 
-
-Solución: Ya conocemos que `\(E(S^2) = \sigma^2\)` por lo que se cumple que `\(S^2\)` es insesgado para `\(\sigma^2\)`. También sabemos que `\(Var(S^2) = \frac{2\sigma^4}{n-1}\)`, por lo tanto se cumple que `\(\lim_{n \to +\infty}Var(S^2) = 0\)`. Por lo tanto `\(S^2\)` es un estimador consistente para `\(\sigma^2\)`. 
-
-b. Pruebe que `\(S\)` es un estimador consistente para estimar `\(\sigma\)`. 
-
-Solución: Sea `\(g(x) = \sqrt{x}\)` una función continua si `\(x \geq 0\)`, por lo tanto: `\(g(S^2) = S\)` es consistente para estimar `\(g(\sigma^2) = \sigma\)`	
-
----
-
-# Consistencia
-
-&gt; Teorema 1.25. Teorema de Slutsky. Suponga que `\(U_n\)` es una variable aleatoria que tiene distribución que converge a una `\(N(0,1)\)` cuando `\(n \to +\infty\)`. Además `\(W_n\)` es una variable aleatoria que converge en probabilidad a 1. Se cumple, entonces, que la variable aleatoria `\(\frac{U_n}{W_n}\)` tiene distribución que converge a una `\(N(0,1)\)`, cuando `\(n \to +\infty\)`.
-
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población con media `\(\mu\)` y variancia `\(\sigma^2\)`. Demuestre que `\(V = \frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}}\)` converge a una `\(N(0,1)\)` cuando `\(n \to +\infty\)`. 
-	
-Solución. Sea `\(U_n = \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\)`. Sabemos que por el Teorema del Límite Central `\(U_n\)` converge en distribución a una `\(N(0,1)\)` cuando `\(n \to +\infty\)`. 
-
-Sea `\(W_n = \frac{S}{\sigma}\)`. Podemos demostrar que `\(S\)` es consistente para estimar `\(\sigma\)` para cualquier población, por lo que por el Definición 1.10, `\(\frac{S}{\sigma}\)` converge en probabilidad a 1 ("es consistente para estimar 1"). 
-	
-Entonces se cumple que `\(V = \frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}} \xrightarrow{\text{d}} N(0,1)\)` cuando `\(n \to +\infty\)`. 
-
----
-
-# Suficiencia
-	
-Hasta el momento la selección de estimadores ha sido intuitiva, sin embargo en esta sección utilizaremos la propiedad de suficiencia para determinar estimadores a partir de ciertos estadísticos. Se dice que un estadístico es suficiente si **hace uso de toda la información de la muestra**. Ejemplos: `\(\overline{X}, S^{2}, X_{(n)}\)`.
-	
-&gt; Definición 1.11. Suficiencia minima. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria sobre una población con parámetro desconocido `\(\theta\)` y función de densidad/probabilidad `\(f_{X}(x|\theta)\)`. Se dice que un estadístico `\(U = g(X_{1}, X_{2}, ... , X_{n})\)` es **suficiente mínimo** para estimar `\(\theta\)` si la distribución condicional de `\(X_{1}, X_{2}, ... , X_{n}\)` dado `\(U=u\)` es independiente de `\(\theta\)`. 
-
----
-
-# Suficiencia
-
-De otra forma, se puede decir que un estadístico `\(U = T(X_{1}, X_{2}, ... , X_{n})\)`, de una muestra aleatoria `\(X_{1}, X_{2}, ... , X_{n}\)`, es suficiente mínimo para estimar `\(\theta\)` si no se puede encontrar otro estadístico que realice una mejor reducción de los datos que la que realiza `\(U\)`. Es decir, el estadístico suficiente mínimo logra **explicar toda la información del parámetro que se presenta en la muestra aleatoria**.
-	
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Bernoulli(p)\)`. Pruebe que `\(U = \sum_{j=1}^{n} X_{j}\)` es suficiente para estimar `\(p\)`.
-	
-Solución. Sabemos que la función de probabilidad de una Bernoulli viene dada por la siguiente expresión:
-	
-`\(f_{X}(x|p) = \begin{cases} p^{x}\left(1-p\right)^{1-x} \quad si \quad x \in \left\lbrace 0,1\right\rbrace  \\ 0 \quad en \quad otros \quad casos \end{cases}\)`
-	
-También sabemos de antemano que la suma de Bernoulli es una Binomial, por lo que `\(U \sim Bin(n,p)\)`, por lo que tiene la siguiente función de probabilidad:
-	
-`\(f_{U}(u|p) = \begin{cases} \binom{n}{u}p^{u}\left(1-p\right)^{n-u} \quad si \quad u \in \left\lbrace0,1,2,...,n\right\rbrace \\ 0 \quad en \quad otros \quad casos \end{cases}\)`
-	
----
-
-# Suficiencia
-
-Ahora tenemos que encontrar la función de probabilidad condicional de `\(X_{1}, X_{2}, ... , X_{n}\)` dado `\(U=u\)`, que por lo visto en cursos anteriores sabemos que es:
-	
-`\(f(x_{1}, ... , x_{n} | U = u) = \frac{f(x_{1}, ... , x_{n}, u)}{f_{U}(u)}\)`
-
-En este caso el numerador es la función de probabilidad conjunta de `\(X_{1}, X_{2}, ... , X_{n}\)` y `\(U\)`, pero al estar este en términos de toda la muestra aleatoria entonces quedamos con solo la función de probabilidad conjunta de `\(X_{1}, X_{2}, ... , X_{n}\)`, `\(f(x_{1}, ... , x_{n})\)`. Recordemos que bajo independencia `\(f(x_{1}, ... , x_{n}) = \prod_{j=1}^{n}f_{X_{j}}(x_{j}|p)\)`. Esta función también lleva el nombre de **función de verosimilitud** y se denota como `\(\mathcal{L}(x_{1}, ... , x_{n}|p)\)` o también solo como `\(\mathcal{L}(p)\)`. 
-	
-`\(\mathcal{L}(x_{1}, ... , x_{n}|p) =  \prod_{j=1}^{n} p^{x_{j}}\left(1-p\right)^{1-x_{j}}= p^{\sum_{j=1}^{n}x_{j}}\left(1-p\right)^{n-\sum_{j=1}^{n}x_{j}} = p^{u}\left(1-p\right)^{n-u}\)`
-
-
----
-
-# Suficiencia
-
-Por lo tanto, `\(f(x_{1}, ... , x_{n} | U = u) = \frac{p^{u}\left(1-p\right)^{n-u}}{\binom{n}{u}p^{u}\left(1-p\right)^{n-u}} = \frac{1}{\binom{n}{u}}\)`
-	
-Como vemos, esta función condicional no depende de `\(p\)`, por lo que decimos que `\(U\)` es suficiente para estimar `\(p\)`. 
-
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población Uniforme en el intervalo `\((0,\theta)\)`. Demuestre que el máximo muestral es un estimador suficiente para `\(\theta\)`. 
-	
-Solución. Ya habiamos demostrado con anterioridad que para este caso `\(U = X_{(n)} \sim Potencial(n,\theta)\)`, por lo que conocemos su función de densidad:
-
-`\(f_{U}(u) = \frac{nu^{n-1}}{\theta^n}\)`
-	
-Con esto podemos encontrar la función de densidad marginal:
-	
-`\(f(x_{1}, ... , x_{n} | U = u) = \frac{\theta^{-n}}{\frac{nu^{n-1}}{\theta^n}} = \frac{1}{nu^{n-1}}\)`
-	
-Como esta expresión no depende de `\(\theta\)` entonces decimos que el máximo muestral es suficiente para estimar `\(\theta\)`. 
-
----
-
-# Técnicas para demostrar suficiencia
-	
-&gt; Teorema 1.26. Técnica de factorización. Si `\(U\)` es un estadístico definido sobre una muestra aleatoria `\(X_{1}, X_{2}, ... , X_{n}\)` de una población con parámetro desconocido `\(\theta\)` y `\(\mathcal{L}(X_{1}, X_{2}, ... , X_{n}|\theta) = \mathcal{L}(\theta)\)` es la función de verosimilitud entonces `\(U\)` es suficiente para `\(\theta\)` si y solo si existen funciones `\(g(u,\theta)\)` y `\(h(x_{1}, x_{2}, ... , x_{n})\)` tal que `\(\mathcal{L}(\theta) = g(u,\theta) \cdot h(x_{1}, x_{2}, ... , x_{n})\)` donde `\(g(\cdot)\)` depende de `\(X_{1}, X_{2}, ... , X_{n}\)` solo por medio de `\(U\)` y `\(h(\cdot)\)` no depende de `\(\theta\)`. 
-
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Bernoulli(p)\)`. Pruebe que `\(U = \sum_{j=1}^{n} X_{j}\)` es un estadístico suficiente mínimo para `\(p\)`. 
-
-Solución. En el caso de una muestra aleatoria Bernoulli, su función de verosimilitud viene dada por
-	
-`\(\mathcal{L}(p) = \prod_{j=1}^{n} p^{x_{j}}\left(1-p\right)^{1-x_{j}} = p^{\sum x_{j}}\left(1-p\right)^{n-\sum x_{j}} = p^{u}\left(1-p\right)^{n-u}\)`
-	
-Si tomamos `\(g(u,p) = p^{u}\left(1-p\right)^{n-u}\)` y `\(h(x_{1}, x_{2}, ... , x_{n}) = 1\)` podemos ver que se cumple el teorema anterior por lo que queda demostrado que `\(U = \sum_{j=1}^{n} X_{j}\)` es un estadístico suficiente mínimo para `\(p\)`.
----
-
-# Suficiencia
-
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población Poisson con media `\(\lambda\)`. Encuentre un estadístico suficiente mínimo para `\(\lambda\)`. 
-	
-Solución. Primero debemos encontrar la función de verosimilitud para una muestra aleatoria Poisson,
-	
-`\(\mathcal{L}(\lambda) = \prod_{j=1}^{n} \frac{\lambda^{x_{j}}e^{-\lambda}}{x_{j}!} = \frac{\lambda^{\sum x_{j}}e^{-n\lambda}}{\prod x_{j}! }\)`
-
-Si tomamos `\(U = \sum_{j=1}^{n} X_{j}\)` entonces podemos observar que `\(g(u,\lambda) = \lambda^{u} e^{-n\lambda}\)` y `\(h(x_{1}, x_{2}, ... , x_{n}) = \frac{1}{\prod x_{j}! }\)` cumplen que su producto sea igual a la verosimilitud, por lo que `\(U = \sum_{j=1}^{n} X_{j}\)` es un estadístico suficiente mínimo. 
-
----
-
-# Suficiencia
-
-&gt; Teorema 1.27. Técnica de la familia exponencial. Si `\(X\)` es una variable aleatoria cuyo dominio no depende de un parámetro desconocido `\(\theta\)` y la función de densidad/probabilidad de X dado `\(\theta\)` pertenece a la familia exponencial, es decir que tiene la forma:
-`\(f_{X}(x|\theta) = b(x)c(\theta)e^{-a(x)d(\theta)}, \qquad a(x) \neq 1\)`
-entonces `\(U = \sum_{j=1}^{n} a(X_{j})\)` es un estadístico suficiente mínimo para estimar `\(\theta\)`. 
-
-Prueba. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j}\)` pertenece a la familia exponencial. Entonces se cumple,
-	
-`\(\mathcal{L}(\theta) = \prod_{j=1}^{n} b(x_{j})c(\theta)e^{-a(x_{j})d(\theta)} = c(\theta)^{n} \prod b(x_{j}) e^{-d(\theta)\sum a(x_{j}) }\)`
-	
-Si tomamos como `\(U = \sum_{j=1}^{n} a(X_{j})\)`, `\(g(u,\theta) = c(\theta)^{n} e^{-d(\theta)u }\)` y `\(h(x_{1}, x_{2}, ... , x_{n}) = \prod b(x_{j})\)` entonces, por la técnica de factorización, se cumple que `\(U\)` es suficiente mínimo para `\(\theta\)`. 
-
----
-
-# Suficiencia
-
-Ejemplo. Encuentre el estadístico suficiente mínimo para el ejemplo anterior pero utilizando la técnica de la familia exponencial.
-	
-Solución. Lo primero consiste en demostrar que la función de probabilidad de una Poisson tiene la forma de la familia exponencial. Viendo la función de probabilidad de una Poisson, `\(f(x|\lambda) = \frac{\lambda^{x}e^{-\lambda}}{x!}\)`, esta pareciera no cumplir la forma de la familia exponencial, no obstante podemos realizar algunas operaciones algebraicas para alcanzar esa forma: 
-	
-`\(f(x|\lambda) = \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lambda^{x}e^{-\lambda}}{x!}\right)}= e^{\ln(\lambda^{x}) + \ln(e^{-\lambda}) - \ln(x!)}\)` 
-	
-`\(= e^{x\ln(\lambda) - \lambda - \ln(x!)} = e^{-\lambda}e^{x\ln(\lambda)}\frac{1}{x!}\)`
-
----
-
-# Suficiencia
-
-Podemos ver que esta expresión tiene la forma de la familia exponencial con 
-
-`\(\begin{matrix} a(x)=x &amp; c(\lambda )={ e }^{ -\lambda  } \\ b(x)=\frac { 1 }{ x! }  &amp; d(\lambda )=-\ln { (\lambda ) }  \end{matrix}\)`
-	
-Por lo tanto podemos concluir que `\(U = \sum_{j=1}^{n} X_{j}\)` es un estadístico suficiente mínimo para `\(\lambda\)`. 
-	
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población con función de densidad:
-	
-`\(f_{X}(x) = \begin{cases}\frac{\alpha x^{\alpha-1}}{\theta} e^{-\frac{x^{\alpha}}{\theta}} \quad si \quad x &gt; 0 \\	0 \quad si \quad x \leq 0	\end{cases}\)`
-	
-Encuentre un estadístico suficiente mínimo para `\(\theta\)`. 
-
----
-
-# Suficiencia
-
-Solución. Podemos apreciar de la función de densidad anterior lo siguiente: 
-	
-`\(\begin{matrix} a(x) = x^{\alpha} &amp; c(\theta) = \frac{1}{\theta} \\ b(x) = \alpha x^{\alpha-1} &amp; d(\theta) = \frac{1}{\theta} \end{matrix}\)`
-	
-Por lo tanto, por la técnica de la familia exponencial, el estadístico `\(U = \sum_{j=1}^{n} X_{j}^{\alpha}\)` es suficiente mínimo para `\(\theta\)`. 
-	
-Supongamos que para este caso si quisieramos saber cuál sería un estadístico suficiente mínimo para `\(\alpha\)`. De las técnicas vistas hasta el momento no es posible obtener una respuesta, no obstante veremos posteriormente una estrategia para resolver este problema. 
-
----
-
-### Ejercicios:
-
-1. Una variable `\(X\)` se distribuye como una `\(\chi^2_{\kappa}\)`. Considere un estadístico `\(T\)` que usa la información contenida en una muestra aleatoria `\(X_1, ..., X_n\)`. Si `\(T(X) = 2 \bar{X} -1\)`, calcule el error cuadrático medio de `\(T(X)\)`, y defina si es o no un estimador consistente.
-
-2. Sea `\(Y_1, ..., Y_n\)` una muestra independiente e idénticamente distribuida de una `\(N(\mu, \sigma^2)\)`. Entonces:
-
-a. Si `\(\mu\)` es desconocido y `\(\sigma^2\)` es conocida, entonces muestre que `\(\bar{Y}\)` es suficiente para `\(\mu\)`.
-
-b. Si `\(\mu\)` es conocido y `\(\sigma^2\)` es desconocida, entonces muestre que `\(\sum_{i=1}^{n} (Y_i - \mu)^2\)` es suficiente para `\(\sigma^2\)`. 
-
-c. Si `\(\mu\)` y `\(\sigma^2\)` son desconocidas, muestre que `\(\sum_{i=1}^{n} Y_i\)` y `\(\sum_{i=1}^{n} Y_i^2\)` son conjuntamente suficientes para `\(\mu\)` y `\(\sigma^2\)`. 
-
+Ejercicios para el [final de Tema 1](https://docs.google.com/document/d/1UZv8T4vXYHIyR2LnohuHp2Xc113nhs38PvrLtVhqZ1A/edit)
 
 ---
 class: center, middle
 
 # ¿Qué discutimos hoy?
 
-Propiedades de los estimadores: eficiente, consistente, suficiente. Esto incluye: Teorema de factorización, Estimadores insesgados de variancia mínima, Familias de distribuciones. 
+ECM y propiedades de los estimadores: insesgado, eficiente. 
+
+Práctica en grupos.
+
+Próxima clase: consistente y suficiente. 
 
 
 Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
