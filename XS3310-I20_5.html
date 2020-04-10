@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2020
 ### Grupos 001 - 002
-### 17/04/2020 (updated: 2020-04-09)
+### 17/04/2020 (updated: 2020-04-10)
 
 ---
 
@@ -161,9 +161,9 @@ Sabemos que `\(F_{X_{(n)}}(\theta + \varepsilon) = 1 \quad \forall \varepsilon &
 	
 Por lo tanto, aplicando la definición, obtenemos:
 	
-`\(\lim_{n \to +\infty} P\left(\left|X_{(n)}-\theta\right|\leq \varepsilon\right) = \lim_{n \to +\infty}\left(F_{X_{(n)}}(\theta + \varepsilon) - F_{X_{(n)}}(\theta - \varepsilon)\right) = 1 - \lim_{n \to +\infty}F_{X_{(n)}}(\theta - \varepsilon)\)`
+`\(\lim_{n \to +\infty} P\left(\left|X_{(n)}-\theta\right|\leq \varepsilon\right) = \lim_{n \to +\infty}\left(F_{X_{(n)}}(\theta + \varepsilon) - F_{X_{(n)}}(\theta - \varepsilon)\right)\)`
 	
-`\(=\begin{cases} 1 - \lim_{n \to +\infty}\left(\frac{\theta - \varepsilon}{\theta}\right)^{n} \quad si \quad 0 &lt; \varepsilon &lt; \theta \\ 1 \quad si \quad \varepsilon \geq \theta \end{cases} = 1 \quad \forall \varepsilon &gt; 0\)`
+`\(= 1 - \lim_{n \to +\infty}F_{X_{(n)}}(\theta - \varepsilon) =\begin{cases} 1 - \lim_{n \to +\infty}\left(\frac{\theta - \varepsilon}{\theta}\right)^{n} \quad si \quad 0 &lt; \varepsilon &lt; \theta \\ 1 \quad si \quad \varepsilon \geq \theta \end{cases} = 1 \quad \forall \varepsilon &gt; 0\)`
 ---
 
 # Consistencia
