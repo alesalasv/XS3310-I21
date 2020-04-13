@@ -55,7 +55,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
           <a href="https://youtu.be/vzG_dIdV5MA">Suficiencia</a> <br>
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
-    <td> Práctica 9.9 - 9.36 de Mendenhall </td>
+    <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
    <tr>
     <td> 21 de abril </td>
