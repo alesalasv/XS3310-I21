@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2020
 ### Grupos 001 - 002
-### 17/04/2020 (updated: 2020-04-09)
+### 17/04/2020 (updated: 2020-04-15)
 
 ---
 
@@ -251,15 +251,29 @@ Concluimos, por el Teorema de Rao-Blackwell y Lehmann-Scheffé que `\(\overline{
 
 ### Ejercicios:
 
-1. Una variable `\(X\)` se distribuye como una `\(\chi^2_{\kappa}\)`. Considere un estadístico `\(T\)` que usa la información contenida en una muestra aleatoria `\(X_1, ..., X_n\)`. Si `\(T(X) = 2 \bar{X} -1\)`, calcule el error cuadrático medio de `\(T(X)\)`, y defina si es o no un estimador consistente.
-
-2. Sea `\(Y_1, ..., Y_n\)` una muestra independiente e idénticamente distribuida de una `\(N(\mu, \sigma^2)\)`. Entonces:
+1. Sea `\(Y_1, ..., Y_n\)` una muestra independiente e idénticamente distribuida de una `\(N(\mu, \sigma^2)\)`. Entonces:
 
 a. Si `\(\mu\)` es desconocido y `\(\sigma^2\)` es conocida, entonces muestre que `\(\bar{Y}\)` es suficiente para `\(\mu\)`.
 
 b. Si `\(\mu\)` es conocido y `\(\sigma^2\)` es desconocida, entonces muestre que `\(\sum_{i=1}^{n} (Y_i - \mu)^2\)` es suficiente para `\(\sigma^2\)`. 
 
 c. Si `\(\mu\)` y `\(\sigma^2\)` son desconocidas, muestre que `\(\sum_{i=1}^{n} Y_i\)` y `\(\sum_{i=1}^{n} Y_i^2\)` son conjuntamente suficientes para `\(\mu\)` y `\(\sigma^2\)`. 
+
+2. Sea `\(Y_1, ..., Y_n\)` una muestra independiente e idénticamente distribuida con función de densidad
+
+$$
+f(y|\theta)= \left\lbrace 
+`\begin{aligned}
+\frac{3 y^2}{\theta^3}, &amp; &amp; 0\leq y \leq  \theta  \\
+0, &amp; &amp;  otro~caso.
+\end{aligned}`
+\right. 
+$$
+Muestre que `\(Y_{(n)}=max \{ X_1 ,...,X_n \}\)` es suficiente para `\(\theta\)`.
+
+
+
+
 
 
 ---
