@@ -8,6 +8,8 @@ La información del curso está en Mediación Virtual, este repositorio es para 
 
 [Programa ajustado](XS3310_programa_ajustado.pdf)
 
+Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l04P7bqvcls&list=PLlaFtRFczerjP7C8R6ezfx6Za8DTGXJl-) 
+
 <table style="width:100%">
   <tr>
     <th width="15%"> Fecha </th>
