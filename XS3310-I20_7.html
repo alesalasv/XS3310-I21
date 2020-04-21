@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2020
 ### Grupos 001 - 002
-### 17/04/2020 (updated: 2020-04-09)
+### 17/04/2020 (updated: 2020-04-20)
 
 ---
 
@@ -43,8 +43,7 @@ class: center, middle, inverse, title-slide
  
 # Vídeos
 
-* [Método de momentos]
-[M&amp;eacute;todo de momentos](https://www.youtube.com/watch?v=aMZupzrioao)
+* [M&amp;eacute;todo de momentos](https://www.youtube.com/watch?v=aMZupzrioao)
 * [Comentarios sobre el m&amp;eacute;todo de momentos](https://www.youtube.com/watch?v=Ow582XJJEiM)
 * [M&amp;eacute;todo de m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=e3ZJ-7QZM9I)
 * [Otros ejemplos del m&amp;eacute;todo de m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=et-gUA8Uh90)
@@ -190,7 +189,7 @@ Derivamos esta función con respecto a p e igualamos a cero. No obstante podemos
 	
 `\(\Rightarrow u - up - np + up = 0 \Rightarrow u = np \Rightarrow \hat{p} = \frac{u}{n} = \frac{\sum_{j=1}^{n} x_{j} }{n}\)`
 	
-El valor crítico es `\(\hat{p} = = \frac{\sum_{j=1}^{n} x_{j} }{n}\)` pero falta demostrar que efectivamente sea un máximo, 
+El valor crítico es `\(\hat{p} = \frac{\sum_{j=1}^{n} x_{j} }{n}\)` pero falta demostrar que efectivamente sea un máximo, 
 	
 `\(\frac{\partial^{2} \ln \mathcal{L}}{\partial p^{2}} = \frac{-u}{p^2} - \frac{n-u}{(1-p)^2} &lt; 0\)`
 	
@@ -272,7 +271,7 @@ Esto significa que `\(\ell (\theta)\)` no tiene puntos críticos pero sí podemo
 # Estimadores de máxima verosimilitud
 
 
-![Figura 4. Verosimilitud de una `\(Unif(0,\theta)\)` a partir de una muestra aleatoria.](./maxvero.jpg)	
+![Figura 4. Verosimilitud de una `\(Unif(0,\theta)\)` a partir de una muestra aleatoria.](figs/maxvero.jpg)	
 
 ---
 
@@ -301,13 +300,15 @@ Solución. Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{
 
 # Asignación examen corto 1
 
-* Mismo sistema de antes, excepto que no pediremos que vengan en Markdown, aunque pueden hacerlo si quieren. 
+* Dinámica similar a los quices de contínuos, excepto que no pediremos que vengan en Markdown, aunque pueden hacerlo si quieren. 
 
 * El formato obligatorio de entrega en un pdf, pero siempre pueden tomarle una foto a lo que escriben y convertirlo. Por favor practiquen antes del día de la evaluación para asegurarse que saben cómo convertir una foto de celular a un pdf y subirlo a Mediación Virtual.
 
-* Fecha de entrega: 27 de abril a la media noche.
+* Fecha de entrega: sábado 25 de abril a la media noche. Tienen 24 horas para resolverlo.
 
-* Instrucciones serán posteadas en Mediación Virutal hoy a la media noche.
+* Instrucciones están posteadas en Mediación Virutal desde ya, y los problemas se postearán hoy a la media noche.
+
+* Seguir las instrucciones **al pie de la letra** vale un 50% de la evaluación.
 
 	
 ---
@@ -317,30 +318,22 @@ Solución. Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{
 9.80 Suponga que `\(Y_1, Y_2, . . . , Y_n\)` denotan una muestra aleatoria de la distribución de Poisson con media `\(\lambda\)`.
 
 a. Encuentre el MLE `\(\hat{\lambda}\)` para `\(\lambda\)`.
+
 b. Encuentre el valor esperado y la varianza de `\(\hat{\lambda}\)`.
+
 c. Demuestre que el estimador del inciso a es consistente para `\(\lambda\)`.
+
 d. ¿Cuál es el MLE para `\(P(Y = 0) = \exp{(–\lambda)}\)`?
 
 9.81 Suponga que `\(Y_1, Y_2, . . . , Y_n\)` denotan una muestra aleatoria de una población distribuida exponencialmente con media `\(\theta\)`. Encuentre el MLE de la varianza poblacional `\(\theta^2\)`. [Sugerencia: recuerde el Ejemplo 9.9. de Mendenhall]
 
----
-
-# Ejercicios
-
-9.82 Sea `\(Y_1, Y_2, . . . , Y_n\)` una muestra aleatoria de la función de densidad dada por 
-
-`\(f (y | \theta) = \frac{1}{\theta} ry^{r−1}\exp{-y^r/\theta}\)`, `\(\theta &gt; 0, y &gt; 0\)`, o 0 en cualquier otro punto, donde r es una constante positiva conocida.
-
-a. Encuentre un estadístico suficiente para `\(\theta\)`.
-b. Encuentre el MLE de `\(\theta\)`.
-c. ¿El estimador del inciso b es un MVUE para `\(\theta\)`?
 
 ---
 class: center, middle
 
 # ¿Qué discutimos hoy?
 
-Método de momentos. Método de máxima verosimilitud. Principio de invariancia. Distribución de los estimadores máximo-verosímiles en muestras grandes.
+Método de momentos. Método de máxima verosimilitud. Principio de invariancia. 
 
 # ¿Qué nos falta para el I Parcial?
 
