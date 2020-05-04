@@ -93,11 +93,11 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
       <tr>
     <td> 8 de mayo </td>
-    <td>  <a href="XS3310-I20_8.html">Clase 0</a> </td>
-    <td>  <<a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">??Qu&eacute; es un intervalo de confianza?</a>
-<a href="https://www.youtube.com/watch?v=LO2BOtWxMyY">M&eacute;todo pivotal</a><br>
+    <td>  <a href="XS3310-I20_8.html">Clase 8</a> </td>
+    <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
+<a href="https://www.youtube.com/watch?v=LO2BOtWxMyY">Método pivotal</a><br>
 </td> 
-    <td> Mendenhall 9.69 - 9.97  <br> 
+    <td> Mendenhall 8.39 - 8.49 <br> 
   </tr>
 </table>
 
