@@ -97,7 +97,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
 <a href="https://www.youtube.com/watch?v=LO2BOtWxMyY">Método pivotal</a><br>
 </td> 
-    <td> Mendenhall 8.39 - 8.49 <br> 
+    <td> Mendenhall 8.39 - 8.49 <br> </td>
   </tr>
 </table>
 
