@@ -113,6 +113,13 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="https://www.youtube.com/watch?v=D_wakA5YsQc">Intervalos de confianza: distribuci&oacute;n normal</a></td> 
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
+    </tr>
+        <tr>
+    <td> 19 de mayo </td>
+    <td>  <a href="XS3310-I20_11.html">Clase 11</a> </td>
+    <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
+    <td> Práctica incluida en la presentación <br> </td>
+  </tr>
 </table>
 
 
