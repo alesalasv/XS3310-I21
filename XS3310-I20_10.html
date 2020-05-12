@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>XS3310 Teoría Estadística</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# XS3310 Teoría Estadística
+## I Semestre 2020
+### 5/05/2020 (updated: 2020-05-12)
+
+---
+
+
+
+
+
+class: center, middle
+
+# ¿Qué hemos visto hasta ahora?
+
+Todo sobre estimadores puntuales + intro a los pivotes. Algunos intervalos de confianza clásicos.
+
+# ¿Qué vamos a discutir hoy?
+
+Otros intervalos de confianza clásicos. Intro a Bootstrap
+
+
+---
+
+# Estimación por Intervalo
+
+* Una estimación por intervalo para un parámetro desconocido `\(\theta\)` viene dada por un rango o intervalo que posee cierta confianza `\((1-\alpha)\%\)` de contener a dicho parámetro.
+
+* Usualmente este concepto de *confianza* se interpreta diciendo que si obtenemos 100 intervalos entonces `\(\alpha \%\)` de ellos no van a incluir el valor del parámetro. Es decir, si tenemos 100 intervalos del `\(95\%\)` de confianza entonces se espera que 5 de ellos no incluyan el valor del parámetro, o que de 20 intervalos haya uno que no lo incluya.
+
+
+Visualmente:
+https://seeing-theory.brown.edu/frequentist-inference/es.html
+
+---
+
+# Técnica del pivote
+
+**La semana pasada:**
+
+Esta técnica consiste en definir una variable aleatoria, `\(U\)`, que llamaremos **pivote**. El pivote debe cumplir con las siguientes condiciones: 
+	
+* Para una muestra aleatoria `\(X_{1}, X_{2}, ... , X_{n}\)` y un parámetro desconocido `\(\theta\)`, `\(U\)` debe estar definido en términos de los elementos de la muestra aleatoria y del parámetro desconocido, donde el parámetro desconocido `\(\theta\)` sea la única cantidad desconocida. 
+
+* La distribución de probabilidad de U debe ser conocido y no depender de `\(\theta\)`. 
+
+* Se recomienda iniciar con un estadístico suficiente
+
+* Se puede usar como guía las distribuciones con parámetros de posición - escala (tarea moral).
+
+---
+
+# Pivotes para distribuciones con forma posición-escala
+
+En los ejercicios 9.8 y 9.9 de Casella y Berger, se utiliza la siguiente tabla para clasificar las distribuciones de densidad según forma. En esta tabla se refieren a la mayoría de distribuciones de la familia Exponencial, en las cuales la función de densidad (o pdf) se puede reescribir siguiendo la forma de la primera columna.
+
+Forma del pdf        | Tipo de pdf      | Pivote       |
+---------------------|------------------|--------------|
+`\(f(x-\mu)\)`           | Posición         | `\(\bar{X}-\mu\)`|
+`\(\frac{1}{\sigma}f(x/\sigma)\)` | Escala  | `\(\frac{\bar{X}}{\sigma}\)`|
+`\(\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})\)`|Posición-Escala| `\(\frac{\bar{X}-\mu}{S}\)`|
+
+---
+
+# Pivotes para distribuciones con forma posición-escala
+
+Para aclarar un poco más la columna de formas, voy a poner un ejemplo para cada una. 
+
+Para `\(f(x-\mu)\)`:
+
+Sea `\(X \sim N(\mu, 1)\)`, entonces la función de densidad es:
+
+`$$f(x) = \frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(x-\mu)^2)} = g(z)$$`
+en donde `\(z = x-\mu\)`, y `\(g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}\)`.
+
+---
+
+# Pivotes para distribuciones con forma posición-escala
+
+
+Para `\(\frac{1}{\sigma}f(x/\sigma)\)`:
+
+Sea `\(X \sim N(0, \sigma^2)\)`, entonces la función de densidad es:
+
+`$$f(x) = \frac{1}{\sigma}\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(x/\sigma)^2)} = \frac{1}{\sigma} g(z)$$`
+en donde `\(z = x/\sigma\)`, y `\(g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}\)`.
+
+---
+
+# Pivotes para distribuciones con forma posición-escala
+
+Finalmente, para `\(\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})\)`:
+
+Sea `\(X \sim N(\mu, \sigma^2)\)`, entonces la función de densidad es:
+
+`$$f(x) = \frac{1}{\sigma}\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(\frac{x-\mu}{\sigma})^2)} = \frac{1}{\sigma} g(z)$$`
+en donde `\(z = \frac{x-\mu}{\sigma}\)`, y `\(g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}\)`.
+
+---
+
+## Intervalos de confianza para poblaciones normales
+	
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/D_wakA5YsQc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+	
+---
+## Intervalos de confianza para poblaciones normales
+
+### Intervalo de confianza para `\(\sigma^2\)`
+	
+Nos interesa constuir un intervalo de confianza de probabilidad `\(1-\alpha\)` para la variancia poblacional, `\(\sigma^2\)`. En este caso nuestra población sigue siendo Normal con parámetros `\(\mu\)` y `\(\sigma^2\)`, donde ambos parámetros son desconocidos. Si queremos obtener una estimación por intervalo para `\(\sigma^2\)` debemos primero obtener una variable aleatoria que funcione como pivote. En este caso esta variable aleatoria debe estar en términos de `\(X_{1}, X_{2}, ... , X_{n}\)` y de `\(\sigma^2\)`, y su distribución no puede depender de `\(\sigma^2\)`. Con lo que conocemos de transformaciones a partir de muestras Normales podríamos utilizar el siguiente pivote:
+	
+`\(U = \frac{(n-1)S^{2}}{\sigma^2}\)`
+
+---
+
+## Intervalo de confianza para `\(\sigma^2\)`
+
+Sabemos que `\(U \sim \chi^{2}(n-1)\)`. Por lo tanto esta variable aleatoria cumple todas las condiciones necesarias para ser un pivote. Ahora debemos encontrar los valores de `\(a\)` y `\(b\)` tales que:
+	
+`\(P(U &lt; a) = \frac{\alpha}{2} \qquad P(U &gt; b) = \frac{\alpha}{2}\)`
+	
+Como podemos apreciar en la Figura 1 el valor de `\(a\)` es aquel que acumula `\(1-\frac{\alpha}{2}\)` a su derecha, mientras que el valor de `\(b\)` solo acumula `\(\frac{\alpha}{2}\)` a la derecha. Por lo tanto tenemos que `\(a = \chi^{2}_{1-\frac{\alpha}{2}, n-1}\)` y `\(b = \chi^{2}_{\frac{\alpha}{2}, n-1}\)`. En este caso no hay simetría que podamos utilizar para poner `\(a\)` en términos de `\(b\)` como hemos estado haciendo anteriormente. Ahora despejamos `\(\sigma^2\)`:
+	
+`\(P(a \leq U \leq b) = P\left( \chi^{2}_{1-\frac{\alpha}{2}, n-1} \leq  \frac{(n-1)S^{2}}{\sigma^2} \leq \chi^{2}_{\frac{\alpha}{2}, n-1} \right)\)`
+	
+`\(= P\left( \frac{(n-1)S^{2}}{\chi^{2}_{\frac{\alpha}{2}, n-1}}  \leq \sigma^2 \leq  \frac{(n-1)S^{2}}{\chi^{2}_{1-\frac{\alpha}{2}, n-1}}  \right) = 1 - \alpha\)`
+
+
+---
+
+## Intervalo de confianza para `\(\sigma^2\)`
+
+Por lo tanto, con una confianza del `\((1 - \alpha)\%\)` el intervalo `\(\left[ \frac{(n-1)S^{2}}{\chi^{2}_{\frac{\alpha}{2}, n-1}}  ,  \frac{(n-1)S^{2}}{\chi^{2}_{1-\frac{\alpha}{2}, n-1}} \right]\)` incluye el valor de `\(\sigma^2\)`.
+
+Ahora volvemos al caso donde tenemos dos poblaciones independientes, una de las cuales es `\(N(\mu_{1}, \sigma^{2}_{1})\)` y la otra es `\(N(\mu_{2}, \sigma^{2}_{2})\)`. Supongase que se obtiene una muestra `\(X_{1}, X_{2}, ... , X_{n}\)` de la primera población y otra `\(Y_{1}, Y_{2}, ... , Y_{m}\)` de la segunda. Nuestro interés yace en encontrar una estimación por intervalo, con probabilidad `\(1-\alpha\)`, para el parámetro `\(\frac{\sigma^2_{1}}{\sigma^2_{2}}\)`. 
+
+
+---
+
+## Intervalo de confianza para `\(\frac{\sigma^2_{1}}{\sigma^2_{2}}\)`
+
+	
+Debemos construir un parámetro que incluya las dos muestras aleatorias y al parámetros desconocido. En el caso anterior habiamos usado una ji-cuadrado como pivote ya que esta incluía la muestra aleatoria y la varianza poblacional. Podriamos pensar en hacer lo mismo para cada muestra y de alguna forma juntar ambas ji-cuadrado. Para ello recordemos la forma de una distribución F:
+	
+`\(F =\frac{\frac{V}{v_1}}{\frac{W}{v_2}}\)`
+	
+donde `\(V \sim \chi^{2}(v_1)\)` y `\(W \sim \chi^{2}(v_2)\)`. Sabemos de antemano que `\(\frac{(n - 1)S^{2}_{1}}{\sigma^{2}_{1}} ~ \chi^{2}(n-1)\)` y `\(\frac{(m - 1)S^{2}_{2}}{\sigma^{2}_{2}} ~ \chi^{2}(m-1)\)`. Podemos usar estas variables aleatorias en la construcción de una F que incluya el parámetro de interés:
+	
+`\(F = \frac{\frac{\frac{(n - 1)S^{2}_{1}}{\sigma^{2}_{1}}}{n-1}}{\frac{\frac{(m - 1)S^{2}_{2}}{\sigma^{2}_{2}}}{m-1}} = \frac{S^{2}_{1}}{S^{2}_{2}} \cdot \frac{\sigma^{2}_{2}}{\sigma^{2}_{1}} \sim F(n-1,m-1)\)`
+
+
+---
+
+## Intervalo de confianza para `\(\frac{\sigma^2_{1}}{\sigma^2_{2}}\)`
+
+
+Esta variable aleatoria cumple todas las condiciones para ser un pivote y podemos usarlo para encontrar los valores de `\(a\)` y `\(b\)`. Recordemos que se debe cumplir que `\(P(F&lt;a) = P(F&gt;b) = \frac{\alpha}{2}\)`. Podemos hacer uso de las tablas de la F, la cual acumula hacia la derecha. Por lo tanto tenemos que `\(a\)` es el valor F que acumula `\(1-\frac{\alpha}{2}\)` a la derecha mientras que `\(b\)` acumula `\(\frac{\alpha}{2}\)`. Podemos notar estos valores como
+	
+`\(a = F_{1-\frac{\alpha}{2}, n-1, m-1}   \qquad  b = F_{\frac{\alpha}{2}, n-1, m-1}\)`
+	
+No obstante, vemos que hay un problema al usar las tablas para encontrar `\(F_{1-\frac{\alpha}{2}, n-1, m-1}\)` si la probabilidad que se busca es mayor a 0.20, el cual es el caso en la gran mayoría de los casos. Para ello podemos hacer uso de una propiedad de la distribución F, que dice que la inversa multiplicativa de una F también se distribuye F pero con los grados de libertad del numerador y denominador intercambiados. Por lo tanto podemos decir que: `\(a = F_{1-\frac{\alpha}{2}, n-1, m-1} = F^{-1}_{\frac{\alpha}{2}, m-1, n-1}\)`. 
+
+---
+
+## Intervalo de confianza para `\(\frac{\sigma^2_{1}}{\sigma^2_{2}}\)`
+
+Finalmente podemos proceder a despejar el valor del parámetro de interés de la expresión `\(P(a \leq F \leq b)\)` y obtenemos el siguiente intervalo: 
+	
+`\(\left[ \frac{\frac{S^{2}_{1}}{S^{2}_{2}}}{F_{\frac{\alpha}{2}, n-1, m-1}} , \frac{\frac{S^{2}_{1}}{S^{2}_{2}}}{F^{-1}_{\frac{\alpha}{2}, m-1, n-1}} \right]\)`
+	
+el cual incluye el valor de `\(\frac{\sigma^{2}_{1}}{\sigma^{2}_{2}}\)` con una confianza del  `\((1-\alpha)\%\)`.
+
+---
+
+## Intervalos de confianza para muestras grandes
+	
+Recordemos que cuando `\(n \to +\infty\)` el Teorema del Límite Central nos dice que `\(\overline{X}\)` converge en distribución a una `\(N(\mu, \frac{\sigma^2}{n})\)`. Por lo tanto, si queremos hacer una estimación por intervalo para `\(\mu\)`, suponiendo que conocemos el valor de `\(\sigma^2\)`, podemos hacer uso del siguiente pivote: 
+	
+`\(Z_{n} = \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\)`
+	
+De esta forma tenemos una cantidad pivote asintótica que se puede aplicar para este tipo de estimadores con muestras grandes. El desarrollo para obtener el intervalo es el mismo del caso de una estimación por intervalo para la media de una población normal. Por lo tanto tendremos un intervalo bilateral con probabilidad `\(1-\alpha\)`:
+	
+`\(\overline{X} \pm z_{1-\frac{\alpha}{2}} \frac{\sigma}{\sqrt{n}}\)`
+
+---
+
+## Intervalos de confianza para muestras grandes
+	
+Existen varios estimadores que se puede comprobar que tienen la forma de un `\(\overline{X}\)` como por ejemplo `\(\hat{p}\)`, `\(\overline{X} - \overline{Y}\)` y `\(\hat{p}_{1} - \hat{p}_{2}\)`, para estimar `\(p\)`, `\(\mu_{1} - \mu_{2}\)` y `\(p_{1} - p_{2}\)` respectivamente. Cada uno de estos caso también tendrá una expresión específica para la variancia `\((\frac{p(1-p)}{n}\)`, `\(\frac{\sigma^{2}_{1}}{n_{1}} + \frac{\sigma^{2}_{2}}{n_{2}}\)` y `\(\frac{p_{1}(1-p_{1})}{n_{1}} + \frac{p_{2}(1-p_{2})}{n_{2}}\)`, respectivamente). 
+	
+Nótese que este intervalo supone que conocemos la varancia poblacional de nuestra población. Sin embargo, podemos hacer uso del Teorema de Slutsky para mantener el pivote que converge en distribución a una `\(N(0,1)\)` si conocemos un estimador consistente para la variancia poblacional. Este reemplazaría la variancia poblacional por su estimador consistente en la fórmula del intervalo anterior.  
+		
+---
+		
+# Bootstrap
+
+* La inferencia frecuentista se basa en modelos y supuestos. En muchos casos, las expresiones acerca de la exactitud (tales como el error estándar) están basadas en teoría asintótica, y por lo tanto no deberían usarse con muestras pequeñas.
+
+* En otros casos, no estamos usando teoría asintótica, pero no sabemos cómo hacer una suposición acerca de la distribución poblacional, debido a que la muestra no se parece a ninguna forma conocida.
+
+* Una alternativa "moderna" es el método de bootstrap, introducida por Efron así casi 40 años (1979). Bootstrap es un método de remuestreo que es computacionalmente intensivo, y que es aplicable a una gran variedad de casos, incluyendo aquellos en los que los supuestos son más realistas. 
+
+Visualmente:
+https://seeing-theory.brown.edu/frequentist-inference/es.html
+
+
+---
+
+# Bootstrap
+
+¿De dónde viene la expresión?
+
+
+![](https://img.huffingtonpost.com/asset/5b6b3f1f2000002d00349e9d.jpeg?cache=92vfjlaeaf&amp;ops=scalefit_720_noupscale)
+
+https://www.huffpost.com/entry/pull-yourself-up-by-your-bootstraps-nonsense_n_5b1ed024e4b0bbb7a0e037d4
+
+---
+
+## Ejemplos de bootstrap
+
+### Ejemplo 1: La exactitud de una media muestral.
+
+Tengo datos de sobrevivencia de 16 ratones luego de una cirugía de prueba: hay 9 ratones en el grupo control y 7 ratones en el grupo de tratamiento. 
+
+| Group         | Survival time (in days)      | Mean  |
+| ------------- |:----------------------------:| -----:|
+| Treatment     | 94,197,16,38,99,141,23       | 86.86 |
+| Control       | 52,104,146,10,51,30,40,27,46 | 56.22 |
+
+¿Podemos decir que el tratamiento es efectivo?
+
+En estadística, resolvemos esa pregunta estimando `\(\bar{X}- \bar{Y} = 30.63\)`. El problema es cómo calcular la variabilidad, ¿podemos suponer lo mismo de siempre?
+---
+
+## Ejemplos de bootstrap
+
+### Ejemplo 1: La exactitud de una media muestral.
+
+El problema se plantearía de la siguiente manera en teoría estadística: Suponga que una muestra `\(X_1, \dots, X_n\)` es una muestra aleatoria con media `\(\mu\)` y variancia `\(\sigma^2\)`. Entonces, el error estándar de la media muestral es: 
+
+`$$se(\bar{X})= \sqrt(var(\bar{X})) = \frac{\sigma}{\sqrt{n}}$$` 
+
+Esto sugiere que podemos estimar el error estándar con `\(\hat{se}(\bar{X})=\frac{s}{\sqrt{n}}\)`. Y aquí, tenemos dos opciones: la primera utilizar el teorema del límite central (teoría asintótica) o también podemos utilizar el estadístico:
+
+`$$T = \frac{\bar{X}- \bar{Y}}{\sqrt{\hat{se}(\bar{X})^2 + \hat{se}(\bar{Y})^2}}$$`
+¿Cuál es el problema? En el caso asintótico, necesitamos de una muestra grande, y en el segundo caso, la distribución de T NO es conocida (podríamos usar la aproximación de Satterthwaite, pero eso sería solo una aproximación).
+
+---
+
+## Ejemplos de bootstrap
+
+### Ejemplo 2: La exactitud de una mediana muestral.
+
+Ahora suponga que queremos comparar las medianas de cada tratamiento, en lugar de las medias. De la tabla anterior podemos calcular:
+
+`\(med(X) = 94, \quad med(Y)=46 \quad \text{y} \quad T'= med(X) - med(Y)= 48\)`
+
+¿Cómo podemos cuantificar la exactitud de las medianas muestrales?
+
+* Teoría Estadística para Medianas muestrales: no existen fórmulas para el error estándar de las medianas muestrales en el caso de muestras pequeñas. 
+
+* Suponga que la distribución `\(P\)` de `\(X_i\)` es continua con densidad `\(p(x)\)`. Entonces, para muestras grandes, la mediana se distribuye aproximadamente como:
+
+`$$med(X) \xrightarrow{d} N(m_p, \frac{\sigma^2}{4np(m_p)})$$`
+
+donde `\(m_p\)` es la mediana de la distribución P.
+
+
+---
+
+## Ejemplos de bootstrap
+
+### Ejemplo 2: La exactitud de una mediana muestral.
+
+¿Cuál es el(los) problema(s)?
+
+* ¿Son 7 y 9 suficientes observaciones para utilizar una aproximación asintótica?
+
+* Podemos estimar de manera fiable la densidad de p(m_p)?
+
+* ¿Cómo afecta la estimación (asintótica) del error estándar el ancho del intervalo de confianza basado en la aproximación normal?
+
+
+### Otros ejemplos para ver más adelante: 
+
+* ¿cómo estimar los errores de las estimaciones puntuales hechas con el algoritmo EM o SEM? 
+* ¿cómo contrastar hipótesis acerca de si una distribución tiene una o varias modas?
+
+---
+
+# Principios de Bootstrap
+
+* Si no existe información acerca de la distribución, en la muestra observada podemos encontrar información acerca de la distribución subyacente. Por lo tanto, re-muestrear la muestra es la mejor forma de acercarnos a lo que obtendríamos si se pudiera la oportunidad de re-muestrear de la distribución poblacional.
+
+* Suponga que una muestra `\(X = (X_1, \dots, X_n)^T\)` es utilizada para estimar un parámetro `\(\theta\)`. Sea `\(\hat{\theta}= s(X)\)` un estadístico para estimar el parámetro `\(\theta\)`. Para hacer inferencia acerca de `\(\theta\)`, nos interesa la distribución muestral de `\(\hat{\theta}\)`, o ciertos aspectos acerca de esa distribución: la exactitud de nuestra estimación, el intervalo de confianza, etc. En muchas aplicaciones, la distribución muestral de `\(\theta\)` no se puede encontrar.
+
+* Si conociéramos la distribución poblacional `\(P\)`, podríamos sacar muestras `\(X^{(b)}, b=1,\dots,B\)` de P usando métodos de Monte Carlo para estimar la distribución muestral del estimado. Sin embargo, si `\(F\)` es desconocido, entonces bootstrap sugiere que podemos aproximar ese muestreo re-muestreando nuestra muestra original. Así, podemos encontrar la distribución *empírica* del estimador.
+
+https://seeing-theory.brown.edu/frequentist-inference/es.html
+
+---
+
+# Asignación del proyecto 2
+
+https://malfaro2.github.io/XS3310-I20/proyecto2
+
+
+---
+class: center, middle
+
+# ¿Qué discutimos hoy?
+
+Estimación por intervalos, método del pivote. Fórmulas para las estimaciones por intervalo más comunes (media, diferencias de medias, variancias, etc., para distribuciones normales), 
+
+# ¿Qué nos falta para el II Parcial?
+
+Bootstrap y contrastes de hipótesis.
+
+
+Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
