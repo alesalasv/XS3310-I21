@@ -110,9 +110,8 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
         <tr>
     <td> 15 de mayo </td>
     <td>  <a href="XS3310-I20_10.html">Clase 10</a> </td>
-    <td>  
-</td> 
-    <td> Casella: 9.1,9.2,9.3,9.8,9.9, 9.12,9.13 <br> </td>
+    <td>  <a href="https://www.youtube.com/watch?v=D_wakA5YsQc">Intervalos de confianza: distribuci&oacute;n normal</a></td> 
+    <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit>Ejercicios Extra</a> <br> </td>
   </tr>
 </table>
 
