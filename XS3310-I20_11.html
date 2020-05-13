@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <meta name="date" content="2020-05-12" />
+    <meta name="date" content="2020-05-13" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -13,8 +13,8 @@
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2019
-### 2020-05-12
+## I Semestre 2020
+### 2020-05-13
 
 ---
 
@@ -27,6 +27,7 @@ class: center, middle
 # ¿Qué hemos visto hasta ahora?
 
 Todo sobre estimadores puntuales + pivotes e intervalos de confianza.
+Introducción a Bootstrap.
 
 # ¿Qué vamos a discutir hoy?
 
@@ -81,7 +82,7 @@ https://seeing-theory.brown.edu/frequentist-inference/es.html
 
 Para una muestra `\(X_1, \dots, X_n\)` de variables aleatorias con valores reales, independientes con distribución P, definimos la distribución `\(\hat{P}\)` como:
 
-`\(P(A) = \frac{1}{n}\sum_{i=1}^{n} 1_A(X_i)\)` para `\(A \subseteq \Re\)`.
+`\(P(A) = \frac{1}{n}\sum_{i=1}^{n} 1_A(X_i)\)` para `\(A \subseteq \mathbb{R}\)`.
 
 `\(\hat{P}\)` es la distribución empírica de la muestra `\(X\)`. `\(\hat{P}\)` puede pensarse como una distribución que pone masa `\(1/n\)` en cada observación `\(X_i\)` (para valores que ocurren más de una vez la masa será un múltiplo de `\(1/n\)`). Entonces, `\(\hat{P}\)` es una distribución de probabilidad discreta con un espacio efectivo de muestreo `\({X_1, \dots, X_n}\)`.
 
@@ -93,7 +94,7 @@ Puede demostrarse que `\(\hat{P}\)` es el estimador máximo verosimil no paramé
 
 ## Resultados teóricos
 
-Sea `\(A \subseteq \Re\)` (tal que `\(P(A)\)` está definido), entonces tenemos: `\(\hat{P}(A) \xrightarrow{d} P(A)\)` cuando `\(n \rightarrow \infty\)`.
+Sea `\(A \subseteq \mathbb{R}\)` (tal que `\(P(A)\)` está definido), entonces tenemos: `\(\hat{P}(A) \xrightarrow{d} P(A)\)` cuando `\(n \rightarrow \infty\)`.
 
 Este resultado es una consecuencia directa de La Ley de los Grandes Números, ya que:
 
@@ -102,7 +103,7 @@ Este resultado es una consecuencia directa de La Ley de los Grandes Números, ya
 por lo que `\(\hat{P}(A)\)` tiende a su valor esperado `\(P(A)\)` cuando `\(n \rightarrow \infty\)`. Este resultado puede formalizarse mediante:
 
 `$$\sup_{A\in I}|\hat{P}(A)-P(A)| \rightarrow 0 \quad \text{as} \quad n \rightarrow \infty$$` 
-donde `\(I\)` es el conjunto de intervalos en `\(\Re\)`. En otras palabras, la distribución P(A) puede ser aproximada por `\(\hat{P}(A)\)` igual de bien para toda `\(A\in I\)`.
+donde `\(I\)` es el conjunto de intervalos en `\(\mathbb{R}\)`. En otras palabras, la distribución P(A) puede ser aproximada por `\(\hat{P}(A)\)` igual de bien para toda `\(A\in I\)`.
 
 ---
 
@@ -114,7 +115,7 @@ Suponga que queremos una muestra iid de `\(\hat{P}\)`: `\(X^* = (X^*_1, \dots, X
 
 * Seleccione `\(i_1, \dots, i_n\)` independientemente de una distribución uniforme en `\({1, \dots, n}\)`.
 
-* Ahora haga `\(X^{*}_j = X_{ij}\)` y `\(X^* = (X^*_1, \dots, X^*_n)^T\)`.
+* Ahora haga `\(X_{j}^{*} = X_{i_{j}}\)` y `\(X^* = (X^*_1, \dots, X^*_n)^T\)`.
 
 En otras palabras, saque una muestra aleatoria con reemplazo de la muestra original `\(X_1, \dots, X_n\)`.
 
@@ -147,13 +148,13 @@ La distribución muestral de `\(\hat{\theta}\)` es entonces estimada por su equi
 
 * El procedimiento consiste en:
 
-    - Escoja B muestras bootstrap independientes `\(X^{*(1)}, \dots, X^{*(B)}_n\)` de `\(\hat{P}\)`: `\(X_1^{*(b)}, \dots, X^{*(b)}_n \sim_{iid} \hat{P}\)` para `\(b = 1, \dots, B\)`.
+    - Escoja B muestras bootstrap independientes `\(X^{*(1)}, \dots, X^{*(B)}\)` de `\(\hat{P}\)`: `\(X_1^{*(b)}, \dots, X^{*(b)}_n \sim_{iid} \hat{P}\)` para `\(b = 1, \dots, B\)`.
     - Evalúe las repeticiones de bootstrap: `\(\hat{\theta}^{*(b)}=s(X^{*(b)})\)`.
     - Estime la distribución muestral de `\(\theta\)` con la distribución empírica de las repeticiones bootstrap: `\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}^{*(B)}\)`:
     
     `$$\hat{P}(\hat{\theta}(A)) = \frac{1}{B}\sum_{b=1}^{B} 1_A(\hat{\theta}^{*(b)})$$` 
     
-para conjuntos apropiados de `\(A \subseteq \Re^p\)` (si `\(\hat{\theta} \in \Re^p\)`).
+para conjuntos apropiados de `\(A \subseteq \mathbb{R}^p\)` (si `\(\hat{\theta} \in \mathbb{R}^p\)`).
 
 Pero, ¿y si solo queremos una cantidad de esa distribución muestral? pues hay fórmulas para calcularlas directamente.
 
@@ -163,11 +164,11 @@ Pero, ¿y si solo queremos una cantidad de esa distribución muestral? pues hay 
 
 Sea `\(\hat{\theta}\)` un estimador de `\(\theta\)` y suponga que queremos conocer el error estándar de `\(\hat{\theta}\)`. Un error estándar estimado de bootstrap se puede obtener con el siguiente algoritmo:
 
-  - Escoja B muestras bootstrap independientes `\(X^{*(1)}, \dots, X^{*(B)}_n\)` de `\(\hat{P}\)`: `\(X_1^{*(b)}, \dots, X^{*(b)}_n \sim_{iid} \hat{P}\)` para `\(b = 1, \dots, B\)`.
+  - Escoja B muestras bootstrap independientes `\(X^{*(1)}, \dots, X^{*(B)}\)` de `\(\hat{P}\)`: `\(X_1^{*(b)}, \dots, X^{*(b)}_n \sim_{iid} \hat{P}\)` para `\(b = 1, \dots, B\)`.
   - Evalúe las repeticiones de bootstrap: `\(\hat{\theta}^{*(b)}=s(X^{*(b)})\)`.
   - Estime los errores estándar con la desviación estándar de las B repeticiones:
     
-`$$\hat{se}_{boot} = \sqrt{\frac{1}{B-1}\sum_{b=1}^{B}(\hat{\theta}^{*(b)}-\hat{\theta}^{*(.)})}$$`
+`$$\hat{se}_{boot} = \sqrt{\frac{1}{B-1}\sum_{b=1}^{B}\left(\hat{\theta}^{*(b)}-\hat{\theta}^{*(.)}\right)^2}$$`
 
 donde `\(\hat{\theta}^{*(.)} = \frac{1}{B}\sum_{b=1}^{B}\hat{\theta}^{*(b)}\)`.
 
@@ -190,7 +191,7 @@ donde `\(\theta^* = t(\hat{P})\)`. Note que `\(\hat{\theta}\)` y `\(\theta^*\)` 
 
 Si tenemos las repeticiones bootstrap `\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}^{*(B)}\)`, podemos estimar la distribución muestral de `\(\hat{\theta}\)`. A partir de esto, podemos construir intervalos de confianza para `\(\theta\)`. Hay cuatro opciones: IC estándar, IC bootstrap t, IC percentiles, IC percentiles corregido por sesgo.
 
-* IC estándar: Utilizamos el resultado del TLC para decir que `\(\hat{theta}\)` es distribuido aproximadamente normal con media `\(\theta\)` y variancia `\(se(\hat{\theta}^2)\)`. Entonces, un IC `\((1-\alpha)\)` aproximado para `\(\theta\)` está dado por:
+* IC estándar: Utilizamos el resultado del TLC para decir que `\(\hat{\theta}\)` es distribuido aproximadamente normal con media `\(\theta\)` y variancia `\(se(\hat{\theta})^2\)`. Entonces, un IC `\((1-\alpha)\)` aproximado para `\(\theta\)` está dado por:
 
 `$$\hat{\theta} \pm z_{\alpha/2} \hat{se}_{boot}(\hat{\theta})$$`
 
@@ -204,7 +205,7 @@ Si tenemos las repeticiones bootstrap `\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}
 
 `$$T^{*(b)} = \frac{\hat{\theta}^{*(b)}-\hat{\theta}}{\hat{se}_{X^*}(\hat{\theta})}$$`
 
-De los valores `\(T^{*(b)}\)`, podemos estimar el valor crítico `\(t{\alpha/2}\)` como `\(\hat{t}{\alpha/2}\)` tal que: 
+De los valores `\(T^{*(b)}\)`, podemos estimar el valor crítico `\(t_{\alpha/2}\)` como `\(\hat{t}_{\alpha/2}\)` tal que: 
 
 `$$\frac{1}{B} \sum_{b=1}^{B} 1 {[ T^{*(b)} \leq \hat{t}_{\alpha/2} ]} \approx \alpha/2$$`
 
@@ -231,7 +232,7 @@ Entonces:
 
 # Ejercicio:
 
-Calcule el error estándar, el sesgo y al menos dos de los intervalos de confianza con los ejemplos 1 y 2 dados al inicio.
+Calcule el error estándar, el sesgo y al menos dos de los intervalos de confianza con los ejemplos 1 dado al inicio (diapositiva 20 de la clase 10).
 
 
 # Referencias:
@@ -246,7 +247,7 @@ Calcule el error estándar, el sesgo y al menos dos de los intervalos de confian
 
 # Práctica de Intervalos de Confianza
 
-1. La vida útil de cierto aparato de aire acondicionado sigue una distribución de Rayleigh, cuya función de densidad viene dada por la fórmula:
+1.La vida útil de cierto aparato de aire acondicionado sigue una distribución de Rayleigh, cuya función de densidad viene dada por la fórmula:
 
 `\(f(x|\theta) = \frac{x}{\theta^2} \exp{\left( \frac{-x^2}{2\theta^2} \right)} \mathbb{1}_{ \left( x&gt;0 \right)}\)`
 
@@ -271,7 +272,7 @@ data &lt;- c(0.466, 0.589, 0.097, 0.809, 0.214, 0.315, 0.971,
 ```
 
 
-2. Sea `\(X_1, X_2, \dots , X_n\)` una muestra aleatoria de una población de Poisson con parámetro `\(\lambda\)`.
+2.Sea `\(X_1, X_2, \dots , X_n\)` una muestra aleatoria de una población de Poisson con parámetro `\(\lambda\)`.
 
 a)	Utilice la Desigualdad de Cramer-Rao, y la información de Fisher para demostrar que `\(\bar{X}\)`, es un estimador de variancia mínima para estimar `\(\lambda\)`. 
 
@@ -284,7 +285,7 @@ c)	Utilice la variable `\(U\)` del inciso anterior, como pivote para construir u
 # Práctica de Intervalos de Confianza
 
 
-3. Si `\(Y_1, Y_2, \dots , Y_n\)` corresponden a una muestra aleatoria de una distribución gamma con parámetros `\(\alpha\)` desconocido y `\(\beta\)` desconocido. 
+3.Si `\(Y_1, Y_2, \dots , Y_n\)` corresponden a una muestra aleatoria de una distribución gamma con parámetros `\(\alpha\)` desconocido y `\(\beta\)` desconocido. 
 
 a)	Demuestre que la variable `\(U = \frac{2 \sum_{j=1}^{n}Y_j}{\beta}\)` puede ser utilizada como pivote para estimar el valor de `\(\beta\)` y construya un intervalo de confianza de `\(1-\alpha\)` para estimar el valor `\(\beta\)`.
 
@@ -364,9 +365,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -375,7 +392,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
