@@ -14,7 +14,7 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
   <tr>
     <th width="15%"> Fecha </th>
     <th width="10%">  Clase </th>
-     <th width="50%">  Vídeos </th>
+    <th width="50%">  Vídeos </th>
     <th width="25%">  Tareas </th>
   </tr>
   <tr>
@@ -50,7 +50,7 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-   <tr>
+  <tr>
     <td> 17 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
@@ -59,7 +59,7 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
-   <tr>
+  <tr>
     <td> 21 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
@@ -73,10 +73,10 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
           <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a> <br>
           <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br>
           <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br>
-          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br> </td> 
+          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
   </tr>
-     <tr>
+  <tr>
     <td> 24 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
@@ -91,7 +91,7 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
 Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
   </tr>
-      <tr>
+  <tr>
     <td> 8 de mayo </td>
     <td>  <a href="XS3310-I20_8.html">Clase 8</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
@@ -99,7 +99,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 </td> 
     <td> Mendenhall 8.39 - 8.49 <br> </td>
   </tr>
-        <tr>
+  <tr>
     <td> 12 de mayo </td>
     <td>  <a href="XS3310-I20_9.html">Clase 9</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=vWnMWhoKad0">Intervalo de confianza: distribuci&oacute;n Bernoulli</a><br>
@@ -107,14 +107,13 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 </td> 
     <td> Casella: 9.1,9.2,9.3,9.8,9.9, 9.12,9.13 <br> </td>
   </tr>
-        <tr>
+  <tr>
     <td> 15 de mayo </td>
     <td>  <a href="XS3310-I20_10.html">Clase 10</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=D_wakA5YsQc">Intervalos de confianza: distribuci&oacute;n normal</a></td> 
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
-    </tr>
-        <tr>
+  <tr>
     <td> 19 de mayo </td>
     <td>  <a href="XS3310-I20_11.html">Clase 11</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
