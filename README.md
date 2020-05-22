@@ -122,7 +122,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <tr>
     <td> 26 de mayo </td>
     <td>  <a href="XS3310-I20_12.html">Clase 12</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA">??Qu&eacute; es una prueba de hip&oacute;tesis?</a></td> 
+    <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a></td> 
     <td> Ejercicios <br> </td>
   </tr>
     <tr>
@@ -141,7 +141,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <a href="https://www.youtube.com/watch?v=lam4GyjVeJs">Lema de Neyman-Pearson</a><br> 
 <a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> 
 </td> 
-    <td> Ejercicios n <br> </td>
+    <td> Ejercicios  <br> </td>
   </tr>
     <tr>
     <td> 5 de junio  </td>
