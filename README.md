@@ -91,6 +91,16 @@ Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l0
     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
 Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
   </tr>
+ </table>
+  
+
+<table style="width:100%">
+  <tr>
+    <th width="15%"> Fecha </th>
+    <th width="10%">  Clase </th>
+    <th width="50%">  Vídeos </th>
+    <th width="25%">  Tareas </th>
+  </tr>
   <tr>
     <td> 8 de mayo </td>
     <td>  <a href="XS3310-I20_8.html">Clase 8</a> </td>
