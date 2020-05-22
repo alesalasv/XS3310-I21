@@ -139,8 +139,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="XS3310-I20_14.html">Clase 14</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=PucB1LgjOsE">Funci&oacute;n potencia</a><br> 
     <a href="https://www.youtube.com/watch?v=lam4GyjVeJs">Lema de Neyman-Pearson</a><br> 
-<a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> 
-</td> 
+<a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> </td> 
     <td> Ejercicios  <br> </td>
   </tr>
     <tr>
