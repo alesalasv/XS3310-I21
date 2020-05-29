@@ -147,14 +147,14 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
     <tr>
     <td> 2 de junio  </td>
-    <td>   </td>
+    <td>  <a href="XS3310-I20_14.html">Clase 14</a> </td>
     <td>   <a href="https://www.youtube.com/watch?v=lam4GyjVeJs">Lema de Neyman-Pearson</a><br> 
 <a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> </td> 
     <td> Ejercicios: <a href="https://www.probabilitycourse.com/chapter8/8_4_6_solved_probs.php">Extras</a> <br> </td>
   </tr>
     <tr>
     <td> 5 de junio  </td>
-    <td>  </td>
+    <td>  <a href="XS3310-I20_15.html">Clase 15</a> </td>
     <td>  </td> 
     <td> Ejercicios  <br> </td>
   </tr>
