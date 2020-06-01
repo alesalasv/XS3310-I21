@@ -156,7 +156,9 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> 5 de junio  </td>
     <td>  <a href="XS3310-I20_15.html">Clase 15</a> </td>
     <td>  </td> 
-    <td> Ejercicios  <br> </td>
+    <td> Ejercicios: Casella:
+8.1, 8.2, 8.3, 8.5, <br>  8.6, 8.7, 8.8, 8.9, 8.20, 8.22, <br> 8.23, 8.24, 8.25, 8.27, 8.28, <br> 8.29, 8.30, 8.31, 8.32, <br> 8.33, 8.37, 8.38, 8.39, 8.40, 8.41
+<br> </td>
   </tr>
 </table>
 
