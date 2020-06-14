@@ -165,6 +165,12 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  </td> 
     <td> </td>
   </tr>
+        <tr>
+    <td> 16 de junio  </td>
+    <td>  <a href="XS3310-I20_17.html">Clase 17</a> </td>
+    <td>  </td> 
+    <td> </td>
+  </tr>
 </table>
 
 
