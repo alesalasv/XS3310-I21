@@ -171,6 +171,24 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  </td> 
     <td> </td>
   </tr>
+          <tr>
+    <td> 23 de junio  </td>
+    <td>  </td>
+    <td>  </td> 
+    <td> </td>
+  </tr>
+          <tr>
+    <td> 30 de junio  </td>
+    <td>   </td>
+    <td>  </td> 
+    <td> </td>
+  </tr>
+          <tr>
+    <td> 3 de julio  </td>
+    <td>  </td>
+    <td>  </td> 
+    <td> </td>
+  </tr>
 </table>
 
 
