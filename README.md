@@ -173,7 +173,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
           <tr>
     <td> 23 de junio  </td>
-    <td>  </td>
+    <td>  <a href="XS3310-I20_18.html">Clase 18</a> </td>
     <td>  </td> 
     <td> </td>
   </tr>
