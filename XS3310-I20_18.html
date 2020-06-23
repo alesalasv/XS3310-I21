@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <meta name="date" content="2020-06-22" />
+    <meta name="date" content="2020-06-23" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
 ## I Semestre 2020
-### 2020-06-22
+### 2020-06-23
 
 ---
 
@@ -69,7 +69,7 @@ Plan para realizarlo (objetivos, herramientas disponibles, en el caso de vídeo 
 
 ## Un poco de historia
 
-![http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf](figs/timeline.png)
+![http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf](timeline.png)
 
 Para ver figura completa, haga click [aquí](http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf).
 
@@ -91,7 +91,7 @@ Para ver figura completa, haga click [aquí](http://www.statslife.org.uk/images/
 
 ¿Hubo resistencia? Claro que si. El teorema de Bayes era aceptado como una herramienta general de probabilidad, pero no para modelar datos. En los años 90s se presentaron muchas situaciones en las que los resultados Bayesianos eran desestimados de entrada.
 
-![FisherBayes.png](figs/Fisher_Bayes.png)
+![FisherBayes.png](Fisher_Bayes.png)
 
 Cita completa, [aquí](https://books.google.co.cr/books?id=T3FQDwAAQBAJ&amp;pg=PA13&amp;lpg=PA13&amp;dq=%22all+fisher+said+about+bayesian+analysis%22&amp;source=bl&amp;ots=vsnwy9Sd4V&amp;sig=ACfU3U0e-jP_R0sc0b_sC2p_pFoWQJ7vRA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwiW-rLV_LLiAhUGnKwKHbfxBKoQ6AEwAHoECAUQAQ#v=onepage&amp;q=%22all%20fisher%20said%20about%20bayesian%20analysis%22&amp;f=false)
 
@@ -171,7 +171,7 @@ denotado como `\(\theta \sim Beta(10,90)\)`. Esta distribución está centrada e
 plot(seq(0,1,0.01),dbeta(seq(0,1,0.01),10,90), xlab="Theta",ylab="Beta(10,90)", type="l")
 ```
 
-![](figs/unnamed-chunk-1-1.png)
+![](XS3310-I20_18_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -216,7 +216,7 @@ Podemos ver que por medio del teorema de Bayes estamos combinando nuestro conoci
 ## ¿Qué es estadística Bayesiana?
 
 
-![Figura 1](figs/12.jpg)
+![Figura 1](12.jpg)
 
 ---
 
@@ -323,7 +323,7 @@ Por último hay unos puntos importantes de mencionar del análisis Bayesiano. En
 
 ---
 
-![](figs/FreqvsBayes.png)
+![](FreqvsBayes.png)
 
 
 ---
@@ -334,7 +334,7 @@ class: center, middle
 
 Introducción a la Estadística Bayesiana.
 
-# ¿Qué nos falta para el III Parcial?
+# ¿Qué nos falta para terminar el curso?
 
 Estadística Bayesiana: cálculo, previas, inferencia (estimación puntual, intervalos de credibilidad y contrastes de hipótesis).
 
@@ -386,25 +386,9 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
+})();</script>
+
+<script>
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -413,23 +397,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {

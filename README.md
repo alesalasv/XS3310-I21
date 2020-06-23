@@ -175,19 +175,19 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> 23 de junio  </td>
     <td>  <a href="XS3310-I20_18.html">Clase 18</a> </td>
     <td>  </td> 
-    <td> </td>
+    <td> Lista de ejercicios en Mediación Virtual </td>
   </tr>
           <tr>
     <td> 30 de junio  </td>
-    <td>   </td>
+    <td>  <a href="XS3310-I20_19.html">Clase 19</a> </td>
     <td>  </td> 
-    <td> </td>
+    <td> Lista de ejercicios en Mediación Virtual </td>
   </tr>
           <tr>
     <td> 3 de julio  </td>
-    <td>  </td>
+    <td>  <a href="XS3310-I20_20.html">Clase 20</a></td>
     <td>  </td> 
-    <td> </td>
+    <td>  Lista de ejercicios en Mediación Virtual </td>
   </tr>
 </table>
 
