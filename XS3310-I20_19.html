@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
@@ -123,7 +123,10 @@ Este es el núcleo de una Gamma con parámetros `\(n\bar{x} + \alpha\)` y `\(n +
 
 # Distribuciones previas
 
-![Función de densidad a previa Gamma con `\(\alpha = 4\)` y `\(\beta = 2\)` (azul) y a posteriori (roja), utilizando `\(n=10\)` y `\(\bar{x} = 3.5\)` (línea punteada) para una muestra aleatoria de una población Poisson($\theta$).](prioripost.jpeg)
+&lt;img src="figs/prioripost.jpeg" alt="inv" style="float:center;width:550px;"/&gt;
+
+
+Función de densidad a previa Gamma con `\(\alpha = 4\)` y `\(\beta = 2\)` (azul) y a posteriori (roja), utilizando `\(n=10\)` y `\(\bar{x} = 3.5\)` (línea punteada) para una muestra aleatoria de una población Poisson( `\(\theta\)` ).
 
 ---
 
@@ -132,7 +135,7 @@ Este es el núcleo de una Gamma con parámetros `\(n\bar{x} + \alpha\)` y `\(n +
 
 En la figura anterior podemos observar la diferencia entre la función de densidad a previa (utilizando `\(\alpha = 4\)` y `\(\beta = 2\)`) y la función de densidad a posteriori si hubiésemos obtenido una muestra de tamaño 10 cuyo promedio fuera de `\(3.5\)`. Podemos ver que antes de observar los datos la previa nos indicaba que la media era de 2. Cuando observamos los datos la media muestral era de `\(3.5\)` por lo que nuestro conocimiento a posteriori se "modificó" para representar esta nueva información. Noten como la función de densidad a posteriori tiene una media más cercana al valor observado en la muestra y como valores alrededor de `\(3.5\)` se volvieron más probables que antes. 
 	
-https://lquiros.shinyapps.io/AplicacionesBayes/
+https://andreavargasmontero.github.io/apps_shiny_bayes/
 
 
 ---
@@ -335,25 +338,9 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
+})();</script>
+
+<script>
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -362,23 +349,7 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {
