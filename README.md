@@ -10,6 +10,8 @@ La información del curso está en Mediación Virtual, este repositorio es para 
 
 Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l04P7bqvcls&list=PLlaFtRFczerjP7C8R6ezfx6Za8DTGXJl-) 
 
+En [este link](https://andreavargasmontero.github.io/apps_shiny_bayes/) puede encontrar algunos de los trabajos finales de Bayes, específicamente los hechos con Shiny. 
+
 <table style="width:100%">
   <tr>
     <th width="15%"> Fecha </th>
@@ -156,38 +158,40 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> 5 de junio  </td>
     <td>  <a href="XS3310-I20_15.html">Clase 15</a> </td>
     <td>  </td> 
-    <td> Ejercicios: Casella: 8.1, 8.2, 8.3, 8.5, 8.6, 8.7, 8.8, 8.9, 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28, 8.29, 8.30, 8.31, 8.32, 8.33, 8.37, 8.38, 8.39, 8.40, 8.41
+    <td> Ejercicios: Casella: 8.1, 8.2, 8.3, 8.5, 8.6, 8.7, 8.8, 8.9
 <br> </td>
   </tr>
       <tr>
     <td> 9 de junio  </td>
     <td>  <a href="XS3310-I20_16.html">Clase 16</a> </td>
     <td>  </td> 
-    <td> </td>
+    <td> Ejercicios: Casella: 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28
+<br> </td>
   </tr>
         <tr>
     <td> 16 de junio  </td>
     <td>  <a href="XS3310-I20_17.html">Clase 17</a> </td>
     <td>  </td> 
-    <td> </td>
+    <td> Ejercicios: Casella: 8.28, 8.29, 8.30, 8.31, 8.32, 8.33, 8.37, 8.38, 8.39, 8.40, 8.41
+<br> </td>
   </tr>
           <tr>
     <td> 23 de junio  </td>
     <td>  <a href="XS3310-I20_18.html">Clase 18</a> </td>
     <td>  </td> 
-    <td> Lista de ejercicios en Mediación Virtual </td>
+    <td> Lista de ejercicios en las notas de clase </td>
   </tr>
           <tr>
     <td> 30 de junio  </td>
     <td>  <a href="XS3310-I20_19.html">Clase 19</a> </td>
     <td>  </td> 
-    <td> Lista de ejercicios en Mediación Virtual </td>
+    <td> Lista de ejercicios en las notas de clase </td>
   </tr>
           <tr>
     <td> 3 de julio  </td>
     <td>  <a href="XS3310-I20_20.html">Clase 20</a></td>
     <td>  </td> 
-    <td>  Lista de ejercicios en Mediación Virtual </td>
+    <td>  Lista de ejercicios en las notas de clase </td>
   </tr>
 </table>
 
