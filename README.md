@@ -8,10 +8,6 @@ La información del curso está en Mediación Virtual, este repositorio es para 
 
 [Programa ajustado](XS3310_programa_ajustado.pdf)
 
-Las clases grabadas se irán subiendo [aquí](https://www.youtube.com/watch?v=l04P7bqvcls&list=PLlaFtRFczerjP7C8R6ezfx6Za8DTGXJl-) 
-
-En [este link](https://andreavargasmontero.github.io/apps_shiny_bayes/) puede encontrar algunos de los trabajos finales de Bayes, específicamente los hechos con Shiny. 
-
 <table style="width:100%">
   <tr>
     <th width="15%"> Fecha </th>
