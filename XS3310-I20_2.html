@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Prof. Marcela Alfaro Córdoba" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-02-12" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### Prof. Marcela Alfaro Córdoba
-### 03/03/2020 (updated: 2020-03-03)
+## I Semetre 2021
+### Escuela de Estadística
+### 2021-02-12
 
 ---
 
 
 
 
-
-
-# ¿Qué vamos a discutir hoy?
+## ¿Qué vamos a discutir hoy?
 
 
 * Definición de estimadores, algunos ejemplos.
@@ -75,7 +73,9 @@ Ejemplos de estimadores puntuales:
 ## Estimadores
 
 
-Se pueden tener varios estimadores para un mismo parámetro, entonces la pregunta es, ¿cómo encontramos el mejor estimador?Este buen estimador debe cumplir las siguientes propiedades:
+Se pueden tener varios estimadores para un mismo parámetro, entonces la pregunta es, ¿cómo encontramos el mejor estimador?
+
+Este buen estimador debe cumplir las siguientes propiedades:
 
 1. Insesgado
 
@@ -89,24 +89,31 @@ Antes de entrar en este tema, recordemos 5 teoremas que explican las distribucio
 
 ---
 
-# Repaso
-
 ## Distribuciones de medias y variancias muestrales en poblaciones normales
 
-&gt; Teorema 1.1. Si `\(\bar{X}_n\)` es la media muestral de una muestra aleatoria de tamaño `\(n\)` de una distribución normal de media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces `\(\bar{X}_n\)` tiene una distribución normal con media `\(\mu\)` y variancia `\(\sigma^2/n\)`.
+&gt; **Teorema 1.1.** Si `\(\bar{X}_n\)` es la media muestral de una muestra aleatoria de tamaño `\(n\)` de una distribución normal de media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces `\(\bar{X}_n\)` tiene una distribución normal con media `\(\mu\)` y variancia `\(\sigma^2/n\)`. El decir, `\(\bar{X}_n \thicksim N(\mu,\sigma/\sqrt{n})\)`
 
 Aplicación más común: valores de la tabla z (normal estándar).
 
-Ejemplo: Si `\(X\)` es una variable aleatoria con distribución normal con media 15 y variancia 16. Se toman muestras aleatorias de tamaño 9. Calcular `\(P(12 &lt; \bar{X}_n &lt; 17)\)`.
+### Ejemplo: 
 
-$$ P(12 &lt; \bar{X}_n &lt; 17) = P(\frac{ 12-15 }{ 4/3 }&lt;Z&lt;\frac{ 17-15 }{ 4/3 }) \\
-    = P(-2.25 &lt; Z &lt;1.5) = 0.9210 $$
+Si `\(X\)` es una variable aleatoria con distribución normal con media 15 y variancia 16. Se toman muestras aleatorias de tamaño 9. Calcular `\(P(12 &lt; \bar{X}_n &lt; 17)\)`.
+
+$$ P(12 &lt; \bar{X}_n &lt; 17) = P(\frac{ 12-15 }{ 4/3 }&lt;Z&lt;\frac{ 17-15 }{ 4/3 })$$
+    $$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = P(-2.25 &lt; Z &lt;1.5) = 0.9210 $$
 
 ---
 
 # Repaso
 
-¿Por qué? porque aplicando el teorema 1.1 sabemos que `\(\frac{(\bar{X}_n-\mu)}{\sigma/\sqrt{n}}\)` se distribuye como una normal estándar. ¿De dónde viene la variable `\(Z\)`? Es como se define una v.a. distribuida como `\(N(0,1)\)` y se llama Z porque existe una tabla con valores precalculados para el área debajo de la curva de una `\(N(0,1)\)`. Los valores de la tabla se pueden calcular resolviendo la integral, o simplemente usando un R:
+¿Por qué? porque aplicando el teorema 1.1 sabemos que `\(\frac{(\bar{X}_n-\mu)}{\sigma/\sqrt{n}}\)` se distribuye como una normal estándar. 
+
+¿De dónde viene la variable `\(Z\)`? 
+
+Es como se define una v.a. distribuida como `\(N(0,1)\)` y se llama Z, estos valores de Z corresponden al área debajo de la curva de densidad en una curva normal `\(N(0,1)\)`. Existe una tabla con valores precalculados alresolver la integral:
+`$$\Phi(z) = \int^{z}_{-\infty}\frac{1}{\sqrt{2\pi}}\ e^{-\frac{t^2}{2} } \ dt,$$`
+
+o simplemente usando un R:
 
 
 ```r
@@ -122,44 +129,48 @@ pnorm(1.5,0,1)-pnorm(-2.25,0,1)
 # Repaso
 
 
-&gt; Teorema 1.2. Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces:
+&gt; **Teorema 1.2.** Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces:
 
-a. `\(\bar{X}\)` y `\(S^2\)` son estocásticamente independientes.
+&gt; `\(a\)`. `\(\bar{X}\)` y `\(S^2\)` son estocásticamente independientes.
 
-b. La variable `\(U = \frac{(n-1)S^2}{\sigma^2}\)` tiene distribución `\(\chi^2\)` con `\(n-1\)` grados de libertad.
+&gt; `\(b\)`. La variable `\(U = \frac{(n-1)S^2}{\sigma^2}\)` tiene distribución `\(\chi^2\)` con `\(n-1\)` grados de libertad.
 
-c. La densidad de `\(S^2\)` es la densidad gamma.
+&gt; `\(c\)`. La densidad de `\(S^2\)` es la densidad gamma.
 
 La prueba de este teorema está fuera de los contenidos de este curso.
 
-Nota: La parte b se puede usar para probar que `\(Var(S^2) = \frac{2\sigma^4}{n-1}\)` cuando asumimos que `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`.
+**Nota:** 
+La parte `\(b\)` se puede usar para probar que `\(Var(S^2) = \frac{2\sigma^4}{n-1}\)` cuando asumimos que `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`.
 
+---
+## Repaso
+`$$\begin{eqnarray*}Var \left ( \frac{(n-1)S^2}{\sigma^2} \right )&amp;=&amp; 2(n-1)\\ \frac{(n-1)^2}{\sigma^4} \cdot Var(S^2)  &amp;=&amp; 2(n-1) \\ Var(S^2) &amp;=&amp; \frac{2\sigma^4(n-1)}{(n-1)^2} \\ Var(S^2) &amp;=&amp; \frac{2\sigma^4}{n-1}\end{eqnarray*}$$`
 ---
 
 # Repaso
 
-&gt; Teorema 1.3. Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces la variable aleatoria:
+&gt; **Teorema 1.3.** Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces la variable aleatoria: `\(t = \frac{ (\bar{ X }-\mu) } { S/\sqrt{ n } }\)` se distribuye como una `\(t\)` de Student con `\(n-1\)` grados de libertad.
 
-$$ t = \frac{ (\bar{ X }-\mu) } { S/\sqrt{ n } } $$
+**Prueba**: 
 
-se distribuye como una t de Student con `\(n-1\)` grados de libertad.
-
-Prueba: Por el TLC sabemos que `\(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\)` se distribuye como una `\(N(0,1)\)`. Por teorema sabemos que `\(U = \frac{(n-1)S^2}{\sigma^2}\)` tiene distribución `\(\chi^2\)` con `\(n-1\)` grados de libertad. Del mismo teorema, sabemos que `\(\bar{X}\)` y `\(S^2\)` son independientes, y por los teorema (vistos en la clase de contínuos), sabemos que la definición de una variable t de Student es `\(Y = \frac{N(0,1)}{\sqrt{\chi^2/k}}\)`. Por todo lo anterior:
+Por el TLC sabemos que `\(\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\)` se distribuye como una `\(N(0,1)\)`. Por teorema 1.2 sabemos que `\(U = \frac{(n-1)S^2}{\sigma^2}\sim \chi^2_{n-1}\)`. Del mismo teorema, sabemos que `\(\bar{X}\)` y `\(S^2\)` son independientes, y por los teorema (vistos en la clase de contínuos), sabemos que la definición de una variable `\(t\)` de Student es `\(Y = \frac{N(0,1)}{\sqrt{\chi^2/k}}\)`. Por todo lo anterior:
 
 $$
 \frac{ \frac{ \bar{X}-\mu } { \sigma/\sqrt{ n } } } { \sqrt{ \frac{ (n-1)S^2 } { \sigma^2 }/(n-1) } }=\frac{ \bar{ X }-\mu } { S/\sqrt{ n } }
 $$
 
-es una t de Student con `\(n-1\)` grados de libertad.
+es una `\(t\)` de Student con `\(n-1\)` grados de libertad.
 
 ---
 
 # Repaso
 
 
-&gt; Teorema 1.4. Si `\(X_1, X_2, ..., X_m\)` es una muestra aleatoria con distribución normal con media `\(\mu_X\)` y variancia `\(\sigma^2_X\)`. Sea `\(Y_1, Y_2, ..., Y_n\)` es una muestra aleatoria con distribución normal con media `\(\mu_Y\)` y variancia `\(\sigma^2_Y\)`. Si ambas poblaciones son independientes entonces: `\(\frac{S^2_X/\sigma^2_X}{S^2_Y/\sigma^2_Y}\)` tiene una distribución `\(F_{m-1, n-1}\)`.
+&gt; **Teorema 1.4.** Si `\(X_1, X_2, ..., X_m\)` es una muestra aleatoria con distribución normal con media `\(\mu_X\)` y variancia `\(\sigma^2_X\)`. Sea `\(Y_1, Y_2, ..., Y_n\)` es una muestra aleatoria con distribución normal con media `\(\mu_Y\)` y variancia `\(\sigma^2_Y\)`. Si ambas poblaciones son independientes entonces: `\(\frac{S^2_X/\sigma^2_X}{S^2_Y/\sigma^2_Y}\)` tiene una distribución `\(F_{m-1, n-1}\)`.
 
-Prueba: Por teorema sabemos que `\(U = \frac{(n-1)S^2}{\sigma^2}\)` tiene distribución `\(\chi^2\)` con `\(n-1\)` grados de libertad. Usando la definición de la distribución F podemos reescribir la división como la división de dos variables distribuidas como `\(\chi^2\)` con distintos grados de libertad:
+**Prueba:** 
+
+Por teorema sabemos que `\(U = \frac{(n-1)S^2}{\sigma^2}\)` tiene distribución `\(\chi^2\)` con `\(n-1\)` grados de libertad. Usando la definición de la distribución F podemos reescribir la división como la división de dos variables distribuidas como `\(\chi^2\)` con distintos grados de libertad:
 
 $$ \frac{ \frac{ (m-1)S^2_X } { \sigma^2_X } } { \frac{ (n-1)S^2_Y } { \sigma^2_Y } } =  \frac{ S^2_X/\sigma^2_X } { S^2_Y/\sigma^2_Y }
 $$
@@ -169,20 +180,29 @@ $$
 # Repaso
 
 
-&gt; Teorema 1.5. Si `\(X_1, X_2, ..., X_m\)` es una muestra aleatoria con distribución normal con media `\(\mu_X\)` y variancia `\(\sigma^2\)`. Sea `\(Y_1, Y_2, ..., Y_n\)` es una muestra aleatoria con distribución normal con media `\(\mu_Y\)` y variancia `\(\sigma^2\)`. Si ambas poblaciones son independientes entonces:
+&gt; **Teorema 1.5.** Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu_X\)` y variancia `\(\sigma^2\)`. Sea `\(Y_1, Y_2, ..., Y_m\)` es una muestra aleatoria con distribución normal con media `\(\mu_Y\)` y variancia `\(\sigma^2\)`. Si ambas poblaciones son independientes entonces:
 
-$$ \frac{ (\bar{ X }-\bar{ Y })-(\mu_X-\mu_Y) } { S_p \sqrt{ 1/m+1/n } }$$
+$$ \frac{ (\bar{ X }-\bar{ Y })-(\mu_X-\mu_Y) } { S_p \sqrt{ \frac{1}{n}+\frac{1}{m} } }$$
 
-se distribuye como una t de Student con (m+n-2) grados de libertad, donde
+se distribuye como una `\(t\)` de Student con `\(n+m-2\)` grados de libertad, donde
 
-$$ S_p = \sqrt{ \frac{ (m-1)S^2_X+(n-1)S^2_Y } { m+n-2 } }.$$
+$$ S_p = \sqrt{ \frac{ (n-1)S^2_X+(m-1)S^2_Y } { n+m-2 } }.$$
 ---
 
 # Repaso
 
-Prueba: Se sabe que `\(\frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{\sigma \sqrt{1/m+1/n}}\)` se distribuye según una `\(N(0,1)\)` ya que `\(\bar{X}\)` es `\(N(\mu_X,\sigma^2/m)\)` y `\(\bar{Y}\)` es `\(N(\mu_Y,\sigma^2/m)\)` y por lo tanto, `\((\bar{X}-\bar{Y})\)` es `\(N(\mu_X-\mu_Y,\sigma^2/m+\sigma^2/n)\)`. Además, `\(\frac{(m-1)S^2_X}{\sigma^2}+\frac{(n-1)S^2_Y}{\sigma^2}\)` es una `\(\chi^2_{(m+n-2)}\)` por teorema. 
+**Prueba:** 
 
-Por definición de una variable t de student, el cociente entre la `\(N(0,1)\)` de la parte a) y la raíz cuadrada de la parte b) dividida entre sus grados de libertad, es una t de student con `\(m+n-2\)` grados de libertad. Se se calcula el cociente y se simplifica, se obtiene la variable aleatoria del Teorema.
+Se sabe que `\(\frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{\sigma \sqrt{\frac{1}{n}+\frac{1}{m}}} \sim N(0,1)\)`. Como `\(\bar{X} \sim N(\mu_X,\sigma^2/n)\)` y `\(\bar{Y} \sim N(\mu_Y,\sigma^2/m)\)` y por lo tanto, `\((\bar{X}-\bar{Y}) \sim N(\mu_X-\mu_Y,\sigma^2/n+\sigma^2/m)\)`. 
+
+Además, `\(\frac{(n-1)S^2_X}{\sigma^2}+\frac{(m-1)S^2_Y}{\sigma^2}\)` es una `\(\chi^2_{(n+m-2)}\)` por teorema. 
+
+Por definición de una variable `\(t\)` de student, el cociente entre la `\(N(0,1)\)` de la parte a) y la raíz cuadrada de la parte b), del teorema 1.2, dividida entre sus grados de libertad, es una `\(t\)` de student con `\(n+m-2\)` grados de libertad. Se se calcula el cociente y se simplifica, se obtiene la variable aleatoria del Teorema.
+
+---
+# Repaso
+`$$\begin{eqnarray*} \frac{\frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{\sigma\sqrt{\frac{1}{n}+\frac{1}{m}}}}{\sqrt{\frac{\frac{(n-1)S^2_X+(m-1)S^2_Y}{\sigma^2}}{n+m-2}}} &amp;=&amp; \frac{\frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{\sigma\sqrt{\frac{1}{n}+\frac{1}{m}}}}{\frac{1}{\sigma}\sqrt{\frac{(n-1)S^2_X+(m-1)S^2_Y}{n+m-2}}}\\ &amp;=&amp; \frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{\sqrt{\frac{(n-1)S^2_X+(m-1)S^2_Y}{n+m-2}}\cdot\sqrt{\frac{1}{n}+\frac{1}{m}}} \\  \\ &amp;=&amp; \frac{(\bar{X}-\bar{Y})-(\mu_X-\mu_Y)}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}} \end{eqnarray*}$$`
+
 
 ---
 
@@ -200,14 +220,74 @@ Por definición de una variable t de student, el cociente entre la `\(N(0,1)\)` 
 
 # Repaso
 
+## Distribución del mínimo `\(X_{(1)}\)`
 
-&gt; Teorema 1.6. Sea `\(X_1, X_2, ..., X_n\)` una muestra aleatoria de una población infinita con función de densidad `\(f(x)\)` y función de distribución `\(F(x)\)`.  Si `\(X_{(k)}\)` representa el k-ésimo estadístico de orden, entonces la función de densidad de viene dada por:
+&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F(x)\)` y función de densidad `\(f(x)\)`. Sea también la variable `\(X_{1}\)` definida por: `\(X_{1}=\min(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del mínimo de la muestra está dada por: `\(F(x)=1-[1-F(x)]^{n}\)`, y su función de densidad: `\(f(x)=n[1-F(x)]^{n-1}f(x)\)`
+
+---
+
+# Repaso
+
+## Distribución del mínimo `\(X_{(1)}\)`
+`\(F(x) = P(X_{(1)}\leq x)\)` 
+
+`\(\ \ \ \ \ \ \ \ =P(\min(X_{1},...,X_{n})\leq x)\)` 
+
+`\(\ \ \ \ \ \ \ \ =1-P(\min(X_{1},...,X_{n})&gt;x)\)` (Complemento)  
+
+`\(\ \ \ \ \ \ \ \ =1-P(X_{1}&gt;x,X_{2}&gt;x,...,X_{n}&gt;x)\)`  
+
+`\(\ \ \ \ \ \ \ \ =1-P(X_{1}&gt;x)\cdot P(X_{2}&gt;x) \cdots  P(X_{n}&gt;x)\)` (Independencia) 
+
+`\(\ \ \ \ \ \ \ \ =1-[P(X_{1}&gt;x)]^{n}\)` (Distribución idéntica)  
+
+`\(\ \ \ \ \ \ \ \ =1-[1-F(x)]^{n}\)` 
+
+Del mismo modo, la función de densidad de `\(X_{(1)}\)` sería:
+
+`\(f(x)=F(x)'=(1-[1-F(x)]^{n})'= n[1-F(x)]^{n-1}f(x)\)`
+
+---
+
+# Repaso
+
+## Distribución del máximo `\(X_{(n)}\)`
+
+&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F(x)\)` y función de densidad `\(f(x)\)`. Sea también la variable `\(X_{1}\)` definida por: `\(X_{1}=\max(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del mínimo de la muestra está dada por: `\(F(x)=[F(x)]^{n}\)`, y su función de densidad: `\(f(x)=n[F(x)]^{n-1}f(x)\)`
+---
+
+# Repaso
+
+## Distribución del máximo `\(X_{(n)}\)`
+`\(F(x) = P(X_{(n)}\leq x)\)` 
+
+`\(\ \ \ \ \ \ \ \ =P(\max(X_{1},...,X_{n})\leq x)\)` 
+
+`\(\ \ \ \ \ \ \ \ =P(X_{1}\leq x,X_{2}\leq x,...,X_{n}\leq x)\)`  
+
+`\(\ \ \ \ \ \ \ \ =P(X_{1}\leq x)\cdot P(X_{2}\leq x) \cdots  P(X_{n}\leq x)\)` (Independencia) 
+
+`\(\ \ \ \ \ \ \ \ =[P(X_{1}\leq x)]^{n}\)` (Distribución idéntica)  
+
+`\(\ \ \ \ \ \ \ \ =[F(x)]^{n}\)` 
+
+Del mismo modo, la función de densidad de `\(X_{(n)}\)` sería:
+
+`\(f(x)=F(x)'=([F(x)]^{n})'= n[F(x)]^{n-1}f(x)\)`
+
+
+---
+
+# Repaso
+
+
+&gt; **Teorema 1.6.** Sea `\(X_1, X_2, ..., X_n\)` una muestra aleatoria de una población infinita con función de densidad `\(f(x)\)` y función de distribución `\(F(x)\)`.  Si `\(X_{(k)}\)` representa el k-ésimo estadístico de orden, entonces la función de densidad de viene dada por:
 
 $$ f(x)= \frac{ n! } { (k-1)!(n-k)! }[F(x)]^{ k-1 }[1-F(x)]^{ n-k }f(x) $$
 
-Nota: En particular se tiene que `\(X_{(1)} = Min\{X_1, X_2, ..., X_n\}\)` y `\(X_{(n)} = Max\{X_1, X_2, ..., X_n\}\)`. Además si `\(n = 2m + 1\)`, la mediana de la muestra corresponde al estadístico de orden `\(X_{(m+1)}\)`.  Si `\(n=2m\)`, la mediana es `\(\frac{1}{2}(X_{m}+X_{m+1})\)`.
+**Nota:** En particular se tiene que `\(X_{(1)} = Min\{X_1, X_2, ..., X_n\}\)` y `\(X_{(n)} = Max\{X_1, X_2, ..., X_n\}\)`. Además si `\(n = 2m + 1\)`, la mediana de la muestra corresponde al estadístico de orden `\(X_{(m+1)}\)`.  Si `\(n=2m\)`, la mediana es `\(\frac{1}{2}(X_{m}+X_{m+1})\)`.
 
-&gt; Teorema 1.7. Para `\(n\)` grande, la distribución de muestreo de la mediana para muestras aleatorias de tamaño 2n + 1 es aproximadamente normal con media `\(\mu\)` (mediana poblacional) y variancia `\(\frac{1}{8n[f(\mu)]^2}\)`.
+&gt; **Teorema 1.7.** Para `\(n\)` grande, la distribución de muestreo de la mediana para muestras aleatorias de tamaño 2n + 1 es aproximadamente normal con media `\(\mu\)` (mediana poblacional) y variancia `\(\frac{1}{8n[f(\mu)]^2}\)`.
 
 ---
 
@@ -249,12 +329,7 @@ Repaso de distribuciones muestrales y definiciones de estadísticos de orden.
 
 ECM y propiedades de los estimadores (introducción).
 
-# La próxima semana: definiciones y ejemplos
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
-
-El chakra viene de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+# La próxima semana: definiciones y ejemplos.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -301,9 +376,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -312,7 +403,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

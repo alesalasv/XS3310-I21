@@ -1,186 +1,164 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Prof. Marcela Alfaro Córdoba" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-02-12" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### Prof. Marcela Alfaro Córdoba
-### 03/03/2020 (updated: 2020-03-03)
+## I Semetre 2021
+### Escuela de Estadística
+### 2021-02-12
 
 ---
 
 
 
 
+## Bienvenida
 
-## Acerca de mí
+### Alejandro Salas Vargas
 
-* Profesora Invitada 3er año de la Escuela de Estadística, UCR.
-* Bachillerato en Estadística, Universidad de Costa Rica
-* MSc en Estadística, Iowa State University
-* PhD en Estadística, North Carolina State University
-* Orcid: https://orcid.org/0000-0002-7703-3578
+* Licenciado en la Enseñanaza de la Matemática
+* MSc en Estadística
+* Profesor en UNED y UCR
 
-Mis temas de investigación se relacionan con el desarrollo de nuevos métodos estadísticos para responder preguntas científicas relativas a las ciencias naturales. Además de la teoría estadística, tengo un interés por aprender temas de ciencia de datos, ciencia abierta, reproducible y el rol que tienen en el desarrollo científico a nivel global. 
+### Áreas de interés
 
-Me gustan las comunidades: 
+* Matemática y su enseñanaza
+* Estadística Bayesiana
+* Análisis de Datos Funcionales
+* Teoría Estadística
+* Ciencia de Datos
 
-* Escuelas de Ciencias de Datos para la Investigación CODATA-RDA. 
-* R-ladies SJO / ConectaR 2021 / Plenaria RDA 16
-* 500 Científicas Costa Rica
+---
+## Bienvenida
 
-Más información en: https://malfaro2.github.io/
+### Maikol Solís
+
+* Ph.D
+
+### Áreas de interés
+
+* 
 
 ---
 
-## Acerca de mí
+## Bienvenida
+### Acerca de ustedes
 
-&lt;img src="https://yawgmoth.github.io/CI-0129/assets/img/cats.jpg" width="80%"/&gt;
-
----
-
-## Acerca del profesor del grupo 002: Dr. Shu Wei Chou
-
-* Profesor Invitado 1er año de la Escuela de Estadística, UCR.
-* Bachillerato en Estadística, Universidad de Costa Rica
-* MSc en Estadística, Universidad de Costa Rica
-* PhD en Estadística, University of Sao Paulo
-* https://www.researchgate.net/profile/Shu_Wei_Chou
-
-El Dr. Chou les contará más de él cuando llegue a la clase del 24 de marzo.
-
----
-
-
-## Acerca de Uds
-
-* Quiero que me digan su nombre, año de carrera, por lo menos un objetivo específico que quieran alcanzar al finalizar este curso, y algo que gusten compartir con la clase.
-
-## Programa del curso
-
-http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf
-
-* Lectura del programa
-* Exámenes: viernes 17 de abril y 12 de junio de 1 a 4pm (lugar por confirmar)
-* Matrícula en Mediación Virtual: es de carácter obligatorio, las evaluaciones de al menos tres proyectos y quices se harán mediante esta plataforma.
-* https://mediacionvirtual.ucr.ac.cr -- por favor actualizar su correo de preferencia en el formulario de Google (detalles más adelante).
-* Firma del acta del programa de clase
-* Tutorial de Slack
-
----
-class: center, middle
-
-## Hoja de información
-
-Por favor llene la siguiente forma de Google que contiene las siguientes preguntas:
-
-**http://bit.ly/XS3310_cuestionario**
-
+* Compartan su nombre, año de carrera y algo que le gustaría compartir
 
 
 ---
 
-## En Resumen:
+## Información importante
 
-Antes de la siguiente clase, deberán completar las siguientes tareas:
+### Programa del curso
 
-0. Firmar el acta de inicio de lecciones.
-1. Inscribirse en mediación virtual.
-2. Instalar Slack y aprender a usarlo.
-3. Contestar el cuestionario de google que está en http://bit.ly/XS3310_cuestionario
-4. Reservar en sus agendas los dos viernes de examen.
-
---
-
-## ¿PREGUNTAS O COMENTARIOS?
+### Por hacer
 
 ---
 
 class: center, middle
 
-# Hasta ahora en la carrera de Estadística:
+## Hasta ahora en la carrera de Estadística:
 
 En medio del auge de ciencia de datos, datos grandes, y tantas puertas que la tecnología nos ha abierto.
 
 ![Ciencia de Datos vs Estadística](figs/ciencia_de_datos.png)
 
-## ¿Para qué necesitamos Teoría Estadística?
+### ¿Para qué necesitamos Teoría Estadística?
+
 ---
 
 class: center, middle
 
 # Hasta ahora en la carrera de Estadística:
 
- ¿Qué vimos en modelos probabilísticos discretos y contínuos?
+ ¿Qué vimos en modelos probabilísticos discretos y contínuos? 
 
 ## https://seeing-theory.brown.edu
 
 
 ---
 
-# Repaso de Inferencia Estadística
+## Repaso de Inferencia Estadística
 
-* Estadística Descriptiva vs Estadística Inferencial
+### -Variable aleatoria (v.a.)
 
-  - En grupos de 2 personas:
-  
-  * Escojan uno artículo de la lista de Slack, y lo declaran (comentándolo) en Slack (en orden de llegada).
-  * Discutan si se trata de estadística descriptiva o inferencial.
-  * Preséntenlo al grupo.
-  * Tienen 15 mins.
-  
- [Noticia 1](https://elpais.com/economia/2020-03-03/el-empleo-aumenta-en-febrero-con-casi-86000-nuevos-afiliados.html) -  [Noticia 2](https://elpais.com/ciencia/2020-03-02/como-se-compara-el-coronavirus-con-la-gripe-los-numeros-dicen-que-es-peor.html)  - [Noticia 3](https://www.theguardian.com/science/2020/mar/03/study-finds-parrots-weigh-up-probabilities-to-make-decisions)  - [Noticia 4](https://elpais.com/ciencia/2020-02-27/este-es-el-coste-en-carbono-que-tienen-las-entregas-a-domicilio-y-asi-se-podria-evitar.html) - [Noticia 5](https://elpais.com/especiales/2020/elecciones-estados-unidos/pronosticos/) - [Noticia 6](http://www.laprensalibre.cr/Noticias/detalle/161503/nasa-revela-una-caida-de-la-contaminacion-en-china-por-el-coronavirus) 
- 
- PUeden escoger otras, estas son sugerencias. 
+### - Muestra aleatoria (m.a.)
 
+### - Parámetro
 
+### - Estadístico
 
----
-
-# Repaso de Inferencia Estadística
-
-
-* Muestra aleatoria
-
-* Parámetro
-
-* Estadístico
-
-* Estimador 
+### - Estimador 
 
 
 ---
 
 
-# Parámetros, estadísticos y estimadores
+## Parámetros, estadísticos y estimadores
 	
-	
-## Muestra aleatoria (m.a.)
+### Variable aleatoria (v.a.)	
+
+Una variable aleatoria (v.a.) `\({\displaystyle X}\)` es una función real definida en el espacio de probabilidad `\({\displaystyle (\Omega ,{\mathcal {A}},P)}\)`, asociado a un experimento aleatorio.
+
+&gt; `\({\displaystyle X:\Omega \to \mathbb {R} }\)`
+
+### Muestra aleatoria (m.a.)
 
 Sean `\(X_{1}, X_{2}, ... , X_{n}\)` un conjunto de variables aleatorias (v.a.) independientes e idénticamente distribuidas; este conjunto se denomina *muestra aleatoria* de una población infinita.
 
-## Estadístico
+---
+
+## Parámetros, estadísticos y estimadores
+
+### Parámetro
+
+Es una característica de la población. Algunos parámetros de interés podría ser la media, varianza o la proporción en una población.
+
+### Estadístico
 
 Es una función de la muestra aleatoria, `\(T=f\left(X_{1}, X_{2}, ... , X_{n}\right)\)`. Un estadístico es a su vez una variable aleatoria y como tal tiene su propia distribución, denominada distribución muestral, con sus parámetros correspondientes.
 
 ---
 
-# Parámetros, estadísticos y estimadores
+## Parámetros, estadísticos y estimadores
+
+### Estimador
+
+Cuando un estadístico, llámese `\(\hat{\theta}\)`, se utiliza para aproximar el valor de un parámetro `\(\theta\)`, entonces se acostumbra llamar a ese estadístico con el nombre de estimador.
+
+&gt; **Notación:** `\(\theta\)` parámetro a estimar.
+
+&gt; `\(\hat{\theta}\)` estimador de `\(\theta\)`.
+
+### Ejemplo:
+
+* `\(\bar{X}\)` es un estimador de `\(\mu\)`
+* `\(S^2\)` es un estimador de `\(\sigma^2\)`
+* `\(\hat{p}\)` es un estimador de `\(p\)`
+* `\(\hat{\theta}=\frac{X_1+X_n}{2}\)` es un estimador de `\(\mu\)`
+
+---
+
+## Parámetros, estadísticos y estimadores
 	
-Ejemplo:
+### Ejemplo:
 
-1. Media muestral: `\(\bar{X} =\frac{\sum_{j=1}^n{ {X}_j } }{n}\)`
+1. Media muestral: `\(\bar{X} =\frac{\sum_{i=1}^n{ {X}_i } }{n}\)`
 
-Se sabe que `\(E\left(\bar{X}\right)=\mu\)` y `\(Var\left(\bar{X}\right)=\frac{\sigma^2}{n}\)`, donde `\(\mu\)` y `\(\sigma^2\)` son la media y variancia poblacional. La distribución de `\(\bar{X}\)` va a depender de la distribución de la población. No obstante, con muestras grandes podemos hacer uso del Teorema del Límite Central, el cual dice:
+Se sabe que `\(\displaystyle E\left(\bar{X}\right)=\mu\)` y `\(\displaystyle Var\left(\bar{X}\right)=\frac{\sigma^2}{n}\)`, donde `\(\mu\)` y `\(\sigma^2\)` son la media y variancia poblacional. 
+
+La distribución de `\(\bar{X}\)` va a depender de la distribución de la población. No obstante, con muestras grandes podemos hacer uso del Teorema del Límite Central, el cual dice:
 
 `$$Z_{n} = \frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{\text{d}} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$`
 
@@ -188,15 +166,18 @@ O lo que es equivalente a decir que `\(\bar{X} \xrightarrow{\text{d}} N\left(\mu
 
 ---
 
-# Parámetros, estadísticos y estimadores
+## Parámetros, estadísticos y estimadores
 	
-Ejemplo:
+### Ejemplo:
 
-2. Variancia muestral: `\(S^{2} = \frac{\sum{\left(X_{j}-\bar{X}\right)^2}}{n-1}\)`
+1. Variancia muestral: `\(S^{2} = \frac{\sum{\left(X_{j}-\bar{X}\right)^2}}{n-1}\)`
 
 Podemos demostrar que `\(E\left(S^2\right)=\sigma^2\)` y `\(Var\left(S^2\right)=\frac{2\sigma^4}{n-1}\)`.
 
-Prueba: En la sección siguiente, probaremos que si la población es `\(N\left(\mu,\sigma^2\right)\)` entonces `\(\frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}\left(n-1\right)\)`. Además sabemos que el valor esperado de una ji-cuadrado son sus grados de libertad y la varianza son dos veces los grados de libertad. Por lo tanto,
+### Prueba: 
+
+En la sección siguiente, probaremos que si la población es `\(N\left(\mu,\sigma^2\right)\)`, entonces, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right)$$`. 
+Además sabemos que el valor esperado de una ji-cuadrado son sus grados de libertad y la varianza son dos veces los grados de libertad. Por lo tanto,
 
 $$ E\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = n-1  \\
     \Rightarrow \frac{\left(n-1\right)E\left(S^2\right)}{\sigma^2} = n-1 \\
@@ -204,9 +185,8 @@ $$ E\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = n-1  \\
 
 ---
 
-# Parámetros, estadísticos y estimadores
+## Parámetros, estadísticos y estimadores
 	
-Ejemplo:
 
 Podemos hacer lo mismo para encontrar la varianza cuando la población es Normal:
 
@@ -214,16 +194,16 @@ $$  Var\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = 2\left(n-1\right) $$
 
 $$ \Rightarrow \frac{\left(n-1\right)^2}{\sigma^4}Var\left(S^2\right) = 2\left(n-1\right) \\
 \Rightarrow Var\left(S^2\right) = \frac{2\sigma^4}{n-1} $$
-
 ---
+## Parámetros, estadísticos y estimadores
 
-class: center, middle
+En realidad la distribución ji-cuadrada es la distribución muestral de `\(S^2\)`. O sea que si se extraen todas las muestras posibles de una población normal y a cada muestra se le calcula su varianza, se obtendrá la distribución muestral de varianzas.
 
-# ¡Gracias!
+Para estimar la varianza poblacional o la desviación estándar, se necesita conocer el estadístico `\(X^2\)`. Si se elige una muestra de tamaño `\(n\)` de una población normal con varianza `\(\sigma^2\)`, el estadístico:
 
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
+`$$X^2= \displaystyle \frac{(n-1)S^2}{\sigma^2}$$`
 
-El chakra viene de [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+tiene una distribución muestral que es una distribución ji-cuadrada con `\(gl= n-1\)` grados de libertad, es decir, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right)$$`.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -270,9 +250,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -281,7 +277,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
