@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-02-12" />
+    <meta name="date" content="2021-02-16" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semetre 2021
 ### Escuela de Estadística
-### 2021-02-12
+### 2021-02-16
 
 ---
 
@@ -222,7 +222,7 @@ Por definición de una variable `\(t\)` de student, el cociente entre la `\(N(0,
 
 ## Distribución del mínimo `\(X_{(1)}\)`
 
-&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F(x)\)` y función de densidad `\(f(x)\)`. Sea también la variable `\(X_{1}\)` definida por: `\(X_{1}=\min(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del mínimo de la muestra está dada por: `\(F(x)=1-[1-F(x)]^{n}\)`, y su función de densidad: `\(f(x)=n[1-F(x)]^{n-1}f(x)\)`
+&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F_X(x)\)` y función de densidad `\(f_X(x)\)`. Sea también la variable `\(X_{(1)}\)` definida por: `\(X_{(1)}=\min(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del mínimo de la muestra está dada por: `\(F_{X_{(1)}}(x)=1-[1-F_X(x)]^{n}\)`, y su función de densidad: `\(f_{X_{(1)}}(x)=n[1-F_X(x)]^{n-1}f_X(x)\)`
 
 ---
 
@@ -241,11 +241,11 @@ Por definición de una variable `\(t\)` de student, el cociente entre la `\(N(0,
 
 `\(\ \ \ \ \ \ \ \ =1-[P(X_{1}&gt;x)]^{n}\)` (Distribución idéntica)  
 
-`\(\ \ \ \ \ \ \ \ =1-[1-F(x)]^{n}\)` 
+`\(\ \ \ \ \ \ \ \ =1-[1-F_X(x)]^{n}\)` 
 
 Del mismo modo, la función de densidad de `\(X_{(1)}\)` sería:
 
-`\(f(x)=F(x)'=(1-[1-F(x)]^{n})'= n[1-F(x)]^{n-1}f(x)\)`
+`\(f_{X_{(1)}}(x)=F_{X_{(1)}}(x)'=(1-[1-F_X(x)]^{n})'= n[1-F_X(x)]^{n-1}f_X(x)\)`
 
 ---
 
@@ -253,7 +253,7 @@ Del mismo modo, la función de densidad de `\(X_{(1)}\)` sería:
 
 ## Distribución del máximo `\(X_{(n)}\)`
 
-&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F(x)\)` y función de densidad `\(f(x)\)`. Sea también la variable `\(X_{1}\)` definida por: `\(X_{1}=\max(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del mínimo de la muestra está dada por: `\(F(x)=[F(x)]^{n}\)`, y su función de densidad: `\(f(x)=n[F(x)]^{n-1}f(x)\)`
+&gt; Sean las variables aleatorias `\(X_{1},X_{2},...,X_{n}\)` independientes e idénticamente distribuidas con función de distribución `\(F_X(x)\)` y función de densidad `\(f_X(x)\)`. Sea también la variable `\(X_{(n)}\)` definida por: `\(X_{(n)}=\max(X_{1},X_{2},...,X_{n})\)`, Entonces, la función de distribución del máximo de la muestra está dada por: `\(F_{X_{(n)}}(x)=[F_X(x)]^{n}\)`, y su función de densidad: `\(f_{X_{(n)}}(x)=n[F_X(x)]^{n-1}f_X(x)\)`
 ---
 
 # Repaso
@@ -269,11 +269,11 @@ Del mismo modo, la función de densidad de `\(X_{(1)}\)` sería:
 
 `\(\ \ \ \ \ \ \ \ =[P(X_{1}\leq x)]^{n}\)` (Distribución idéntica)  
 
-`\(\ \ \ \ \ \ \ \ =[F(x)]^{n}\)` 
+`\(\ \ \ \ \ \ \ \ =[F_{X}(x)]^{n}\)` 
 
 Del mismo modo, la función de densidad de `\(X_{(n)}\)` sería:
 
-`\(f(x)=F(x)'=([F(x)]^{n})'= n[F(x)]^{n-1}f(x)\)`
+`\(f_{X_{(n)}}(x)=F_{X_{(n)}}(x)'=([F_X(x)]^{n})'= n[F_X(x)]^{n-1}f_X(x)\)`
 
 
 ---
@@ -281,13 +281,16 @@ Del mismo modo, la función de densidad de `\(X_{(n)}\)` sería:
 # Repaso
 
 
-&gt; **Teorema 1.6.** Sea `\(X_1, X_2, ..., X_n\)` una muestra aleatoria de una población infinita con función de densidad `\(f(x)\)` y función de distribución `\(F(x)\)`.  Si `\(X_{(k)}\)` representa el k-ésimo estadístico de orden, entonces la función de densidad de viene dada por:
+&gt; **Teorema 1.6.** Sea `\(X_1, X_2, ..., X_n\)` una muestra aleatoria de una población infinita con función de densidad `\(f_X(x)\)` y función de distribución `\(F_X(x)\)`.  Si `\(X_{(k)}\)` representa el `\(k\)`-ésimo estadístico de orden, entonces la función de densidad viene dada por:
 
-$$ f(x)= \frac{ n! } { (k-1)!(n-k)! }[F(x)]^{ k-1 }[1-F(x)]^{ n-k }f(x) $$
+`$$f_{X_{(k)}}(x)= \frac{ n! } { (k-1)!(n-k)! }[F_X(x)]^{ k-1 }[1-F_X(x)]^{ n-k }f_X(x)$$`
 
-**Nota:** En particular se tiene que `\(X_{(1)} = Min\{X_1, X_2, ..., X_n\}\)` y `\(X_{(n)} = Max\{X_1, X_2, ..., X_n\}\)`. Además si `\(n = 2m + 1\)`, la mediana de la muestra corresponde al estadístico de orden `\(X_{(m+1)}\)`.  Si `\(n=2m\)`, la mediana es `\(\frac{1}{2}(X_{m}+X_{m+1})\)`.
+**Nota:** 
 
-&gt; **Teorema 1.7.** Para `\(n\)` grande, la distribución de muestreo de la mediana para muestras aleatorias de tamaño 2n + 1 es aproximadamente normal con media `\(\mu\)` (mediana poblacional) y variancia `\(\frac{1}{8n[f(\mu)]^2}\)`.
+En particular se tiene que `\(X_{(1)} = \min\{X_1, X_2, ..., X_n\}\)` y `\(X_{(n)} = \max\{X_1, X_2, ..., X_n\}\)`. Además si `\(n = 2m + 1\)`, la mediana de la muestra corresponde al estadístico de orden `\(X_{(m+1)}\)`.  Si `\(n=2m\)`, la mediana es `\(\frac{1}{2}(X_{m}+X_{m+1})\)`.
+
+
+&gt; **Teorema 1.7.** Para `\(n\)` grande, la distribución de muestreo de la mediana para muestras aleatorias de tamaño `\(2n + 1\)` es aproximadamente normal con media `\(\mu\)` (mediana poblacional) y variancia `\(\frac{1}{8n[f(\mu)]^2}\)`.
 
 ---
 
