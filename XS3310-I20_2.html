@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-02-16" />
+    <meta name="date" content="2021-03-08" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semetre 2021
 ### Escuela de Estadística
-### 2021-02-16
+### 2021-03-08
 
 ---
 
@@ -91,7 +91,7 @@ Antes de entrar en este tema, recordemos 5 teoremas que explican las distribucio
 
 ## Distribuciones de medias y variancias muestrales en poblaciones normales
 
-&gt; **Teorema 1.1.** Si `\(\bar{X}_n\)` es la media muestral de una muestra aleatoria de tamaño `\(n\)` de una distribución normal de media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces `\(\bar{X}_n\)` tiene una distribución normal con media `\(\mu\)` y variancia `\(\sigma^2/n\)`. El decir, `\(\bar{X}_n \thicksim N(\mu,\sigma/\sqrt{n})\)`
+&gt; **Teorema 1.1.** Si `\(\bar{X}_n\)` es la media muestral de una muestra aleatoria de tamaño `\(n\)` de una distribución normal de media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces `\(\bar{X}_n\)` tiene una distribución normal con media `\(\mu\)` y variancia `\(\sigma^2/n\)`. El decir, `\(\bar{X}_n \thicksim N(\mu,\sigma^2/n)\)`
 
 Aplicación más común: valores de la tabla z (normal estándar).
 
@@ -229,7 +229,7 @@ Por definición de una variable `\(t\)` de student, el cociente entre la `\(N(0,
 # Repaso
 
 ## Distribución del mínimo `\(X_{(1)}\)`
-`\(F(x) = P(X_{(1)}\leq x)\)` 
+`\(F_{X_{(1)}}(x) = P(X_{(1)}\leq x)\)` 
 
 `\(\ \ \ \ \ \ \ \ =P(\min(X_{1},...,X_{n})\leq x)\)` 
 
@@ -259,7 +259,7 @@ Del mismo modo, la función de densidad de `\(X_{(1)}\)` sería:
 # Repaso
 
 ## Distribución del máximo `\(X_{(n)}\)`
-`\(F(x) = P(X_{(n)}\leq x)\)` 
+`\(F_{X_{(n)}}(x) = P(X_{(n)}\leq x)\)` 
 
 `\(\ \ \ \ \ \ \ \ =P(\max(X_{1},...,X_{n})\leq x)\)` 
 
