@@ -11,7 +11,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <th width="15%"> Fecha </th>
     <th width="10%">  Clase </th>
     <th width="50%">  Vídeos </th>
-    <th width="25%">  Tareas </th>
+    <th width="25%">  Por hacer </th>
   </tr>
   <tr>
     <td> 10 de marzo </td>
