@@ -22,27 +22,27 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <th width="25%">  Por hacer </th>
   </tr>
   <tr>
-    <td> 10 de marzo </td>
+    <td> 06 de abril </td>
     <td>  <a href="XS3310-I20_1.html">Clase 1</a> </td> 
     <td>  <a href="https://youtu.be/JLNaZ1TxS_8">Población y Muestra</a> <br>
           <a href="https://youtu.be/N_Bnk9Wq7E4">¿Qué es la estadística inferencial?</a> </td> 
      <td> <a href="https://forms.gle/FeDeWU8oE9aVWifP7">Llenar cuestionario</a>, <a href="https://mv1.mediacionvirtual.ucr.ac.cr/login/index.php">Mediación Virtual</a> </td>
   </tr>
   <tr>
-    <td> 13 de marzo </td>
+    <td> 09 de abril </td>
     <td>  <a href="XS3310-I20_2.html">Clase 2</a> </td> 
     <td>  <a href="https://youtu.be/-9who67ocEQ">¿Qué es la estimación puntual?</a> <br>
           <a href="https://youtu.be/muIrBvecff8">Muestras aleatorias, estadísticas y estimadores</a> </td>    
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 17 de marzo </td>
+    <td> 13 abril </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3</a> </td> 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 14 de abril </td>
+    <td> 16 de abril </td>
     <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
@@ -55,7 +55,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 17 de abril </td>
+    <td> 20 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
@@ -64,7 +64,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 21 de abril </td>
+    <td> 23 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
           <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a> <br>
@@ -81,7 +81,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 24 de abril </td>
+    <td> 27 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
 <a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
@@ -97,7 +97,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
   
   <tr>
-    <td> 8 de mayo </td>
+    <td> 30 de abril </td>
     <td>  <a href="XS3310-I20_8.html">Clase 8</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
 <a href="https://www.youtube.com/watch?v=LO2BOtWxMyY">Método pivotal</a><br>
