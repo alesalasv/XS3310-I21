@@ -1,8 +1,6 @@
-<figure>
-  <img src="hexagone_final.png" width="30%">
-</figure>
 
-La información del curso está en Mediación Virtual, este repositorio es para el material de clase. Los vídeos de los links pertencen a la colección del prof. Luis Rincón de la UNAM. Su página web está aquí: http://lya.fciencias.unam.mx/lars/0398/index.html
+
+La información del curso está en Mediación Virtual, este repositorio es para el material de clase. Los vídeos de los links pertencen a la colección del prof. Luis Rincón de la UNAM. Su página web está aquí: [http://lya.fciencias.unam.mx/lars/0398/index.html](http://lya.fciencias.unam.mx/lars/0398/index.html)
 
 [Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf)
 
