@@ -1,4 +1,4 @@
-
+https://forms.gle/FeDeWU8oE9aVWifP7 
 
 La información del curso está en Mediación Virtual, este repositorio es para el material de clase. Los vídeos de los links pertencen a la colección del prof. Luis Rincón de la UNAM. Su página web está aquí: [http://lya.fciencias.unam.mx/lars/0398/index.html](http://lya.fciencias.unam.mx/lars/0398/index.html)
 
@@ -18,7 +18,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="XS3310-I20_1.html">Clase 1</a> </td> 
     <td>  <a href="https://youtu.be/JLNaZ1TxS_8">Población y Muestra</a> <br>
           <a href="https://youtu.be/N_Bnk9Wq7E4">¿Qué es la estadística inferencial?</a> </td> 
-    <td> Llenar cuestionario, Slack, Mediación Virtual </td>
+    <td> [Llenar cuestionario](https://forms.gle/FeDeWU8oE9aVWifP7), Slack, Mediación Virtual </td>
   </tr>
   <tr>
     <td> 13 de marzo </td>
