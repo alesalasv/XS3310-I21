@@ -22,7 +22,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="XS3310-I20_1.html">Clase 1</a> </td> 
     <td>  <a href="https://youtu.be/JLNaZ1TxS_8">Población y Muestra</a> <br>
           <a href="https://youtu.be/N_Bnk9Wq7E4">¿Qué es la estadística inferencial?</a> </td> 
-     <td> <a href="https://forms.gle/FeDeWU8oE9aVWifP7">Llenar cuestionario</a>, Slack, Mediación Virtual </td>
+     <td> <a href="https://forms.gle/FeDeWU8oE9aVWifP7">Llenar cuestionario</a>, <a href="https://mv1.mediacionvirtual.ucr.ac.cr/login/index.php">Mediación Virtual</a> </td>
   </tr>
   <tr>
     <td> 13 de marzo </td>
