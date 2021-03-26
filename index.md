@@ -183,3 +183,13 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  Lista de ejercicios en las notas de clase </td>
   </tr>
 </table>
+
+
+
+
+|Fecha|	Clase|	Vídeos|	Por hacer|
+|:---:|:----:|:------:|:---------|
+|10 de marzo|	Clase 1	|Población y Muestra
+¿Qué es la estadística inferencial?	|Llenar cuestionario, Mediación Virtual
+|13 de marzo|	Clase 2|	¿Qué es la estimación puntual?| |
+Muestras aleatorias, estadísticas y estimadores	Práctica: 8.1 - 8.20 de Mendenhall
