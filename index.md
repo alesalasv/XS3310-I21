@@ -1,7 +1,3 @@
-<H1 align="center"> 
-<figure><img src="hexagone_final.png" width="30%"></figure>
-</H1>
-
 **Curso:** Teoría Estadística
 
 **Código:** XS3310
