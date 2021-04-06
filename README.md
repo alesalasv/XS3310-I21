@@ -28,14 +28,14 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/N_Bnk9Wq7E4">¿Qué es la estadística inferencial?</a> </td> 
      <td> <a href="https://forms.gle/FeDeWU8oE9aVWifP7">Llenar cuestionario</a>, <a href="https://mv1.mediacionvirtual.ucr.ac.cr/login/index.php">Mediación Virtual</a> </td>
   </tr>
-<!--  <tr>
+  <tr>
     <td> 09 de abril </td>
     <td>  <a href="XS3310-I20_2.html">Clase 2</a> </td> 
     <td>  <a href="https://youtu.be/-9who67ocEQ">¿Qué es la estimación puntual?</a> <br>
           <a href="https://youtu.be/muIrBvecff8">Muestras aleatorias, estadísticas y estimadores</a> </td>    
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
-  <tr>
+<!--  <tr>
     <td> 13 abril </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3</a> </td> 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento</a> </td> 
