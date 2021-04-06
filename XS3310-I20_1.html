@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-05" />
+    <meta name="date" content="2021-04-06" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semetre 2021
 ### Escuela de Estadística
-### 2021-04-05
+### 2021-04-06
 
 ---
 
@@ -70,9 +70,23 @@ Además, como parte de una colaboración interdisciplinaria, estoy colaborando e
 
 ## Información importante
 
-### Programa del curso
+## Mediación virtual 
 
-### Por hacer
+https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179
+
+### Carta al estudiante
+
+https://mv1.mediacionvirtual.ucr.ac.cr/pluginfile.php/1543657/mod_resource/content/1/carta_estudiante_XS_3310_I_ciclo_2021.pdf
+
+### Pendientes para ustedes: 
+
+* Abrir este documento: https://docs.google.com/document/d/1c-xuJlunQ5uRxs9g4VEnPuQekvxOdBjV9w2voMfa6CQ/edit?usp=sharing
+
+* Rellenar este formulario: https://docs.google.com/forms/d/e/1FAIpQLSfHZKavyow6QlKzFLIeOMEuvxgBtnowpAOJxAzfKz7yznpTTA/viewform
+
+
+
+
 
 ---
 
@@ -84,7 +98,7 @@ En medio del auge de ciencia de datos, datos grandes, y tantas puertas que la te
 
 ![Ciencia de Datos vs Estadística](figs/ciencia_de_datos.png)
 
-### ¿Para qué necesitamos Teoría Estadística?
+
 
 ---
 
@@ -97,19 +111,39 @@ class: center, middle
 ## https://seeing-theory.brown.edu
 
 
+
+---
+
+# ¿Para qué necesitamos Teoría Estadística?
+
+Necesitamos entender el porqué los resultados teóricos funcionan. 
+
+Es decir, si tomamos el promedio de un conjunto de dato, 
+
+- ¿Es el mejor estimador que podemos generar? 
+- ¿Qué significa mejor?
+- ¿Puedo probar que efectivamente es el mejor?
+
+
+
 ---
 
 ## Repaso de Inferencia Estadística
 
-### -Variable aleatoria (v.a.)
+### Variable aleatoria (v.a.)
 
-### - Muestra aleatoria (m.a.)
+###  Muestra aleatoria (m.a.)
 
-### - Parámetro
+###  Parámetro
 
-### - Estadístico
+###  Estadístico
+###  Estimador 
 
-### - Estimador 
+###  Modos de convergencia 
+
+### Ley de lo grandes números 
+
+### Teorema del límite central
 
 
 ---
@@ -160,35 +194,118 @@ Cuando un estadístico, llámese `\(\hat{\theta}\)`, se utiliza para aproximar e
 
 ---
 
-## Parámetros, estadísticos y estimadores
-	
-### Ejemplo:
+## Modos de convergencia 
 
-1. Media muestral: `\(\bar{X} =\frac{\sum_{i=1}^n{ {X}_i } }{n}\)`
+## Desigualdad de Markov  
 
-Se sabe que `\(\displaystyle E\left(\bar{X}\right)=\mu\)` y `\(\displaystyle Var\left(\bar{X}\right)=\frac{\sigma^2}{n}\)`, donde `\(\mu\)` y `\(\sigma^2\)` son la media y variancia poblacional. 
+Si `\(X\)` es una v.a. tal que  `\(\operatorname{Pr}(X \geq 0)=1\)`. Entonces para cada número real  `\(t&gt;0\)`, se tiene que 
 
-La distribución de `\(\bar{X}\)` va a depender de la distribución de la población. No obstante, con muestras grandes podemos hacer uso del Teorema del Límite Central, el cual dice:
+`\begin{equation}
+\operatorname{Pr}(X \geq t) \leq \frac{E(X)}{t}
+\end{equation}`
 
-`$$Z_{n} = \frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{\text{d}} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$`
+## Desigualdad de Chebyshev 
 
-O lo que es equivalente a decir que `\(\bar{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty\)`.
+Si  `\(X\)` es una v.a. que cumple que  `\(\operatorname{Var}(X)\)` existe. Entonces para cada número  `\(t&gt;0\)`
+
+$$
+\operatorname{Pr}(|X-E(X)| \geq t) \leq \frac{\operatorname{Var}(X)}{t^{2}}
+$$
+---
+
+## Modos de convergencia 
+
+## Propiedades de la media muestral 
+
+Sea `\(X_{1}, \ldots, X_{n}\)` una v.a. con una  distribución con media  `\(\mu\)` y varianza `\(\sigma^{2}\)`. Sea  `\(\bar{X}_{n}\)` la media muestral. Entonces,  `\(E\left(\overline{X}_{n}\right)=\mu\)` y `\(\operatorname{Var}\left(\bar{X}_{n}\right)=\sigma^{2} / n\)`
+
+## Convergencia en probabilidad 
+
+Decimos que  `\(Z_{1}, Z_{2}, \ldots\)` de v.a. converge a `\(b\)` en probabilidad si para cada número  `\(\varepsilon&gt;0\)`,
+
+`$$\lim _{n \rightarrow \infty} \operatorname{Pr}\left(\left|Z_{n}-b\right|&lt;\varepsilon\right)=1$$`
+
+Esta propiedad se denota como
+
+$$
+Z_{n} \stackrel{p}{\longrightarrow} b.
+$$
+---
+## Parámetros, estadísticos y estimadores 
+### Ley de los grandes números 
+
+Suponga que  `\(X_{1}, \ldots, X_{n}\)` es una muestra de una distribución con media `\(\mu\)` y varianza finita. Sea  `\(\bar{X}_{n}\)` la media muestral. Entonces, 
+`\begin{equation*}
+\bar{X}_{n} \stackrel{p}{\longrightarrow} \mu
+\end{equation*}`
+
+¿Cómo se puede probar este resultado usando la desigualdad de Chebyshev?
+
+
+---
+## Parámetros, estadísticos y estimadores 
+### Convergencia en distribución 
+
+Suponga que se tienen una secuencia de funciones de distribución `\(F_1, \ldots, F_n\)` para la muestra `\(X_1,\ldots,X_n\)`. Se dice que `\(X_1,\ldots\)`  converge en distribución a `\(F^*\)` si 
+
+
+`\begin{equation*}
+\lim _{n \rightarrow \infty} F_{n}(x)=F^{*}(x)
+\end{equation*}`
+Se denota también como 
+`\begin{equation*}
+\bar{F}_{n}(x) \stackrel{d}{\longrightarrow} F^*(x)
+\end{equation*}`
+
+### Teorema del límite central
+
+Si `\(X_1,\ldots, X_n\)` es una muestra aleatoria de tamaño `\(n\)`, y la distribución tiene media `\(\mu\)` y varianza `\(\sigma^2&lt;0\)`. Entonces se cumple que 
+
+`$$Z_{n} = \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \stackrel{d}{\longrightarrow} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$`
+o lo que es equivalente 
+`$$\overline{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty.$$`
+---
+## Relaciones entre los modos de convergencia 
+
+Se puede probar que 
+`\begin{equation*}
+\text{Convergencia en Probabilidad} \implies \text{Convergencia en distribución}
+\end{equation*}`
+
+Para un resumen más detallado, les dejo este video donde se explica mucho mejor
+
+https://www.youtube.com/watch?v=bTMnnrw0v2Y
 
 ---
 
+&lt;!-- ## Parámetros, estadísticos y estimadores --&gt;
+
+&lt;!-- ### Ejemplo: --&gt;
+
+&lt;!-- 1. Media muestral: `\(\bar{X} =\frac{\sum_{i=1}^n{ {X}_i } }{n}\)` --&gt;
+
+&lt;!-- Se sabe que `\(\displaystyle E\left(\bar{X}\right)=\mu\)` y `\(\displaystyle Var\left(\bar{X}\right)=\frac{\sigma^2}{n}\)`, donde `\(\mu\)` y `\(\sigma^2\)` son la media y variancia poblacional.  --&gt;
+
+&lt;!-- La distribución de `\(\bar{X}\)` va a depender de la distribución de la población. No obstante, con muestras grandes podemos hacer uso del Teorema del Límite Central, el cual dice: --&gt;
+
+&lt;!-- `$$Z_{n} = \frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{\text{d}} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$` --&gt;
+
+&lt;!-- O lo que es equivalente a decir que `\(\bar{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty\)`. --&gt;
+
+&lt;!-- --- --&gt;
+
 ## Parámetros, estadísticos y estimadores
 	
-### Ejemplo:
+### Varianza muestral
 
-1. Variancia muestral: `\(S^{2} = \frac{\sum{\left(X_{j}-\bar{X}\right)^2}}{n-1}\)`
+ `$$S^{2} = \frac{\sum{\left(X_{j}-\bar{X}\right)^2}}{n-1}$$`
 
 Podemos demostrar que `\(E\left(S^2\right)=\sigma^2\)` y `\(Var\left(S^2\right)=\frac{2\sigma^4}{n-1}\)`.
 
-### Prueba: 
 
-En la sección siguiente, probaremos que si la población es `\(N\left(\mu,\sigma^2\right)\)`, entonces, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right)$$`. 
-Además sabemos que el valor esperado de una ji-cuadrado son sus grados de libertad y la varianza son dos veces los grados de libertad. Por lo tanto,
-
+En la sección siguiente, probaremos que si la población es `\(N\left(\mu,\sigma^2\right)\)`, entonces, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right).$$` 
+Además sabemos que el valor esperado de una `\(\chi^2\)` son sus grados de libertad y la varianza son dos veces los grados de libertad. Por lo tanto,
+F
 $$ E\left(\frac{\left(n-1\right)S^2}{\sigma^2}\right) = n-1  \\
     \Rightarrow \frac{\left(n-1\right)E\left(S^2\right)}{\sigma^2} = n-1 \\
 	  \Rightarrow E\left(S^2\right) = \sigma^2 $$
@@ -207,13 +324,13 @@ $$ \Rightarrow \frac{\left(n-1\right)^2}{\sigma^4}Var\left(S^2\right) = 2\left(n
 ---
 ## Parámetros, estadísticos y estimadores
 
-En realidad la distribución ji-cuadrada es la distribución muestral de `\(S^2\)`. O sea que si se extraen todas las muestras posibles de una población normal y a cada muestra se le calcula su varianza, se obtendrá la distribución muestral de varianzas.
+En realidad la distribución `\(\chi^2\)` es la distribución muestral de `\(S^2\)`. O sea que si se extraen todas las muestras posibles de una población normal y a cada muestra se le calcula su varianza, se obtendrá la distribución muestral de varianzas.
 
 Para estimar la varianza poblacional o la desviación estándar, se necesita conocer el estadístico `\(X^2\)`. Si se elige una muestra de tamaño `\(n\)` de una población normal con varianza `\(\sigma^2\)`, el estadístico:
 
 `$$X^2= \displaystyle \frac{(n-1)S^2}{\sigma^2}$$`
 
-tiene una distribución muestral que es una distribución ji-cuadrada con `\(gl= n-1\)` grados de libertad, es decir, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right)$$`. 
+tiene una distribución muestral que es una distribución `\(\chi^2\)` con `\(gl= n-1\)` grados de libertad, es decir, `$$\displaystyle \frac{\left(n-1\right)S^2}{\sigma^2} \sim \chi^{2}_\left(n-1\right)$$`. 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
