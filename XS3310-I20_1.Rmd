@@ -39,11 +39,20 @@ options(htmltools.dir.version = FALSE)
 
 ### Maikol Solís
 
-* Ph.D
+* Profesor Asociado, Escuela de Matemática 
+* Bach. Ciencias Actuariales. 
+* Msc. en Matemática Aplicada, Université Paul Sabatier. 
+* Msc. en Matemática Aplicada, Universidad de Costa Rica.
+* Ph.D en Estadística, Université Paul Sabatier. 
 
 ### Áreas de interés
 
-* 
+Mi trabajo reciente se enfoca en el análisis de sensibilidad en modelos estadísticos a través de distintos métodos: 
+* Estadística no paramétrica,
+* Teoría topológica y geometría,
+* Usando "relative weight analysis". 
+
+Además, como parte de una colaboración interdisciplinaria, estoy colaborando en proyecto para la generación de estrategias de muestreo masivo para la detección de enfermedades virales (SARS-COV2). 
 
 ---
 
