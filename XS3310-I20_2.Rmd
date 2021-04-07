@@ -164,7 +164,7 @@ es una $t$ de Student con $n-1$ grados de libertad.
 
 Por teorema sabemos que $U = \frac{(n-1)S^2}{\sigma^2}$ tiene distribución $\chi^2$ con $n-1$ grados de libertad. Usando la definición de la distribución F podemos reescribir la división como la división de dos variables distribuidas como $\chi^2$ con distintos grados de libertad:
 
-$$ \frac{ \frac{ (m-1)S^2_X } { \sigma^2_X } } { \frac{ (n-1)S^2_Y } { \sigma^2_Y } } =  \frac{ S^2_X/\sigma^2_X } { S^2_Y/\sigma^2_Y }
+$$ \frac{ \frac{ (m-1)S^2_X } { \sigma^2_X } /(m-1)} { \frac{ (n-1)S^2_Y } { \sigma^2_Y }/(n-1) } =  \frac{ S^2_X/\sigma^2_X } { S^2_Y/\sigma^2_Y }
 $$
 
 ---
