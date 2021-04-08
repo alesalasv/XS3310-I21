@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semetre 2021"  
+subtitle: "I Semestre 2021"  
 author: 
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
@@ -18,7 +18,13 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+ 
+
+
+
 ## ¿Qué vamos a discutir hoy?
+
+* Redefinición del Teorema del límite central
 
 
 * Definición de estimadores, algunos ejemplos.
@@ -31,41 +37,156 @@ options(htmltools.dir.version = FALSE)
 
 ---
 
-## Algunos conceptos básicos previos
+# Teorema del límite central
+*Recuerde que,*
+
+Si $X_1,\ldots, X_n$ es una muestra aleatoria de tamaño $n$, y la distribución tiene media $\mu$ y varianza $\theta=\sigma^2<0$. Entonces se cumple que 
+
+$$Z_{n} = \frac{\overline{X}-\mu}{\frac{\sqrt{\theta}}{\sqrt{n}}} \stackrel{d}{\longrightarrow} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$
+o lo que es equivalente 
+$$\overline{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\theta}{n}\right) \quad si\quad n \rightarrow \infty.$$
+
+---
+
+# Teorema del límite central
+
+Esta la fórmula del teorema se puede reescribir como, 
+
+$$\sqrt{n}(\overline{X}-\mu) \stackrel{d}{\longrightarrow} N\left(0,\theta \right) \quad si\quad n \rightarrow \infty$$
+
+---
+# Teorema del límite central
+
+
+*Realmente que pasa si $X_1, X_2, ..., X_n$ no son normales, pero $n$ es grande?*
+
+$$\sqrt{n}(\overline{X}-\mu) \stackrel{d}{\longrightarrow} N\left(0, V_{\infty}(\theta)\right)  \quad si\quad n \rightarrow \infty$$
+ 
+ donde  existe una secuencia de funciones de varianza tal que, 
+ 
+
+$$V_n(\theta)\xrightarrow[n\to \infty]{}V_{\infty}(\theta)<\infty$$
+---
+
+# Método Delta 
+
+
+Si $X_1,X_2,\dots$ es una sucesión de variables aleatorias y con alguna distribución continua. Sea $\theta\in \mathbb R$ y $\{a_n\}$ sucesión de números positivos tal que $a_n \nearrow\infty$.
+Suponga que $a_n(Y_n-\theta) \xrightarrow{d} N(0,\sigma^{2})$. 
+
+Si $g$ es una función tal que $g^{\prime}(\theta)\ne 0$, entonces
+$$\dfrac{a_n}{g'(\theta)}[g(X_n)-g(\theta)] \xrightarrow{d} N(0,\sigma^2 (g^{\prime}(\theta))^{2})$$
+
+---
+
+# Método Delta 
+
+**Ejemplo**. $X_1,X_2,\dots$ i.i.d. de variables con media $\mu$ y varianza $\sigma^2$. Sea $g$ una función tal que $g'(\mu)\neq 0$. Por el T.L.C, 
+
+
+$$ \sqrt{n}(X_n-\mu)\xrightarrow{d}N(0,\sigma^{2})$$
+
+
+Si $g(\mu) = \dfrac 1\mu$ con $\mu\neq0$, ¿Cuál es su varianza asintótica?
+
+Entonces por el método Delta $\sqrt{n}[g(\bar X_n)-g(\mu)]\xrightarrow{d}N(0,\sigma^2 (g^{\prime}(\theta))^{2})$
+
+Para la función $g$ seleccionada se tiene que  $g'(\mu) = -\dfrac{1}{\mu^2}$. Entonces por el método Delta
+
+$$ \sqrt{n}\bigg[\dfrac 1{\bar X_n}-\dfrac 1\mu\bigg]\xrightarrow{d}N(0,\dfrac{\sigma ^2}{\mu ^4}) $$
+
+
+La varianza asintótica es $\dfrac{\sigma}{n\mu ^4}$
+---
+# Estabilización de la varianza 
+
+Es posible definir la función $g$ de modo que la varianza no dependa del parámetro desconocido. 
+
+\begin{equation*}
+g(\mu)=\int_{a}^{\mu} \frac{d x}{s(x)^{1 / 2}}
+\end{equation*}
+
+donde $s(x)$ es toda la expresión de la varianza y $a$ es cualquier valor que haga la integral finita y fácil de calcular. 
+
+
+---
+
+# Estabilización de la varianza 
+
+*Ejemplo:*
+
+Suponga que $X_1, X_2, ..., X_n$ es una muestra aleatoria Poisson con parámetro $\theta$. Sea $\overline{X}$ la media muestral. 
+
+Sabemos que $\mu = \sigma ^2 =\theta$. 
+
+$$n^{1 / 2}\left(\bar{X}_{n}-\theta\right) \stackrel{d}{\longrightarrow} N(0,\theta)$$
+
+**OJO: el paramétro $\theta$ es desconocido!**
+
+La varianza asintótica es $\dfrac{\theta}{n}$. 
+
+
+---
+
+# Estabilización de la varianza 
+
+Entonces la
+
+\begin{equation*}
+g(\theta)=\int_{0}^{\theta} \frac{d x}{x^{1 / 2}}=2 \theta^{1 / 2}
+\end{equation*}
+
+Aplicando el método Delta, se tiene que 
+
+$$g'(\theta) = 2\frac{1}{2} \frac{1}{\theta ^{1 / 2}} = \frac{1}{\theta ^{1 / 2}} $$
+
+Por lo que obtenemos 
+
+\begin{align*}
+n^{1 / 2}\left(g(\bar{X}_{n})-g(\theta)\right)  
+&\stackrel{d}{\longrightarrow} N\left(0,\theta \left(\frac{1}{\theta ^{1 / 2}} \right)^{2} \right) \\  
+n^{1 / 2}\left(2(\bar{X}_{n})^{1/2}-2(\theta)^{1/2}\right)  
+&\stackrel{d}{\longrightarrow} N(0,1) 
+\end{align*}
+
+
+**Después de la transformación, la normal no depende del paramétro.**
+---
+<!-- ## Algunos conceptos básicos previos -->
 	
-a. Muestra Aleatoria
+<!-- a. Muestra Aleatoria -->
 
-Sean $X_{1}, X_{2}, ... , X_{n}$ un conjunto de variables aleatorias (v.a.) independientes e idénticamente distribuidas; este conjunto se denomina muestra aleatoria de una población infinita.
+<!-- Sean $X_{1}, X_{2}, ... , X_{n}$ un conjunto de variables aleatorias (v.a.) independientes e idénticamente distribuidas; este conjunto se denomina muestra aleatoria de Luna población infinita. -->
 
-b. Estadísticos
+<!-- b. Estadísticos -->
 
-Es una función de la muestra aleatoria, $T=f\left(X_{1}, X_{2}, ... , X_{n}\right)$.
+<!-- Es una función de la muestra aleatoria, $T=f\left(X_{1}, X_{2}, ... , X_{n}\right)$. -->
 
-NOTA: Un estadístico es a su vez una variable aleatoria y como tal tiene su propia distribución, denominada distribución muestral, con sus parámetros correspondientes. 
+<!-- NOTA: Un estadístico es a su vez una variable aleatoria y como tal tiene su propia distribución, denominada distribución muestral, con sus parámetros correspondientes.  -->
 
-c. Estimadores
+<!-- c. Estimadores -->
 
-Cuando un estadístico, llámese $\hat{\theta}$ (theta sombrero), se utiliza para aproximar el valor de un parámetro $\theta$ entonces se acostumbra llamar a ese estadístico con el nombre de estimador.
-
-
----
-
-## Estimadores puntuales
-
-Cuando un estadístico, llámese $\hat{\theta}$, se utiliza para aproximar el valor de un parámetro $\theta$ entonces se acostumbra llamar a ese estadístico con el nombre de *estimador*. Existen dos tipos: estimadores puntuales y estimadores de intervalo. Los segundos los dejaremos para el tema II.
-
-Ejemplos de estimadores puntuales:
-
-1. $\bar{X}$ es estimador de $\mu$
-
-2. $S^2$ es estimador de $\sigma^2$
-
-3. $\hat{p}$ es estimador de $p$
-
-4. $\hat{\theta} = \frac{X_{1}+X_{n}}{2}$ es estimador de $\mu$
+<!-- Cuando un estadístico, llámese $\hat{\theta}$ (theta sombrero), se utiliza para aproximar el valor de un parámetro $\theta$ entonces se acostumbra llamar a ese estadístico con el nombre de estimador. -->
 
 
----
+<!-- --- -->
+
+<!-- ## Estimadores puntuales -->
+
+<!-- Cuando un estadístico, llámese $\hat{\theta}$, se utiliza para aproximar el valor de un parámetro $\theta$ entonces se acostumbra llamar a ese estadístico con el nombre de *estimador*. Existen dos tipos: estimadores puntuales y estimadores de intervalo. Los segundos los dejaremos para el tema II. -->
+
+<!-- Ejemplos de estimadores puntuales: -->
+
+<!-- 1. $\bar{X}$ es estimador de $\mu$ -->
+
+<!-- 2. $S^2$ es estimador de $\sigma^2$ -->
+
+<!-- 3. $\hat{p}$ es estimador de $p$ -->
+
+<!-- 4. $\hat{\theta} = \frac{X_{1}+X_{n}}{2}$ es estimador de $\mu$ -->
+
+
+<!-- --- -->
 
 ## Estimadores
 
@@ -99,24 +220,8 @@ Si $X$ es una variable aleatoria con distribución normal con media 15 y varianc
 $$ P(12 < \bar{X}_n < 17) = P(\frac{ 12-15 }{ 4/3 }<Z<\frac{ 17-15 }{ 4/3 })$$
     $$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = P(-2.25 < Z <1.5) = 0.9210 $$
 
----
+--- 
 
-# Repaso
-
-¿Por qué? porque aplicando el teorema 1.1 sabemos que $\frac{(\bar{X}_n-\mu)}{\sigma/\sqrt{n}}$ se distribuye como una normal estándar. 
-
-¿De dónde viene la variable $Z$? 
-
-Es como se define una v.a. distribuida como $N(0,1)$ y se llama Z, estos valores de Z corresponden al área debajo de la curva de densidad en una curva normal $N(0,1)$. Existe una tabla con valores precalculados alresolver la integral:
-$$\Phi(z) = \int^{z}_{-\infty}\frac{1}{\sqrt{2\pi}}\ e^{-\frac{t^2}{2} } \ dt,$$
-
-o simplemente usando un R:
-
-```{r}
-pnorm(1.5,0,1)-pnorm(-2.25,0,1)
-```
-
----
 
 # Repaso
 
@@ -295,35 +400,30 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
 
 ---
 
-## Ejercicios
+### Ejercicios
+1. Suponga que $X_1, X_2, ..., X_n$ es una muestra aleatoria exponencial con paramétro $\theta$. Se sabe que la esperanza es $1/\theta$ y varianza $1/\theta ^2$. Encuentre una función $g(\theta)$ de modo que la convergencia en distribución de $\overline{X}$ no depende de $\theta$. 
+2. Se desea estimar la media $\mu$ de una variable aleatoria $X$. Para ello se toman $10$ datos y se calcula su media muestral $\bar{X}$ y la varianza de dichos datos $\sigma^2_X$. Comente si son verdaderas o falsas las siguientes afirmaciones:
 
-1. Se desea estimar la media $\mu$ de una variable aleatoria $X$. Para ello se toman $10$ datos y se calcula su media muestral $\bar{X}$ y la varianza de dichos datos $\sigma^2_X$. Comente si son verdaderas o falsas las siguientes afirmaciones:
-
-a) Por el teorema central del límite sabemos que $\mu$ será una variable aleatoria normal.
-
-b) Un estimador de $X$ es $\bar{X}$.
-
-c) La media muestral con un conjunto de datos es un número y no una variable aleatoria.
-
-d) La media muestral $\bar{X}$ tiene siempre una distribución muestral normal.
-
-e) Si $X$ es normal, $\bar{X}$ es siempre normal.
-
-f) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
-
-g) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
-
+      a) Por el teorema central del límite sabemos que $\mu$ será una variable aleatoria normal.
+      
+      b) La media muestral con un conjunto de datos es un número y no una variable aleatoria.
+      
+      c) La media muestral $\bar{X}$ tiene siempre una distribución muestral normal.
+      
+      d) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
+      
+      e) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
 ---
-class: center, middle
+<!-- class: center, middle -->
 
-# ¿Qué vimos hoy?
+<!-- # ¿Qué vimos hoy? -->
 
-Definición de estimadores, algunos ejemplos.
+<!-- Definición de estimadores, algunos ejemplos. -->
 
-Repaso de distribuciones muestrales y definiciones de estadísticos de orden.
+<!-- Repaso de distribuciones muestrales y definiciones de estadísticos de orden. -->
 
-ECM y propiedades de los estimadores (introducción).
+<!-- ECM y propiedades de los estimadores (introducción). -->
 
-# La próxima semana: definiciones y ejemplos.
+<!-- # La próxima semana: definiciones y ejemplos. -->
 
 
