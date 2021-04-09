@@ -415,7 +415,6 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
       d) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
       
       e) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
----
 <!-- class: center, middle -->
 
 <!-- # ¿Qué vimos hoy? -->
