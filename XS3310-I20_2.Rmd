@@ -40,7 +40,7 @@ options(htmltools.dir.version = FALSE)
 # Teorema del límite central
 *Recuerde que,*
 
-Si $X_1,\ldots, X_n$ es una muestra aleatoria de tamaño $n$, y la distribución tiene media $\mu$ y varianza $\theta=\sigma^2<0$. Entonces se cumple que 
+Si $X_1,\ldots, X_n$ es una muestra aleatoria de tamaño $n$, y la distribución tiene media $\mu$ y varianza $\theta=\sigma^2<\infty$. Entonces se cumple que 
 
 $$Z_{n} = \frac{\overline{X}-\mu}{\frac{\sqrt{\theta}}{\sqrt{n}}} \stackrel{d}{\longrightarrow} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$
 o lo que es equivalente 
@@ -96,7 +96,7 @@ Para la función $g$ seleccionada se tiene que  $g'(\mu) = -\dfrac{1}{\mu^2}$. E
 $$ \sqrt{n}\bigg[\dfrac{1}{\overline{X}_n}-\dfrac 1\mu\bigg]\xrightarrow{d}N(0,\dfrac{\sigma ^2}{\mu ^4}) $$
 
 
-La varianza asintótica es $\dfrac{\sigma}{\mu ^4}$
+La varianza asintótica es $\dfrac{\sigma^2}{\mu ^4}$
 ---
 # Estabilización de la varianza 
 
@@ -426,5 +426,3 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
 <!-- ECM y propiedades de los estimadores (introducción). -->
 
 <!-- # La próxima semana: definiciones y ejemplos. -->
-
-
