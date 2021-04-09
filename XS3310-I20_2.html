@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-08" />
+    <meta name="date" content="2021-04-09" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-04-08
+### 2021-04-09
 
 ---
 
@@ -76,10 +76,10 @@ Esta la fórmula del teorema se puede reescribir como,
 
 
 Si `\(X_1,X_2,\dots\)` es una sucesión de variables aleatorias y con alguna distribución continua. Sea `\(\theta\in \mathbb R\)` y `\(\{a_n\}\)` sucesión de números positivos tal que `\(a_n \nearrow\infty\)`.
-Suponga que `\(a_n(Y_n-\theta) \xrightarrow{d} N(0,\sigma^{2})\)`. 
+Suponga que `\(a_n(\hat{\theta}-\theta) \xrightarrow{d} N(0,\sigma^{2})\)`. 
 
 Si `\(g\)` es una función tal que `\(g^{\prime}(\theta)\ne 0\)`, entonces
-`$$\dfrac{a_n}{g'(\theta)}[g(X_n)-g(\theta)] \xrightarrow{d} N(0,\sigma^2 (g^{\prime}(\theta))^{2})$$`
+`$$a_n[g(\hat{\theta})-g(\theta)] \xrightarrow{d} N(0,\sigma^2 (g^{\prime}(\theta))^{2})$$`
 
 ---
 
@@ -88,19 +88,19 @@ Si `\(g\)` es una función tal que `\(g^{\prime}(\theta)\ne 0\)`, entonces
 **Ejemplo**. `\(X_1,X_2,\dots\)` i.i.d. de variables con media `\(\mu\)` y varianza `\(\sigma^2\)`. Sea `\(g\)` una función tal que `\(g'(\mu)\neq 0\)`. Por el T.L.C, 
 
 
-$$ \sqrt{n}(X_n-\mu)\xrightarrow{d}N(0,\sigma^{2})$$
+$$ \sqrt{n}(\overline{X}_{n} -\mu)\xrightarrow{d}N(0,\sigma^{2})$$
 
 
 Si `\(g(\mu) = \dfrac 1\mu\)` con `\(\mu\neq0\)`, ¿Cuál es su varianza asintótica?
 
-Entonces por el método Delta `\(\sqrt{n}[g(\bar X_n)-g(\mu)]\xrightarrow{d}N(0,\sigma^2 (g^{\prime}(\theta))^{2})\)`
+Entonces por el método Delta `\(\sqrt{n}[g(\bar X_n)-g(\mu)]\xrightarrow{d}N(0,\sigma^2 (g^{\prime}(\mu))^{2})\)`
 
 Para la función `\(g\)` seleccionada se tiene que  `\(g'(\mu) = -\dfrac{1}{\mu^2}\)`. Entonces por el método Delta
 
-$$ \sqrt{n}\bigg[\dfrac 1{\bar X_n}-\dfrac 1\mu\bigg]\xrightarrow{d}N(0,\dfrac{\sigma ^2}{\mu ^4}) $$
+$$ \sqrt{n}\bigg[\dfrac{1}{\overline{X}_n}-\dfrac 1\mu\bigg]\xrightarrow{d}N(0,\dfrac{\sigma ^2}{\mu ^4}) $$
 
 
-La varianza asintótica es `\(\dfrac{\sigma}{n\mu ^4}\)`
+La varianza asintótica es `\(\dfrac{\sigma}{\mu ^4}\)`
 ---
 # Estabilización de la varianza 
 
@@ -127,7 +127,7 @@ Sabemos que `\(\mu = \sigma ^2 =\theta\)`.
 
 **OJO: el paramétro `\(\theta\)` es desconocido!**
 
-La varianza asintótica es `\(\dfrac{\theta}{n}\)`. 
+La varianza asintótica es `\(\theta\)`. 
 
 
 ---
@@ -222,12 +222,12 @@ Aplicación más común: valores de la tabla z (normal estándar).
 Si `\(X\)` es una variable aleatoria con distribución normal con media 15 y variancia 16. Se toman muestras aleatorias de tamaño 9. Calcular `\(P(12 &lt; \bar{X}_n &lt; 17)\)`.
 
 $$ P(12 &lt; \bar{X}_n &lt; 17) = P(\frac{ 12-15 }{ 4/3 }&lt;Z&lt;\frac{ 17-15 }{ 4/3 })$$
-    $$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = P(-2.25 &lt; Z &lt;1.5) = 0.9210 $$
-
---- 
+    $$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ = P(-2.25 &lt; Z &lt;1.5) = 0.9210$$
 
 
-# Repaso
+---
+
+## Repaso
 
 
 &gt; **Teorema 1.2.** Si `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`, entonces:
@@ -244,8 +244,10 @@ La prueba de este teorema está fuera de los contenidos de este curso.
 La parte `\(b\)` se puede usar para probar que `\(Var(S^2) = \frac{2\sigma^4}{n-1}\)` cuando asumimos que `\(X_1, X_2, ..., X_n\)` es una muestra aleatoria con distribución normal con media `\(\mu\)` y variancia `\(\sigma^2\)`.
 
 ---
+
 ## Repaso
 `$$\begin{eqnarray*}Var \left ( \frac{(n-1)S^2}{\sigma^2} \right )&amp;=&amp; 2(n-1)\\ \frac{(n-1)^2}{\sigma^4} \cdot Var(S^2)  &amp;=&amp; 2(n-1) \\ Var(S^2) &amp;=&amp; \frac{2\sigma^4(n-1)}{(n-1)^2} \\ Var(S^2) &amp;=&amp; \frac{2\sigma^4}{n-1}\end{eqnarray*}$$`
+
 ---
 
 # Repaso
