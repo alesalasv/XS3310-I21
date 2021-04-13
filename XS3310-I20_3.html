@@ -4,8 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-12" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
+    <meta name="date" content="2021-04-13" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -15,7 +14,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semetre 2021
 ### Escuela de Estadística
-### 2021-04-12
+### 2021-04-13
 
 ---
 
@@ -402,21 +401,21 @@ Sea `\(X\sim f(x|\theta)\)`, `\(\theta \in \Omega \subset \mathbb R\)` parámetr
 ---
 
 **Definición**. Se define la **función Score** como:
-
-\[\lambda(x|\theta)=\ln f(x|\theta)\]
+`$$\lambda(x|\theta)=\ln f(x|\theta)$$`
 
 cuyas derivadas son
 
- \[\lambda'(x|\theta) = \dfrac \partial{\partial \theta}\ln f(x|\theta)\]
-\[\lambda''(x|\theta) = \dfrac {\partial^2}{\partial \theta^2}\ln f(x|\theta)\]
+`\(\lambda'(x|\theta) = \dfrac \partial{\partial \theta}\ln f(x|\theta)\)`
+
+`\(\lambda''(x|\theta) = \dfrac {\partial^2}{\partial \theta^2}\ln f(x|\theta)\)`
 
 
 
-**Definición**. Si `\(X\)` y `\(f(x|\theta)\)` satisfacen los supuestos anteriores, la **información de Fisher** ($I(\theta)$) de `\(X\)` es
-\[I(\theta) =\mathbb E[(\lambda'(x|\theta))^2]\]
+**Definición**. Si `\(X\)` y `\(f(x|\theta)\)` satisfacen los supuestos anteriores, la **información de Fisher** ( `\(I(\theta)\)` ) de `\(X\)` es
+`\(I(\theta) =\mathbb E[(\lambda'(x|\theta))^2]\)`
 donde la esperanza es integral o suma, dependiendo de `\(X\)`.
 
-Por ejemplo si \(f(x\vert\theta)\)
+Por ejemplo si `\(f(x\vert\theta)\)`
 `\begin{equation}
 I(\theta)=\int_{\mathcal{X}}\left[\lambda^{\prime}(x \mid \theta)\right]^{2} f(x \mid \theta) d x
 \end{equation}`
@@ -452,7 +451,7 @@ Entonces
 
 * `\(\lambda'(x|\mu) = \dfrac 1{2\sigma^2}2(x-\mu) = \dfrac{x-\mu}{\sigma^2}\)`.
 
-* `\(\lambda''(x-\mu) = -\dfrac 1{\sigma^2}\)`.
+* `\(\lambda''(x|\mu) = -\dfrac 1{\sigma^2}\)`.
 
 Por lo que
 
@@ -486,17 +485,17 @@ En general, para buscar la eficiencia al estimar un parámetro se requiere deter
 **Solución:** Sabemos que `\(\mathbb{E}[\overline{X} ] = \mu\)`. Basta probar que tiene varianza mínima. 
 Sabemos que en este caso `\(f_{X}(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)`.
 
-* `\(\lambda(x|\mu) = \dfrac 12 \ln (2\pi\sigma^2)-\dfrac 1{2\sigma^2}(x-\mu)^2\)`.
+* `\(\lambda(x|\mu) = -\dfrac 12 \ln (2\pi\sigma^2)-\dfrac 1{2\sigma^2}(x-\mu)^2\)`.
 
-* `\(\lambda'(x|\mu) = \dfrac 1{2\sigma^2}2(x-\mu) = \dfrac{x-\mu}{\sigma^2}\)`.
+* `\(\lambda'(x|\mu) = -\dfrac 1{2\sigma^2}2(x-\mu)\cdot -1 = \dfrac{x-\mu}{\sigma^2}\)`.
 
-* `\(\lambda''(x-\mu) = -\dfrac 1{\sigma^2}\)`.
+* `\(\lambda''(x|\mu) = -\dfrac 1{\sigma^2}\)`.
 
 ---
 
-* `\(I(\mu) = - \mathbb{E}(\lambda''(x-\mu)) = \dfrac 1{\sigma^2}\)`
+* `\(I(\mu) = - \mathbb{E}(\lambda''(x|\mu)) = \dfrac 1{\sigma^2}\)`
 * `\(I_{n}(\mu) = nI(\mu) = \dfrac n{\sigma^2}\)`
-* Cota de Cramer-Rao = \dfrac{\sigma^2}n$
+* Cota de Cramer-Rao = `\(\dfrac{\sigma^2}n\)`
 
 
 De antemano ya sabiamos que `\(Var(\overline{X}) = \dfrac{\sigma^2}{n}\)` que como vemos es igual a la cota de Cramer-Rao para `\(\mu\)`, por lo que podemos concluir que `\(\overline{X}\)` es un estimador insesgado de varianza mínima para `\(\mu\)`.
@@ -543,7 +542,7 @@ ECM y propiedades de los estimadores: insesgado, eficiente.
 
 Práctica en grupos.
 
-Próxima clase: consistente y suficiente. 
+Próxima clase: consistente y suficiente.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
