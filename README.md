@@ -39,13 +39,13 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/muIrBvecff8">Muestras aleatorias, estadísticas y estimadores</a> </td>    
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
-<!--  <tr>
+  <tr>
     <td> 13 abril </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3</a> </td> 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-  <tr>
+<!--  <tr>
     <td> 16 de abril </td>
     <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>

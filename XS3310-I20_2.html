@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
     <meta name="date" content="2021-04-09" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -44,7 +43,7 @@ class: center, middle, inverse, title-slide
 # Teorema del límite central
 *Recuerde que,*
 
-Si `\(X_1,\ldots, X_n\)` es una muestra aleatoria de tamaño `\(n\)`, y la distribución tiene media `\(\mu\)` y varianza `\(\theta=\sigma^2&lt;0\)`. Entonces se cumple que 
+Si `\(X_1,\ldots, X_n\)` es una muestra aleatoria de tamaño `\(n\)`, y la distribución tiene media `\(\mu\)` y varianza `\(\theta=\sigma^2&lt;\infty\)`. Entonces se cumple que 
 
 `$$Z_{n} = \frac{\overline{X}-\mu}{\frac{\sqrt{\theta}}{\sqrt{n}}} \stackrel{d}{\longrightarrow} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$`
 o lo que es equivalente 
@@ -100,7 +99,7 @@ Para la función `\(g\)` seleccionada se tiene que  `\(g'(\mu) = -\dfrac{1}{\mu^
 $$ \sqrt{n}\bigg[\dfrac{1}{\overline{X}_n}-\dfrac 1\mu\bigg]\xrightarrow{d}N(0,\dfrac{\sigma ^2}{\mu ^4}) $$
 
 
-La varianza asintótica es `\(\dfrac{\sigma}{\mu ^4}\)`
+La varianza asintótica es `\(\dfrac{\sigma^2}{\mu ^4}\)`
 ---
 # Estabilización de la varianza 
 
@@ -419,7 +418,6 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
       d) Para disminuir la varianza de `\(\bar{X}\)` a la mitad habría que tomar al menos 100 datos.
       
       e) Como la media muestral es un estimador insesgado, tenemos asegurado que `\(\bar{X} = \mu\)`
----
 &lt;!-- class: center, middle --&gt;
 
 &lt;!-- # ¿Qué vimos hoy? --&gt;
@@ -431,8 +429,6 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
 &lt;!-- ECM y propiedades de los estimadores (introducción). --&gt;
 
 &lt;!-- # La próxima semana: definiciones y ejemplos. --&gt;
-
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
