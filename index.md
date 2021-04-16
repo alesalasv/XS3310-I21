@@ -41,7 +41,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-<!--  <tr>
+  <tr>
     <td> 16 de abril </td>
     <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
@@ -54,7 +54,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-  <tr>
+  <!--<tr>
     <td> 20 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
