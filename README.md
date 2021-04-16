@@ -40,7 +40,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 13 abril y 16 de abril</td>
+    <td> 13 y 16 de abril </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td> 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
