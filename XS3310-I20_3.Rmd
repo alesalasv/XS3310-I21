@@ -612,6 +612,12 @@ Probar que un estimador de este tipo es insesgado para $\mu$ indicando además q
 # Ejercicios 
 
 Sea $X_1,\dots, X_n\sim \text{Poisson}(\theta)$. Muestre que $\bar X_n$ es un estimador eficiente de $\theta$. Es decir, compruebe que la varianza de $\bar X_n$ es igual a su Cota de Cramer-Rao 
+
+
+\begin{equation*}
+f(x \vert \lambda)=\operatorname{Pr}(X=x)=\frac{\lambda^{x} e^{-\lambda}}{x !}
+\end{equation*}
+
 ---
 class: center, middle
 
