@@ -40,14 +40,9 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 13 y 16 de abril </td>
-    <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td> 
-    <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> </td> 
-    <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
-  </tr>
-  <!--<tr>
-    <td> 16 de abril </td>
-    <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
+    <td> 13 y 16 de abril  </td>
+    <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td>
+          <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
           <a href="https://youtu.be/GD4lUmIo9_g">Eficiencia</a> <br>
@@ -67,7 +62,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
-  <tr>
+ <!-- <tr>
     <td> 23 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
