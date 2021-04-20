@@ -40,14 +40,9 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 13 y 16 de abril </td>
-    <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td> 
-    <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> </td> 
-    <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
-  </tr>
-  <tr>
-    <td> 16 de abril </td>
-    <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
+    <td> 13 y 16 de abril  </td>
+    <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td>
+          <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
           <a href="https://youtu.be/GD4lUmIo9_g">Eficiencia</a> <br>
@@ -58,7 +53,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-  <tr>
+<!--  <tr>
     <td> 20 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
@@ -84,7 +79,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
   </tr>
-<!--  <tr>
+  <tr>
     <td> 27 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
