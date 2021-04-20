@@ -4,8 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-19" />
-    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <meta name="date" content="2021-04-20" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -15,15 +14,13 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-04-19
+### 2021-04-20
 
 ---
 
 
 
 
-
----
  
 # Vídeos
 
@@ -100,24 +97,27 @@ Si `\(X\)` es una v.a. con `\(\mathbb{E}[X^{2}]\leq \infty\)`, entonces para cua
 
 ## Desigualdad de Chebyshev (version 2)
 
-Si `\(\hat{\theta}\)` es una v.a. que cumple que  `\(\operatorname{Var}(X)\)` existe. Entonces para cada número  `\(t&gt;0\)`
+Si `\(\hat{\theta}\)` es una v.a. que cumple que  `\(\operatorname{Var}(\hat{\theta})\)` existe. Entonces para cada número  `\(\varepsilon&gt;0\)`
 
-`$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)]}{\varepsilon^2}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$`
+`$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)^2]}{\varepsilon^2}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$`
 
 ---
 # Consistencia
 
-&gt; **Teorema:** Si  `\(\lim_{n \to +\infty}mathrm{MSE}(\hat{\theta})=0\)` entonces `\(\hat{\theta}\)` es consistente para estimar `\(\theta\)`. 
+&gt; **Teorema:** Si  `\(\lim_{n \to +\infty} \mathrm{MSE}(\hat{\theta})=0\)` entonces `\(\hat{\theta}\)` es consistente para estimar `\(\theta\)`. 
 
 **Prueba:**
 
-`$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)^2]}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$`
+`$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)^2]}{\varepsilon^2}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$`
+Entonces, se tiene que
+
+`$$\lim_{n \to +\infty}\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{1}{\varepsilon^{2}} \cdot \lim_{n\to\infty}\operatorname{MSE}(\hat{\theta})=\frac{1}{\varepsilon^{2}} \cdot 0=0$$`
 
 ---
 
 # Consistencia con estimadores insesgados
 
-&gt; **Teorema** Si `\(\hat{\theta}\)` es un estimador de `\(\theta\)` entonces `\(\hat{\theta}\)` es un estimador consistente si:
+&gt; **Teorema 3.1** Si `\(\hat{\theta}\)` es un estimador de `\(\theta\)` entonces `\(\hat{\theta}\)` es un estimador consistente si:
 
 &gt; a. `\(\hat{\theta}\)` es insesgado para `\(\theta\)` 
 
@@ -154,7 +154,7 @@ Ya sabemos que `\(\hat{\theta}_{1}\)` y `\(\hat{\theta}_{2}\)` son estimadores i
 `$$B(X_{(n)}) =  \frac{n\theta }{n+1} - \theta$$`
 $$Var(X_{(n)}) = \frac{n }{n+2}\theta^2 - \frac{n^2}{(n+1)^2} \theta^2 $$
 
-**Tarea:** Pruebe que $\lim_{n\to +\infty}MSE(X_{(n)}) =0 $
+**Tarea:** Pruebe que `\(\displaystyle \lim_{n \to +\infty} \operatorname{MSE}(X_{(n)})=0\)`
 ---
 
 Si observamos el gráfico de `\(X_{(n)}\)` notamos su consistencia pero sin ser  insesgado. Esto significa que existen estimadores sesgados y consistentes. 
@@ -208,7 +208,7 @@ Como se cumple la definición entonces concluimos que `\(X_{(n)}\)` es un estima
 
 &gt; Si `\(g(\cdot)\)` es una función continua en `\(\theta\)` entonces `\(g(\hat{\theta})\)` es consistente para estimar `\(g(\theta)\)`
 
-**Es decir, si `\(\theta \stackrel{p}{\longrightarrow} \theta\)` entonces `\(g(\hat{\theta}) \stackrel{p}{\longrightarrow} g(\theta)\)`**
+**Es decir, si `\(\hat{\theta} \stackrel{p}{\longrightarrow} \theta\)` entonces `\(g(\hat{\theta}) \stackrel{p}{\longrightarrow} g(\theta)\)`**
 ---
 
 # Consistencia
@@ -237,7 +237,7 @@ Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población con 
 **Solución.** 
 Sea `\(U_n = \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\)`. Sabemos que por el Teorema del Límite Central `\(U_n\)` converge en distribución a una `\(N(0,1)\)` cuando `\(n \to +\infty\)`. 
 
-Sea `\(W_n = \frac{S}{\sigma}\)`. Podemos demostrar que `\(S\)` es consistente para estimar `\(\sigma\)` para cualquier población, por lo que por el Definición 1.10, `\(\frac{S}{\sigma}\)` converge en probabilidad a 1 ("es consistente para estimar 1"). 
+Sea `\(W_n = \frac{S}{\sigma}\)`. Podemos demostrar que `\(S\)` es consistente para estimar `\(\sigma\)` para cualquier población, por lo que `\(\frac{S}{\sigma}\)` converge en probabilidad a 1 ("es consistente para estimar 1"). 
 	
 Entonces se cumple que `\(V = \frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}} \xrightarrow{\text{d}} N(0,1)\)` cuando `\(n \to +\infty\)`. 
 
@@ -252,8 +252,9 @@ Entonces se cumple que `\(V = \frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}} \xrigh
 	
 Hasta el momento la selección de estimadores ha sido intuitiva, sin embargo en esta sección utilizaremos la propiedad de suficiencia para determinar estimadores a partir de ciertos estadísticos. Se dice que un estadístico es suficiente si **hace uso de toda la información de la muestra**. Ejemplos: `\(\overline{X}, S^{2}, X_{(n)}\)`.
 	
-&gt; **Definición 4.1.** __Suficiencia_. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria sobre una población con parámetro desconocido `\(\theta\)` y función de densidad/probabilidad `\(f_{X}(x|\theta)\)`. Se dice que un estadístico `\(U = g(X_{1}, X_{2}, ... , X_{n})\)` es **suficiente** para estimar `\(\theta\)` si la distribución condicional de `\(X_{1}, X_{2}, ... , X_{n}\)` dado `\(U=u\)` es independiente de `\(\theta\)`. 
-&gt; $$ P(X_{1}, X_{2}, ... , X_{n} \vert U =u) \text{no depende de `\(\theta\)`.}$$
+&gt; **Definición 4.1.** _Suficiencia_. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria sobre una población con parámetro desconocido `\(\theta\)` y función de densidad/probabilidad `\(f_{X}(x|\theta)\)`. Se dice que un estadístico `\(U = g(X_{1}, X_{2}, ... , X_{n})\)` es **suficiente** para estimar `\(\theta\)` si la distribución condicional de `\(X_{1}, X_{2}, ... , X_{n}\)` dado `\(U=u\)` es independiente de `\(\theta\)`. 
+
+&gt; Es decir, `\(P(X_{1}, X_{2}, ... , X_{n} \vert U =u)\)` no depende de `\(\theta\)`.
 
 ---
 
@@ -344,7 +345,7 @@ Tome `\(u(x) = 1\)`,  `\(v(u,p) = p^{u}\left(1-p\right)^{n-u}\)`. Por el teorema
 &gt;suficiente y es función de cualquier otro estadístico suficiente.
 
 &gt;**Teorema**. Si `\(U = U(X_1,\dots, X_n)\)` es un estadístico suficiente para
-&gt;$\theta$, entonces el MLE `\(\hat\theta\)` de `\(\theta\)` depende de `\(X_1,\dots, X_n\)`
+&gt; `\(\theta\)`, entonces el MLE `\(\hat\theta\)` de `\(\theta\)` depende de `\(X_1,\dots, X_n\)`
 &gt;solamente a través de `\(U\)`. Además, si `\(\hat \theta\)` es suficiente entonces `\(\hat\theta\)` es minimal.
 
 
@@ -366,8 +367,8 @@ Tome `\(u(x) = 1\)`,  `\(v(u,p) = p^{u}\left(1-p\right)^{n-u}\)`. Por el teorema
 \mathcal{L}(x_{1}, ... , x_{n}|\theta) 
 &amp;= \prod_{j=1}^{n} \frac{1}{\theta} \quad 0\leq x_{1}, ... , x_{n}\leq  \theta \\
 &amp;=  \frac{1}{\theta^n} \quad 0\leq x_{1}, ... , x_{n}\leq  \theta \\
-&amp;=  \frac{1}{\theta^n} \quad 0\leq \max{x_{1}, ... , x_{n}}\leq  \theta \\
-&amp;=  \frac{1}{\theta^n} \quad 0\leq x_{(n)}\leq  \theta 
+&amp;=  \frac{1}{\theta^n} \quad 0\leq \max\{x_{1}, ... , x_{n}\}\leq  \theta \\
+&amp;=  \frac{1}{\theta^n} \quad 0\leq X_{(n)}\leq  \theta 
 \end{align*}`
 
 ---
@@ -394,7 +395,7 @@ Como esta expresión no depende de `\(\theta\)` entonces decimos que el máximo 
 `$$\frac{\sum_{i=1}^n(x_i-\bar{x})^2+\sum_{i=1}^n(y_i-\bar{y})^2}{2n-2}$$`
 es un estimador consistente de `\(\sigma^2\)`.
 
-- SSuponga que$X_1,\dots,X_n \sim Poisson(\lambda)$, ¿Cuál sería un estimador suficiente minimal para `\(\lambda\)`?  
+- Suponga que `\(X_1,\dots,X_n \sim Poisson(\lambda)\)`, ¿Cuál sería un estimador suficiente minimal para `\(\lambda\)`?  
 
 ---
 class: center, middle
@@ -404,13 +405,6 @@ class: center, middle
 ECM y propiedades de los estimadores: consistente y suficiente. 
 
 Para la próxima clase: métodos para encontrar estadísticos suficientes y métodos para encontrar estimadores.
-
-
-
-
-
-
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
