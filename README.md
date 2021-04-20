@@ -53,7 +53,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-<!--  <tr>
+  <tr>
     <td> 20 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
@@ -62,7 +62,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
-  <tr>
+ <!-- <tr>
     <td> 23 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
