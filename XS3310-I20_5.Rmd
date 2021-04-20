@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semetre 2021"  
+subtitle: "I Semestre 2021"  
 author: 
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
@@ -18,21 +18,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# ¿Qué vamos a discutir hoy?
-
-* Mapa de recursos ¿dónde encuentro qué?
-* ¿Qué podemos esperar de estos 50 mins de clase?
-
-
-* Consistencia (ejemplo, motivación)
-* Definición de consistencia (3.1)
-* Teorema 3.1 (consistencia para estimadores insesgados)
-* ¿qué pasa si no son insesgados?
-* Teorema 3.2 función de estimadores consistentes
-* Teorema de Slutsky
-* Suficiencia (definición 4.1) + ejemplo
-
 
 ---
  
@@ -58,38 +43,26 @@ Temas para esta clase:
 
 ---
  
-# Mapa de recursos
-
-* Vídeos: links se postearán en las presentaciones, pero también estarán disponibles antes de la clase en Mediación y en el repo de Github.
-* Material resumen de Mauricio: está en Slack y en Mediación Virtual.
-* Diapositivas: en el repo de Github.
-* Ejercicios recomendados: en Mediación Virtual y en las diapositivas.
-* Horas consulta: vía Slack, o zoom de ser necesario. Ver horario en el programa modificado.
-
----
- 
-# ¿Qué podemos esperar de estos 50 mins de clase?
-
-* Énfasis en demostraciones o ejercicios que NO están en los vídeos.
-* Las dudas se harán por escrito (puede ser antes de clase) y se resolverán en la próxima clase o si no hay tiempo, entonces en horas consulta.
-* Son solo 50 mins, por lo que no podemos esperar lo mismo que en la clase presencial. 
-* ¿Por qué se hace así? porque las clases sincrónicas son las de más difícil acceso para poblaciones vulnerables, por lo que en esta clase daremos recursos asincrónicos (vídeos, material escrito, ejercicios y prácticas) para reemplazar las clases que ya conocíamos.
-
----
 
 # Consistencia
 	
 **Ejemplo.** 
 
-Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_{j} \sim Unif(0,\theta)$ y sean $\overline{X}$ y $X_{(n)}$ estimadores de $\theta$. 
+Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_{j} \sim Unif(0,\theta)$ y sean $\overline{X}$ y $X_{(n)}$ estimadores de $\theta$.
 	
-Podemos encontrar que $E(\overline{X}) = \frac{\theta}{2}$ y $E(X_{(n)}) = \frac{n\theta}{n+1}$, por lo que $\overline{X}$ y $X_{(n)}$ son estimadores sesgados. No obstante podemos construir estimadores insesgados a partir de ellos que queden de la forma $\hat{\theta}_{1} = 2\overline{X}$ y $\hat{\theta}_{2} = \frac{n+1}{n}X_{(n)}$, respectivamente. 
+Podemos encontrar que $E(\overline{X}) = \frac{\theta}{2}$ y $E(X_{(n)}) = \frac{n\theta}{n+1}$, por lo que $\overline{X}$ y $X_{(n)}$ son estimadores
+sesgados. No obstante podemos construir estimadores insesgados a partir de ellos
+que queden de la forma $\hat{\theta}_{1} = 2\overline{X}$ y $\hat{\theta}_{2} = \frac{n+1}{n}X_{(n)}$, respectivamente.
 	
-También podemos encontrar que la variancias de estos dos estimadores son las siguientes:
+También podemos encontrar que la variancias de estos dos estimadores son las
+siguientes:
 	
-$Var(\hat{\theta}_{1}) = \frac{\theta^2}{3n} \qquad Var(\hat{\theta}_{2}) = \frac{\theta^2}{n(n+2)}$
+  $Var(\hat{\theta}_{1}) = \frac{\theta^2}{3n} \qquad Var(\hat{\theta}_{2}) = \frac{\theta^2}{n(n+2)}$
 	
-El interés ahora yace en ver si estos estimadores se aproximan cada vez más al valor verdadero de $\theta$ conforme aumentamos el tamaño de muestra y obtenemos más información. Y si ambos cumplen esto también nos podría interesar cuál lo hace de manera más rápida. 
+El interés ahora yace en ver si estos estimadores se aproximan cada vez más al
+valor verdadero de $\theta$ conforme aumentamos el tamaño de muestra y obtenemos
+más información. Y si ambos cumplen esto también nos podría interesar cuál lo
+hace de manera más rápida.
 
 ---
 
@@ -107,7 +80,40 @@ Haciendo una simulación, con $\theta$ = 5, podemos observar que ambos estimador
 		
 O lo que es equivalente: $\lim_{n \to +\infty} P\left(\left|\hat{\theta}-\theta\right|> \varepsilon\right) = 0$
 
-> **Teorema 3.1.** Si $\hat{\theta}$ es un estimador de $\theta$ entonces $\hat{\theta}$ es un estimador consistente si:
+
+---
+
+# Recordatorio
+
+## Desigualdad de Chebyshev (version 1)
+
+Si $X$ es una v.a. con $\mathbb{E}[X^{2}]\leq \infty$, entonces para cualquier $\varepsilon>0$, se tiene que 
+
+$$\mathrm{P}(\vert X\vert > \varepsilon) \leq \frac{\mathbb{E}[X^2]}{\varepsilon^2}$$. 
+
+---
+
+
+## Desigualdad de Chebyshev (version 2)
+
+Si $\hat{\theta}$ es una v.a. que cumple que  $\operatorname{Var}(X)$ existe. Entonces para cada número  $t>0$
+
+$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)]}{\varepsilon^2}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$
+
+---
+# Consistencia
+
+> **Teorema:** Si  $\lim_{n \to +\infty}mathrm{MSE}(\hat{\theta})=0$ entonces $\hat{\theta}$ es consistente para estimar $\theta$. 
+
+**Prueba:**
+
+$$\operatorname{P}(|\hat{\theta}-\theta| \geq \varepsilon) \leq  \frac{\mathbb{E}[(\hat{\theta}-\theta)^2]}=\frac{\operatorname{MSE}(\hat{\theta})}{\varepsilon^{2}}$$
+
+---
+
+# Consistencia con estimadores insesgados
+
+> **Teorema** Si $\hat{\theta}$ es un estimador de $\theta$ entonces $\hat{\theta}$ es un estimador consistente si:
 
 > a. $\hat{\theta}$ es insesgado para $\theta$ 
 
@@ -123,19 +129,31 @@ Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_{j} \sim Unif(0
 	
 **Solución.** 
 
-Ya sabemos que $\hat{\theta}_{1}$ y $\hat{\theta}_{2}$ son estimadores insesgados de $\theta$, por lo que se cumple la primera condición del Teorema 3.1; solo nos hace falta demostrar la segunda propiedad:
+Ya sabemos que $\hat{\theta}_{1}$ y $\hat{\theta}_{2}$ son estimadores insesgados de $\theta$, por lo que se cumple la primera condición del Teorema anterior; solo nos hace falta demostrar la segunda propiedad:
 	
-$\lim_{n \to +\infty}Var(\hat{\theta}_{1}) = \lim_{n \to +\infty}\frac{\theta^2}{3n} = 0$
+$$\lim_{n \to +\infty}Var(\hat{\theta}_{1}) = \lim_{n \to +\infty}\frac{\theta^2}{3n} = 0$$
 	
-$\lim_{n \to +\infty}Var(\hat{\theta}_{2}) = \lim_{n \to +\infty}\frac{\theta^2}{n(n+2)} = 0$
+$$\lim_{n \to +\infty}Var(\hat{\theta}_{2}) = \lim_{n \to +\infty}\frac{\theta^2}{n(n+2)} = 0$$
 	
-Como ambos estimadores cumplen ser insesgados y tener variancias que tienden a cero conforme el tamaño de muestra tiende a infinito entonces se cumple que ambos son estimadores consistentes para $\theta$. 
+  Ambos estimadores son insesgados, con varianza que tiende a cero. Por lo tanto son consistentes para estimar $\theta$. 
+  
+
 
 ---
 
 # Consistencia
 
-No obstante, si observamos el gráfico de la consistencia de $X_{(n)}$ podemos notar como este también tiene un comportamiento consistente pero sin ser un estimador insesgado. Esto significa que la Definición 1.10 abarca muchos más estimadores que el Teorema 1.23. 
+**OJO:** ¿ El estadístico $X_{(n)}$ es consistente?
+
+**Respuesta:** Si, pero es sesgado.
+
+$$B(X_{(n)}) =  \frac{n\theta }{n+1} - \theta$$
+$$Var(X_{(n)}) = \frac{n }{n+2}\theta^2 - \frac{n^2}{(n+1)^2} \theta^2 $$
+
+**Tarea:** Pruebe que $\lim_{n\to +\infty}MSE(X_{(n)}) =0 $
+---
+
+Si observamos el gráfico de $X_{(n)}$ notamos su consistencia pero sin ser  insesgado. Esto significa que existen estimadores sesgados y consistentes. 
 ![Figura 2. Consistencia para el máximo de una $Unif(0,\theta)$](figs/max_consist.jpg)
 ---
 
@@ -186,6 +204,7 @@ Como se cumple la definición entonces concluimos que $X_{(n)}$ es un estimador 
 
 > Si $g(\cdot)$ es una función continua en $\theta$ entonces $g(\hat{\theta})$ es consistente para estimar $g(\theta)$
 
+**Es decir, si $\theta \stackrel{p}{\longrightarrow} \theta$ entonces $g(\hat{\theta}) \stackrel{p}{\longrightarrow} g(\theta)$**
 ---
 
 # Consistencia
@@ -220,58 +239,142 @@ Entonces se cumple que $V = \frac{\overline{X}-\mu}{\frac{S}{\sqrt{n}}} \xrighta
 
 ---
 
-# Suficiencia
+
+# Estadísticos suficientes
+
+
+
+
 	
 Hasta el momento la selección de estimadores ha sido intuitiva, sin embargo en esta sección utilizaremos la propiedad de suficiencia para determinar estimadores a partir de ciertos estadísticos. Se dice que un estadístico es suficiente si **hace uso de toda la información de la muestra**. Ejemplos: $\overline{X}, S^{2}, X_{(n)}$.
 	
-> **Definición 4.1.** Suficiencia minima. Si $X_{1}, X_{2}, ... , X_{n}$ es una muestra aleatoria sobre una población con parámetro desconocido $\theta$ y función de densidad/probabilidad $f_{X}(x|\theta)$. Se dice que un estadístico $U = g(X_{1}, X_{2}, ... , X_{n})$ es **suficiente mínimo** para estimar $\theta$ si la distribución condicional de $X_{1}, X_{2}, ... , X_{n}$ dado $U=u$ es independiente de $\theta$. 
+> **Definición 4.1.** __Suficiencia_. Si $X_{1}, X_{2}, ... , X_{n}$ es una muestra aleatoria sobre una población con parámetro desconocido $\theta$ y función de densidad/probabilidad $f_{X}(x|\theta)$. Se dice que un estadístico $U = g(X_{1}, X_{2}, ... , X_{n})$ es **suficiente** para estimar $\theta$ si la distribución condicional de $X_{1}, X_{2}, ... , X_{n}$ dado $U=u$ es independiente de $\theta$. 
+> $$ P(X_{1}, X_{2}, ... , X_{n} \vert U =u) \text{no depende de $\theta$.}$$
 
 ---
 
-# Suficiencia
+## Teorema de Factorización de Fisher
 
-De otra forma, se puede decir que un estadístico $U = T(X_{1}, X_{2}, ... , X_{n})$, de una muestra aleatoria $X_{1}, X_{2}, ... , X_{n}$, es suficiente mínimo para estimar $\theta$ si no se puede encontrar otro estadístico que realice una mejor reducción de los datos que la que realiza $U$. Es decir, el estadístico suficiente mínimo logra **explicar toda la información del parámetro que se presenta en la muestra aleatoria**.
-	
+Otra forma de entender el resultado anterior es usando este teorema:
+
+
+**Teorema**. Si $X_1,\dots,X_n$ es una muestra aleatoria de $f(X|\theta)$, el
+parámetro $\theta$ es desconocido. Un estadístico $U=U(X_1,\dots,X_n)$ es
+suficiente si y solo si 
+
+$$f_n(X_1,\dots,X_n|\theta) = u(X_1,\dots,X_n)v(U(X_1,\dots,X_n),\theta)\;\forall \theta \in \mathbb R.$$
+
+Las funciones $u$ y $v$  son no negativas. 
+---
+
+# Suficiencia 
+
+Suficiencia se refiere a que el estadistico $U$ contiene toda la información necesaria para estimar $\theta$. Por eso el paramétro está junto con el estadistico en la función $v(U(X_1,\dots,X_n),\theta)$. 
+
+
 **Ejemplo.** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_{j} \sim Bernoulli(p)$. Pruebe que $U = \sum_{j=1}^{n} X_{j}$ es suficiente para estimar $p$.
-	
-**Solución.** Sabemos que la función de probabilidad de una Bernoulli viene dada por la siguiente expresión:
-	
-$f_{X}(x|p) = \begin{cases} p^{x}\left(1-p\right)^{1-x} \quad si \quad x \in \left\lbrace 0,1\right\rbrace  \\ 0 \quad en \quad otros \quad casos \end{cases}$
-	
-También sabemos de antemano que la suma de Bernoulli es una Binomial, por lo que $U \sim Bin(n,p)$, por lo que tiene la siguiente función de probabilidad:
-	
-$f_{U}(u|p) = \begin{cases} \binom{n}{u}p^{u}\left(1-p\right)^{n-u} \quad si \quad u \in \left\lbrace0,1,2,...,n\right\rbrace \\ 0 \quad en \quad otros \quad casos \end{cases}$
-	
----
 
-# Suficiencia
 
-Ahora tenemos que encontrar la función de probabilidad condicional de $X_{1}, X_{2}, ... , X_{n}$ dado $U=u$, que por lo visto en cursos anteriores sabemos que es:
-	
-$f(x_{1}, ... , x_{n} | U = u) = \frac{f(x_{1}, ... , x_{n}, u)}{f_{U}(u)}$
+Recordemos que bajo independencia $f(x_{1}, ... , x_{n}) = \prod_{j=1}^{n}f_{X_{j}}(x_{j}|p)$. Esta función también lleva el nombre de **función de verosimilitud** y se denota como $\mathcal{L}(x_{1}, ... , x_{n}|p)$ o también solo como $\mathcal{L}(p)$. 
 
-En este caso el numerador es la función de probabilidad conjunta de $X_{1}, X_{2}, ... , X_{n}$ y $U$, pero al estar este en términos de toda la muestra aleatoria entonces quedamos con solo la función de probabilidad conjunta de $X_{1}, X_{2}, ... , X_{n}$, $f(x_{1}, ... , x_{n})$. Recordemos que bajo independencia $f(x_{1}, ... , x_{n}) = \prod_{j=1}^{n}f_{X_{j}}(x_{j}|p)$. Esta función también lleva el nombre de **función de verosimilitud** y se denota como $\mathcal{L}(x_{1}, ... , x_{n}|p)$ o también solo como $\mathcal{L}(p)$. 
-	
-$\mathcal{L}(x_{1}, ... , x_{n}|p) =  \prod_{j=1}^{n} p^{x_{j}}\left(1-p\right)^{1-x_{j}}= p^{\sum_{j=1}^{n}x_{j}}\left(1-p\right)^{n-\sum_{j=1}^{n}x_{j}} = p^{u}\left(1-p\right)^{n-u}$
+\begin{align*}
+\mathcal{L}(x_{1}, ... , x_{n}|p) =  
+\prod_{j=1}^{n} p^{x_{j}}\left(1-p\right)^{1-x_{j}} 
+&= p^{\sum_{j=1}^{n}x_{j}}\left(1-p\right)^{n-\sum_{j=1}^{n}x_{j}} \\
+&= p^{u}\left(1-p\right)^{n-u}
+\end{align*}
 
 
 ---
 
-# Suficiencia
+\begin{align*}
+\mathcal{L}(x_{1}, ... , x_{n}|p) = p^{u}\left(1-p\right)^{n-u}
+\end{align*}
 
-Por lo tanto, $f(x_{1}, ... , x_{n} | U = u) = \frac{p^{u}\left(1-p\right)^{n-u}}{\binom{n}{u}p^{u}\left(1-p\right)^{n-u}} = \frac{1}{\binom{n}{u}}$
+
+Tome $u(x) = 1$,  $v(u,p) = p^{u}\left(1-p\right)^{n-u}$. Por el teorema de factorización de Fisher, $U = \sum_{j=1}^{n} X_{j}$ es suficiente para estimar $p$.
+
+
+<!-- # Suficiencia -->
+
+<!-- <\!-- De otra forma, se puede decir que un estadístico $U = T(X_{1}, X_{2}, ... , X_{n})$, de una muestra aleatoria $X_{1}, X_{2}, ... , X_{n}$, es suficiente para estimar $\theta$ si no se puede encontrar otro estadístico que realice una mejor reducción de los datos que la que realiza $U$. Es decir, el estadístico suficiente mínimo logra **explicar toda la información del parámetro que se presenta en la muestra aleatoria**. -\-> -->
+
+<!-- **Ejemplo.** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_{j} \sim Bernoulli(p)$. Pruebe que $U = \sum_{j=1}^{n} X_{j}$ es suficiente para estimar $p$. -->
 	
-Como vemos, esta función condicional no depende de $p$, por lo que decimos que $U$ es suficiente para estimar $p$. 
+<!-- **Solución.** Sabemos que la función de probabilidad de una Bernoulli viene dada por la siguiente expresión: -->
+	
+<!-- $f_{X}(x|p) = \begin{cases} p^{x}\left(1-p\right)^{1-x} \quad si \quad x \in \left\lbrace 0,1\right\rbrace  \\ 0 \quad en \quad otros \quad casos \end{cases}$ -->
+	
+<!-- También sabemos de antemano que la suma de Bernoulli es una Binomial, por lo que $U \sim Bin(n,p)$, por lo que tiene la siguiente función de probabilidad: -->
+	
+<!-- $f_{U}(u|p) = \begin{cases} \binom{n}{u}p^{u}\left(1-p\right)^{n-u} \quad si \quad u \in \left\lbrace0,1,2,...,n\right\rbrace \\ 0 \quad en \quad otros \quad casos \end{cases}$ -->
+	
+<!-- --- -->
+
+<!-- # Suficiencia -->
+
+<!-- Ahora tenemos que encontrar la función de probabilidad condicional de $X_{1}, X_{2}, ... , X_{n}$ dado $U=u$, que por lo visto en cursos anteriores sabemos que es: -->
+	
+<!-- $f(x_{1}, ... , x_{n} | U = u) = \frac{f(x_{1}, ... , x_{n}, u)}{f_{U}(u)}$ -->
+
+<!-- En este caso el numerador es la función de probabilidad conjunta de $X_{1}, X_{2}, ... , X_{n}$ y $U$, pero al estar este en términos de toda la muestra aleatoria entonces quedamos con solo la función de probabilidad conjunta de $X_{1}, X_{2}, ... , X_{n}$, $f(x_{1}, ... , x_{n})$. Recordemos que bajo independencia $f(x_{1}, ... , x_{n}) = \prod_{j=1}^{n}f_{X_{j}}(x_{j}|p)$. Esta función también lleva el nombre de **función de verosimilitud** y se denota como $\mathcal{L}(x_{1}, ... , x_{n}|p)$ o también solo como $\mathcal{L}(p)$.  -->
+	
+<!-- $\mathcal{L}(x_{1}, ... , x_{n}|p) =  \prod_{j=1}^{n} p^{x_{j}}\left(1-p\right)^{1-x_{j}}= p^{\sum_{j=1}^{n}x_{j}}\left(1-p\right)^{n-\sum_{j=1}^{n}x_{j}} = p^{u}\left(1-p\right)^{n-u}$ -->
+
+
+<!-- --- -->
+
+<!-- # Suficiencia -->
+
+<!-- Por lo tanto, $f(x_{1}, ... , x_{n} | U = u) = \frac{p^{u}\left(1-p\right)^{n-u}}{\binom{n}{u}p^{u}\left(1-p\right)^{n-u}} = \frac{1}{\binom{n}{u}}$ -->
+	
+<!-- Como vemos, esta función condicional no depende de $p$, por lo que decimos que $U$ es suficiente para estimar $p$.  -->
+
+
+---
+
+# Minimalidad
+
+
+>**Definición**. Un estadístico $T$ es **suficiente minimal** si $T$ es
+>suficiente y es función de cualquier otro estadístico suficiente.
+
+>**Teorema**. Si $U = U(X_1,\dots, X_n)$ es un estadístico suficiente para
+>$\theta$, entonces el MLE $\hat\theta$ de $\theta$ depende de $X_1,\dots, X_n$
+>solamente a través de $U$. Además, si $\hat \theta$ es suficiente entonces $\hat\theta$ es minimal.
+
+
+
+
+
+
+
+
+
+
+---
 
 **Ejemplo.**Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población Uniforme en el intervalo $(0,\theta)$. Demuestre que el máximo muestral es un estimador suficiente para $\theta$. 
-	
-**Solución.** Ya habiamos demostrado con anterioridad que para este caso $U = X_{(n)} \sim Potencial(n,\theta)$, por lo que conocemos su función de densidad:
+
+**Solución.**  
+
+\begin{align*}
+\mathcal{L}(x_{1}, ... , x_{n}|\theta) 
+&= \prod_{j=1}^{n} \frac{1}{\theta} \quad 0\leq x_{1}, ... , x_{n}\leq  \theta \\
+&=  \frac{1}{\theta^n} \quad 0\leq x_{1}, ... , x_{n}\leq  \theta \\
+&=  \frac{1}{\theta^n} \quad 0\leq \max{x_{1}, ... , x_{n}}\leq  \theta \\
+&=  \frac{1}{\theta^n} \quad 0\leq x_{(n)}\leq  \theta 
+\end{align*}
+
+---
+
+Otra forma es que ya habiamos demostrado que $U = X_{(n)} \sim Potencial(n,\theta)$, por lo que conocemos su función de densidad:
 
 $f_{U}(u) = \frac{nu^{n-1}}{\theta^n}$
 	
 Con esto podemos encontrar la función de densidad marginal:
 	
-$f(x_{1}, ... , x_{n} | U = u) = \dfrac{\theta^{-n}}{\dfrac{nu^{n-1}}{\theta^n}} = \dfrac{1}{nu^{n-1}}$
+$f(x_{1}, ... , x_{n} | U = u) = \dfrac{\frac{1}{\theta^{n}}}{\dfrac{nu^{n-1}}{\theta^n}} = \dfrac{1}{nu^{n-1}}$
 	
 Como esta expresión no depende de $\theta$ entonces decimos que el máximo muestral es suficiente para estimar $\theta$. 
 
@@ -280,14 +383,14 @@ Como esta expresión no depende de $\theta$ entonces decimos que el máximo mues
 
 # Ejercicios grupales
 
-**9.17** (Mendenhall) Suponga que $X_1, X_2, ..., X_n$ y $Y_1, Y_2, ..., Y_n$ son muestras aleatorias independientes provenientes de dos poblaciones con medias $\mu_1$ y $\mu_2$ y variancias $\sigma_1^2$ y $\sigma_2^2$, respectivamente. Demuestre que $\bar{X}-\bar{Y}$ es un estimador consistente de $\mu_1-\mu_2$.
+- **9.17** (Mendenhall) Suponga que $X_1, X_2, ..., X_n$ y $Y_1, Y_2, ..., Y_n$ son muestras aleatorias independientes provenientes de dos poblaciones con medias $\mu_1$ y $\mu_2$ y variancias $\sigma_1^2$ y $\sigma_2^2$, respectivamente. Demuestre que $\bar{X}-\bar{Y}$ es un estimador consistente de $\mu_1-\mu_2$.
 
-**9.18** (Mendenhall) Con los mismos supuestos del ejercicios 9.17 + asumiendo que las dos poblaciones son normales con $\sigma_1^2 = \sigma_2^2 = \sigma^2$. Demuestre que: 
+- **9.18** (Mendenhall) Con los mismos supuestos del ejercicios 9.17 + asumiendo que las dos poblaciones son normales con $\sigma_1^2 = \sigma_2^2 = \sigma^2$. Demuestre que: 
 
 $$\frac{\sum_{i=1}^n(x_i-\bar{x})^2+\sum_{i=1}^n(y_i-\bar{y})^2}{2n-2}$$
 es un estimador consistente de $\sigma^2$.
 
-Tienen 30 minutos para resolver los dos ejercicios. Cuando terminen, pueden volver a la sesión principal para revisar sus respuestas.
+- Suponga que$X_1,\dots,X_n \sim Poisson(\lambda)$, ¿Cuál sería un estimador suficiente minimal para $\lambda$?  
 
 ---
 class: center, middle

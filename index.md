@@ -41,9 +41,9 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> </td> 
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
-  <!-- <tr>
+  <tr>
     <td> 16 de abril </td>
-    <td>  <a href="XS3310-I20_4.html">Clase 4</a> </td>
+    <td>   </td>
     <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
           <a href="https://youtu.be/GD4lUmIo9_g">Eficiencia</a> <br>
@@ -51,7 +51,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/e8BhHJKB5Ks">Cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/q0NI2tftYWg">Comentarios sobre la cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/YW1ZG1Hgg_k">Primer ejemplo sobre la cota inferior de Cramér-Rao</a> <br>
-          <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
+          <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td>
     <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
   </tr>
  <tr>
@@ -60,41 +60,41 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
           <a href="https://youtu.be/vzG_dIdV5MA">Suficiencia</a> <br>
-          <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
+          <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td>
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 23 de abril </td>
-    <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
-          <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a> <br>
-          <a href="https://www.youtube.com/watch?v=38qjzQ0PRRE">Esperanza condicional</a> <br>
-          <a href="https://www.youtube.com/watch?v=o4O8eKhd0u0">Teorema de Rao-Blackwell</a> <br>
-          <a href="https://www.youtube.com/watch?v=K3PKgkFKqMA">Ejemplos de aplicaci&oacute;n del teorema de Rao-Blackwell</a> <br>
-          <a href="https://www.youtube.com/watch?v=rgZ-BiwRf2o">Completez</a> <br>
-          <a href="https://www.youtube.com/watch?v=et3U9snQTgk">Teorema de Lehmann-Sheff&eacute;</a> <br>
-          <a href="https://www.youtube.com/watch?v=RS_xpKi5bXU">Ejemplo de aplicaci&oacute;n del teorema de Lehmann-Sheff&eacute;</a> <br>
-          <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a> <br>
-          <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br>
-          <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br>
-          <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
-    <td> Práctica 9.37 - 9.68 de Mendenhall </td>
-  </tr>
-  <tr>
-    <td> 27 de abril </td>
-    <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
-<a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
-<a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a> <br>
-</td> 
-    <td> Mendenhall 9.69 - 9.97  <br> 
-    Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
-Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
-  </tr>  --> 
+<!--     <td> 23 de abril </td>
+<!--     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td> -->
+<!--     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=38qjzQ0PRRE">Esperanza condicional</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=o4O8eKhd0u0">Teorema de Rao-Blackwell</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=K3PKgkFKqMA">Ejemplos de aplicaci&oacute;n del teorema de Rao-Blackwell</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=rgZ-BiwRf2o">Completez</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=et3U9snQTgk">Teorema de Lehmann-Sheff&eacute;</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=RS_xpKi5bXU">Ejemplo de aplicaci&oacute;n del teorema de Lehmann-Sheff&eacute;</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=oNguqtL_ndU">Suficiencia e informaci&oacute;n</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br> -->
+<!--           <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td>  -->
+<!--     <td> Práctica 9.37 - 9.68 de Mendenhall </td> -->
+<!--   </tr> -->
+<!--   <tr> -->
+<!--     <td> 27 de abril </td> -->
+<!--     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td> -->
+<!--     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del m&eacute;todo de m&aacute;xima verosimilitud</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el m&eacute;todo de m&aacute;xima verosimilitud</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y m&aacute;xima verosimilitud</a> <br> -->
+<!-- <a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a> <br> -->
+<!-- </td>  -->
+<!--     <td> Mendenhall 9.69 - 9.97  <br>  -->
+<!--     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br> -->
+<!-- Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td> -->
+<!--   </tr>  -\->  -->
   
 
 <!-- <tr>
