@@ -3,17 +3,18 @@
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-04-21" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### 5/05/2020 (updated: 2020-05-08)
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-04-21
 
 ---
 
@@ -138,7 +139,7 @@ Ya encontrados los valores de `\(a\)` y `\(b\)` podemos proceder a despejar `\(\
 Por lo tanto, con una confianza de `\((1-\alpha)\%\)` el intervalo `\(\left[ \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{\frac{\alpha}{2}, 40}}, \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{1-\frac{\alpha}{2}, 40}}  \right]\)` incluye el valor de `\(\beta\)`. 
 
 ---
-
+class: justify
 ## Intervalos de confianza para poblaciones normales
 	
 ### Intervalos de confianza para `\(\mu\)`
@@ -147,7 +148,7 @@ Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población Norm
 	
 Primero debemos encontrar un pivote que dependa de la muestra y de `\(\mu\)` en su forma de cálculo pero cuya distribución no dependa de `\(\mu\)`. Como habiamos visto en un ejemplo anterior podemos utilizar como pivote a `\(Z = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}\)`, ya que `\(Z \sim N(0,1)\)`. Luego procedemos a encontrar los valroes `\(a\)` y `\(b\)` que satisfacen `\(P(a \leq Z \leq b) = 1-\alpha\)` y `\(P(Z &lt; a) = P(Z &gt; b) = \frac{\alpha}{2}\)`. 
 
-Como no conocemos una expresión cerrada para la función de distribución de una Normal Estándar, procedemos a utilizar las tablas. Las tablas de la Normal Estándar que tenemos acumulan hacia la izquierda (a menos de), por lo que `\(a\)` es el valor de la tabla que acumula a su izquierda una probabilidad de `\(\frac{\alpha}{2}\)`, mientras que `\(b\)` es el valor de la tabla que acumula a su izquierda `\(1 - \frac{\alpha}{2}\)`. Por simplicidad llamaremos a estos valores `\(z_{\frac{\alpha}{2}}\)` y `\(z_{1-\frac{\alpha}{2}}\)`, respectivamente. 
+Como no conocemos una expresión cerrada para la función de distribución de una Normal Estándar, procedemos a utilizar las tablas. Estas tablas acumulan hacia la izquierda (a menos de), por lo que `\(a\)` es el valor de la tabla que acumula a su izquierda una probabilidad de `\(\frac{\alpha}{2}\)`, mientras que `\(b\)` es el valor de la tabla que acumula a su izquierda `\(1 - \frac{\alpha}{2}\)`. Por simplicidad llamaremos a estos valores `\(z_{\frac{\alpha}{2}}\)` y `\(z_{1-\frac{\alpha}{2}}\)`, respectivamente. 
 
 ---
 
@@ -298,9 +299,6 @@ Estimación por intervalos, método del pivote. Fórmulas para las estimaciones 
 Intervalos de confianza para variancias, para muestras grandes
 
 Bootstrap y contrastes de hipótesis.
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
