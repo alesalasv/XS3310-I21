@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Grupos 001 - 002" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-04-21" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### Grupos 001 - 002
-### 17/04/2020 (updated: 2020-04-20)
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-04-21
 
 ---
 
@@ -55,14 +55,14 @@ class: center, middle, inverse, title-slide
 
 # Estimadores de momentos
 	
-&gt; Definición 5.2. Momento al origen. Si `\(X\)` es una variable aleatoria con distribución conocida, se define el *k*-ésimo momento al origen como: `\(\mu_{k}^{\prime} = E\left[X^{k}\right]\)`
+&gt; **Definición 5.2.** Momento al origen. Si `\(X\)` es una variable aleatoria con distribución conocida, se define el *k*-ésimo momento al origen como: `\(\mu_{k}^{\prime} = E\left[X^{k}\right]\)`
 	
-&gt; Definición 5.3. Momento central. Si `\(X\)` es una variable aleatoria con distribución conocida y media `\(\mu\)`, se define el *k*-ésimo momento central como:
+&gt; **Definición 5.3.** Momento central. Si `\(X\)` es una variable aleatoria con distribución conocida y media `\(\mu\)`, se define el *k*-ésimo momento central como:
 `\(\mu_{k} = E\left[(X-\mu)^{k}\right]\)`
 
 Para este tema también vamos a definir un nuevo tipo de momento, que llamaremos momento muestral:
 	
-&gt; Definición 5.4. Momento muestral. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria de una distribución conocida, entonces se define el \textit{k}-ésimo momento muestral como:
+&gt; **Definición 5.4.** Momento muestral. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria de una distribución conocida, entonces se define el \textit{k}-ésimo momento muestral como:
 `\(m_{k}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{k}\)`
 
 ---
@@ -71,13 +71,13 @@ Para este tema también vamos a definir un nuevo tipo de momento, que llamaremos
 	
 Si nos basamos en la idea de que los momentos muestrales son buenos estimadores de los momentos poblaciones al origen, entonces para determinar el estimador de momentos (EM) en relación con un parámetro desconocido `\(\theta\)`, se resuelve la ecuación generada al igualar el momento (o momentos) poblacional al origen con el momento muestral y resolviendo para `\(\theta\)`. 
 	
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de momentos para `\(\theta\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de momentos para `\(\theta\)`. 
 	
 ---
 
 # Estimadores de momentos
 
-Solución. Empezando por el momento al origen tenemos:
+**Solución.** Empezando por el momento al origen tenemos:
 `\(\mu_{1}^{\prime} = E\left[X^{1}\right] = E[X] = \frac{\theta}{2}\)`
 
 El primer momento muestral siempre va a ser `\(\overline{X}\)` por lo que en este caso tenemos la siguiente igualdad:
@@ -95,9 +95,9 @@ Por lo tanto concluimos que `\(\hat{\theta} = 2\overline{X}\)` es el estimador d
 # Estimadores de momentos
 	
 		
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Gamma(\alpha, \beta)\)`. Determine un estimador de momentos para `\(\alpha\)` y para `\(\beta\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Gamma(\alpha, \beta)\)`. Determine un estimador de momentos para `\(\alpha\)` y para `\(\beta\)`. 
 	
-Solución. En el los casos en que se requiere estimar más de un parámetro se debe utilizar un número de igualdades similar al número de parámetros desconocidos. En este caso tenemos:
+**Solución.** En el los casos en que se requiere estimar más de un parámetro se debe utilizar un número de igualdades similar al número de parámetros desconocidos. En este caso tenemos:
 	
 `\(\begin{matrix} \mu_{1}^{\prime} = E(X) = \alpha\beta &amp; m_{1}^{\prime} = \overline{X} \\ \mu_{2}^{\prime} = E(X^{2}) = \alpha \beta^{2} + (\alpha\beta)^{2} &amp; m_{2}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{2} = \overline{X^2} \end{matrix}\)`
 	
@@ -134,7 +134,7 @@ Si se quisieran simplificar un poco estas expresiones se puede demostrar que
 	
 Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria sobre una población con distribución que incluye parámetros `\(\theta_{1}, \theta_{2}, ... , \theta_{k}\)`. La función de verosimilitud `\(\mathcal{L}(x_{1}, ... , x_{n}|\theta_{1}, \theta_{2}, ... , \theta_{k})\)`, mejor expresada como `\(\mathcal{L}(\theta_{1}, \theta_{2}, ... , \theta_{k})\)`, se dice que es una función de los parámetros para un específico resultado de la muestra aleatoria. 
 	
-Ejemplo. Suponga que tenemos una función de densidad discreta (que toma valores 1, 2, 3 y 4) que depende de un parámetro `\(\theta\)` que solo puede tomar tres valores (0,1,2). Su función de probabilidad viene dada en la siguiente tabla: 
+**Ejemplo.** Suponga que tenemos una función de densidad discreta (que toma valores 1, 2, 3 y 4) que depende de un parámetro `\(\theta\)` que solo puede tomar tres valores (0,1,2). Su función de probabilidad viene dada en la siguiente tabla: 
 	
 Función de probabilidad
 
@@ -171,9 +171,9 @@ En este caso obtenemos la mayor verosimilitud cuando `\(\theta=1\)`, por lo tant
 	
 En el caso en que `\(\theta\)` sea una variable cuyo dominio es continuo, para encontrar el estimador de `\(\theta\)` basta con optimizar la verosimilitud siempre que existan los máximos correspondientes. 
 
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Bernoulli(p)\)`. Determinar el estimador de máxima verosimilitud (EMV) para `\(p\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Bernoulli(p)\)`. Determinar el estimador de máxima verosimilitud (EMV) para `\(p\)`. 
 	
-Solución. Ya anteriormente habiamos obtenido la función de verosimilitud de una muestra aleatoria Bernoulli,
+**Solución.** Ya anteriormente habiamos obtenido la función de verosimilitud de una muestra aleatoria Bernoulli,
 	
 `\(\mathcal{L}(p) = p^{u}(1-p)^{n-u} \quad donde \quad u = \sum_{j=1}^{n} x_{j}\)`
 	
@@ -200,9 +200,9 @@ Por lo tanto, concluimos que `\(\hat{p}\)` es el estimador de máxima verosimili
 # Estimadores de máxima verosimilitud
 	
 		
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`. Encuentre los estimadores máximo-verosímiles para `\(\mu\)` y `\(\sigma^2\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`. Encuentre los estimadores máximo-verosímiles para `\(\mu\)` y `\(\sigma^2\)`. 
 	
-Solución. Empezemos por obtener la función de verosimilitud:
+**Solución.** Empezemos por obtener la función de verosimilitud:
 	
 `\(\mathcal{L}(\mu, \sigma^2) = \prod_{j=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_{j}-\mu)^2}{2\sigma^2}}= (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}}\)`
 	
@@ -247,9 +247,9 @@ Concluimos que `\(\overline{X}\)` y `\(\frac{(n-1)}{n} S^{2}\)` son los estimado
 # Estimadores de máxima verosimilitud
 	
 		
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de máxima verosimilitud de `\(\theta\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de máxima verosimilitud de `\(\theta\)`. 
 	
-Solución. Empezemos por obtener la función de verosimilitud y log-verosimilitud:
+**Solución.** Empezemos por obtener la función de verosimilitud y log-verosimilitud:
 	
 `\(\mathcal{L}(\theta) = \prod_{j=1}^{n} \frac{1}{\theta} = \theta^{-n}\)`
 	
@@ -293,12 +293,12 @@ Con lo anterior se demuestra que el EMV de `\(\theta\)` debe ser función de `\(
 
 # Propiedades de los estimadores de máxima verosimilitud
 
-Ejemplo. Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria Normal con `\(\mu\)` y `\(\sigma^2\)` desconocidos. Encuentre el EMV de `\(\sigma\)`. 
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria Normal con `\(\mu\)` y `\(\sigma^2\)` desconocidos. Encuentre el EMV de `\(\sigma\)`. 
 	
-Solución. Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{n} S^{2}\)` es el EMV para `\(\sigma^2\)`. Sabiendo que la función `\(t(x) = \sqrt{x}\)` es continua en los reales positivos entonces por la propiedad de Invariancia se cumple que `\(\sqrt{(\hat{\sigma^{2}})} = \sqrt{\frac{(n-1)}{n}}S\)` es el EMV de `\(\sigma\)`. 
+**Solución.** Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{n} S^{2}\)` es el EMV para `\(\sigma^2\)`. Sabiendo que la función `\(t(x) = \sqrt{x}\)` es continua en los reales positivos entonces por la propiedad de Invariancia se cumple que `\(\sqrt{(\hat{\sigma^{2}})} = \sqrt{\frac{(n-1)}{n}}S\)` es el EMV de `\(\sigma\)`. 
 ---
 
-# Asignación examen corto 1
+&lt;!--# Asignación examen corto 1
 
 * Dinámica similar a los quices de contínuos, excepto que no pediremos que vengan en Markdown, aunque pueden hacerlo si quieren. 
 
@@ -311,7 +311,7 @@ Solución. Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{
 * Seguir las instrucciones **al pie de la letra** vale un 50% de la evaluación.
 
 	
----
+--&gt;
 
 # Ejercicios
 
@@ -337,10 +337,7 @@ Método de momentos. Método de máxima verosimilitud. Principio de invariancia.
 
 # ¿Qué nos falta para el I Parcial?
 
-Práctica :D
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
+Práctica.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -387,9 +384,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -398,7 +411,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
