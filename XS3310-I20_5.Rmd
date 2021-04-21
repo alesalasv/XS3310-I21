@@ -38,7 +38,8 @@ Temas para esta clase:
 * [Relación general entre consistencia e insesgamiento](https://youtu.be/wAQ7zs-TmmY)
 * [Suficiencia](https://youtu.be/vzG_dIdV5MA)
 * [Ejemplos sobre suficiencia](https://youtu.be/1R4QauxorMQ)
-
+* [Teorema de factorización](https://www.youtube.com/watch?v=Vgn4gdbqd0M)
+* [Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n](https://www.youtube.com/watch?v=xI9H4F35eVw)
 ---
  
 
