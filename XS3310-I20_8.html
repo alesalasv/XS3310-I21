@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-04-21" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2019
-### 04/05/2020 (updated: 2020-05-05)
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-04-21
 
 ---
 
@@ -22,7 +23,7 @@ class: center, middle, inverse, title-slide
 
 
 
-# Anuncios
+&lt;!--# Anuncios
 
 * Horas consulta de Andrea: cambian a Jueves de 1 a 3pm
 
@@ -30,11 +31,9 @@ class: center, middle, inverse, title-slide
 
 * Notas del examen se postearán en Mediación Virtual la otra semana
 
-* Hoy iniciamos el Tema II y luego vendrá el tema III para completar el material del II Parcial.
+* Hoy iniciamos el Tema II y luego vendrá el tema III para completar el material del II Parcial.--&gt;
 
----
 
-class: center, middle
 
 
 ## ¿Qué hemos visto hasta ahora?
@@ -49,6 +48,7 @@ Intervalos de confianza clásicos
 
 class: center, middle
 
+# ¿Qué es un intervalo de confianza?
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/nNZH9FXnjvM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ---
@@ -89,9 +89,11 @@ En el segundo caso, se determina solamente un límite que puede ser inferior `\(
 
 ## Técnica para estimaciones por intervalo
 	
-Existen varias técnicas para obtener estimaciones por intervalo, sin embargo en este curso nos enfocaremos en la **técnica del pivote**
+Existen varias técnicas para obtener estimaciones por intervalo, sin embargo en este curso nos enfocaremos en la **técnica del pivote**.
+
+&lt;p&gt;&lt;/p&gt;
 	
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LO2BOtWxMyY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;div align="center"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LO2BOtWxMyY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 ---
 
@@ -107,9 +109,9 @@ Esta técnica consiste en definir una variable aleatoria, `\(U\)`, que llamaremo
 
 ### Técnica del pivote
 
-Ejemplo: Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`, donde `\(\mu\)` es deconocido y `\(\sigma^2\)` es conocido. Obtenga una variable aleatoria que funcione como un pivote. 
+**Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`, donde `\(\mu\)` es deconocido y `\(\sigma^2\)` es conocido. Obtenga una variable aleatoria que funcione como un pivote. 
 	
-Solución: Debemos encontrar una variable aleatoria que esté definida en términos de la muestra y de `\(\mu\)`. 
+**Solución:** Debemos encontrar una variable aleatoria que esté definida en términos de la muestra y de `\(\mu\)`. 
 
 * Una forma de resumir toda la información de la muestra en una sola variable aleatoria. Lo ideal sería utilizar un estadístico suficiente: `\(\sum_{j=1}^{n} X_{j}\)` es suficiente para estimar `\(\mu\)`, por lo que podriamos usar alguna función de este estadístico en el pivote. 
 
@@ -121,7 +123,7 @@ Solución: Debemos encontrar una variable aleatoria que esté definida en térmi
 
 * `\(U = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}\)`, se distribuye `\(N(0,1)\)`. U cumple con las propiedades de un pivote pues está definida en términos de la muestra y del parámetro desconocido `\(\mu\)` al igual que su distribución ya no depende de `\(\mu\)`. 
 
-NOTA: U no es la única opción de pivote. Por ejemplo, `\(\overline{X} - \mu\)` es otra variable aleatoria que también cumple las condiciones para ser un pivote. Existe una infinidad de variables aleatorias que cumplen esta condición, pero como veremos más adelante algunas son más útiles que otras. 
+**NOTA:** U no es la única opción de pivote. Por ejemplo, `\(\overline{X} - \mu\)` es otra variable aleatoria que también cumple las condiciones para ser un pivote. Existe una infinidad de variables aleatorias que cumplen esta condición, pero como veremos más adelante algunas son más útiles que otras. 
 	
 Ahora debemos seguir con el procedimiento para encontrar un intervalo de confianza por medio de la técnica del pivote. Hay dos caminos:
 
@@ -132,18 +134,18 @@ Ahora debemos seguir con el procedimiento para encontrar un intervalo de confian
 
 ### Técnica del pivote
 
-* Caso bilaterial: se requiere encontrar valores `\(a\)` y `\(b\)` tales que `\(P(a \leq U \leq b) = 1-\alpha\)` y por lo tanto también se cumple que `\(P(U &lt; a) + P(U &gt; b) = \alpha\)`. Sin embargo, estas condiciones generan un número infinito de posibilidades para `\(a\)` y `\(b\)` por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las "colas" sean iguales, es decir `\(P(U &lt; a) = P(U &gt; b) = \frac{\alpha}{2}\)`. 
+* **Caso bilaterial:** se requiere encontrar valores `\(a\)` y `\(b\)` tales que `\(P(a \leq U \leq b) = 1-\alpha\)` y por lo tanto también se cumple que `\(P(U &lt; a) + P(U &gt; b) = \alpha\)`. Sin embargo, estas condiciones generan un número infinito de posibilidades para `\(a\)` y `\(b\)` por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las "colas" sean iguales, es decir `\(P(U &lt; a) = P(U &gt; b) = \frac{\alpha}{2}\)`. 
 
-* Caso unilaterial: podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor `\(a\)` o `\(b\)` que cumpla `\(P(U \geq a) = 1-\alpha\)` o `\(P(U \leq b) = 1 -\alpha\)`.Finalmente, como `\(U\)` está en términos de la muestra aleatoria y del parámetro `\(\theta\)` entonces despejamos `\(\theta\)` dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores. 
+* **Caso unilaterial:** podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor `\(a\)` o `\(b\)` que cumpla `\(P(U \geq a) = 1-\alpha\)` o `\(P(U \leq b) = 1 -\alpha\)`.Finalmente, como `\(U\)` está en términos de la muestra aleatoria y del parámetro `\(\theta\)` entonces despejamos `\(\theta\)` dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores. 
 
 
 ---
 
 ### Técnica del pivote
 
-Ejemplo: Sea `\(Y\)` una variable aleatoria con distribución Exponencial con media `\(\beta\)` desconocida. Utilice este valor para construir un intervalo bilateral para `\(\beta\)` con una confianza del `\(90\%\)`.
+**Ejemplo:** Sea `\(Y\)` una variable aleatoria con distribución Exponencial con media `\(\beta\)` desconocida. Utilice este valor para construir un intervalo bilateral para `\(\beta\)` con una confianza del `\(90\%\)`.
 	
-Solución: En este caso podemos utilizar como pivote `\(U = \frac{Y}{\beta}\)` ya que está en términos de la variable aleatoria y de `\(\beta\)` al igual que se puede demostrar que su distribución no depende de `\(\beta\)`. En este caso `\(U \sim Exp(1)\)`. 
+**Solución:** En este caso podemos utilizar como pivote `\(U = \frac{Y}{\beta}\)` ya que está en términos de la variable aleatoria y de `\(\beta\)` al igual que se puede demostrar que su distribución no depende de `\(\beta\)`. En este caso `\(U \sim Exp(1)\)`. 
 
 Nuestro siguiente paso es buscar los valores `\(a\)` y `\(b\)` tales que:
 	
@@ -173,9 +175,9 @@ Por lo tanto tenemos que `\(Li = \frac{-Y}{\ln(0.05)}\)` y `\(Ls = \frac{-Y}{\ln
 
 ### Técnica del pivote
 
-Ejemplo: Sea `\(X\)` una variable aleatoria Uniformemente distribuida en el intervalo `\((0, \theta)\)`, con `\(\theta\)` desconocido. Determine un intervalo de confianza unilateral inferior para `\(\theta\)` del `\(95\%\)`.
+**Ejemplo:** Sea `\(X\)` una variable aleatoria Uniformemente distribuida en el intervalo `\((0, \theta)\)`, con `\(\theta\)` desconocido. Determine un intervalo de confianza unilateral inferior para `\(\theta\)` del `\(95\%\)`.
 	
-Solución: Primero debemos encontrar una cantidad pivote satisfactoria. En este caso podemos utilizar `\(U = \frac{X}{\theta}\)` como pivote ya que cumple ambas condiciones. Se puede demostrar que `\(U \sim Unif(0,1)\)` por medio de la segunda técnica de transformaciones: 
+**Solución:** Primero debemos encontrar una cantidad pivote satisfactoria. En este caso podemos utilizar `\(U = \frac{X}{\theta}\)` como pivote ya que cumple ambas condiciones. Se puede demostrar que `\(U \sim Unif(0,1)\)` por medio de la segunda técnica de transformaciones: 
 	
 Sea `\(U = h(X) = \frac{X}{\theta}\)`, por lo tanto `\(h^{-1}(U) = U\theta \quad \Rightarrow \frac{dh^{-1}(u)}{du} = \theta\)`
 
@@ -205,9 +207,9 @@ Por lo tanto podemos concluir que con un `\(95\%\)` de confianza el intervalo `\
 ### Técnica del pivote
 
 
-Ejemplo: Suponiendo que `\(\theta = 50\)` simule un valor que pertenece a la población del ejemplo anterior y evalueelo en el intervalo encontrado. 
+**Ejemplo:** Suponiendo que `\(\theta = 50\)` simule un valor que pertenece a la población del ejemplo anterior y evalueelo en el intervalo encontrado. 
 	
-Solución: Recordemos que para simular debemos igualar la función de distribución de la variable aleatoria objetivo con la de una Uniforme `\((0,1)\)`. En nuestro caso tenemos la siguiente función de distribución para `\(X\)`:
+**Solución:** Recordemos que para simular debemos igualar la función de distribución de la variable aleatoria objetivo con la de una Uniforme `\((0,1)\)`. En nuestro caso tenemos la siguiente función de distribución para `\(X\)`:
 	
 `\(F_{X}(x)=\begin{cases}0\quad si \quad x \leq 0 \\ \frac{x}{\theta} \quad si \quad 0 &lt; x &lt; \theta \\ 1 \quad si \quad x &gt; \theta \end{cases}\)`
 
@@ -226,16 +228,16 @@ Usando la función para valores aleatorios entre cero y uno de una calculadora o
 
 Evaluando este valor en el intervalo obtenido tenemos que con un `\(95\%\)` de confianza el intervalo `\(\left[ 43.21, +\infty \right[\)` incluye el valor de `\(\theta\)`. Podemos ver que en este caso nuestro intervalo acertó el verdadero valor de `\(\theta\)`. 
 	
-NOTA: Es posible observar que si `\(u &gt; 0.95\)` entonces el intervalo no va a incluir el valor de `\(\theta = 50\)`, para una confianza del `\(95\%\)`. 
+**NOTA:** Es posible observar que si `\(u &gt; 0.95\)` entonces el intervalo no va a incluir el valor de `\(\theta = 50\)`, para una confianza del `\(95\%\)`. 
 	
-Ejemplo: Sea `\(X_{1}, X_{2}, ... , X_{20}\)` una muestra aleatoria tal que `\(X_{j} \sim Exp(\beta)\)`. Determine un intervalo de confianza bilateral para `\(\beta\)` con una confianza del `\((1-\alpha)\%\)`. Utilice como pivote una función de `\(\sum_{j=1}^{20} X_{j}\)`. 
+**Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{20}\)` una muestra aleatoria tal que `\(X_{j} \sim Exp(\beta)\)`. Determine un intervalo de confianza bilateral para `\(\beta\)` con una confianza del `\((1-\alpha)\%\)`. Utilice como pivote una función de `\(\sum_{j=1}^{20} X_{j}\)`. 
 
 ---
 
 ### Técnica del pivote
 
 
-Solución: Sabemos de antemano que `\(T = \sum_{j=1}^{20} X_{j} \sim Gamma(\alpha = 20,\beta)\)`. 
+**Solución:** Sabemos de antemano que `\(T = \sum_{j=1}^{20} X_{j} \sim Gamma(\alpha = 20,\beta)\)`. 
 	
 `\(T\)` no sirve como pivote pues no depende de `\(\beta\)` y su distribución todavía depende de `\(\beta\)`. Debemos encontrar alguna transformación de `\(T\)` que haga que se cumplan las dos condiciones.
 	
@@ -290,9 +292,6 @@ Estimación por intervalos, método del pivote
 # ¿Qué nos falta para el II Parcial?
 
 Fórmulas para las estimaciones por intervalo más comunes (media, diferencias de medias, variancias, etc., para distribuciones normales), bootstrap y contrastes de hipótesis.
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -339,9 +338,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -350,7 +365,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
