@@ -6,9 +6,9 @@
 
 **Código:** XS3310
 
-**Material del curso:** https://alesalasv.github.io/XS3310-I21/
+**Material del curso:** [https://alesalasv.github.io/XS3310-I21/](https://alesalasv.github.io/XS3310-I21/)
 
-**Aula virtual:** https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179
+**Aula virtual:** [https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179](https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179)
 
 **Profesores:** M.Sc. Alejandro Salas Vargas, Ph.D. Maikol Solís Chacón
 
