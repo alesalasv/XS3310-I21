@@ -62,7 +62,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
- <!-- <tr>
+<tr>
     <td> 23 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
@@ -79,7 +79,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
     <td> Práctica 9.37 - 9.68 de Mendenhall </td>
   </tr>
-  <tr>
+ <!--   <tr>
     <td> 27 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
