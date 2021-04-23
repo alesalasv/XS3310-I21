@@ -58,7 +58,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/1R4QauxorMQ">Ejemplos sobre suficiencia</a> </td> 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
- <!-- <tr>
+  <tr>
     <td> 23 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
@@ -73,9 +73,14 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br>
           <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br>
           <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
-    <td> Práctica 9.37 - 9.68 de Mendenhall </td>
+    <td> Práctica 9.37 - 9.68 de Mendenhall <br>
+         DeGroot: 6.3: 13 y 14 <br>
+         7.5: 5, 9, 11 <br>
+         7.6: 4, 10 (OJO no deriven Γ(x)), 16, 21 y 23 <br>
+         7.7: 1-10 <br>
+         7.9: 12 y 13 <br>
   </tr>
-  <tr>
+<!--  <tr>
     <td> 27 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
