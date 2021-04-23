@@ -78,7 +78,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
          7.5: 5, 9, 11 <br>
          7.6: 4, 10 (OJO no deriven Γ(x)), 16, 21 y 23 <br>
          7.7: 1-10 <br>
-         7.9: 12 y 13 <br>
+         7.9: 12 y 13 <br></td> 
   </tr>
 <!--  <tr>
     <td> 27 de abril </td>
