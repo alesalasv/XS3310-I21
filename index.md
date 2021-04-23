@@ -94,7 +94,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Mendenhall 9.69 - 9.97  <br> 
     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
 Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
-  </tr>  --> 
+  </tr>  
   
 
  <tr>
