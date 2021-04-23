@@ -105,8 +105,9 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 </td> 
     <td> Mendenhall 8.39 - 8.49 <br> </td>
   </tr>
-  <tr>
-    <!-- <td> 12 de mayo </td>
+ 
+ <!-- <tr>
+     <td> 12 de mayo </td>
     <td>  <a href="XS3310-I20_9.html">Clase 9</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=vWnMWhoKad0">Intervalo de confianza: distribuci&oacute;n Bernoulli</a><br>
 <a href="https://www.youtube.com/watch?v=VTrZ10vbJfw">Intervalo de confianza: distribuci&oacute;n exponencial</a><br>
