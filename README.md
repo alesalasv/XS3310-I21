@@ -82,24 +82,22 @@ La información del curso está en Mediación Virtual, este repositorio es para 
          7.5: 5, 9, 11 <br>
          7.6: 4, 10 (OJO no deriven Γ(x)), 16, 21 y 23 <br>
          7.7: 1-10 <br>
-         7.9: 12 y 13 <br>
-      </td>
+         7.9: 12 y 13 </td>
   </tr>
    <tr>
     <td> 27 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
-<a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
-<a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y m&aacute;xima verosimilitud</a> <br>
-<a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a> <br>
-</td> 
+          <a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
+          <a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+          <a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+          <a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el m&eacute;todo de m&aacute;xima verosimilitud</a> <br>
+          <a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y m&aacute;xima verosimilitud</a> <br>
+          <a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a> </td> 
     <td> Mendenhall 9.69 - 9.97  <br> 
     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
 Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
-  </tr>  --> 
+  </tr>   
   
 
  <tr>
