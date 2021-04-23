@@ -77,7 +77,13 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://www.youtube.com/watch?v=OTE9OD-DfZM">Suficiencia conjunta</a> <br>
           <a href="https://www.youtube.com/watch?v=5pq1lj1h_Qo">Suficiencia minimal</a> <br>
           <a href="https://www.youtube.com/watch?v=WvlYG_TKPLw">Ejemplos de estad&iacute;sticas suficientes minimales</a> <br></td> 
-    <td> Práctica 9.37 - 9.68 de Mendenhall </td>
+    <td> Práctica 9.37 - 9.68 de Mendenhall <br>
+         DeGroot: 6.3: 13 y 14 <br>
+         7.5: 5, 9, 11 <br>
+         7.6: 4, 10 (OJO no deriven Γ(x)), 16, 21 y 23 <br>
+         7.7: 1-10 <br>
+         7.9: 12 y 13 <br>
+      </td>
   </tr>
  <!--   <tr>
     <td> 27 de abril </td>
