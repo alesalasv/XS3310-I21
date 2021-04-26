@@ -73,13 +73,13 @@ $$\mathcal{L}(\theta) = \prod_{i=1}^{n} b(X_{i})c(\theta)e^{-a(X_{i})d(\theta)} 
 Si tomamos como
 
 \begin{align}
-T &= \sum_{i=1}^{n} a(X_{i}) \\
+U &= \sum_{i=1}^{n} a(X_{i}) \\
 u(X_{1}, X_{2}, \ldots , X_{n}) &= \prod_{i=1}^{n} b(X_{i}) \\ 
-v(T,\theta) &= c(\theta)^{n} e^{-d(\theta)T}
+v(U,\theta) &= c(\theta)^{n} e^{-d(\theta)U}
 \end{align}
 
  
-  entonces, por la técnica de factorización, se cumple que $T$ es suficiente mínimo para $\theta$. 
+  entonces, por la técnica de factorización, se cumple que $U$ es suficiente mínimo para $\theta$. 
 
 
 ---
@@ -87,7 +87,7 @@ v(T,\theta) &= c(\theta)^{n} e^{-d(\theta)T}
 
 # Suficiencia
 
-**Ejemplo.** Encuentre el estadístico suficiente mínimo para el ejemplo anterior pero utilizando la técnica de la familia exponencial.
+**Ejemplo.** Sea $X_1,X_2,...,X_n$ una m.a. tal que $X_i \sim Poisson(\lambda)$, encuentre el estadístico suficiente mínimo utilizando la técnica de la familia exponencial.
 
 **Solución.** Lo primero consiste en demostrar que la función de probabilidad de una Poisson tiene la forma de la familia exponencial. Viendo la función de probabilidad de una Poisson, $f(x|\lambda) = \frac{\lambda^{x}e^{-\lambda}}{x!}$, esta pareciera no cumplir la forma de la familia exponencial, no obstante podemos realizar algunas operaciones algebraicas para alcanzar esa forma: 
 
@@ -136,8 +136,7 @@ Supongamos que para este caso si quisieramos saber cuál sería un estadístico 
 	
 > **Definición 5.1.** Completitud. Sea $U$ un estadístico de una muestra aleatoria $X_{1}, X_{2}, ... , X_{n}$ con función de densidad/probabilidad $f_{X}(x|\theta)$ si $a \leq u \leq b$ y $\alpha_{1} \leq \theta \leq \alpha_{2}$ y sea $g(u)$ una función continua en $[a,b]$. Se dice que el estadístico $U$ es **completo** para la distribución $f_{X}(x|\theta)$ si se cumple que si $E(g(U)) = 0 \quad \forall \theta \in [\alpha_{1}, \alpha_{2}]$   entonces $g(U) = 0$ con probabilidad 1. 
 
-
-- Con un estadístico que no es completo puede pasar que $g(U) \neq =0$ para algún $\theta$, pero que  $E(g(U))=0$. 
+- Con un estadístico que no es completo puede pasar que $g(U) \neq 0$ para algún $\theta$, pero que  $E(g(U))=0$. 
 - Es decir, que existe "algo más" aparte del estadístico $U$ que hace que la esperanza sea igual a 0. 
 - Un estadístico completo, no tiene ese "algo más" y concuerda si $g(U) = 0$ con $E(g(U))=0$. 
 - Un estadístico completo, puede que no aporte información relevante sobre el parametro. Solo dice que es congruente. 
@@ -301,12 +300,4 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Suficiencia, técnicas para encontrar estimadores suficientes. Propiedades de los estimadores puntuales: **completitud**. Teorema de Rao-Blackwell, Teorema de Lehmann-Scheffé, EIVM.
-
-
-
-
-
-
-
-
 
