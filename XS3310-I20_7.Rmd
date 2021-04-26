@@ -36,7 +36,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * Ejemplo simple: Motivación 
 * Otro ejemplo
 * Propiedades de los estimadores Máximo verosímiles
-* Asignación de la tarea o examen corto 1
 
 ---
  
