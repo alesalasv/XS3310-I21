@@ -14,8 +14,6 @@ output:
       countIncrementalSlides: false
     
 ---
-\fontsize{12}{22}
-\selectfont
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -53,16 +51,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Estimadores de momentos
 	
-> **Definición 5.2.** Momento al origen. Si $X$ es una variable aleatoria con distribución conocida, se define el *k*-ésimo momento al origen como: $\mu_{k}^{\prime} = E\left[X^{k}\right]$
+> **Definición 5.2.** *Momento al origen*. Si $X$ es una variable aleatoria con distribución conocida, se define el $k$-ésimo momento al origen como: $\mu_{k}^{\prime} = E\left[X^{k}\right]$
 	
-> **Definición 5.3.** Momento central. Si $X$ es una variable aleatoria con distribución conocida y media $\mu$, se define el *k*-ésimo momento central como:
+> **Definición 5.3.** *Momento central*. Si $X$ es una variable aleatoria con distribución conocida y media $\mu$, se define el $k$-ésimo momento central como:
 $$\mu_{k} = E\left[(X-\mu)^{k}\right]$$
-
 Para este tema también vamos a definir un nuevo tipo de momento, que llamaremos momento muestral:
 	
-> **Definición 5.4.** Momento muestral. Si $X_{1}, X_{2}, ... , X_{n}$ es una muestra aleatoria de una distribución conocida, entonces se define el \textit{k}-ésimo momento muestral como:
+> **Definición 5.4.** *Momento muestral*. Si $X_{1}, X_{2}, ... , X_{n}$ es una muestra aleatoria de una distribución conocida, entonces se define el $k$-ésimo momento muestral como:
 $$m_{k}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{k}$$
-
 ---
 
 # Estimadores de momentos
@@ -136,20 +132,21 @@ Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria sobre una población con d
 	
 Función de probabilidad
 
-y        | 1    | 2    | 3    | 4     
--------- | -----|------|------|------
-$f(y;0)$ | .980 | .005 | .005 | .010  
-$f(y;1)$ | .100 | .200 | .200 | .500  
-$f(y;2)$ | .098 | .001 | .001 | .900  
+y             | 1    | 2    | 3    | 4     
+--------------| -----|------|------|------
+$f(y;\theta)$ |
+$f(y;0)$      | .980 | .005 | .005 | .010  
+$f(y;1)$      | .100 | .200 | .200 | .500  
+$f(y;2)$      | .098 | .001 | .001 | .900  
 
 ---
 
 # Estimadores de máxima verosimilitud
 	
 		
-Supongamos que obtuvimos una muestra aleatoria de tamaño tres donde observamos los siguientes datos: 4,4,3,4. ¿Cuál es el valor de $\theta$ que máximiza la función de verosimilitud? 
+Supongamos que obtuvimos una muestra aleatoria de tamaño cuatro donde observamos los siguientes datos: 4,4,3,4. ¿Cuál es el valor de $\theta$ que máximiza la función de verosimilitud? 
 	
-Solución. Debemos obtener la verosmilitud para la muestra obtenida para cada uno de los valores de $\theta$. El valor de $\theta$ que genere la máxima verosimilitud será el estimador de máxima verosimilitud. 
+**Solución**. Debemos obtener la verosmilitud para la muestra obtenida para cada uno de los valores de $\theta$. El valor de $\theta$ que genere la máxima verosimilitud será el estimador de máxima verosimilitud. 
 	
 Recordemos que la función de verosimilitud es la probabilidad conjunta de la muestra observada. En este caso viene dada por:
 
@@ -181,7 +178,7 @@ $\mathcal{L}(p) = p^{u}(1-p)^{n-u} \quad donde \quad u = \sum_{j=1}^{n} x_{j}$
 
 # Estimadores de máxima verosimilitud
 	
-Derivamos esta función con respecto a p e igualamos a cero. No obstante podemos notar como esto va a ser un proceso tedioso pues existe un producto de distintas funciones de $p$. Para facilitar este cálculo podemos utilizar una propiedad matemática que establece que si $f(x)$ tiene un punto extremo en $x_0$ y $f(x) > 0$ entonces $\ln f(x)$ también tiene un valor extremo en $x_0$. Por lo tanto podemos hacer uso de la log-verosimilitud:
+Derivamos esta función con respecto a $p$ e igualamos a cero. No obstante podemos notar como esto va a ser un proceso tedioso pues existe un producto de distintas funciones de $p$. Para facilitar este cálculo podemos utilizar una propiedad matemática que establece que si $f(x)$ tiene un punto extremo en $x_0$ y $f(x) > 0$ entonces $\ln f(x)$ también tiene un valor extremo en $x_0$. Por lo tanto podemos hacer uso de la *log-verosimilitud*:
 	
 $$\ell(p) = \ln \mathcal{L}(p) = u\ln p + (n-u) \ln (1-p)$$
 	

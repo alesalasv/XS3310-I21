@@ -1,216 +1,448 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>XS3310 Teoría Estadística</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-04-27" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+# XS3310 Teoría Estadística
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-04-27
 
-<head>
-<title>XS3310-I20_7.html</title>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  /><meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'><style> body { box-sizing: border-box; max-width: 740px; width: 100%; margin: 40px auto; padding: 0 10px; } </style><script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script><script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script><script>document.addEventListener('DOMContentLoaded', () => { document.body.classList.add('markdown-body'); document.querySelectorAll('pre[lang] > code').forEach((code) => { code.classList.add(code.parentElement.lang); }); document.querySelectorAll('pre > code').forEach((code) => { hljs.highlightBlock(code); }); });</script>
-</head>
+---
 
-<body>
 
-<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
-<h1 id="qué-vamos-a-discutir-hoy">¿Qué vamos a discutir hoy?</h1>
-<ul>
-<li><p>Mapa de recursos ¿dónde encuentro qué?</p></li>
-<li><p>Estimadores de momentos</p></li>
-<li><p>Definición 5.2 momento al origen</p></li>
-<li><p>Definición 5.3 momento central</p></li>
-<li><p>Definición 5.4 momento muestral</p></li>
-<li><p>Ejemplo de cálculo (2)</p></li>
-<li><p>Estimadores de máxima verosimilitud</p></li>
-<li><p>Definición</p></li>
-<li><p>Ejemplo simple: Motivación</p></li>
-<li><p>Otro ejemplo</p></li>
-<li><p>Propiedades de los estimadores Máximo verosímiles</p></li>
-<li><p>Asignación de la tarea o examen corto 1</p></li>
-</ul>
-<hr />
-<h1 id="vídeos">Vídeos</h1>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=aMZupzrioao">Método de momentos</a></li>
-<li><a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el método de momentos</a></li>
-<li><a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">Método de máxima verosimilitud</a></li>
-<li><a href="https://www.youtube.com/watch?v=et-gUA8Uh90">Otros ejemplos del método de máxima verosimilitud</a></li>
-<li><a href="https://www.youtube.com/watch?v=ClxKI5pENzQ">Comentarios sobre el método de máxima verosimilitud</a></li>
-<li><a href="https://www.youtube.com/watch?v=bfAPE1aF76Q">Funciones parametrales y máxima verosimilitud</a></li>
-<li><a href="https://www.youtube.com/watch?v=O-mnQ4dWtt4">Principio de invarianza</a></li>
-</ul>
-<hr />
-<h1 id="estimadores-de-momentos">Estimadores de momentos</h1>
-<blockquote>
-<p><strong>Definición 5.2.</strong> Momento al origen. Si <span class="math inline">\(X\)</span> es una variable aleatoria con distribución conocida, se define el <em>k</em>-ésimo momento al origen como: <span class="math inline">\(\mu_{k}^{\prime} = E\left[X^{k}\right]\)</span></p>
-</blockquote>
-<blockquote>
-<p><strong>Definición 5.3.</strong> Momento central. Si <span class="math inline">\(X\)</span> es una variable aleatoria con distribución conocida y media <span class="math inline">\(\mu\)</span>, se define el <em>k</em>-ésimo momento central como: <span class="math display">\[\mu_{k} = E\left[(X-\mu)^{k}\right]\]</span></p>
-</blockquote>
-<p>Para este tema también vamos a definir un nuevo tipo de momento, que llamaremos momento muestral:</p>
-<blockquote>
-<p><strong>Definición 5.4.</strong> Momento muestral. Si <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> es una muestra aleatoria de una distribución conocida, entonces se define el -ésimo momento muestral como: <span class="math display">\[m_{k}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{k}\]</span></p>
-</blockquote>
-<hr />
-<h1 id="estimadores-de-momentos-1">Estimadores de momentos</h1>
-<p>Si nos basamos en la idea de que los momentos muestrales son buenos estimadores de los momentos poblaciones al origen, entonces para determinar el estimador de momentos (EM) en relación con un parámetro desconocido <span class="math inline">\(\theta\)</span>, se resuelve la ecuación generada al igualar el momento (o momentos) poblacional al origen con el momento muestral y resolviendo para <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Unif(0, \theta)\)</span>. Encuentre el estimador de momentos para <span class="math inline">\(\theta\)</span>.</p>
-<hr />
-<h1 id="estimadores-de-momentos-2">Estimadores de momentos</h1>
-<p><strong>Solución.</strong> Empezando por el momento al origen tenemos: <span class="math display">\[\mu_{1}^{\prime} = E\left[X^{1}\right] = E[X] = \frac{\theta}{2}\]</span></p>
-<p>El primer momento muestral siempre va a ser <span class="math inline">\(\overline{X}\)</span> por lo que en este caso tenemos la siguiente igualdad:</p>
-<p><span class="math display">\[\mu_{1}^{\prime} = m_{1}^{\prime}\]</span></p>
-<p><span class="math display">\[\Rightarrow \frac{\theta}{2} = \overline{X}\]</span></p>
-<p><span class="math display">\[\Rightarrow \hat{\theta} = 2\overline{X}\]</span></p>
-<p>Por lo tanto concluimos que <span class="math inline">\(\hat{\theta} = 2\overline{X}\)</span> es el estimador de momentos para <span class="math inline">\(\theta\)</span>. Se puede demostrar que este es un estimador insesgado y consistente para <span class="math inline">\(\theta\)</span>.</p>
-<hr />
-<h1 id="estimadores-de-momentos-3">Estimadores de momentos</h1>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Gamma(\alpha, \beta)\)</span>. Determine un estimador de momentos para <span class="math inline">\(\alpha\)</span> y para <span class="math inline">\(\beta\)</span>.</p>
-<p><strong>Solución.</strong> En el los casos en que se requiere estimar más de un parámetro se debe utilizar un número de igualdades similar al número de parámetros desconocidos. En este caso tenemos:</p>
-<p><span class="math display">\[\begin{array}{ll} \mu_{1}^{\prime} = E(X) = \alpha\beta &amp; m_{1}^{\prime} = \overline{X} \\ \mu_{2}^{\prime} = E(X^{2}) = \alpha \beta^{2} + (\alpha\beta)^{2} &amp; m_{2}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{2} = \overline{X^2} \end{array}\]</span></p>
-<p>Ahora debemos resolver el siguiente sistema de ecuaciones:</p>
-<p><span class="math display">\[\alpha\beta = \overline{X}\]</span> <span class="math display">\[\alpha \beta^{2} + (\alpha\beta)^{2}  = \overline{X^2}\]</span></p>
-<p>Podemos sustituir <span class="math inline">\(\alpha\beta\)</span> de la primera ecuación en la segunda y despejar <span class="math inline">\(\beta\)</span>:</p>
-<p><span class="math display">\[\overline{X}\beta + {\overline{X}}^{2} = \overline{X^2}\]</span></p>
-<p><span class="math display">\[\Rightarrow \hat{\beta} = \frac{\overline{X^2} - {\overline{X}}^{2}}{\overline{X}}\]</span></p>
-<hr />
-<h1 id="estimadores-de-momentos-4">Estimadores de momentos</h1>
-<p>Sustituyendo este resultado en la primera ecuación podemos obtener que</p>
-<p><span class="math display">\[\hat{\alpha} = \frac{{\overline{X}}^{2}}{\overline{X^2} - {\overline{X}}^{2}}\]</span></p>
-<p>Concluimos que <span class="math inline">\(\hat{\alpha}\)</span> y <span class="math inline">\(\hat{\beta}\)</span> son los estimadores de momentos de <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> respectivamente.</p>
-<p>Si se quisieran simplificar un poco estas expresiones se puede demostrar que</p>
-<p><span class="math display">\[\hat{\alpha} = \frac{n{\overline{X}}^{2}}{(n-1)S^{2}}\]</span></p>
-<p><span class="math display">\[\hat{\beta} = \frac{(n-1)S^{2}}{n\overline{X}}\]</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud">Estimadores de máxima verosimilitud</h1>
-<p>Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria sobre una población con distribución que incluye parámetros <span class="math inline">\(\theta_{1}, \theta_{2}, ... , \theta_{k}\)</span>. La función de verosimilitud <span class="math inline">\(\mathcal{L}(x_{1}, ... , x_{n}|\theta_{1}, \theta_{2}, ... , \theta_{k})\)</span>, mejor expresada como <span class="math inline">\(\mathcal{L}(\theta_{1}, \theta_{2}, ... , \theta_{k})\)</span>, se dice que es una función de los parámetros para un específico resultado de la muestra aleatoria.</p>
-<p><strong>Ejemplo.</strong> Suponga que tenemos una función de densidad discreta (que toma valores 1, 2, 3 y 4) que depende de un parámetro <span class="math inline">\(\theta\)</span> que solo puede tomar tres valores (0,1,2). Su función de probabilidad viene dada en la siguiente tabla:</p>
-<p>Función de probabilidad</p>
-<table>
-<thead>
-<tr class="header">
-<th>y</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(f(y;0)\)</span></td>
-<td>.980</td>
-<td>.005</td>
-<td>.005</td>
-<td>.010</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(f(y;1)\)</span></td>
-<td>.100</td>
-<td>.200</td>
-<td>.200</td>
-<td>.500</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(f(y;2)\)</span></td>
-<td>.098</td>
-<td>.001</td>
-<td>.001</td>
-<td>.900</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-1">Estimadores de máxima verosimilitud</h1>
-<p>Supongamos que obtuvimos una muestra aleatoria de tamaño tres donde observamos los siguientes datos: 4,4,3,4. ¿Cuál es el valor de <span class="math inline">\(\theta\)</span> que máximiza la función de verosimilitud?</p>
-<p>Solución. Debemos obtener la verosmilitud para la muestra obtenida para cada uno de los valores de <span class="math inline">\(\theta\)</span>. El valor de <span class="math inline">\(\theta\)</span> que genere la máxima verosimilitud será el estimador de máxima verosimilitud.</p>
-<p>Recordemos que la función de verosimilitud es la probabilidad conjunta de la muestra observada. En este caso viene dada por:</p>
-<p><span class="math display">\[\begin{align*}
+
+
+
+# ¿Qué vamos a discutir hoy?
+
+* Mapa de recursos ¿dónde encuentro qué?
+
+* Estimadores de momentos
+* Definición 5.2 momento al origen
+* Definición 5.3 momento central
+* Definición 5.4 momento muestral
+* Ejemplo de cálculo (2)
+* Estimadores de máxima verosimilitud
+* Definición
+* Ejemplo simple: Motivación 
+* Otro ejemplo
+* Propiedades de los estimadores Máximo verosímiles
+
+---
+ 
+# Vídeos
+
+* [M&amp;eacute;todo de momentos](https://www.youtube.com/watch?v=aMZupzrioao)
+* [Comentarios sobre el m&amp;eacute;todo de momentos](https://www.youtube.com/watch?v=Ow582XJJEiM)
+* [M&amp;eacute;todo de m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=e3ZJ-7QZM9I)
+* [Otros ejemplos del m&amp;eacute;todo de m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=et-gUA8Uh90)
+* [Comentarios sobre el m&amp;eacute;todo de m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=ClxKI5pENzQ)
+* [Funciones parametrales y m&amp;aacute;xima verosimilitud](https://www.youtube.com/watch?v=bfAPE1aF76Q)
+* [Principio de invarianza](https://www.youtube.com/watch?v=O-mnQ4dWtt4)
+
+---
+
+# Estimadores de momentos
+	
+&gt; **Definición 5.2.** *Momento al origen*. Si `\(X\)` es una variable aleatoria con distribución conocida, se define el `\(k\)`-ésimo momento al origen como: `\(\mu_{k}^{\prime} = E\left[X^{k}\right]\)`
+	
+&gt; **Definición 5.3.** *Momento central*. Si `\(X\)` es una variable aleatoria con distribución conocida y media `\(\mu\)`, se define el `\(k\)`-ésimo momento central como:
+`$$\mu_{k} = E\left[(X-\mu)^{k}\right]$$`
+Para este tema también vamos a definir un nuevo tipo de momento, que llamaremos momento muestral:
+	
+&gt; **Definición 5.4.** *Momento muestral*. Si `\(X_{1}, X_{2}, ... , X_{n}\)` es una muestra aleatoria de una distribución conocida, entonces se define el `\(k\)`-ésimo momento muestral como:
+`$$m_{k}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{k}$$`
+---
+
+# Estimadores de momentos
+	
+Si nos basamos en la idea de que los momentos muestrales son buenos estimadores de los momentos poblaciones al origen, entonces para determinar el estimador de momentos (EM) en relación con un parámetro desconocido `\(\theta\)`, se resuelve la ecuación generada al igualar el momento (o momentos) poblacional al origen con el momento muestral y resolviendo para `\(\theta\)`. 
+	
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de momentos para `\(\theta\)`. 
+	
+---
+
+# Estimadores de momentos
+
+**Solución.** Empezando por el momento al origen tenemos:
+`$$\mu_{1}^{\prime} = E\left[X^{1}\right] = E[X] = \frac{\theta}{2}$$`
+
+El primer momento muestral siempre va a ser `\(\overline{X}\)` por lo que en este caso tenemos la siguiente igualdad:
+	
+`$$\mu_{1}^{\prime} = m_{1}^{\prime}$$`
+	
+`$$\Rightarrow \frac{\theta}{2} = \overline{X}$$`
+	
+`$$\Rightarrow \hat{\theta} = 2\overline{X}$$`
+	
+Por lo tanto concluimos que `\(\hat{\theta} = 2\overline{X}\)` es el estimador de momentos para `\(\theta\)`. Se puede demostrar que este es un estimador insesgado y consistente para `\(\theta\)`. 
+
+---
+
+# Estimadores de momentos
+	
+		
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Gamma(\alpha, \beta)\)`. Determine un estimador de momentos para `\(\alpha\)` y para `\(\beta\)`. 
+	
+**Solución.** En el los casos en que se requiere estimar más de un parámetro se debe utilizar un número de igualdades similar al número de parámetros desconocidos. En este caso tenemos:
+	
+`$$\begin{array}{ll} \mu_{1}^{\prime} = E(X) = \alpha\beta &amp; m_{1}^{\prime} = \overline{X} \\ \mu_{2}^{\prime} = E(X^{2}) = \alpha \beta^{2} + (\alpha\beta)^{2} &amp; m_{2}^{\prime} = \frac{1}{n} \sum_{j=1}^{n} X_{j}^{2} = \overline{X^2} \end{array}$$`
+	
+Ahora debemos resolver el siguiente sistema de ecuaciones:
+	
+`$$\alpha\beta = \overline{X}$$`
+`$$\alpha \beta^{2} + (\alpha\beta)^{2}  = \overline{X^2}$$`
+	
+Podemos sustituir `\(\alpha\beta\)` de la primera ecuación en la segunda y despejar `\(\beta\)`:
+	
+`$$\overline{X}\beta + {\overline{X}}^{2} = \overline{X^2}$$`
+
+`$$\Rightarrow \hat{\beta} = \frac{\overline{X^2} - {\overline{X}}^{2}}{\overline{X}}$$`
+
+---
+
+# Estimadores de momentos
+	
+Sustituyendo este resultado en la primera ecuación podemos obtener que
+	
+`$$\hat{\alpha} = \frac{{\overline{X}}^{2}}{\overline{X^2} - {\overline{X}}^{2}}$$`
+	
+Concluimos que `\(\hat{\alpha}\)` y `\(\hat{\beta}\)` son los estimadores de momentos de `\(\alpha\)` y `\(\beta\)` respectivamente. 
+	
+Si se quisieran simplificar un poco estas expresiones se puede demostrar que 
+	
+`$$\hat{\alpha} = \frac{n{\overline{X}}^{2}}{(n-1)S^{2}}$$`
+	
+`$$\hat{\beta} = \frac{(n-1)S^{2}}{n\overline{X}}$$`
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria sobre una población con distribución que incluye parámetros `\(\theta_{1}, \theta_{2}, ... , \theta_{k}\)`. La función de verosimilitud `\(\mathcal{L}(x_{1}, ... , x_{n}|\theta_{1}, \theta_{2}, ... , \theta_{k})\)`, mejor expresada como `\(\mathcal{L}(\theta_{1}, \theta_{2}, ... , \theta_{k})\)`, se dice que es una función de los parámetros para un específico resultado de la muestra aleatoria. 
+	
+**Ejemplo.** Suponga que tenemos una función de densidad discreta (que toma valores 1, 2, 3 y 4) que depende de un parámetro `\(\theta\)` que solo puede tomar tres valores (0,1,2). Su función de probabilidad viene dada en la siguiente tabla: 
+	
+Función de probabilidad
+
+y             | 1    | 2    | 3    | 4     
+--------------| -----|------|------|------
+`\(f(y;\theta)\)` |
+`\(f(y;0)\)`      | .980 | .005 | .005 | .010  
+`\(f(y;1)\)`      | .100 | .200 | .200 | .500  
+`\(f(y;2)\)`      | .098 | .001 | .001 | .900  
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+		
+Supongamos que obtuvimos una muestra aleatoria de tamaño cuatro donde observamos los siguientes datos: 4,4,3,4. ¿Cuál es el valor de `\(\theta\)` que máximiza la función de verosimilitud? 
+	
+**Solución**. Debemos obtener la verosmilitud para la muestra obtenida para cada uno de los valores de `\(\theta\)`. El valor de `\(\theta\)` que genere la máxima verosimilitud será el estimador de máxima verosimilitud. 
+	
+Recordemos que la función de verosimilitud es la probabilidad conjunta de la muestra observada. En este caso viene dada por:
+
+`\begin{align*}
 \mathcal{L}(\theta) = P(Y=4|\theta) \cdot P(Y=4|\theta) \cdot P(Y=3|\theta) \cdot P(Y=4|\theta) 
 &amp;= P(Y=4|\theta)^{3} \cdot P(Y=3|\theta)
-\end{align*}\]</span> Debemos encontrar este valor para cada uno de los posibles valores de <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[\mathcal{L}(0) = (0.010)^{3} \cdot (0.005) = 5 \cdot 10^{-09}\]</span> <span class="math display">\[\mathcal{L}(1) = (0.500)^{3} \cdot (0.200) = 0.025\]</span> <span class="math display">\[\mathcal{L}(2) = (0.900)^{3} \cdot (0.001) = 0.00729\]</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-2">Estimadores de máxima verosimilitud</h1>
-<p>En este caso obtenemos la mayor verosimilitud cuando <span class="math inline">\(\theta=1\)</span>, por lo tanto el estimador de máxima verosimilitud sería <span class="math inline">\(\hat{\theta} = 1\)</span>.</p>
-<p>En el caso en que <span class="math inline">\(\theta\)</span> sea una variable cuyo dominio es continuo, para encontrar el estimador de <span class="math inline">\(\theta\)</span> basta con optimizar la verosimilitud siempre que existan los máximos correspondientes.</p>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Bernoulli(p)\)</span>. Determinar el estimador de máxima verosimilitud (EMV) para <span class="math inline">\(p\)</span>.</p>
-<p><strong>Solución.</strong> Ya anteriormente habiamos obtenido la función de verosimilitud de una muestra aleatoria Bernoulli,</p>
-<p><span class="math inline">\(\mathcal{L}(p) = p^{u}(1-p)^{n-u} \quad donde \quad u = \sum_{j=1}^{n} x_{j}\)</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-3">Estimadores de máxima verosimilitud</h1>
-<p>Derivamos esta función con respecto a p e igualamos a cero. No obstante podemos notar como esto va a ser un proceso tedioso pues existe un producto de distintas funciones de <span class="math inline">\(p\)</span>. Para facilitar este cálculo podemos utilizar una propiedad matemática que establece que si <span class="math inline">\(f(x)\)</span> tiene un punto extremo en <span class="math inline">\(x_0\)</span> y <span class="math inline">\(f(x) &gt; 0\)</span> entonces <span class="math inline">\(\ln f(x)\)</span> también tiene un valor extremo en <span class="math inline">\(x_0\)</span>. Por lo tanto podemos hacer uso de la log-verosimilitud:</p>
-<p><span class="math display">\[\ell(p) = \ln \mathcal{L}(p) = u\ln p + (n-u) \ln (1-p)\]</span></p>
-<p><span class="math display">\[\Rightarrow \frac{\partial \ln \mathcal{L}}{\partial p} =  \frac{u}{p} - \frac{n-u}{1-p} = 0 \Rightarrow \frac{u(1-p) - p(n-u)}{p(1-p)} = 0\]</span></p>
-<p><span class="math display">\[\Rightarrow u - up - np + up = 0 \Rightarrow u = np \Rightarrow \hat{p} = \frac{u}{n} = \frac{\sum_{j=1}^{n} x_{j} }{n}\]</span></p>
-<p>El valor crítico es <span class="math inline">\(\hat{p} = \frac{\sum_{j=1}^{n} x_{j} }{n}\)</span> pero falta demostrar que efectivamente sea un máximo,</p>
-<p><span class="math display">\[\frac{\partial^{2} \ln \mathcal{L}}{\partial p^{2}} = \frac{-u}{p^2} - \frac{n-u}{(1-p)^2} &lt; 0\]</span></p>
-<p>Por lo tanto, concluimos que <span class="math inline">\(\hat{p}\)</span> es el estimador de máxima verosimilitud.</p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-4">Estimadores de máxima verosimilitud</h1>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim N(\mu, \sigma^2)\)</span>. Encuentre los estimadores máximo-verosímiles para <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span>.</p>
-<p><strong>Solución.</strong> Empezemos por obtener la función de verosimilitud:</p>
-<p><span class="math display">\[\mathcal{L}(\mu, \sigma^2) = \prod_{j=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_{j}-\mu)^2}{2\sigma^2}}= (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}}\]</span></p>
-<p>Obtenindo la log-verosimilitud:</p>
-<p><span class="math display">\[\ell(\mu, \sigma^2) = -\frac{n}{2} \ln(2\pi) -\frac{n}{2} \ln(\sigma^2) -\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}\]</span></p>
-<p>Derivando con respecto a <span class="math inline">\(\mu\)</span>:</p>
-<p><span class="math display">\[\frac{\partial \ell(\mu,\sigma^2)}{\partial \mu} = \frac{\sum(x_{j} -\mu)}{\sigma^2} = 0 \Rightarrow \sum(x_{j} -\mu) = 0 \Rightarrow \hat{\mu} = \overline{X}\]</span></p>
-<p><span class="math display">\[\frac{\partial^{2} \ell(\mu,\sigma^2)}{\partial \mu^{2}} = -\frac{n}{\sigma^2} &lt; 0\]</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-5">Estimadores de máxima verosimilitud</h1>
-<p>Ahora procedemos a derivar con respecto a <span class="math inline">\(\sigma^2\)</span>. Para no confundirnos llamemos <span class="math inline">\(\omega = \sigma^2\)</span>.</p>
-<p><span class="math display">\[\frac{\partial \ell(\mu,\omega)}{\partial \omega} = -\frac{n}{2\omega} + \frac{\sum(x_{j} -\mu)^2}{2\omega^2} = \frac{-n\omega + \sum(x_{j} -\mu)^2}{2\omega^2} = 0\]</span></p>
-<p><span class="math display">\[\Rightarrow \sum(x_{j} -\mu)^2 = n\omega \Rightarrow \hat{\omega} = \hat{\sigma}^{2} = \frac{\sum(x_{j} -\mu)^2}{n}\]</span></p>
-<p><span class="math display">\[\frac{\partial^{2} \ell(\mu,\sigma^2)}{\partial \omega^{2}} = \frac{n}{2\omega^2} - \frac{\sum(x_{j} -\mu)^2}{\omega^3} &lt; 0 \quad cuando \quad \omega = \frac{\sum(x_{j} -\mu)^2}{n}\]</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-6">Estimadores de máxima verosimilitud</h1>
-<p>Nótese que este estimador está en términos de un parámetro desconocido, <span class="math inline">\(\mu\)</span>, por lo que podemos sustituirlo por su respectivo estimador de máxima verosimilitud. Por lo tanto obtenemos el estimador <span class="math display">\[\hat{\sigma}^{2} = \frac{\sum(x_{j} -\overline{X})^2}{n} = \frac{(n-1)}{n} S^{2}\]</span></p>
-<p>Concluimos que <span class="math inline">\(\overline{X}\)</span> y <span class="math inline">\(\frac{(n-1)}{n} S^{2}\)</span> son los estimadores de máxima verosimilitud de <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span>, respectivamente.</p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-7">Estimadores de máxima verosimilitud</h1>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Unif(0, \theta)\)</span>. Encuentre el estimador de máxima verosimilitud de <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>Solución.</strong> Empezemos por obtener la función de verosimilitud y log-verosimilitud:</p>
-<p><span class="math display">\[\mathcal{L}(\theta) = \prod_{j=1}^{n} \frac{1}{\theta} = \theta^{-n}\]</span></p>
-<p><span class="math display">\[\ell(\theta) = -n \ln\theta\]</span></p>
-<p>Derivando con respecto a <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[\frac{\partial \ell (\theta)}{\partial \theta} = \frac{-n}{\theta} &lt; 0\]</span></p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-8">Estimadores de máxima verosimilitud</h1>
-<p>Esto significa que <span class="math inline">\(\ell (\theta)\)</span> no tiene puntos críticos pero sí podemos encontrar un máximo local. Como es una función decreciente sabemos que el máximo se encuentra en el valor mínimo que <span class="math inline">\(\theta\)</span> puede tomar. Recordemos que la verosimilitud es una función de <span class="math inline">\(\theta\)</span> para un resultado específico de la muestra aleatoria, por lo que los valores de <span class="math inline">\(\theta\)</span> van a depender de los valores de la muestra aleatoria. Siendo <span class="math inline">\(\theta\)</span> el máximo poblacional es lógico pensar que para una muestra aleatoria dada lo mínimo que puede ser este valor es el máximo muestral <span class="math inline">\(X_{(n)}\)</span>. Por lo tanto, concluimos que el estimador de máxima verosimilitud de <span class="math inline">\(\theta\)</span> es <span class="math inline">\(X_{(n)}\)</span>.</p>
-<hr />
-<h1 id="estimadores-de-máxima-verosimilitud-9">Estimadores de máxima verosimilitud</h1>
-<figure>
-<img src="figs/maxvero.jpg" alt="Figura 4. Verosimilitud de una Unif(0,\theta) a partir de una muestra aleatoria." /><figcaption aria-hidden="true">Figura 4. Verosimilitud de una <span class="math inline">\(Unif(0,\theta)\)</span> a partir de una muestra aleatoria.</figcaption>
-</figure>
-<hr />
-<h1 id="propiedades-de-los-estimadores-de-máxima-verosimilitud">Propiedades de los estimadores de máxima verosimilitud</h1>
-<ul>
-<li>Si <span class="math inline">\(\mathcal{L}(\theta)\)</span> es función de verosimilitud entonces para un estadístico suficiente <span class="math inline">\(U = T(X_{1}, X_{2}, ... , X_{n})\)</span> para estimar <span class="math inline">\(\theta\)</span> se cumple,</li>
-</ul>
-<p><span class="math display">\[\mathcal{L}(\theta) = g(u,\theta)\cdot h(x_{1}, x_{2}, ... , x_{n})\]</span> <span class="math display">\[\Rightarrow \ell(\theta) = \ln(g(u,\theta)) + \ln(h(x_{1}, x_{2}, ... , x_{n}))\]</span> <span class="math display">\[\Rightarrow \frac{\partial \ell(\theta)}{\partial \theta} = \frac{g^{\prime}(u,\theta)}{g(u,\theta)}\]</span></p>
-<p>Con lo anterior se demuestra que el EMV de <span class="math inline">\(\theta\)</span> debe ser función de <span class="math inline">\(U\)</span>. Por el Teorema de Rao-Blackwell se cumple que son estimadores de variancia mínima.</p>
-<ul>
-<li><p>Se puede demostrar que los EMV son asintóticamente insesgados.</p></li>
-<li><p><strong>Principio de Invariancia:</strong> Si <span class="math inline">\(\hat{\theta}\)</span> es EMV de <span class="math inline">\(\theta\)</span> y <span class="math inline">\(t(\theta)\)</span> es una función inyectiva de <span class="math inline">\(\theta\)</span> entonces <span class="math inline">\(t(\hat{\theta})\)</span> es el EMV de <span class="math inline">\(t(\theta)\)</span>.</p></li>
-</ul>
-<hr />
-<h1 id="propiedades-de-los-estimadores-de-máxima-verosimilitud-1">Propiedades de los estimadores de máxima verosimilitud</h1>
-<p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria Normal con <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span> desconocidos. Encuentre el EMV de <span class="math inline">\(\sigma\)</span>.</p>
-<h2 id="solución.-se-demostró-con-anterioridad-que-hatsigma2-fracn-1n-s2-es-el-emv-para-sigma2.-sabiendo-que-la-función-tx-sqrtx-es-continua-en-los-reales-positivos-entonces-por-la-propiedad-de-invariancia-se-cumple-que-sqrthatsigma2-sqrtfracn-1ns-es-el-emv-de-sigma."><strong>Solución.</strong> Se demostró con anterioridad que <span class="math inline">\(\hat{\sigma}^{2} = \frac{(n-1)}{n} S^{2}\)</span> es el EMV para <span class="math inline">\(\sigma^2\)</span>. Sabiendo que la función <span class="math inline">\(t(x) = \sqrt{x}\)</span> es continua en los reales positivos entonces por la propiedad de Invariancia se cumple que <span class="math inline">\(\sqrt{(\hat{\sigma^{2}})} = \sqrt{\frac{(n-1)}{n}}S\)</span> es el EMV de <span class="math inline">\(\sigma\)</span>.</h2>
-<h1 id="ejercicios">Ejercicios</h1>
-<p>9.80 Suponga que <span class="math inline">\(Y_1, Y_2, . . . , Y_n\)</span> denotan una muestra aleatoria de la distribución de Poisson con media <span class="math inline">\(\lambda\)</span>.</p>
-<ol type="a">
-<li><p>Encuentre el MLE <span class="math inline">\(\hat{\lambda}\)</span> para <span class="math inline">\(\lambda\)</span>.</p></li>
-<li><p>Encuentre el valor esperado y la varianza de <span class="math inline">\(\hat{\lambda}\)</span>.</p></li>
-<li><p>Demuestre que el estimador del inciso a es consistente para <span class="math inline">\(\lambda\)</span>.</p></li>
-<li><p>¿Cuál es el MLE para <span class="math inline">\(P(Y = 0) = \exp{(–\lambda)}\)</span>?</p></li>
-</ol>
-<p>9.81 Suponga que <span class="math inline">\(Y_1, Y_2, . . . , Y_n\)</span> denotan una muestra aleatoria de una población distribuida exponencialmente con media <span class="math inline">\(\theta\)</span>. Encuentre el MLE de la varianza poblacional <span class="math inline">\(\theta^2\)</span>. [Sugerencia: recuerde el Ejemplo 9.9. de Mendenhall]</p>
-<hr />
-<p>class: center, middle</p>
-<h1 id="qué-discutimos-hoy">¿Qué discutimos hoy?</h1>
-<p>Método de momentos. Método de máxima verosimilitud. Principio de invariancia.</p>
+\end{align*}`
+Debemos encontrar este valor para cada uno de los posibles valores de `\(\theta\)`:
+	
+`$$\mathcal{L}(0) = (0.010)^{3} \cdot (0.005) = 5 \cdot 10^{-09}$$`
+`$$\mathcal{L}(1) = (0.500)^{3} \cdot (0.200) = 0.025$$`
+`$$\mathcal{L}(2) = (0.900)^{3} \cdot (0.001) = 0.00729$$`
 
-</body>
+---
+
+# Estimadores de máxima verosimilitud
+	
+En este caso obtenemos la mayor verosimilitud cuando `\(\theta=1\)`, por lo tanto el estimador de máxima verosimilitud sería `\(\hat{\theta} = 1\)`.
+	
+En el caso en que `\(\theta\)` sea una variable cuyo dominio es continuo, para encontrar el estimador de `\(\theta\)` basta con optimizar la verosimilitud siempre que existan los máximos correspondientes. 
+
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Bernoulli(p)\)`. Determinar el estimador de máxima verosimilitud (EMV) para `\(p\)`. 
+	
+**Solución.** Ya anteriormente habiamos obtenido la función de verosimilitud de una muestra aleatoria Bernoulli,
+	
+`\(\mathcal{L}(p) = p^{u}(1-p)^{n-u} \quad donde \quad u = \sum_{j=1}^{n} x_{j}\)`
+	
+---
+
+# Estimadores de máxima verosimilitud
+	
+Derivamos esta función con respecto a `\(p\)` e igualamos a cero. No obstante podemos notar como esto va a ser un proceso tedioso pues existe un producto de distintas funciones de `\(p\)`. Para facilitar este cálculo podemos utilizar una propiedad matemática que establece que si `\(f(x)\)` tiene un punto extremo en `\(x_0\)` y `\(f(x) &gt; 0\)` entonces `\(\ln f(x)\)` también tiene un valor extremo en `\(x_0\)`. Por lo tanto podemos hacer uso de la *log-verosimilitud*:
+	
+`$$\ell(p) = \ln \mathcal{L}(p) = u\ln p + (n-u) \ln (1-p)$$`
+	
+`$$\Rightarrow \frac{\partial \ln \mathcal{L}}{\partial p} =  \frac{u}{p} - \frac{n-u}{1-p} = 0 \Rightarrow \frac{u(1-p) - p(n-u)}{p(1-p)} = 0$$`
+	
+`$$\Rightarrow u - up - np + up = 0 \Rightarrow u = np \Rightarrow \hat{p} = \frac{u}{n} = \frac{\sum_{j=1}^{n} x_{j} }{n}$$`
+	
+El valor crítico es `\(\hat{p} = \frac{\sum_{j=1}^{n} x_{j} }{n}\)` pero falta demostrar que efectivamente sea un máximo, 
+	
+`$$\frac{\partial^{2} \ln \mathcal{L}}{\partial p^{2}} = \frac{-u}{p^2} - \frac{n-u}{(1-p)^2} &lt; 0$$`
+	
+Por lo tanto, concluimos que `\(\hat{p}\)` es el estimador de máxima verosimilitud. 
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+		
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`. Encuentre los estimadores máximo-verosímiles para `\(\mu\)` y `\(\sigma^2\)`. 
+	
+**Solución.** Empezemos por obtener la función de verosimilitud:
+	
+`$$\mathcal{L}(\mu, \sigma^2) = \prod_{j=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_{j}-\mu)^2}{2\sigma^2}}= (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}}$$`
+	
+Obtenindo la log-verosimilitud:
+	
+`$$\ell(\mu, \sigma^2) = -\frac{n}{2} \ln(2\pi) -\frac{n}{2} \ln(\sigma^2) -\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}$$`
+	
+Derivando con respecto a `\(\mu\)`:
+	
+`$$\frac{\partial \ell(\mu,\sigma^2)}{\partial \mu} = \frac{\sum(x_{j} -\mu)}{\sigma^2} = 0 \Rightarrow \sum(x_{j} -\mu) = 0 \Rightarrow \hat{\mu} = \overline{X}$$`
+	
+`$$\frac{\partial^{2} \ell(\mu,\sigma^2)}{\partial \mu^{2}} = -\frac{n}{\sigma^2} &lt; 0$$`
+	
+	
+---
+
+# Estimadores de máxima verosimilitud
+	
+	
+Ahora procedemos a derivar con respecto a `\(\sigma^2\)`. Para no confundirnos llamemos `\(\omega = \sigma^2\)`. 
+	
+`$$\frac{\partial \ell(\mu,\omega)}{\partial \omega} = -\frac{n}{2\omega} + \frac{\sum(x_{j} -\mu)^2}{2\omega^2} = \frac{-n\omega + \sum(x_{j} -\mu)^2}{2\omega^2} = 0$$`
+	
+`$$\Rightarrow \sum(x_{j} -\mu)^2 = n\omega \Rightarrow \hat{\omega} = \hat{\sigma}^{2} = \frac{\sum(x_{j} -\mu)^2}{n}$$`
+	
+`$$\frac{\partial^{2} \ell(\mu,\sigma^2)}{\partial \omega^{2}} = \frac{n}{2\omega^2} - \frac{\sum(x_{j} -\mu)^2}{\omega^3} &lt; 0 \quad cuando \quad \omega = \frac{\sum(x_{j} -\mu)^2}{n}$$`
+
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+		
+Nótese que este estimador está en términos de un parámetro desconocido, `\(\mu\)`, por lo que podemos sustituirlo por su respectivo estimador de máxima verosimilitud. Por lo tanto obtenemos el estimador 
+`$$\hat{\sigma}^{2} = \frac{\sum(x_{j} -\overline{X})^2}{n} = \frac{(n-1)}{n} S^{2}$$`
+	
+Concluimos que `\(\overline{X}\)` y `\(\frac{(n-1)}{n} S^{2}\)` son los estimadores de máxima verosimilitud de `\(\mu\)` y `\(\sigma^2\)`, respectivamente. 
+
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+		
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Unif(0, \theta)\)`. Encuentre el estimador de máxima verosimilitud de `\(\theta\)`. 
+	
+**Solución.** Empezemos por obtener la función de verosimilitud y log-verosimilitud:
+	
+`$$\mathcal{L}(\theta) = \prod_{j=1}^{n} \frac{1}{\theta} = \theta^{-n}$$`
+	
+`$$\ell(\theta) = -n \ln\theta$$`
+	
+Derivando con respecto a `\(\theta\)`:
+	
+`$$\frac{\partial \ell (\theta)}{\partial \theta} = \frac{-n}{\theta} &lt; 0$$`
+
+---
+
+# Estimadores de máxima verosimilitud
+	
+
+Esto significa que `\(\ell (\theta)\)` no tiene puntos críticos pero sí podemos encontrar un máximo local. Como es una función decreciente sabemos que el máximo se encuentra en el valor mínimo que `\(\theta\)` puede tomar. Recordemos que la verosimilitud es una función de `\(\theta\)` para un resultado específico de la muestra aleatoria, por lo que los valores de `\(\theta\)` van a depender de los valores de la muestra aleatoria. Siendo `\(\theta\)` el máximo poblacional es lógico pensar que para una muestra aleatoria dada lo mínimo que puede ser este valor es el máximo muestral `\(X_{(n)}\)`. Por lo tanto, concluimos que el estimador de máxima verosimilitud de `\(\theta\)` es `\(X_{(n)}\)`. 
+
+---
+
+# Estimadores de máxima verosimilitud
+
+
+![Figura 4. Verosimilitud de una `\(Unif(0,\theta)\)` a partir de una muestra aleatoria.](figs/maxvero.jpg)	
+
+---
+
+# Propiedades de los estimadores de máxima verosimilitud
+	
+*	Si `\(\mathcal{L}(\theta)\)` es función de verosimilitud entonces para un estadístico suficiente `\(U = T(X_{1}, X_{2}, ... , X_{n})\)` para estimar `\(\theta\)` se cumple, 
+		
+`$$\mathcal{L}(\theta) = g(u,\theta)\cdot h(x_{1}, x_{2}, ... , x_{n})$$`
+`$$\Rightarrow \ell(\theta) = \ln(g(u,\theta)) + \ln(h(x_{1}, x_{2}, ... , x_{n}))$$`
+`$$\Rightarrow \frac{\partial \ell(\theta)}{\partial \theta} = \frac{g^{\prime}(u,\theta)}{g(u,\theta)}$$`
+		
+Con lo anterior se demuestra que el EMV de `\(\theta\)` debe ser función de `\(U\)`. Por el Teorema de Rao-Blackwell se cumple que son estimadores de variancia mínima. 
+		
+* Se puede demostrar que los EMV son asintóticamente insesgados. 
+		
+*	**Principio de Invariancia:** Si `\(\hat{\theta}\)` es EMV de `\(\theta\)` y `\(t(\theta)\)` es una función inyectiva de `\(\theta\)` entonces `\(t(\hat{\theta})\)` es el EMV de `\(t(\theta)\)`.
+
+---
+
+# Propiedades de los estimadores de máxima verosimilitud
+
+**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria Normal con `\(\mu\)` y `\(\sigma^2\)` desconocidos. Encuentre el EMV de `\(\sigma\)`. 
+	
+**Solución.** Se demostró con anterioridad que `\(\hat{\sigma}^{2} = \frac{(n-1)}{n} S^{2}\)` es el EMV para `\(\sigma^2\)`. Sabiendo que la función `\(t(x) = \sqrt{x}\)` es continua en los reales positivos entonces por la propiedad de Invariancia se cumple que `\(\sqrt{(\hat{\sigma^{2}})} = \sqrt{\frac{(n-1)}{n}}S\)` es el EMV de `\(\sigma\)`. 
+---
+
+
+# Ejercicios
+
+9.80 Suponga que `\(Y_1, Y_2, . . . , Y_n\)` denotan una muestra aleatoria de la distribución de Poisson con media `\(\lambda\)`.
+
+a. Encuentre el MLE `\(\hat{\lambda}\)` para `\(\lambda\)`.
+
+b. Encuentre el valor esperado y la varianza de `\(\hat{\lambda}\)`.
+
+c. Demuestre que el estimador del inciso a es consistente para `\(\lambda\)`.
+
+d. ¿Cuál es el MLE para `\(P(Y = 0) = \exp{(–\lambda)}\)`?
+
+9.81 Suponga que `\(Y_1, Y_2, . . . , Y_n\)` denotan una muestra aleatoria de una población distribuida exponencialmente con media `\(\theta\)`. Encuentre el MLE de la varianza poblacional `\(\theta^2\)`. [Sugerencia: recuerde el Ejemplo 9.9. de Mendenhall]
+
+
+---
+class: center, middle
+
+# ¿Qué discutimos hoy?
+
+Método de momentos. Método de máxima verosimilitud. Principio de invariancia. 
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
 </html>
