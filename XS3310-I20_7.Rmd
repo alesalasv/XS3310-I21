@@ -310,6 +310,7 @@ d. ¿Cuál es el MLE para $P(Y = 0) = \exp{(–\lambda)}$?
 
 9.81 Suponga que $Y_1, Y_2, . . . , Y_n$ denotan una muestra aleatoria de una población distribuida exponencialmente con media $\theta$. Encuentre el MLE de la varianza poblacional $\theta^2$. [Sugerencia: recuerde el Ejemplo 9.9. de Mendenhall]
 
+Suponga que $X_1, X_2, . . . , X_n$ es una m.a. de una población con densidad $f(x|\beta)=\displaystyle \frac {x}{\beta}e^{ -\frac{x^2}{2\beta}}$, con $x\geq 0, \ \beta > 0$. Determine el MLE para $\beta$.
 
 ---
 class: center, middle
