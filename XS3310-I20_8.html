@@ -4,7 +4,8 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-21" />
+    <meta name="date" content="2021-05-03" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-04-21
+### 2021-05-03
 
 ---
 
@@ -59,7 +60,7 @@ class: center, middle
 
 * Usualmente este concepto de *confianza* se interpreta diciendo que si obtenemos 100 intervalos entonces `\(\alpha \%\)` de ellos no van a incluir el valor del parámetro. Es decir, si tenemos 100 intervalos del `\(95\%\)` de confianza entonces se espera que 5 de ellos no incluyan el valor del parámetro, o que de 20 intervalos haya uno que no lo incluya.
 
-
+ 
 Visualmente:
 https://seeing-theory.brown.edu/frequentist-inference/es.html
 
@@ -80,9 +81,9 @@ Existen dos tipos de estimaciones por intervalos:
 * Intervalos bilaterales
 * Intervalos unilaterales
 	
-En el primer caso se tienen dos valores `\(Li\)` y `\(Ls\)` que constituyen los límites inferior y superior del intervalo. Es decir, el intervalo `\(\left[Li, Ls\right]\)` contiene el valor de `\(\theta\)` con una confianza del `\((1-\alpha)\cdot 100\%\)`. 
+En el primer caso se tienen dos valores `\(a\)` y `\(b\)` que constituyen los límites inferior y superior del intervalo. Es decir, el intervalo `\(\left[a, b\right]\)` contiene el valor de `\(\theta\)` con una confianza del `\((1-\alpha)\cdot 100\%\)`. 
 	
-En el segundo caso, se determina solamente un límite que puede ser inferior `\((Li)\)` o superior `\((Ls)\)`, dependiendo del interés del estudio. Se tiene así intervalos de la forma `\(\left[ Li, +\infty \right[\)` o `\(\left] -\infty, Ls \right]\)`. Los valores `\(\pm \infty\)` pueden ser sustituidos por el mínimo o máximo valor del dominio del parámetro de interés. 
+En el segundo caso, se determina solamente un límite que puede ser inferior `\((a)\)` o superior `\((b)\)`, dependiendo del interés del estudio. Se tiene así intervalos de la forma `\(\left[ a, +\infty \right[\)` o `\(\left] -\infty, b \right]\)`. Los valores `\(\pm \infty\)` pueden ser sustituidos por el mínimo o máximo valor del dominio del parámetro de interés. 
 	
 ---
 
@@ -91,13 +92,15 @@ En el segundo caso, se determina solamente un límite que puede ser inferior `\(
 	
 Existen varias técnicas para obtener estimaciones por intervalo, sin embargo en este curso nos enfocaremos en la **técnica del pivote**.
 
+En la versión en línea verán un video acá
+
 &lt;p&gt;&lt;/p&gt;
 	
 &lt;div align="center"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LO2BOtWxMyY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 ---
 
-### Técnica del pivote
+# Técnica del pivote
 	
 Esta técnica consiste en definir una variable aleatoria, `\(U\)`, que llamaremos **pivote**. El pivote debe cumplir con las siguientes condiciones: 
 	
@@ -107,7 +110,7 @@ Esta técnica consiste en definir una variable aleatoria, `\(U\)`, que llamaremo
 
 ---
 
-### Técnica del pivote
+
 
 **Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu, \sigma^2)\)`, donde `\(\mu\)` es deconocido y `\(\sigma^2\)` es conocido. Obtenga una variable aleatoria que funcione como un pivote. 
 	
@@ -115,13 +118,13 @@ Esta técnica consiste en definir una variable aleatoria, `\(U\)`, que llamaremo
 
 * Una forma de resumir toda la información de la muestra en una sola variable aleatoria. Lo ideal sería utilizar un estadístico suficiente: `\(\sum_{j=1}^{n} X_{j}\)` es suficiente para estimar `\(\mu\)`, por lo que podriamos usar alguna función de este estadístico en el pivote. 
 
-* `\(\overline{X}\)` resume la información de la muestra aleatoria, pues está en términos de un estadístico suficiente y además sabemos que se distribuye `\(N(\mu, \frac{\sigma^2}{n})\)`. Ahora debemos encontrar alguna transformación de `\(\overline{X}\)` que incluya a `\(\mu\)` y cuya distribución no dependa de `\(\mu\)`. 
+* `\(\overline{X}\)` resume la información de la muestra aleatoria, pues está en términos de un estadístico suficiente y además sabemos que se distribuye `\(N(\mu, \dfrac{\sigma^2}{n})\)`. Ahora debemos encontrar alguna transformación de `\(\overline{X}\)` que incluya a `\(\mu\)` y cuya distribución no dependa de `\(\mu\)`. 
 	
 ---
 
-### Técnica del pivote
 
-* `\(U = \frac{\overline{X} - \mu}{\frac{\sigma}{\sqrt{n}}}\)`, se distribuye `\(N(0,1)\)`. U cumple con las propiedades de un pivote pues está definida en términos de la muestra y del parámetro desconocido `\(\mu\)` al igual que su distribución ya no depende de `\(\mu\)`. 
+
+* `\(U = \dfrac{\overline{X} - \mu}{\dfrac{\sigma}{\sqrt{n}}}\)`, se distribuye `\(N(0,1)\)`. U cumple con las propiedades de un pivote pues está definida en términos de la muestra y del parámetro desconocido `\(\mu\)` al igual que su distribución ya no depende de `\(\mu\)`. 
 
 **NOTA:** U no es la única opción de pivote. Por ejemplo, `\(\overline{X} - \mu\)` es otra variable aleatoria que también cumple las condiciones para ser un pivote. Existe una infinidad de variables aleatorias que cumplen esta condición, pero como veremos más adelante algunas son más útiles que otras. 
 	
@@ -132,20 +135,20 @@ Ahora debemos seguir con el procedimiento para encontrar un intervalo de confian
 
 ---
 
-### Técnica del pivote
 
-* **Caso bilaterial:** se requiere encontrar valores `\(a\)` y `\(b\)` tales que `\(P(a \leq U \leq b) = 1-\alpha\)` y por lo tanto también se cumple que `\(P(U &lt; a) + P(U &gt; b) = \alpha\)`. Sin embargo, estas condiciones generan un número infinito de posibilidades para `\(a\)` y `\(b\)` por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las "colas" sean iguales, es decir `\(P(U &lt; a) = P(U &gt; b) = \frac{\alpha}{2}\)`. 
 
-* **Caso unilaterial:** podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor `\(a\)` o `\(b\)` que cumpla `\(P(U \geq a) = 1-\alpha\)` o `\(P(U \leq b) = 1 -\alpha\)`.Finalmente, como `\(U\)` está en términos de la muestra aleatoria y del parámetro `\(\theta\)` entonces despejamos `\(\theta\)` dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores. 
+* **Caso bilaterial:** se requiere encontrar valores `\(a\)` y `\(b\)` tales que `\(P(a \leq U \leq b) = 1-\alpha\)` y por lo tanto también se cumple que `\(P(U &lt; a) + P(U &gt; b) = \alpha\)`. Sin embargo, estas condiciones generan un número infinito de posibilidades para `\(a\)` y `\(b\)` por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las "colas" sean iguales, es decir `\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)`. 
+
+* **Caso unilaterial:** podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor `\(a\)` o `\(b\)` que cumpla `\(P(U \geq a) = 1-\alpha\)` o `\(P(U \leq b) = 1 -\alpha\)`. Finalmente, como `\(U\)` está en términos de la muestra aleatoria y del parámetro `\(\theta\)` entonces despejamos `\(\theta\)` dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores. 
 
 
 ---
 
-### Técnica del pivote
+
 
 **Ejemplo:** Sea `\(Y\)` una variable aleatoria con distribución Exponencial con media `\(\beta\)` desconocida. Utilice este valor para construir un intervalo bilateral para `\(\beta\)` con una confianza del `\(90\%\)`.
 	
-**Solución:** En este caso podemos utilizar como pivote `\(U = \frac{Y}{\beta}\)` ya que está en términos de la variable aleatoria y de `\(\beta\)` al igual que se puede demostrar que su distribución no depende de `\(\beta\)`. En este caso `\(U \sim Exp(1)\)`. 
+**Solución:** En este caso podemos utilizar como pivote `\(U = \dfrac{Y}{\beta}\)` ya que está en términos de la variable aleatoria y de `\(\beta\)` al igual que se puede demostrar que su distribución no depende de `\(\beta\)`. En este caso `\(U \sim Exp(1)\)`. 
 
 Nuestro siguiente paso es buscar los valores `\(a\)` y `\(b\)` tales que:
 	
@@ -157,37 +160,38 @@ Recordemos que en el caso de una variable aleatoria continua `\(P(U &lt; a) = P(
 
 ---
 
-### Técnica del pivote
+
 
 Podemos hacer lo mismo para encontrar el valor de `\(b\)`: 
 	
 `\(P(U &gt; b) = 1 - P(U \leq b) = 1 - F_{U}(b) = e^{-b} = 0.05, \quad \Rightarrow b = -\ln(0.05)\)`.
 
 Nuestro último paso ahora es despejar el valor de `\(\beta\)` de la probabilidad que acumula `\(0.90\)`:
+`\begin{align*}
+P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.05) \right) \\ 
+ &amp;= P\left( \dfrac{-1}{\ln(0.95)} \geq \dfrac{\beta}{Y} \geq \dfrac{-1}{\ln(0.05)} \right) = P\left( \dfrac{-Y}{\ln(0.95)} \geq \beta \geq \dfrac{-Y}{\ln(0.05)} \right)\\ 
+ &amp; = 0.90
+\end{align*}`
 	
-`\(P(a \leq U \leq b) = P\left( -\ln(0.95) \leq \frac{Y}{\beta} \leq -\ln(0.05) \right)=\)` 
-	
-`\(P\left( \frac{-1}{\ln(0.95)} \geq \frac{\beta}{Y} \geq \frac{-1}{\ln(0.05)} \right) = P\left( \frac{-Y}{\ln(0.95)} \geq \beta \geq \frac{-Y}{\ln(0.05)} \right) = 0.90\)`
-	
-Por lo tanto tenemos que `\(Li = \frac{-Y}{\ln(0.05)}\)` y `\(Ls = \frac{-Y}{\ln(0.95)}\)` por lo que podemos concluir que con una confianza del `\(90\%\)` el intervalo `\(\left[ \frac{-Y}{\ln(0.05)}, \frac{-Y}{\ln(0.95)} \right]\)` incluye el valor de `\(\beta\)`. 
+Por lo tanto tenemos que `\(a = \dfrac{-Y}{\ln(0.05)}\)` y `\(b = \dfrac{-Y}{\ln(0.95)}\)` por lo que podemos concluir que con una confianza del `\(90\%\)` el intervalo `\(\left[ \dfrac{-Y}{\ln(0.05)}, \dfrac{-Y}{\ln(0.95)} \right]\)` incluye el valor de `\(\beta\)`. 
 	
 ---
 
-### Técnica del pivote
+
 
 **Ejemplo:** Sea `\(X\)` una variable aleatoria Uniformemente distribuida en el intervalo `\((0, \theta)\)`, con `\(\theta\)` desconocido. Determine un intervalo de confianza unilateral inferior para `\(\theta\)` del `\(95\%\)`.
 	
-**Solución:** Primero debemos encontrar una cantidad pivote satisfactoria. En este caso podemos utilizar `\(U = \frac{X}{\theta}\)` como pivote ya que cumple ambas condiciones. Se puede demostrar que `\(U \sim Unif(0,1)\)` por medio de la segunda técnica de transformaciones: 
+**Solución:** Primero debemos encontrar una cantidad pivote satisfactoria. En este caso podemos utilizar `\(U = \dfrac{X}{\theta}\)` como pivote ya que cumple ambas condiciones. Se puede demostrar que `\(U \sim Unif(0,1)\)` por medio de la segunda técnica de transformaciones: 
 	
-Sea `\(U = h(X) = \frac{X}{\theta}\)`, por lo tanto `\(h^{-1}(U) = U\theta \quad \Rightarrow \frac{dh^{-1}(u)}{du} = \theta\)`
+Sea `\(U = h(X) = \dfrac{X}{\theta}\)`, por lo tanto `\(h^{-1}(U) = U\theta \quad \Rightarrow \dfrac{dh^{-1}(u)}{du} = \theta\)`
 
 Aplicando la técnica tenemos:
 	
-`\(f_{U}(u) = f_{X}(u\theta) \cdot \theta = \frac{1}{\theta} \cdot \theta = 1\)`
+`\(f_{U}(u) = f_{X}(u\theta) \cdot \theta = \dfrac{1}{\theta} \cdot \theta = 1\)`
 
 ---
 
-### Técnica del pivote
+
 
 Al ser el dominio original `\(0 &lt; x &lt; \theta\)` al sustituir `\(x\)` por `\(u\theta\)` obtenemos el nuevo dominio: `\(0 &lt; u &lt; 1\)`. Por lo tanto concluimos que `\(U \sim Unif(0,1)\)`. 
 	
@@ -198,87 +202,92 @@ Ahora podemos usar esto para encontrar el valor de `\(b\)` tal que `\(P(U \leq b
 
 Con este valor podemos proceder a despejar el valor de `\(\theta\)` de esta probabilidad y obtener así el límite inferior de nuestro intervalo:
 	
-`\(P(U \leq b) = P\left( \frac{X}{\theta} \leq 0.95  \right) = P\left( \theta \geq \frac{X}{0.95}  \right) = 0.95\)`
+`\(P(U \leq b) = P\left( \dfrac{X}{\theta} \leq 0.95  \right) = P\left( \theta \geq \dfrac{X}{0.95}  \right) = 0.95\)`
 	
-Por lo tanto podemos concluir que con un `\(95\%\)` de confianza el intervalo `\(\left[ \frac{X}{0.95}, +\infty \right[\)` incluye el valor de `\(\theta\)`. 
+Por lo tanto podemos concluir que con un `\(95\%\)` de confianza el intervalo `\(\left[ \dfrac{X}{0.95}, +\infty \right[\)` incluye el valor de `\(\theta\)`. 
 
 ---
 
-### Técnica del pivote
 
 
-**Ejemplo:** Suponiendo que `\(\theta = 50\)` simule un valor que pertenece a la población del ejemplo anterior y evalueelo en el intervalo encontrado. 
+
+&lt;!-- **Ejemplo:** Suponiendo que `\(\theta = 50\)` simule un valor que pertenece a la población del ejemplo anterior y evalueelo en el intervalo encontrado.  --&gt;
 	
-**Solución:** Recordemos que para simular debemos igualar la función de distribución de la variable aleatoria objetivo con la de una Uniforme `\((0,1)\)`. En nuestro caso tenemos la siguiente función de distribución para `\(X\)`:
+&lt;!-- **Solución:** Recordemos que para simular debemos igualar la función de distribución de la variable aleatoria objetivo con la de una Uniforme `\((0,1)\)`. En nuestro caso tenemos la siguiente función de distribución para `\(X\)`: --&gt;
 	
-`\(F_{X}(x)=\begin{cases}0\quad si \quad x \leq 0 \\ \frac{x}{\theta} \quad si \quad 0 &lt; x &lt; \theta \\ 1 \quad si \quad x &gt; \theta \end{cases}\)`
+&lt;!-- `\(F_{X}(x)=\begin{cases}0\quad si \quad x \leq 0 \\ \dfrac{x}{\theta} \quad si \quad 0 &lt; x &lt; \theta \\ 1 \quad si \quad x &gt; \theta \end{cases}\)` --&gt;
 
-Por lo tanto para simular un valor de esta distribución debemos hacer lo siguiente:
+&lt;!-- Por lo tanto para simular un valor de esta distribución debemos hacer lo siguiente: --&gt;
 	
-`\(U = \frac{X}{\theta}\)`
+&lt;!-- `$$U = \dfrac{X}{\theta} \Rightarrow X = \theta U$$` --&gt;
 	
-`\(\Rightarrow X = \theta U\)`
-	
-Usando la función para valores aleatorios entre cero y uno de una calculadora obtuvimos que `\(u = 0.821\)`, por lo tanto el valor simulado sería `\(x = 41.05\)`, con `\(\theta = 50\)`. 
+&lt;!-- Usando la función para valores aleatorios entre cero y uno de una calculadora obtuvimos que `\(u = 0.821\)`, por lo tanto el valor simulado sería `\(x = 41.05\)`, con `\(\theta = 50\)`.  --&gt;
 
----
-
-### Técnica del pivote
+&lt;!-- --- --&gt;
 
 
-Evaluando este valor en el intervalo obtenido tenemos que con un `\(95\%\)` de confianza el intervalo `\(\left[ 43.21, +\infty \right[\)` incluye el valor de `\(\theta\)`. Podemos ver que en este caso nuestro intervalo acertó el verdadero valor de `\(\theta\)`. 
+
+
+&lt;!-- Evaluando este valor en el intervalo obtenido tenemos que con un `\(95\%\)` de confianza el intervalo `\(\left[ 43.21, +\infty \right[\)` incluye el valor de `\(\theta\)`. Podemos ver que en este caso nuestro intervalo acertó el verdadero valor de `\(\theta\)`.  --&gt;
 	
-**NOTA:** Es posible observar que si `\(u &gt; 0.95\)` entonces el intervalo no va a incluir el valor de `\(\theta = 50\)`, para una confianza del `\(95\%\)`. 
+&lt;!-- **NOTA:** Es posible observar que si `\(u &gt; 0.95\)` entonces el intervalo no va a incluir el valor de `\(\theta = 50\)`, para una confianza del `\(95\%\)`.  --&gt;
 	
 **Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{20}\)` una muestra aleatoria tal que `\(X_{j} \sim Exp(\beta)\)`. Determine un intervalo de confianza bilateral para `\(\beta\)` con una confianza del `\((1-\alpha)\%\)`. Utilice como pivote una función de `\(\sum_{j=1}^{20} X_{j}\)`. 
 
 ---
 
-### Técnica del pivote
+
 
 
 **Solución:** Sabemos de antemano que `\(T = \sum_{j=1}^{20} X_{j} \sim Gamma(\alpha = 20,\beta)\)`. 
 	
 `\(T\)` no sirve como pivote pues no depende de `\(\beta\)` y su distribución todavía depende de `\(\beta\)`. Debemos encontrar alguna transformación de `\(T\)` que haga que se cumplan las dos condiciones.
+
+
+**Primera opción:**
+
+Recordemos que la función generadora de momentos de una Gamma `\((\alpha,\beta)\)` es `\((1-\beta t)^{-\alpha}\)`. Por lo tanto, si `\(U = \dfrac{T}{\beta}\)` entonces,
 	
-Recordemos que la función generadora de momentos de una Gamma `\((\alpha,\beta)\)` es `\((1-\beta t)^{-\alpha}\)`. Por lo tanto, si `\(U = \frac{T}{\beta}\)` entonces,
+`$$m_{U}(t) = m_{T}\left(\dfrac{t}{\beta}\right) = \left(1-t\right)^{-20}$$`
 	
-`\(m_{U}(t) = m_{T}\left(\frac{t}{\beta}\right) = \left(1-t\right)^{-20}\)`
+Esto quiere decir que `\(U \sim Gamma(20,1)\)` y por lo tanto se puede emplear como un pivote pues cumple las dos condiciones. Ahora procedemos a encontrar los valores `\(a\)` y `\(b\)` tales que `\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)`. Como la Gamma no tiene una función de distribución en forma cerrada debemos proceder a integrar la función de densidad:
 	
-Esto quiere decir que `\(U \sim Gamma(20,1)\)` y por lo tanto se puede emplear como un pivote pues cumple las dos condiciones. Ahora procedemos a encontrar los valores `\(a\)` y `\(b\)` tales que `\(P(U &lt; a) = P(U &gt; b) = \frac{\alpha}{2}\)`. Como la Gamma no tiene una función de distribución en forma cerrada debemos proceder a integrar la función de densidad:
-	
-`\(P(U &lt; a) = \int_{0}^{a} \frac{u^{19}e^{-u}}{\Gamma(20)} du = \frac{\alpha}{2}\)`
+`$$P(U &lt; a) = \int_{0}^{a} \dfrac{u^{19}e^{-u}}{\Gamma(20)} du = \dfrac{\alpha}{2}$$`
 
 ---
 
-### Técnica del pivote
 
 
-Esta integral es posible de calular a mano, pero su desarrollo necesita de 19 por partes que hacen su cálculo extremadamente largo y tedioso. Sin embargo, podemos hacer uso de tablas estadísticas que nos dan cuartiles para ciertas probabilidades. En este caso no tenemos una tabla para una Gamma con estos parámetros, pero sí tenemos para otra Gamma: la ji-cuadrado. Afortunadamente existe una forma para pasar de cualquier Gamma a una `\(\chi^2\)`: 
+
+Esta integral es posible de calular a mano, pero su desarrollo necesita de 19 veces de "por partes" que hacen su cálculo extremadamente largo y tedioso. Sin embargo, podemos hacer uso de tablas estadísticas que nos dan cuartiles para ciertas probabilidades. En este caso no tenemos una tabla para una Gamma con estos parámetros, pero sí tenemos para otra Gamma: la `\(\chi^2\)`-cuadrado.
+
+**Segunda opción:**
+
+Afortunadamente existe una forma para pasar de cualquier Gamma a una `\(\chi^2\)`: 
 	
-Sea `\(V = \frac{2T}{\beta}\)` entonces,
+Sea `\(V = \dfrac{2T}{\beta}\)` entonces,
 	
-`\(m_{V}(t) = m_{T}\left(\frac{2t}{\beta}\right) = \left(1-2t\right)^{-20} = \left(1-2t\right)^{-\frac{40}{2}}\)`
+`$$m_{V}(t) = m_{T}\left(\dfrac{2t}{\beta}\right) = \left(1-2t\right)^{-20} = \left(1-2t\right)^{-\frac{40}{2}}$$`
 	
-Esta es la función generadora de momentos de una ji-cuadrado con 40 grados de libertad, de la cuál sí tenemos tablas para encontrar cuantiles. Ahora si podemos proceder a encontrar los valores de `\(a\)` y `\(b\)`, sabiendo que gráficamente lucen de la siguiente manera: 
+Esta es la función generadora de momentos de una `\(\chi^2\)`-cuadrado con 40 grados de libertad, de la cuál sí tenemos tablas para encontrar cuantiles. Ahora si podemos proceder a encontrar los valores de `\(a\)` y `\(b\)`, sabiendo que gráficamente lucen de la siguiente manera: 
 	
 ---
 
-### Técnica del pivote
+
 
 	
-![Cuantiles de una ji-cuadrado con 40gl](figs/chi.jpeg)
+![Cuantiles de una `\(\chi^2\)`-cuadrado con 40gl](figs/chi.jpeg)
 
 ---
 
-### Técnica del pivote
 
 
-Como la tabla de la ji-cuadrado acumula hacia la derecha (a más de), esto significa que `\(a\)` es el valor de la tabla de una ji-cuadrado con `\(40\)`gl que acumula a su derecha una probabilidad de `\(1-\frac{\alpha}{2}\)`. Por consiguiente `\(b\)` es el valor de la tabla que acumula a su derecha una probabilidad de `\(\frac{\alpha}{2}\)`. Para simiplicidad vamos a llamar estos valores `\(\chi^{2}_{1-\frac{\alpha}{2}, 40}\)` y `\(\chi^{2}_{\frac{\alpha}{2}, 40}\)`, respectivamente. 
+
+Como la tabla de la `\(\chi^2\)`-cuadrado acumula hacia la derecha (a más de), esto significa que `\(a\)` es el valor de la tabla de una `\(\chi^2\)`-cuadrado con `\(40\)`gl que acumula a su derecha una probabilidad de `\(1-\frac{\alpha}{2}\)`. Por consiguiente `\(b\)` es el valor de la tabla que acumula a su derecha una probabilidad de `\(\frac{\alpha}{2}\)`. Para simiplicidad vamos a llamar estos valores `\(\chi^{2}_{1-\frac{\alpha}{2}, 40}\)` y `\(\chi^{2}_{\frac{\alpha}{2}, 40}\)`, respectivamente. 
 	
 Ya encontrados los valores de `\(a\)` y `\(b\)` podemos proceder a despejar `\(\beta\)` de la probabilidad que acumula `\(1-\alpha\)`:
-	
-`\(P(a \leq V \leq b) = P\left( \chi^{2}_{1-\frac{\alpha}{2}, 40} \leq \frac{2T}{\beta} \leq \chi^{2}_{\frac{\alpha}{2}, 40} \right) =  P\left(  \frac{2T}{\chi^{2}_{\frac{\alpha}{2}, 40}} \leq \beta \leq \frac{2T}{\chi^{2}_{1-\frac{\alpha}{2}, 40}}  \right) = 1 -\alpha\)`
+
+`$$P(a \leq V \leq b) = P\left( \chi^{2}_{1-\frac{\alpha}{2}, 40} \leq \frac{2T}{\beta} \leq \chi^{2}_{\frac{\alpha}{2}, 40} \right) =  P\left(  \frac{2T}{\chi^{2}_{\frac{\alpha}{2}, 40}} \leq \beta \leq \frac{2T}{\chi^{2}_{1-\frac{\alpha}{2}, 40}}  \right) = 1 -\alpha$$`
 	
 Por lo tanto, con una confianza de `\((1-\alpha)\%\)` el intervalo `\(\left[ \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{\frac{\alpha}{2}, 40}}, \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{1-\frac{\alpha}{2}, 40}}  \right]\)` incluye el valor de `\(\beta\)`. 
 
@@ -289,9 +298,6 @@ class: center, middle
 
 Estimación por intervalos, método del pivote
 
-# ¿Qué nos falta para el II Parcial?
-
-Fórmulas para las estimaciones por intervalo más comunes (media, diferencias de medias, variancias, etc., para distribuciones normales), bootstrap y contrastes de hipótesis.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
