@@ -60,53 +60,6 @@ Esta técnica consiste en definir una variable aleatoria, $U$, que llamaremos **
 
 ---
 
-# Pivotes para distribuciones con forma posición-escala
-
-En los ejercicios 9.8 y 9.9 de Casella y Berger, se utiliza la siguiente tabla para clasificar las distribuciones de densidad según forma. En esta tabla se refieren a la mayoría de distribuciones de la familia Exponencial, en las cuales la función de densidad (o pdf) se puede reescribir siguiendo la forma de la primera columna.
-
-Forma del pdf        | Tipo de pdf      | Pivote       |
----------------------|------------------|--------------|
-$f(x-\mu)$           | Posición         | $\bar{X}-\mu$|
-$\frac{1}{\sigma}f(x/\sigma)$ | Escala  | $\frac{\bar{X}}{\sigma}$|
-$\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})$|Posición-Escala| $\frac{\bar{X}-\mu}{S}$|
-
----
-
-# Pivotes para distribuciones con forma posición-escala
-
-Para aclarar un poco más la columna de formas, voy a poner un ejemplo para cada una. 
-
-Para $f(x-\mu)$:
-
-Sea $X \sim N(\mu, 1)$, entonces la función de densidad es:
-
-$$f(x) = \frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(x-\mu)^2)} = g(z)$$
-en donde $z = x-\mu$, y $g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}$.
-
----
-
-# Pivotes para distribuciones con forma posición-escala
-
-
-Para $\frac{1}{\sigma}f(x/\sigma)$:
-
-Sea $X \sim N(0, \sigma^2)$, entonces la función de densidad es:
-
-$$f(x) = \frac{1}{\sigma}\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(x/\sigma)^2)} = \frac{1}{\sigma} g(z)$$
-en donde $z = x/\sigma$, y $g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}$.
-
----
-
-# Pivotes para distribuciones con forma posición-escala
-
-Finalmente, para $\frac{1}{\sigma}f(\frac{x-\mu}{\sigma})$:
-
-Sea $X \sim N(\mu, \sigma^2)$, entonces la función de densidad es:
-
-$$f(x) = \frac{1}{\sigma}\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(\frac{x-\mu}{\sigma})^2)} = \frac{1}{\sigma} g(z)$$
-en donde $z = \frac{x-\mu}{\sigma}$, y $g(z)=\frac{1}{\sqrt{2\pi}} \exp{(\frac{-1}{2}(z)^2)}$.
-
----
 
 ## Intervalos de confianza para poblaciones normales
 	
@@ -310,6 +263,7 @@ donde $m_p$ es la mediana de la distribución P.
 https://seeing-theory.brown.edu/frequentist-inference/es.html
 
 ---
+
 
 <!-- # Asignación del proyecto 2
 
