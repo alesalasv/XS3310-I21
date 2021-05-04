@@ -116,19 +116,19 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 </td> 
     <td> Casella: 9.1,9.2,9.3,9.8,9.9, 9.12,9.13 <br> </td>
   </tr>
- <!-- <tr>
-    <td> 15 de mayo </td>
-    <td>  <a href="XS3310-I20_10.html">Clase 10</a> </td>
+  <tr>
+    <td> 11 de mayo </td>
+    <td>  <a href="XS3310-I20_10.html">Clase 11</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=D_wakA5YsQc">Intervalos de confianza: distribuci&oacute;n normal</a></td> 
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
   <tr>
-    <td> 19 de mayo </td>
-    <td>  <a href="XS3310-I20_11.html">Clase 11</a> </td>
+    <td> 14 de mayo </td>
+    <td>  <a href="XS3310-I20_11.html">Clase 12</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
     <td> Práctica incluida en la presentación <br> </td>
   </tr>
-    <tr>
+    <!--<tr>
     <td> 26 de mayo </td>
     <td>  <a href="XS3310-I20_12.html">Clase 12</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a></td> 
