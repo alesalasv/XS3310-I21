@@ -82,7 +82,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
   </tr>
    <tr>
     <td> 27 y 30 de abril </td>
-    <td>  <a href="XS3310-I20_7.html">Clase 7</a> </td>
+    <td>  <a href="XS3310-I20_7.html">Clase 7 y 8</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
           <a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
           <a href="https://www.youtube.com/watch?v=e3ZJ-7QZM9I">M&eacute;todo de m&aacute;xima verosimilitud</a> <br>
@@ -106,7 +106,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
   <tr>
     <td> 07 de mayo </td>
-    <td>  <a href="XS3310-I20_9.html">Clase 9</a> </td>
+    <td>  <a href="XS3310-I20_9.html">Clase 10</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=vWnMWhoKad0">Intervalo de confianza: distribuci&oacute;n Bernoulli</a><br>
 <a href="https://www.youtube.com/watch?v=VTrZ10vbJfw">Intervalo de confianza: distribuci&oacute;n exponencial</a><br>
 </td> 
