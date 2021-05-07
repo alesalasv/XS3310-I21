@@ -30,12 +30,25 @@ Todo sobre estimadores puntuales + intro a los pivotes.
 Intervalos de confianza clásicos.
 
 
+
+---
+
+# Cómo leer  los cuantiles de las tablas en los libros 
+
+Algunas tablas en los libros se expresan sus cuantiles de formas diferentes. 
+
+Hay que tener mucho cuidado si acumulan hacia la izquierda o hacia la derecha.
+
+Ver ejemplos.
+ 
 ---
 
 class: justify
 
 # Intervalos de confianza para poblaciones normales
 	
+ 
+  
 # Intervalos de confianza para $\mu$
 	
 Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población Normal con media $\mu$ y variancia $\sigma^2$, donde $\mu$ es desconocido pero $\sigma^2$ es conocido. Vamos a construir un intervalo de confianza bilateral para $\mu$ con probabilidad $1-\alpha$. 
