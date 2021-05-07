@@ -230,7 +230,7 @@ Finalmente, para $\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)$:
 Sea $X \sim N(\mu, \sigma^2)$, entonces la función de densidad es:
 
 $$f(x) = \dfrac{1}{\sigma}\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2\right)} = \dfrac{1}{\sigma} g(z)$$
-en donde $z = \dfrac{x-\mu}{\sigma}$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(z)^2)}$.
+en donde $z = \dfrac{x-\mu}{\sigma}$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}(z)^2\right)}$.
 
 
 
