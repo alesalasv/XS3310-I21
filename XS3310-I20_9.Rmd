@@ -33,7 +33,7 @@ Intervalos de confianza clásicos.
 
 ---
 
-# Cómo leer  los cuantiles de las tablas en los libros 
+### Cómo leer  los cuantiles de las tablas en los libros 
 
 Algunas tablas en los libros se expresan sus cuantiles de formas diferentes. 
 
@@ -45,11 +45,11 @@ Ver ejemplos.
 
 class: justify
 
-# Intervalos de confianza para poblaciones normales
+## IC para poblaciones normales
 	
  
   
-# Intervalos de confianza para $\mu$
+### Intervalos de confianza para $\mu$
 	
 Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población Normal con media $\mu$ y variancia $\sigma^2$, donde $\mu$ es desconocido pero $\sigma^2$ es conocido. Vamos a construir un intervalo de confianza bilateral para $\mu$ con probabilidad $1-\alpha$. 
 	
@@ -60,7 +60,7 @@ Como no conocemos una expresión cerrada para la función de distribución de un
 ---
 
 
-Sin embargo, sabemos que la distribución Normal Estándar es simétrica alrededor de cero, por lo que $z_{\frac{\alpha}{2}} = -z_{1-\frac{\alpha}{2}}$. Por lo tanto tenemos que, $a = -z_{1-\frac{\alpha}{2}} \qquad b = z_{1-\frac{\alpha}{2}}$
+Sin embargo, sabemos que la distribución Normal Estándar es simétrica alrededor de cero, por lo que $z_{\frac{\alpha}{2}} = -z_{1-\frac{\alpha}{2}}$. Por lo tanto tenemos que, $a = -z_{1-\frac{\alpha}{2}}$ y $b = z_{1-\frac{\alpha}{2}}$
 	
 ![Cuantiles de una distribución N(0,1)](figs/normal.jpeg)
 ---
@@ -79,13 +79,13 @@ Por lo tanto, con confianza del $(1-\alpha)\%$, el intervalo $\overline{X} \pm z
 ---
 
 	
-¿Qué sucede si $\sigma^2$ es desconocido? 
+### ¿Qué sucede si $\sigma^2$ es desconocido? 
 	
 Si esto pasa no podemos hacer uso del mismo pivote pues no cumple la primera condición de ser un pivote. Recordemos que esta condición nos pide que el pivote esté en términos de la muestra y el parámetro desconocido, pero además no puede estar en términos de otro parámetro desconocido. Hasta el momento todos los otros parámetros que no eran en el de interés eran conocidos, pero ahora $\sigma^2$, que formaba parte del pivote, ya no es conocido. Por lo tanto, debemos hacer uso de un nuevo pivote. 
 	
 En este caso podemos usar la siguiente variable aleatoria: 
 	
-$T = \dfrac{\overline{X} - \mu}{\dfrac{s}{\sqrt{n}}}$
+$$T = \dfrac{\overline{X} - \mu}{\dfrac{s}{\sqrt{n}}}$$
 	
 Recordemos que esta variable aleatoria se distribuye como una t-student con $n-1$ grados de libertad. Nótese que esta variable aleatoria sí cumple todas las condiciones de un pivote pues está en términos de la muestra aleatoria (a través de $\overline{X}$ y $S$) y del parámetro desconocido $\mu$ y ya no depende del parámetro desconocido $\sigma^2$. Adicionalmente su distribución es conocida y no depende de $\mu$. Ahora procedemos a encontrar los valores de $a$ y $b$. 
 
@@ -95,7 +95,7 @@ Recordemos que esta variable aleatoria se distribuye como una t-student con $n-1
 
 Las tablas de la t-student que utilizamos acumulan hacia la derecha, por lo que $a$ es el valor de la tabla con $n-1$ grados de libertad que acumula a su derecha una probabilidad de $1-\frac{\alpha}{2}$ y por lo tanto $b$ es el valor de la misma tabla que acumula a su derecha $\frac{\alpha}{2}$. Por simplicidad llamaremos a estos valores $t_{1-\frac{\alpha}{2}, n-1}$ y $t_{\frac{\alpha}{2}, n-1}$, respectivamente. Nuevamente, podemos hacer uso de la simetría alrededor de cero que tiene la t-student. Por lo tanto, 
 	
-$a = -t_{\frac{\alpha}{2}, n-1} \qquad b = t_{\frac{\alpha}{2}, n-1}$
+$a = -t_{\frac{\alpha}{2}, n-1}$ y $b = t_{\frac{\alpha}{2}, n-1}$
 
 ---
 
@@ -110,7 +110,7 @@ Si despejamos el valor de $\mu$ de $P(a \leq T \leq b) = 1-\alpha$, obtenemos el
 	
 Ahora supongamos que tenemos dos poblaciones Normales e independientes y que obtenemos una muestra de cada una. Sean $X_{1}, X_{2}, ... , X_{n}$ y $Y_{1}, Y_{2}, ... , Y_{m}$ estas dos muestras aleatorias, tal que $X_{j} \sim N(\mu_{1}, \sigma^{2}_{1})$ y $Y_{i} \sim N(\mu_{2}, \sigma^{2}_{2})$, donde $\mu_{1}$ y $\mu_2$ son parámetros desconocidos y $\sigma^{2}_{1}$ y $\sigma^{2}_{2}$ son parámetros conocidos. Nos interesa construir un intervalo bilateral, con una confianza del $(1-\alpha)\%$, para $\mu_{1} - \mu_{2}$.
 	
-Igual que siempre, nuesto primer paso es obtener una cantidad pivote. Ya conocemos como se distribuyen los promedios muestrales, por lo que podemos partir de ahí. Recordemos que $\overline{X} \sim N(\mu_{1}, \dfrac{\sigma^{2}_{1}}{n})$ y $\overline{Y} \sim N(\mu_{2}, \dfrac{\sigma^{2}_{2}}{m})$. Como ambos son Normales entonces una combinación lineal de ellos también sería Normal; necesitamos una combinación lineal de estos dos que tenga como parámetro a $\mu_{1} - \mu_{2}$. 
+Igual que siempre, nuesto primer paso es obtener una cantidad pivote. Ya conocemos como se distribuyen los promedios muestrales, por lo que podemos partir de ahí. Recordemos que $\overline{X} \sim N\left(\mu_{1}, \dfrac{\sigma^{2}_{1}}{n}\right)$ y $\overline{Y} \sim N\left(\mu_{2}, \dfrac{\sigma^{2}_{2}}{m}\right)$. Como ambos son Normales entonces una combinación lineal de ellos también sería Normal; necesitamos una combinación lineal de estos dos que tenga como parámetro a $\mu_{1} - \mu_{2}$. 
 
 ---
 
@@ -118,7 +118,7 @@ Igual que siempre, nuesto primer paso es obtener una cantidad pivote. Ya conocem
 
 Esto lo podemos lograr utilizando $\overline{X} - \overline{Y}$, la cual se distribuye Normal con media $\mu_{1} - \mu_{2}$ y variancia $\dfrac{\sigma^{2}_{1}}{n} + \dfrac{\sigma^{2}_{2}}{m}$. Dado que esta variancia es conocida podemos usar como pivote una Normal Estandár, la cual tendría la siguiente forma:
 	
-$Z = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{\sqrt{\dfrac{\sigma^{2}_{1}}{n} + \dfrac{\sigma^{2}_{2}}{m}}}$
+$$Z = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{\sqrt{\dfrac{\sigma^{2}_{1}}{n} + \dfrac{\sigma^{2}_{2}}{m}}}$$
 	
 Ya con esto podemos proceder como habiamos hecho en el primer caso de esta sección. De esta manera volveriamos a obtener que $a = -z_{1-\frac{\alpha}{2}}$ y $b = z_{1-\frac{\alpha}{2}}$. Ahora procedemos a despejar nuestro parámetro de interés, $\mu_{1} - \mu_{2}$, de la expresión $P(a \leq Z \leq b) = 1-\alpha$. Después de hacer el despeje podemos ver que con una confianza del $(1-\alpha)\%$, el intervalo $(\overline{X} - \overline{Y}) \pm z_{1-\frac{\alpha}{2}} \sqrt{\dfrac{\sigma^{2}_{1}}{n} + \dfrac{\sigma^{2}_{2}}{m}}$ incluye el verdadero valor de $\mu_{1} - \mu_{2}$. 
 	
@@ -129,7 +129,7 @@ Ya con esto podemos proceder como habiamos hecho en el primer caso de esta secci
 	
 Si fuese el caso donde las variancias poblaciones son conocidas (*i.e.* $\sigma^{2}_{1} = \sigma^{2}_{2} = \sigma^{2}$) Entonces podriamos escribir el intervalo como: 
 	
-$(\overline{X} - \overline{Y}) \pm z_{1-\frac{\alpha}{2}} \cdot \sigma \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}$
+$$(\overline{X} - \overline{Y}) \pm z_{1-\frac{\alpha}{2}} \cdot \sigma \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}$$
 	
 
 ---
@@ -140,11 +140,11 @@ Nuevamente podemos postular la interrogante: ¿qué sucede si se desconocen las 
 	
 En este caso vamos a hacer el supuesto de que $\sigma^{2}_{1} = \sigma^{2}_{2} = \sigma^{2}$ (homoscedasticidad) para poder encontrar un pivote satisfactorio. Podemos intentar volver a utilizar una t-student para solventar el problema de las variancias desconocidas. Recordemos que para una variable aleatoria $T$, esta se distribuye t-student si 
 	
-$T = \dfrac{Z}{\sqrt{\dfrac{W}{v}}}$
+$$T = \dfrac{Z}{\sqrt{\dfrac{W}{v}}}$$
 	
 donde $Z \sim N(0,1)$ y $W \sim \chi^{2}(v)$. Para este caso podemos usar la misma $Z$ que usamos anteriormente:
 	
-$Z = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{\sigma \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$
+$$Z = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{\sigma \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$$
 
 ---
 
@@ -152,11 +152,11 @@ $Z = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{\sigma \sqrt{\d
 	
 Ahora debemos construir una $\chi^2$ adecuada que nos permita cancelar el $\sigma$ que se encuentra en $Z$. Sabemos lo siguiente:
 	
-$\dfrac{(n-1)S^{2}_1}{\sigma^{2}} \sim \chi^{2}(n-1) \qquad \dfrac{(m-1)S^{2}_2}{\sigma^{2}} \sim \chi^{2}(m-1)$
+$$\dfrac{(n-1)S^{2}_1}{\sigma^{2}} \sim \chi^{2}(n-1) \qquad \dfrac{(m-1)S^{2}_2}{\sigma^{2}} \sim \chi^{2}(m-1)$$
 	
 donde $S^{2}_1$ y $S^{2}_2$ son las variancias muestrales de la primera y segunda población, respectivamente. También sabemos que la suma de ji-cuadrado es una ji-cuadrado con la suma de los grados de libertad:
 	
-$W = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2} }{\sigma^{2}} \sim \chi^{2}(n+m-2)$
+$$W = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2} }{\sigma^{2}} \sim \chi^{2}(n+m-2)$$
 
 ---
 
@@ -164,24 +164,24 @@ $W = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2} }{\sigma^{2}} \sim \chi^{2}(n+m-2)$
 		
 Si procedemos a dividir esta ji-cuadrado entre sus grados de libertad obtenemos:
 	
-$\dfrac{W}{v} = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2} }{\sigma^{2}(n+m-2)}$
+$$\dfrac{W}{v} = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2} }{\sigma^{2}(n+m-2)}$$
 	
 Para simplificar un poco esta expresión vamos a definir $S^{2}_{p} = \dfrac{(n-1)S^{2}_{1} + (m-1)S^{2}_{2}}{(n+m-2)}$, por lo tanto
 	
-$\dfrac{W}{v} = \dfrac{S^{2}_{p}}{\sigma^{2}}$
+$$\dfrac{W}{v} = \dfrac{S^{2}_{p}}{\sigma^{2}}$$
 	
 Ya con esto podemos montar una t-student, la cual tendría la forma:
 	
-$T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{S_{p} \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$
+$$T = \dfrac{(\overline{X} - \overline{Y}) - (\mu_{1} - \mu_{2})}{S_{p} \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}}$$
 
 ---
 
 	
 Esta es una t-student con $n+m-2$ grados de libertad y la podemos usar como pivote pues cumple todas las condiciones y ya no está en términos de parámetros desconocidos. El procedimiento a seguir es similar al otro caso donde teniamos una t-student y luego de desarrollarlo obtenemos el intervalo 
 	
-$(\overline{X} - \overline{Y}) \pm t_{\frac{\alpha}{2}, n+m-2} \cdot S_{p} \sqrt{\frac{1}{n} + \dfrac{1}{m}}$ 
+$$\displaystyle (\overline{X} - \overline{Y}) \pm t_{\frac{\alpha}{2}, n+m-2} \cdot S_{p} \sqrt{\frac{1}{n} + \dfrac{1}{m}}$$ 
 	
-Concluimos que con una confianza del $(1-\alpha)\%$ el intervalo $(\overline{X} - \overline{Y}) \pm t_{\frac{\alpha}{2}, n+m-2} \cdot S_{p} \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}$ contiene el verdadero valor de $\mu_{1} - \mu_{2}$. 
+Concluimos que con una confianza del $(1-\alpha)\%$ el intervalo $\displaystyle (\overline{X} - \overline{Y}) \pm t_{\frac{\alpha}{2}, n+m-2} \cdot S_{p} \sqrt{\dfrac{1}{n} + \dfrac{1}{m}}$ contiene el verdadero valor de $\mu_{1} - \mu_{2}$. 
 
 
 ---
@@ -194,7 +194,7 @@ Forma del pdf        | Tipo de pdf      | Pivote       |
 ---------------------|------------------|--------------|
 $f(x-\mu)$           | Posición         | $\bar{X}-\mu$|
 $\dfrac{1}{\sigma}f(x/\sigma)$ | Escala  | $\dfrac{\bar{X}}{\sigma}$|
-$\dfrac{1}{\sigma}f(\dfrac{x-\mu}{\sigma})$|Posición-Escala| $\dfrac{\bar{X}-\mu}{S}$|
+$\dfrac{1}{\sigma}f\left( \dfrac{x-\mu}{\sigma}\right)$|Posición-Escala| $\dfrac{\bar{X}-\mu}{S}$|
 
 ---
 
@@ -206,8 +206,8 @@ Para $f(x-\mu)$:
 
 Sea $X \sim N(\mu, 1)$, entonces la función de densidad es:
 
-$$f(x) = \dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(x-\mu)^2)} = g(z)$$
-en donde $z = x-\mu$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(z)^2)}$.
+$$f(x) = \dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}(x-\mu)^2\right)} = g(z)$$
+en donde $z = x-\mu$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}(z)^2\right)}$.
 
 ---
 
@@ -218,18 +218,18 @@ Para $\dfrac{1}{\sigma}f(x/\sigma)$:
 
 Sea $X \sim N(0, \sigma^2)$, entonces la función de densidad es:
 
-$$f(x) = \dfrac{1}{\sigma}\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(x/\sigma)^2)} = \dfrac{1}{\sigma} g(z)$$
-en donde $z = x/\sigma$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(z)^2)}$.
+$$f(x) = \dfrac{1}{\sigma}\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}(x/\sigma)^2\right)} = \dfrac{1}{\sigma} g(z)$$
+en donde $z = x/\sigma$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}(z)^2\right)}$.
 
 ---
 
 # Pivotes para distribuciones con forma posición-escala
 
-Finalmente, para $\dfrac{1}{\sigma}f(\dfrac{x-\mu}{\sigma})$:
+Finalmente, para $\dfrac{1}{\sigma}f\left(\dfrac{x-\mu}{\sigma}\right)$:
 
 Sea $X \sim N(\mu, \sigma^2)$, entonces la función de densidad es:
 
-$$f(x) = \dfrac{1}{\sigma}\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(\dfrac{x-\mu}{\sigma})^2)} = \dfrac{1}{\sigma} g(z)$$
+$$f(x) = \dfrac{1}{\sigma}\dfrac{1}{\sqrt{2\pi}} \exp{\left(\dfrac{-1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2\right)} = \dfrac{1}{\sigma} g(z)$$
 en donde $z = \dfrac{x-\mu}{\sigma}$, y $g(z)=\dfrac{1}{\sqrt{2\pi}} \exp{(\dfrac{-1}{2}(z)^2)}$.
 
 
