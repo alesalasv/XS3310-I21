@@ -241,7 +241,7 @@ class: center, middle
 
 Estimación por intervalos, método del pivote. Fórmulas para las estimaciones por intervalo más comunes (media, diferencias de medias para distribuciones normales), 
 
-# ¿Qué nos falta para el II Parcial?
+# ¿Qué nos falta para el I Parcial?
 
 Intervalos de confianza para variancias, para muestras grandes
 
