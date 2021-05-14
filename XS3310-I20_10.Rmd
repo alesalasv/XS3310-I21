@@ -290,16 +290,16 @@ $$\begin{equation*}\left(g^{\prime}(\mu) \sigma\right)^{2}=g^{\prime}(\mu)^{2}\s
 
 Si se desea que la varianza sea constante con respecto a $\mu$, 
 
-$$\begin{equation*} \begin{aligned} g^{\prime}(u)^{2} \sigma^{2}(\mu) &=1 \\ \Longrightarrow g^{\prime}(\mu) &=\frac{1}{\sigma(\mu)} \quad(\sigma(\mu)>0) \\ \Longrightarrow g(\mu) &=\int_{a}^{\mu} \frac{d x}{\sigma(x)} d x\end{aligned}\end{equation*}$$
+$$\begin{equation*} \begin{aligned} g^{\prime}(u)^{2} \sigma^{2}(\mu) &=1 \\ \Longrightarrow g^{\prime}(\mu) &=\frac{1}{\sigma(\mu)} \quad(\sigma(\mu)>0) \\ \Longrightarrow g(\mu) &=\int_{a}^{\mu} \frac{1}{\sigma(x)}  \ dx \end{aligned}\end{equation*}$$
 
 donde $a$ es una constante arbitraria que hace la integral finita (y fácil de calcular).
 
 ---
 
 
-Del ejemplo anterior, recuerde que $\sigma^{2}=\theta=\mu$, entonces se podría tomar que $\sigma(\mu)=\sqrt{\mu}$ por lo tanto definimos
+Del ejemplo anterior, recuerde que $\sigma^{2}=\theta$, entonces se podría tomar que $\sigma=\sqrt{\theta}$ por lo tanto definimos
 
-$$g(\mu)=\int_{0}^{\mu} \frac{d x}{\sqrt{x}}=2 \sqrt{\mu}$$
+$$g(\theta)=\int_{0}^{\theta} \frac{d x}{\sqrt{x}}=2 \sqrt{\theta}$$
 
 
 
@@ -314,7 +314,7 @@ $$2 \bar{X}_{n}^{\frac{1}{2}} \stackrel{d}{\to}  N\left(2 \theta^{\frac{1}{2}}, 
 
 
 
-De esta manera un intervalo de confianza  para la cantidad \(2\sqrt{\theta}\) con nivel 95% sería 
+De esta manera un intervalo de confianza  para la cantidad $2\sqrt{\theta}$ con nivel 95% sería 
 
 
 
@@ -325,12 +325,12 @@ $$2 \bar{X}_{n}^{\frac{1}{2}} \pm z_{\frac{\alpha}{2}}\cdot \frac{1}{\sqrt{n}}$$
 Usando los valores que teníamos anteriormente tenemos que
 
 
-$$\left[ 2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}},  2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}} \right] = [4.27, 4.67] $$
+$$\left[ 2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}},  2\sqrt{5}  + 1.96 \frac{1}{\sqrt{25}} \right] = [4.27, 4.67] $$
 
 
 ---
 
-Sin embargo, esa cantidad no nos sirve para el ejercicio. Requerimos un intervalo para $\mu$.
+Sin embargo, esa cantidad no nos sirve para el ejercicio. Requerimos un intervalo para $\theta$.
 
 Para eso vamos tomar la función inversa de cada uno de los extremos $\displaystyle y=2 x^{\frac{1}{2}} \Longrightarrow x=\frac{y^{2}}{4}$. 
 
@@ -338,7 +338,7 @@ Aplicando esta transformación al intervalo anterior, se obtiene
 
 
 $$\begin{align*}
-& \left[\frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}-\frac{1}{\sqrt{n}} z_{\frac{\alpha}{2}}\right)^{2}, \frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}+\frac{1}{\sqrt{n}} z_{\frac{\alpha}{2}}\right)^{2}\right] \\
+& \left[\frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}-z_{\frac{\alpha}{2}} \cdot \frac{1}{\sqrt{n}} \right)^{2}, \frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}+z_{\frac{\alpha}{2}} \cdot \frac{1}{\sqrt{n}} \right)^{2}\right] \\
 &= \left[\frac{1}{4}\left( 4.27 \right)^{2}, \frac{1}{4}\left( 4.67 \right)^{2} \right] \\
 &= [4.56, 5.46]
 \end{align*}$$
@@ -365,7 +365,7 @@ Haciendo el cálculo correspondiente el intervalo queda en $[0.304, 0.696]$
 Hay que encontrar la $g(p)$ para estabilizar la varianza.
 
 $$g(p)=\int_{a}^{p} \frac{1}{\sqrt{x(1-x)}} d x 
-=  2\int_{a}^{\sqrt{p}} \frac{1}{\sqrt{1-u^2}} d u 
+=  2\int_{\sqrt{a}}^{\sqrt{p}} \frac{1}{\sqrt{1-u^2}} d u 
 = 2 \arcsin(\sqrt{p})$$
 
 
@@ -380,9 +380,9 @@ usando los valores obtenemos
 $$[1.179, 1.963]$$
 
 
-$$y = 2 \arcsin(\sqrt{x}) \Rightarrow  x = \sin \left( \frac{y}{2} \right)^2$$
+$$y = 2 \arcsin(\sqrt{x}) \Rightarrow  x = \sin^2 \left( \frac{y}{2} \right)$$
 
-$$\left[\sin\left(\frac{1.179}{2}\right)^2,\sin\left(\frac{1.963}{2}\right)^2\right] \\= [0.309, 0.691]$$
+$$\left[\sin^2\left(\frac{1.179}{2}\right),\sin^2\left(\frac{1.963}{2}\right)\right] \\= [0.309, 0.691]$$
 
 
 ---
@@ -397,7 +397,7 @@ $$r_{n}=\frac{\sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)\left(Y_{i}-\bar{Y}\right)
 
 Haciendo mucho cálculos, encontramos $Var(r_{n}) = 1-\rho^2$. Por lo tanto,  
 
-$$\sqrt{n}\left(r_{n}-\rho\right)\rightsquigarrow N\left(0,\left(1-\rho^{2}\right)^{2}\right)$$
+$$\sqrt{n}\left(r_{n}-\rho\right)\overset{d}{\rightarrow} N\left(0,\left(1-\rho^{2}\right)^{2}\right)$$
 
 Si suponemos que $r_n = 0.3$ y $n = 25$, encuentre un intervalo de confianza para $\rho$ al 95% usando un método de Wald y el método Delta.
 

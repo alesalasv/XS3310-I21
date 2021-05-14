@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-05-13" />
+    <meta name="date" content="2021-05-14" />
     <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-05-13
+### 2021-05-14
 
 ---
 
@@ -240,7 +240,7 @@ coeficiente de confianza de `\(1-\alpha=.90\)`.
 
 **Solución:**
 
-El intervalo tiene la forma
+El intervalo tiene la forma:
 `$$\begin{equation}\bar{x} \pm z_{\alpha / 2}\left(\frac{\sigma}{\sqrt{n}}\right) \approx \bar{x} \pm z_{\alpha / 2}\left(\frac{s}{\sqrt{n}}\right)\end{equation}$$`
 
  De la tabla de normales se deduce que `\(z_{\alpha/2} = z_{0.05} = 1.645\)`.
@@ -289,20 +289,21 @@ En este caso hicimos el supuesto de normalidad y aproximamos la varianza con `\(
 Por el método Delta, se tiene que para `\(g\left(\bar{X}_{n}\right)\)` 
 `$$\sqrt{n}\left(g(\overline{X}) - g(\mu)\right) \stackrel{d}{\to} N\left(0,\left( g^{\prime}(\mu) \sigma \right)^2\right)$$`
 
+ 
 `$$\begin{equation*}\left(g^{\prime}(\mu) \sigma\right)^{2}=g^{\prime}(\mu)^{2}\sigma^{2}(\mu)\end{equation*}$$`
 
 Si se desea que la varianza sea constante con respecto a `\(\mu\)`, 
 
-`$$\begin{equation*} \begin{aligned} g^{\prime}(u)^{2} \sigma^{2}(\mu) &amp;=1 \\ \Longrightarrow g^{\prime}(\mu) &amp;=\frac{1}{\sigma(\mu)} \quad(\sigma(\mu)&gt;0) \\ \Longrightarrow g(\mu) &amp;=\int_{a}^{\mu} \frac{d x}{\sigma(x)} d x\end{aligned}\end{equation*}$$`
+`$$\begin{equation*} \begin{aligned} g^{\prime}(u)^{2} \sigma^{2}(\mu) &amp;=1 \\ \Longrightarrow g^{\prime}(\mu) &amp;=\frac{1}{\sigma(\mu)} \quad(\sigma(\mu)&gt;0) \\ \Longrightarrow g(\mu) &amp;=\int_{a}^{\mu} \frac{1}{\sigma(x)}  \ dx \end{aligned}\end{equation*}$$`
 
 donde `\(a\)` es una constante arbitraria que hace la integral finita (y fácil de calcular).
 
 ---
 
 
-Del ejemplo anterior, recuerde que `\(\sigma^{2}=\theta=\mu\)`, entonces se podría tomar que `\(\sigma(\mu)=\sqrt{\mu}\)` por lo tanto definimos
+Del ejemplo anterior, recuerde que `\(\sigma^{2}=\theta\)`, entonces se podría tomar que `\(\sigma=\sqrt{\theta}\)` por lo tanto definimos
 
-`$$g(\mu)=\int_{0}^{\mu} \frac{d x}{\sqrt{x}}=2 \sqrt{\mu}$$`
+`$$g(\theta)=\int_{0}^{\theta} \frac{d x}{\sqrt{x}}=2 \sqrt{\theta}$$`
 
 
 
@@ -317,7 +318,7 @@ Por el método Delta, sabemos que
 
 
 
-De esta manera un intervalo de confianza  para la cantidad \(2\sqrt{\theta}\) con nivel 95% sería 
+De esta manera un intervalo de confianza  para la cantidad `\(2\sqrt{\theta}\)` con nivel 95% sería 
 
 
 
@@ -328,12 +329,12 @@ De esta manera un intervalo de confianza  para la cantidad \(2\sqrt{\theta}\) co
 Usando los valores que teníamos anteriormente tenemos que
 
 
-$$\left[ 2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}},  2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}} \right] = [4.27, 4.67] $$
+$$\left[ 2\sqrt{5}  - 1.96 \frac{1}{\sqrt{25}},  2\sqrt{5}  + 1.96 \frac{1}{\sqrt{25}} \right] = [4.27, 4.67] $$
 
 
 ---
 
-Sin embargo, esa cantidad no nos sirve para el ejercicio. Requerimos un intervalo para `\(\mu\)`.
+Sin embargo, esa cantidad no nos sirve para el ejercicio. Requerimos un intervalo para `\(\theta\)`.
 
 Para eso vamos tomar la función inversa de cada uno de los extremos `\(\displaystyle y=2 x^{\frac{1}{2}} \Longrightarrow x=\frac{y^{2}}{4}\)`. 
 
@@ -341,7 +342,7 @@ Aplicando esta transformación al intervalo anterior, se obtiene
 
 
 `$$\begin{align*}
-&amp; \left[\frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}-\frac{1}{\sqrt{n}} z_{\frac{\alpha}{2}}\right)^{2}, \frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}+\frac{1}{\sqrt{n}} z_{\frac{\alpha}{2}}\right)^{2}\right] \\
+&amp; \left[\frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}-z_{\frac{\alpha}{2}} \cdot \frac{1}{\sqrt{n}} \right)^{2}, \frac{1}{4}\left(2 \bar{X}_{n}^{\frac{1}{2}}+z_{\frac{\alpha}{2}} \cdot \frac{1}{\sqrt{n}} \right)^{2}\right] \\
 &amp;= \left[\frac{1}{4}\left( 4.27 \right)^{2}, \frac{1}{4}\left( 4.67 \right)^{2} \right] \\
 &amp;= [4.56, 5.46]
 \end{align*}$$`
@@ -368,7 +369,7 @@ Haciendo el cálculo correspondiente el intervalo queda en `\([0.304, 0.696]\)`
 Hay que encontrar la `\(g(p)\)` para estabilizar la varianza.
 
 `$$g(p)=\int_{a}^{p} \frac{1}{\sqrt{x(1-x)}} d x 
-=  2\int_{a}^{\sqrt{p}} \frac{1}{\sqrt{1-u^2}} d u 
+=  2\int_{\sqrt{a}}^{\sqrt{p}} \frac{1}{\sqrt{1-u^2}} d u 
 = 2 \arcsin(\sqrt{p})$$`
 
 
@@ -383,9 +384,9 @@ usando los valores obtenemos
 `$$[1.179, 1.963]$$`
 
 
-`$$y = 2 \arcsin(\sqrt{x}) \Rightarrow  x = \sin \left( \frac{y}{2} \right)^2$$`
+`$$y = 2 \arcsin(\sqrt{x}) \Rightarrow  x = \sin^2 \left( \frac{y}{2} \right)$$`
 
-`$$\left[\sin\left(\frac{1.179}{2}\right)^2,\sin\left(\frac{1.963}{2}\right)^2\right] \\= [0.309, 0.691]$$`
+`$$\left[\sin^2\left(\frac{1.179}{2}\right),\sin^2\left(\frac{1.963}{2}\right)\right] \\= [0.309, 0.691]$$`
 
 
 ---
@@ -400,7 +401,7 @@ Suponga que usted estima la correlación muestral con la siguiente fórmula:
 
 Haciendo mucho cálculos, encontramos `\(Var(r_{n}) = 1-\rho^2\)`. Por lo tanto,  
 
-`$$\sqrt{n}\left(r_{n}-\rho\right)\rightsquigarrow N\left(0,\left(1-\rho^{2}\right)^{2}\right)$$`
+`$$\sqrt{n}\left(r_{n}-\rho\right)\overset{d}{\rightarrow} N\left(0,\left(1-\rho^{2}\right)^{2}\right)$$`
 
 Si suponemos que `\(r_n = 0.3\)` y `\(n = 25\)`, encuentre un intervalo de confianza para `\(\rho\)` al 95% usando un método de Wald y el método Delta.
 
