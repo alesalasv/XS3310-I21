@@ -283,8 +283,9 @@ En este caso hicimos el supuesto de normalidad y aproximamos la varianza con $\o
 
 
 Por el método Delta, se tiene que para $g\left(\bar{X}_{n}\right)$ 
-$$\sqrt{n}\left(g\left(\overline{X} - g(\mu)\right)\right) \stackrel{d}{\to} N\left(0,\left( g^{\prime}(\mu) \sigma \right)^2\right)$$
+$$\sqrt{n}\left(g(\overline{X}) - g(\mu)\right) \stackrel{d}{\to} N\left(0,\left( g^{\prime}(\mu) \sigma \right)^2\right)$$
 
+ 
 $$\begin{equation*}\left(g^{\prime}(\mu) \sigma\right)^{2}=g^{\prime}(\mu)^{2}\sigma^{2}(\mu)\end{equation*}$$
 
 Si se desea que la varianza sea constante con respecto a $\mu$, 
