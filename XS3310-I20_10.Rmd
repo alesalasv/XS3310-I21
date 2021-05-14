@@ -261,7 +261,7 @@ Por el TLC se tiene que
 $$\begin{equation} \bar{X} \pm z_{\alpha / 2}\left(\frac{\sigma}{\sqrt{n}}\right) \approx \bar{X} \pm z_{\alpha / 2}\left(\frac{\sqrt{\theta}}{\sqrt{n}}\right) \approx  \bar{X} \pm z_{\alpha / 2}\left(\frac{\sqrt{\bar{X}}}{\sqrt{n}}\right)\end{equation}$$
 
 
-$$\begin{align*}& \left[5-1.96\left(\frac{\sqrt{5}}{5}\right), 5-1.96\left(\frac{\sqrt{5}}{5}\right)  \right]   \\&= \left[ 4.12, 5.88\right]\end{align*}$$
+$$\begin{align*}& \left[5-1.96\left(\frac{\sqrt{5}}{5}\right), 5+1.96\left(\frac{\sqrt{5}}{5}\right)  \right]   \\&= \left[ 4.12, 5.88\right]\end{align*}$$
 
 ---
 
