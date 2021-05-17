@@ -3,18 +3,18 @@
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <meta name="date" content="2020-05-13" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-05-17" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### 2020-05-13
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-05-17
 
 ---
 
@@ -35,7 +35,7 @@ Bootstrap
 
 ---
 
-# Bootstrap
+## Bootstrap
 
 * La inferencia frecuentista se basa en modelos y supuestos. En muchos casos, las expresiones acerca de la exactitud (tales como el error estándar) están basadas en teoría asintótica, y por lo tanto no deberían usarse con muestras pequeñas.
 
@@ -49,7 +49,7 @@ https://seeing-theory.brown.edu/frequentist-inference/es.html
 
 ---
 
-# Bootstrap
+## Bootstrap
 
 ¿De dónde viene la expresión?
 
@@ -66,7 +66,7 @@ https://www.huffpost.com/entry/pull-yourself-up-by-your-bootstraps-nonsense_n_5b
 
 ---
 
-# Principios de Bootstrap
+## Principios de Bootstrap
 
 * Si no existe información acerca de la distribución, en la muestra observada podemos encontrar información acerca de la distribución subyacente. Por lo tanto, re-muestrear la muestra es la mejor forma de acercarnos a lo que obtendríamos si se pudiera la oportunidad de re-muestrear de la distribución poblacional.
 
@@ -78,7 +78,7 @@ https://seeing-theory.brown.edu/frequentist-inference/es.html
 
 ---
 
-# Distribución Empírica
+## Distribución Empírica
 
 Para una muestra `\(X_1, \dots, X_n\)` de variables aleatorias con valores reales, independientes con distribución P, definimos la distribución `\(\hat{P}\)` como:
 
@@ -90,9 +90,9 @@ Puede demostrarse que `\(\hat{P}\)` es el estimador máximo verosimil no paramé
 
 ---
 
-# Distribución Empírica
+## Distribución Empírica
 
-## Resultados teóricos
+### Resultados teóricos
 
 Sea `\(A \subseteq \mathbb{R}\)` (tal que `\(P(A)\)` está definido), entonces tenemos: `\(\hat{P}(A) \xrightarrow{d} P(A)\)` cuando `\(n \rightarrow \infty\)`.
 
@@ -107,9 +107,9 @@ donde `\(I\)` es el conjunto de intervalos en `\(\mathbb{R}\)`. En otras palabra
 
 ---
 
-# Distribución Empírica
+## Distribución Empírica
 
-## Muestras de una distribución empírica `\(\hat{P}\)`
+### Muestras de una distribución empírica `\(\hat{P}\)`
 
 Suponga que queremos una muestra iid de `\(\hat{P}\)`: `\(X^* = (X^*_1, \dots, X^*_n)^T\)`. Como mencionamos antes, `\(\hat{P}\)` pone masa `\(1/n\)` en cada observación `\(X_i\)`. Entonces, cuando muestreamos de `\(\hat{P}\)`, la observación i-ésima `\(X_i\)` en la muestra original puede ser seleccionada con probabilidad `\(1/n\)`. Esto nos lleva al siguiente proceso:
 
@@ -121,7 +121,7 @@ En otras palabras, saque una muestra aleatoria con reemplazo de la muestra origi
 
 ---
 
-# El Principio de Bootstrap
+## El Principio de Bootstrap
 
 * `\(X = (X_1, \dots, X_n)^T\)` es una muestra aleatoria de una distribución `\(P\)`.
 
@@ -135,14 +135,14 @@ La distribución muestral de `\(\hat{\theta}\)` es entonces estimada por su equi
 
 ---
 
-# El Principio de Bootstrap
+## El Principio de Bootstrap
 
 ![Diagrama](figs/BOOT.png)
 
 
 ---
 
-# La aproximación de Monte Carlo
+## La aproximación de Monte Carlo
 
 * En algunas ocasiones la forma de la distribución poblacional es conocida, pero la evaluación de la distribución exacta de la distribución muestral no es calculable. 
 
@@ -160,7 +160,7 @@ Pero, ¿y si solo queremos una cantidad de esa distribución muestral? pues hay 
 
 ---
 
-# Bootstrap para calcular errores estándar
+## Bootstrap para calcular errores estándar
 
 Sea `\(\hat{\theta}\)` un estimador de `\(\theta\)` y suponga que queremos conocer el error estándar de `\(\hat{\theta}\)`. Un error estándar estimado de bootstrap se puede obtener con el siguiente algoritmo:
 
@@ -174,7 +174,7 @@ donde `\(\hat{\theta}^{*(.)} = \frac{1}{B}\sum_{b=1}^{B}\hat{\theta}^{*(b)}\)`.
 
 ---
 
-# Bootstrap para calcular el sesgo
+## Bootstrap para calcular el sesgo
 
 Suponga que queremos estimar un parámetro `\(\theta = t(P)\)` con el estadístico `\(\hat{\theta}= s(X)\)`. El sesgo de un estimador `\(\hat{\theta}\)` está definido como:
 
@@ -187,7 +187,7 @@ donde `\(\theta^* = t(\hat{P})\)`. Note que `\(\hat{\theta}\)` y `\(\theta^*\)` 
 
 ---
 
-# Bootstrap para calcular el intervalo de confianza
+## Bootstrap para calcular el intervalo de confianza
 
 Si tenemos las repeticiones bootstrap `\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}^{*(B)}\)`, podemos estimar la distribución muestral de `\(\hat{\theta}\)`. A partir de esto, podemos construir intervalos de confianza para `\(\theta\)`. Hay cuatro opciones: IC estándar, IC bootstrap t, IC percentiles, IC percentiles corregido por sesgo.
 
@@ -198,7 +198,7 @@ Si tenemos las repeticiones bootstrap `\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}
 
 ---
 
-# Bootstrap para calcular el intervalo de confianza
+## Bootstrap para calcular el intervalo de confianza
 
 
 * IC bootstrap t: Utilizando el mismo resultado anterior, pero ahora usando `\(\hat{se}_X(\hat{\theta})\)` como estimador de `\(se(\hat{\theta})\)` basado en la muestra `\(X\)`. De las muestras bootstrap `\(X^{*(b)}\)` se calcula:
@@ -215,7 +215,7 @@ Entonces:
 
 ---
 
-# Bootstrap para calcular el intervalo de confianza
+## Bootstrap para calcular el intervalo de confianza
 
 
 * IC percentiles: si solo queremos utilizar los cuantiles empíricos:
@@ -230,12 +230,12 @@ Entonces:
 
 ---
 
-# Ejercicio:
+## Ejercicio:
 
 Calcule el error estándar, el sesgo y al menos dos de los intervalos de confianza con los ejemplos 1 dado al inicio (diapositiva 20 de la clase 10).
 
 
-# Referencias:
+## Referencias:
 
 * [UC3M - español](http://halweb.uc3m.es/esp/Personal/personas/jmmarin/esp/Boots/tema1BooPres.pdf)
 
@@ -245,7 +245,7 @@ Calcule el error estándar, el sesgo y al menos dos de los intervalos de confian
 
 ---
 
-# Práctica de Intervalos de Confianza
+## Práctica de Intervalos de Confianza
 
 1.La vida útil de cierto aparato de aire acondicionado sigue una distribución de Rayleigh, cuya función de densidad viene dada por la fórmula:
 
@@ -263,7 +263,7 @@ d)	Considere la muestra aleatoria de `\(n = 15\)` datos de una distribución `\(
 
 ---
 		
-# Práctica de Intervalos de Confianza
+## Práctica de Intervalos de Confianza
 
 
 ```r
@@ -282,18 +282,18 @@ c)	Utilice la variable `\(U\)` del inciso anterior, como pivote para construir u
 
 ---
 		
-# Práctica de Intervalos de Confianza
+## Práctica de Intervalos de Confianza
 
 
-3.Si `\(Y_1, Y_2, \dots , Y_n\)` corresponden a una muestra aleatoria de una distribución gamma con parámetros `\(\alpha\)` conocido y `\(\beta\)` desconocido. 
+3.Si `\(Y_1, Y_2, \dots , Y_n\)` corresponden a una muestra aleatoria de una distribución gamma con parámetros `\(\alpha\)` desconocido y `\(\beta\)` desconocido. 
 
 a)	Demuestre que la variable `\(U = \frac{2 \sum_{j=1}^{n}Y_j}{\beta}\)` puede ser utilizada como pivote para estimar el valor de `\(\beta\)` y construya un intervalo de confianza de `\(1-\alpha\)` para estimar el valor `\(\beta\)`.
 
-b)	Por teorema del límite central, la variable aleatoria `\(Z = \frac{\bar{Y}-E(\bar{Y})}{\sqrt{Var(\bar{Y})}}\)` tiene distribución que converge a una `\(N(0,1)\)`. Supongamos que `\(n\)` es suficientemente grande, determine la variable aleatoria `\(Z\)` vinculada con este problema, que puede ser utilizada como pivote para estimar el valor de `\(\beta\)`. Construya un intervalo de confianza de  para estimar el valor `\(\beta\)`. 
+b)	Por teorema del límite central, la variable aleatoria `\(Z = \frac{\bar{X}-E(\bar{X})}{\sqrt{Var(\bar{Y})}}\)` tiene distribución que converge a una `\(N(0,1)\)`. Supongamos que `\(n\)` es suficientemente grande, determine la variable aleatoria `\(Z\)` vinculada con este problema, que puede ser utilizada como pivote para estimar el valor de `\(\beta\)`. Construya un intervalo de confianza de  para estimar el valor `\(\beta\)`. 
 
 ---
 		
-# Práctica de Intervalos de Confianza
+## Práctica de Intervalos de Confianza
 
 c)	Considere la siguiente muestra aleatoria que pertenece a una distribución gamma con `\(\alpha = 3\)`:
 
@@ -316,9 +316,6 @@ Bootstrap: concepto, ejemplos y definiciones. IC utilizando bootstrap
 # ¿Qué nos falta para el II Parcial?
 
 Contrastes de hipótesis.
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
