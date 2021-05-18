@@ -4,8 +4,8 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-05-17" />
-    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <meta name="date" content="2021-05-18" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-05-17
+### 2021-05-18
 
 ---
 
@@ -75,7 +75,7 @@ https://www.youtube.com/embed/Cx5pgZCdDGM
 
 * Suponga que una muestra `\(X = (X_1, \dots, X_n)^T\)` es utilizada para estimar un parámetro `\(\theta\)`. Sea `\(\hat{\theta}= s(X)\)` un estadístico para estimar el parámetro `\(\theta\)`. Para hacer inferencia acerca de `\(\theta\)`, nos interesa la distribución muestral de `\(\hat{\theta}\)`, o ciertos aspectos acerca de esa distribución: la exactitud de nuestra estimación, el intervalo de confianza, etc. En muchas aplicaciones, la distribución muestral de `\(\hat{\theta}\)` no se puede encontrar.
 
-* Si conociéramos la distribución poblacional `\(P\)`, podríamos sacar muestras `\(X^{(b)}, b=1,\dots,B\)` de P usando métodos de Monte Carlo para estimar la distribución muestral del estimado. Sin embargo, si `\(F\)` es desconocido, entonces bootstrap sugiere que podemos aproximar ese muestreo re-muestreando nuestra muestra original. Así, podemos encontrar la distribución *empírica* del estimador.
+* Si conociéramos la distribución poblacional `\(P\)`, podríamos sacar muestras `\(X^{(b)}, b=1,\dots,B\)` de `\(P\)` usando métodos de Monte Carlo para estimar la distribución muestral del estimador. Sin embargo, si `\(F\)` es desconocido, entonces bootstrap sugiere que podemos aproximar ese muestreo re-muestreando nuestra muestra original. Así, podemos encontrar la distribución *empírica* del estimador.
 
 https://seeing-theory.brown.edu/frequentist-inference/es.html
 
@@ -240,8 +240,8 @@ Tboot_b[1:10]
 ```
 
 ```
-##  [1] 454.1308 376.7861 477.6395 439.5016 319.4011 363.0061 384.0340 429.9102
-##  [9] 381.5777 415.3583
+##  [1] 420.1110 537.3961 316.4313 432.0585 388.7417 486.6165 477.8505 403.4883
+##  [9] 399.4221 565.5366
 ```
 
 ---
@@ -281,7 +281,7 @@ donde `\(\hat{\theta}\)` es el estimador empírico de la muestra.
 ```
 
 ```
-## [1] 426.6676
+## [1] 428.4857
 ```
 
 
@@ -290,7 +290,7 @@ donde `\(\hat{\theta}\)` es el estimador empírico de la muestra.
 ```
 
 ```
-## [1] 5325.689
+## [1] 5271.47
 ```
 
 
@@ -299,7 +299,7 @@ donde `\(\hat{\theta}\)` es el estimador empírico de la muestra.
 ```
 
 ```
-## [1] 72.97732
+## [1] 72.60489
 ```
 
 El sesgo bootstrap es
@@ -310,7 +310,7 @@ mean(Tboot_b) - Tn
 ```
 
 ```
-## [1] -2.580788
+## [1] -0.762736
 ```
 
 ---
@@ -348,7 +348,7 @@ c(Tn - z * sdboot, Tn + z * sdboot)
 ```
 
 ```
-## [1] 286.2155 572.2813
+## [1] 286.9454 571.5514
 ```
 ---
 
@@ -410,7 +410,7 @@ c(Tn - quantile(z_star, 1 - 0.05 / 2) * sdboot,
 
 ```
 ##    97.5%     2.5% 
-## 315.9165 755.4425
+## 313.4171 696.3489
 ```
 
 ---
@@ -419,9 +419,9 @@ c(Tn - quantile(z_star, 1 - 0.05 / 2) * sdboot,
 ## Bootstrap para calcular el intervalo de confianza pivotales
 
 
-El intervalo de confianza pivotal de tamaño \(1-\alpha\) es
+El intervalo de confianza pivotal de tamaño `\(1-\alpha\)` es
 
-`$$\left(2\widehat{\theta}_{n}-\widehat{\theta}_{L},2\widehat{\theta}_{n}-\widehat{\theta}_{U}^{*}\right)$$`
+`$$\left(2\widehat{\theta}_{n}-\widehat{\theta}_{L},2\widehat{\theta}_{n}-\widehat{\theta}_{U}\right)$$`
 
 
 donde
@@ -452,7 +452,7 @@ c(2 * Tn - quantile(Tboot_b, 1 - 0.05 / 2),
 
 ```
 ##    97.5%     2.5% 
-## 261.4805 558.9046
+## 265.6854 550.1817
 ```
 
 
@@ -535,6 +535,7 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Bootstrap: concepto, ejemplos y definiciones. IC utilizando bootstrap
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

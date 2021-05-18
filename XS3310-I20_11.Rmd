@@ -71,7 +71,7 @@ https://www.youtube.com/embed/Cx5pgZCdDGM
 
 * Suponga que una muestra $X = (X_1, \dots, X_n)^T$ es utilizada para estimar un parámetro $\theta$. Sea $\hat{\theta}= s(X)$ un estadístico para estimar el parámetro $\theta$. Para hacer inferencia acerca de $\theta$, nos interesa la distribución muestral de $\hat{\theta}$, o ciertos aspectos acerca de esa distribución: la exactitud de nuestra estimación, el intervalo de confianza, etc. En muchas aplicaciones, la distribución muestral de $\hat{\theta}$ no se puede encontrar.
 
-* Si conociéramos la distribución poblacional $P$, podríamos sacar muestras $X^{(b)}, b=1,\dots,B$ de P usando métodos de Monte Carlo para estimar la distribución muestral del estimado. Sin embargo, si $F$ es desconocido, entonces bootstrap sugiere que podemos aproximar ese muestreo re-muestreando nuestra muestra original. Así, podemos encontrar la distribución *empírica* del estimador.
+* Si conociéramos la distribución poblacional $P$, podríamos sacar muestras $X^{(b)}, b=1,\dots,B$ de $P$ usando métodos de Monte Carlo para estimar la distribución muestral del estimador. Sin embargo, si $F$ es desconocido, entonces bootstrap sugiere que podemos aproximar ese muestreo re-muestreando nuestra muestra original. Así, podemos encontrar la distribución *empírica* del estimador.
 
 https://seeing-theory.brown.edu/frequentist-inference/es.html
 
@@ -333,7 +333,6 @@ z_star <- (Tboot_b - Tn) / sdboot_b
 
 ```{r}
 hist(z_star)
-
 ```
 
 ---
@@ -350,9 +349,9 @@ c(Tn - quantile(z_star, 1 - 0.05 / 2) * sdboot,
 ## Bootstrap para calcular el intervalo de confianza pivotales
 
 
-El intervalo de confianza pivotal de tamaño \(1-\alpha\) es
+El intervalo de confianza pivotal de tamaño $1-\alpha$ es
 
-$$\left(2\widehat{\theta}_{n}-\widehat{\theta}_{L},2\widehat{\theta}_{n}-\widehat{\theta}_{U}^{*}\right)$$
+$$\left(2\widehat{\theta}_{n}-\widehat{\theta}_{L},2\widehat{\theta}_{n}-\widehat{\theta}_{U}\right)$$
 
 
 donde
@@ -458,3 +457,4 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Bootstrap: concepto, ejemplos y definiciones. IC utilizando bootstrap
+
