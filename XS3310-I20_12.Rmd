@@ -88,8 +88,8 @@ En los contrastes de hipótesis con los que acostumbramos trabajar solemos defin
 	
 Dos características que tienen los contrastes: la potencia y el tamaño. El enfoque está en encontrar un "buen" contraste según estas características.  A continuación se define la potencia de la prueba: 
 	
-> Definición. **Función potencia:** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población con parámetro desconocido $\theta$ y sea $RC_{\delta}$ la región crítica de un contraste $\delta$ respecto a $\theta$. La **potencia del contraste**, denotada $Potencia(\theta)$, es la probabilidad que el contraste indique rechazar $H_{0}$ para un valor dado de $\theta$ es decir, 
-$Potencia(\theta) = P(\textbf{X} \in RC | \theta)$
+> Definición. **Función potencia:** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población con parámetro desconocido $\theta$ y sea $RC_{\delta}$ la región crítica de un contraste $\delta$ respecto a $\theta$. La **potencia del contraste**, denotada $\operatorname{Potencia}(\theta)$, es la probabilidad que el contraste indique rechazar $H_{0}$ para un valor dado de $\theta$ es decir, 
+$\operatorname{Potencia}(\theta) = P(\textbf{X} \in RC | \theta)$
 
 ---
 
@@ -120,7 +120,7 @@ Ejemplo: Sea $X_{1}, X_{2}, ... , X_{4}$ una muestra aleatoria de una población
 	
 Solución: En este caso todo el espacio paramétrico $\Omega$ se compone solo por dos valores de $\mu$: $\mu = 1$ y $\mu = -1$. Por lo tanto debemos calcular la Potencia para cada uno de estos valores. Empezaremos por la Potencia en $\mu = 1$:
 	
-$\text{Potencia}(1) = P(\overline{X} < 0 | \mu = 1) = P\left( \frac{\overline{X} - 1}{\frac{1}{\sqrt{4}}} < \frac{0 - 1}{\frac{1}{\sqrt{4}}}  \right) = P(Z < -2) \approx 0.023$
+$\operatorname{Potencia}(1) = P(\overline{X} < 0 | \mu = 1) = P\left( \frac{\overline{X} - 1}{\frac{1}{\sqrt{4}}} < \frac{0 - 1}{\frac{1}{\sqrt{4}}}  \right) = P(Z < -2) \approx 0.023$
 	
 Seguimos con la Potencia para $\mu = -1$:
 	
@@ -161,12 +161,12 @@ Podemos definir la **probabilidad** de cometer estos dos tipos de errores en té
 >Definición. **Probabilidad de Error Tipo I y Error Tipo II:** Para un espacio paramétrico $\Omega$, dividido en dos subconjuntos $\Omega_0$ y $\Omega_1$, de un parámetro $\theta$, se define la probabilidad de cometer Error Tipo I, denotada como $\alpha(\delta)$ como: 
 
 > $$\alpha(\delta) = P(\text{rechazar } H_{0} \text{ cuando es cierta})$$
-$$= P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_0 \right) = Potencia\left(\theta | \theta \in \Omega_0 \right)$$
+$$\hspace{3.785cm}= P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_0 \right) = \operatorname{Potencia}\left(\theta | \theta \in \Omega_0 \right)$$
 
 > Por otra parte la probabilidad de cometer Error Tipo II, denotada como $\beta(\delta)$, se define como: 
 
 > $$\beta(\delta) = P(\text{no rechazar } H_{0} \text{ cuando es falsa}  ) = P\left( \textbf{X} \in RC_{\delta}^{c} | \theta \in \Omega_1 \right)$$
-$$= 1 - P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_1 \right) = 1 - Potencia(\theta |\theta \in \Omega_1 )$$
+$$\hspace{-0.7cm}= 1 - P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_1 \right) = 1 - \operatorname{Potencia}(\theta |\theta \in \Omega_1 )$$
 	
 ---
 
@@ -180,15 +180,15 @@ De la definición quedan claro algunos puntos sobre la probabilidad de Error Tip
 
 En el ejemplo anterior podemos observar que solo tenemos un valor para la probabilidad de cada tipo de error. En ese caso:
 	
-$\alpha(1) = Potencia(1) = 0.023$
+$\alpha(1) = \operatorname{Potencia}(1) = 0.023$
 	
-$\beta(-1) = 1 - Potencia(-1) = 1 - 0.977 = 0.023$
+$\beta(-1) = 1 - \operatorname{Potencia}(-1) = 1 - 0.977 = 0.023$
 	
 Por pura coincidencia ambos errores tienen la misma probabilidad en el ejemplo anterior. A continuación veremos otra forma de describir un contraste.
 	
 > Definición. **Tamaño del contraste**. Para un contraste de hipótesis $H_{0}: \theta \in \Omega_{0}$ y $H_{1}: \theta \in \Omega_{1}$ se denomina tamaño del contraste al valor $\alpha_c$ dado por:
 
->  $$\alpha_c = Sup(Potencia(\theta|\theta \in \Omega_{0})) = Sup(\alpha(\delta))$$
+>  $$\alpha_c = \operatorname{Sup}(\operatorname{Potencia}(\theta|\theta \in \Omega_{0})) = \operatorname{Sup}(\alpha(\delta))$$
 
 >	Es decir, el tamaño de un contraste es la máxima probabilidad de cometer un Error Tipo I.
 	
@@ -213,13 +213,13 @@ Determine una expresión para la función potencia de este contraste.
 	
 **Solución:** Recordemos que la función potencia se define como la probabilidad de rechazar la hipótesis nula, es decir, de que la muestra se encuentre en la región crítica:
 	
-$\text{Potencia}(\theta) = P(\textbf{X} \in RC_{\delta} ) = P\left(X_{(n)} < 2.9 \text{ o } X_{(n)} > 3.9 \right) =$
+$\operatorname{Potencia}(\theta) = P(\textbf{X} \in RC_{\delta} ) = P\left(X_{(n)} < 2.9 \text{ o } X_{(n)} > 3.9 \right) =$
 
 $P\left(X_{(n)} < 2.9\right) + P\left(X_{(n)} > 3.9\right) = F_{X_{(n)}}(2.9) + 1 - F_{X_{(n)}}(3.9)$
 	
-Recordemos que en este caso $X_{(n)} \sim Potencial(n,\theta)$, por lo tanto su función de distribución viene dada por:
+Recordemos que en este caso $X_{(n)} \sim \operatorname{Potencial}(n,\theta)$, por lo tanto su función de distribución viene dada por:
 	
-$F_{X_{(n)}}(x) = \begin{cases} 0\quad si \quad x \leq 0 \\	\left(\frac{x}{\theta}\right)^{n} \quad si\quad 0<x<\theta \\ 1\quad si\quad x \geq \theta \end{cases}$
+$$F_{X_{(n)}}(x) = \begin{cases} 0\quad si \quad x \leq 0 \\	\left(\dfrac{x}{\theta}\right)^{n} \quad si\quad 0<x<\theta \\ 1\quad si\quad x \geq \theta \end{cases}$$
 
 ---
 
@@ -231,13 +231,13 @@ Si $0 < \theta \leq 2.9$:
 	
 $F_{X_{(n)}}(2.9) = 1 \qquad \text{y} \qquad F_{X_{(n)}}(3.9) = 1$
 
-$\Rightarrow Potencia(\theta) = 1 + 1 - 1 = 1$
+$\Rightarrow \operatorname{Potencia}(\theta) = 1 + 1 - 1 = 1$
 	
 Si $2.9 \leq \theta \leq 3.9$:
 	
-$F_{X_{(n)}}(2.9) = \left(\frac{2.9}{\theta}\right)^{n}  \quad \text{y} \quad F_{X_{(n)}}(3.9) = \left(\frac{3.9}{\theta}\right)^{n} = 1$
+$F_{X_{(n)}}(2.9) = \left(\dfrac{2.9}{\theta}\right)^{n}  \quad \text{y} \quad F_{X_{(n)}}(3.9) = \left(\dfrac{3.9}{\theta}\right)^{n} = 1$
 
-$\Rightarrow Potencia(\theta) = \left(\frac{2.9}{\theta}\right)^{n} + 1 - 1 = \left(\frac{2.9}{\theta}\right)^{n}$
+$\Rightarrow \operatorname{Potencia}(\theta) = \left(\dfrac{2.9}{\theta}\right)^{n} + 1 - 1 = \left(\dfrac{2.9}{\theta}\right)^{n}$
 
 ---
 
@@ -245,13 +245,13 @@ $\Rightarrow Potencia(\theta) = \left(\frac{2.9}{\theta}\right)^{n} + 1 - 1 = \l
 	
 Finalmente, si $\theta > 4$:
 	
-$F_{X_{(n)}}(2.9) = \left(\frac{2.9}{\theta}\right)^{n}  \quad \text{y} \quad F_{X_{(n)}}(3.9) = \left(\frac{3.9}{\theta}\right)^{n}$
+$F_{X_{(n)}}(2.9) = \left(\dfrac{2.9}{\theta}\right)^{n}  \quad \text{y} \quad F_{X_{(n)}}(3.9) = \left(\dfrac{3.9}{\theta}\right)^{n}$
 
-$\Rightarrow Potencia(\theta) = \left(\frac{2.9}{\theta}\right)^{n} + 1 - \left(\frac{3.9}{\theta}\right)^{n}$
+$\Rightarrow \operatorname{Potencia}(\theta) = \left(\dfrac{2.9}{\theta}\right)^{n} + 1 - \left(\dfrac{3.9}{\theta}\right)^{n}$
 
 De esta manera podemos resumir la función potencia en la siguiente expresión:
 	
-$\text{Potencia}(\theta) = \begin{cases} 1 \quad si \quad 0 < \theta \leq 2.9 \\ \left(\frac{2.9}{\theta}\right)^{n} \quad si \quad 2.9 < \theta \leq 3.9 \\ \left(\frac{2.9}{\theta}\right)^{n} + 1 - \left(\frac{3.9}{\theta}\right)^{n} \quad si \quad \theta > 3.9 \end{cases}$
+$\operatorname{Potencia}(\theta) = \begin{cases} 1 \quad si \quad 0 < \theta \leq 2.9 \\ \left(\dfrac{2.9}{\theta}\right)^{n} \quad si \quad 2.9 < \theta \leq 3.9 \\ \left(\dfrac{2.9}{\theta}\right)^{n} + 1 - \left(\dfrac{3.9}{\theta}\right)^{n} \quad si \quad \theta > 3.9 \end{cases}$
 	
 
 ---
@@ -267,7 +267,7 @@ Podemos graficar la forma de esta función para un tamaño de muestra dado. La s
 ## Contrastes de hipótesis
 
 - De la Figura anterior podemos detallar que el tamaño de contraste se encuentra cuando $\theta = 3$. Con $n = 10$ tenemos que el tamaño del contraste sería:
-$$\alpha_c = Potencia(3) = \left(\frac{2.9}{3}\right)^{10} = 0.712$$
+$$\alpha_c = \operatorname{Potencia}(3) = \left(\frac{2.9}{3}\right)^{10} = 0.712$$
 	
 ---
 
@@ -275,7 +275,7 @@ $$\alpha_c = Potencia(3) = \left(\frac{2.9}{3}\right)^{10} = 0.712$$
 
 Podemos decir que para una muestra de tamaño 10, este contraste tiene una máxima probabilidad de cometer un Error Tipo I de 0.712. Como un ejemplo adicional podemos calcular la probabilidad de cometer Error Tipo 2 para algún valor de $\theta$ en $\Omega_{1}$. Para propósitos del ejemplo usaremos $\theta = 5$:
 	
-$\beta(5) = 1 - Potencia(5) = 1 - \left( \left(\frac{2.9}{5}\right)^{10} + 1 - \left(\frac{3.9}{5}\right)^{10} \right) = 0.079$
+$$\beta(5) = 1 - \operatorname{Potencia}(5) = 1 - \left( \left(\dfrac{2.9}{5}\right)^{10} + 1 - \left(\dfrac{3.9}{5}\right)^{10} \right) = 0.079$$
 	
 Un uso que tiene el tamaño como una característica del contraste es que podemos definir una región crítica para un tamaño de contraste dado. 
 
@@ -291,7 +291,7 @@ $\text{Potencia}(\mu) = P(\overline{X} > c | \mu) = P\left( Z > \sqrt{n}(c-\mu) 
 	
 Sabemos que el tamaño del contraste se define como la máxima probabilidad de cometer Error Tipo I, pero en este caso solo tenemos una probabilidad de Error Tipo I, que sucede cuando $\mu = 5$. Por lo tanto:
 	
-$\alpha_c = Potencia(5) = P\left( Z > \sqrt{n}(c-5) \right) = 0.10$
+$\alpha_c = \operatorname{Potencia}(5) = P\left( Z > \sqrt{n}(c-5) \right) = 0.10$
 
 ---
 
