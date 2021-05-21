@@ -123,19 +123,19 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
   <tr>
-    <td> 18 de mayo </td>
-    <td>  <a href="XS3310-I20_11.html">Clase 13</a> </td>
+    <td> 18 y 21 de mayo </td>
+    <td>  <a href="XS3310-I20_11.html">Clase 13 y 14</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
     <td> Práctica incluida en la presentación <br> </td>
   </tr>
     <tr>
-    <td> 21 de mayo </td>
+    <td> 25 de mayo </td>
     <td>  <a href="XS3310-I20_12.html">Clase 14</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a></td> 
     <td> Ejercicios: Mendenhall 10.88  - 10.104  <br> </td>
   </tr>
     <tr>
-    <td> 25 de mayo </td>
+    <td> 28 de mayo </td>
     <td>  <a href="XS3310-I20_13.html">Clase 15</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=PucB1LgjOsE">Funci&oacute;n potencia</a><br> 
     <a href="https://www.youtube.com/watch?v=Qlrs2gd8JbI">Regiones de rechazo y tipos de errores</a><br>
@@ -145,7 +145,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> Lecturas del valor p: Ver Clase 13 <br> </td>
   </tr>
     <tr>
-    <td> 28 de mayo  </td>
+    <td> 01 de junio  </td>
     <td>  <a href="XS3310-I20_14.html">Clase 16</a> </td>
     <td>   <a href="https://www.youtube.com/watch?v=lam4GyjVeJs">Lema de Neyman-Pearson</a><br> 
 <a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> </td> 
