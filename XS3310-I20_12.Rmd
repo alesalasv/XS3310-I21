@@ -17,6 +17,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
 class: center, middle
@@ -31,9 +32,9 @@ Contrastes de hipótesis - introducción
 
 ---
 
-## Contrastes de hipótesis
+# Contrastes de hipótesis
 
-Tenemos un parámetro $\theta$ que es desconocido pero podemos decir que pertenece a un espacio paramétrico $\Omega$; este espacio incluye todos los posibles valores que $\theta$ podría tomar. Suponga que dividimos $\Omega$ en dos subconjuntos disjuntos `\(\Omega_0\)` y `\(\Omega_1\)` tales que:
+Tenemos un parámetro $\theta$ que es desconocido pero podemos decir que pertenece a un espacio paramétrico $\Omega$; este espacio incluye todos los posibles valores que $\theta$ podría tomar. Suponga que dividimos $\Omega$ en dos subconjuntos disjuntos \(\Omega_0\) y \(\Omega_1\) tales que:
 
 $$\Omega_{0} \cap \Omega_{1} = \emptyset \wedge \Omega_{0} \cup \Omega_{1} = \Omega.$$ 
 
@@ -49,15 +50,15 @@ El procedimiento que sigue consiste en *contrastar* estas hipótesis mediante un
 
 ---
 
-## Contrastes de hipótesis
+# Contrastes de hipótesis
 	
-![Método ciéntífico](https://cdn.thinglink.me/api/image/685791022688501762/1240/10/scaletowidth)	
+  ![Método ciéntífico](./figs/metodocientifico.jpg)	
 
 https://www.youtube.com/watch?v=9jW9G8MO4PQ
 	
 ---
 
-## Contrastes de hipótesis
+# Contrastes de hipótesis
   
 Dos posibles resultados: 
 
@@ -78,10 +79,11 @@ Supongamos que resumimos los datos de la muestra en el estadístico $\overline{X
 > Definición: **Región crítica**. Consideremos las hipótesis $H_{0}: \theta \in \Omega_{0}$ y $H_{1}: \theta \in \Omega_{1}$. Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria seleccionada sobre una distribución con parámetros desconocido $\theta$. Sea $S$ el espacio muestral para el vector aleatorio n-dimensional $\textbf{X} = \left\lbrace  X_{1}, X_{2}, ... , X_{n} \right\rbrace$ es decir, $S$ es el resultado de todas las posibles muestras aleatorias de tamaño $n$. Sea $\delta$ un contraste que consiste en dividir el espacio muestral $S$ en dos subconjuntos, el primero de ellos contiene los valores de $\textbf{X}$ para los cuales se rechaza $H_{0}$ y se denomina como la **región crítica del contraste**, denotada como $RC_{\delta}$. 
 	
 ---
+
 ## Contrastes de hipótesis
 
 En los contrastes de hipótesis con los que acostumbramos trabajar solemos definir la región crítica en términos del estadístico de prueba. En el ejemplo que veníamos discutiendo anteriormente el *estadístico de prueba* es el que se usa en el contraste para resumir la información de la muestra es decir, $\overline{X}$. La región crítica se define como todos los valores de $\overline{X}$ que sean menores a $k$. Por otro lado, el valor $k$ es el valor que separa la región crítica de la región donde no rechazamos $H_{0}$, llamada la *región crítica complemento* (denotada como $RC_{\delta}^c$); por su parte el valor de $k$ se llama el *valor crítico* del contraste. Pueden existir contrastes con más de un valor crítico. 
-
+ 
 ---
 
 ## Contrastes de hipótesis
@@ -98,18 +100,21 @@ $\operatorname{Potencia}(\theta) = P(\textbf{X} \in RC | \theta)$
 La función potencia nos da la probabilidad de que el estadístico de prueba se encuentre en la región crítica para un valor dado de $\theta$. Un contraste ideal, pero imposible en la práctica, sería tal que siempre rechace $H_{0}$ cuando este es falso y que no lo rechace cuando es cierto. Es decir, queremos que la Potencia para valores de $\theta$ en $\Omega_{0}$ sea cero mientras que para valores de $\theta$ en $\Omega_{1}$ queremos que la Potencia sea uno. De este modo estamos tomando la decisión correcta el $100\%$ de las veces. En la práctica queremos tener un contraste que tenga una función potencia lo más parecida a la función de potencia ideal. 
 
 ---
+
 ## Contrastes de hipótesis
 
 Ejemplo de una función de potencia para un caso práctico. 
 
-![Función de potencia real](figs/pot_real.png)
+![Función de potencia real](./figs/pot_real.png)
 
 ---
+
+
 ## Contrastes de hipótesis
 
 Ejemplo de una función de potencia para el caso ideal.
 
-![Función de potencia ideal](figs/pot_ideal.png)
+![Función de potencia ideal](./figs/pot_ideal.png)
 
 
 ---
@@ -150,7 +155,8 @@ Nótese que en cualquier contraste de hipótesis podemos tener cuatro posibles r
 
 ## Contrastes de hipótesis
 
-![Error Tipo I y Error Tipo II](https://whatsthebigdata.files.wordpress.com/2017/01/errors.jpg)
+![Error Tipo I y Error Tipo II](./figs/errors.jpg)
+
 
 ---
 
@@ -207,6 +213,8 @@ $$H_{1}: \theta < 3 \quad o \quad \theta > 4 \qquad \qquad\qquad \Omega_{1} = \l
 En este caso utilizaremos a $X_{(n)}$ para crear la región crítica. Sabemos que $X_{(n)}$ es el estimador de máxima verosimilitud de $\theta$ y que siempre será menor a $\theta$ (aunque con muestras grandes se va a aproximar mucho). Supongamos que por estas razones vamos a aceptar $H_0$ si $2.9 \leq X_{(n)} \leq 3.9$ y se rechaza en caso contrario. Entonces la región crítica del contraste incluye todas las muestras $\textbf{X}$ para las cuales $X_{(n)} < 2.9$ o $X_{(n)} > 3.9$, es decir, $RC_{\delta} = \left\lbrace \textbf{X} |X_{(n)} \in \textbf{X} \text{ y } X_{(n)} < 2.9 \text{ o } X_{(n)} > 3.9 \right\rbrace$. 
 
 ---
+
+
 ## Contrastes de hipótesis
 
 Determine una expresión para la función potencia de este contraste. 
