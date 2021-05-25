@@ -34,7 +34,7 @@ Contrastes de hipótesis - introducción
 
 # Contrastes de hipótesis
 
-Tenemos un parámetro $\theta$ que es desconocido pero podemos decir que pertenece a un espacio paramétrico $\Omega$; este espacio incluye todos los posibles valores que $\theta$ podría tomar. Suponga que dividimos $\Omega$ en dos subconjuntos disjuntos \(\Omega_0\) y \(\Omega_1\) tales que:
+Tenemos un parámetro $\theta$ que es desconocido pero podemos decir que pertenece a un espacio paramétrico $\Omega$; este espacio incluye todos los posibles valores que $\theta$ podría tomar. Suponga que dividimos $\Omega$ en dos subconjuntos disjuntos $\Omega_0$ y $\Omega_1$ tales que:
 
 $$\Omega_{0} \cap \Omega_{1} = \emptyset \wedge \Omega_{0} \cup \Omega_{1} = \Omega.$$ 
 
@@ -92,7 +92,6 @@ Dos características que tienen los contrastes: la potencia y el tamaño. El enf
 	
 > Definición. **Función potencia:** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una población con parámetro desconocido $\theta$ y sea $RC_{\delta}$ la región crítica de un contraste $\delta$ respecto a $\theta$. La **potencia del contraste**, denotada $\operatorname{Potencia}(\theta)$, es la probabilidad que el contraste indique rechazar $H_{0}$ para un valor dado de $\theta$ es decir, 
 $\operatorname{Potencia}(\theta) = P(\textbf{X} \in RC | \theta)$
-
 ---
 
 ## Contrastes de hipótesis
@@ -165,12 +164,9 @@ Nótese que en cualquier contraste de hipótesis podemos tener cuatro posibles r
 Podemos definir la **probabilidad** de cometer estos dos tipos de errores en términos de la función potencia:
 	
 >Definición. **Probabilidad de Error Tipo I y Error Tipo II:** Para un espacio paramétrico $\Omega$, dividido en dos subconjuntos $\Omega_0$ y $\Omega_1$, de un parámetro $\theta$, se define la probabilidad de cometer Error Tipo I, denotada como $\alpha(\delta)$ como: 
-
 > $$\alpha(\delta) = P(\text{rechazar } H_{0} \text{ cuando es cierta})$$
 $$\hspace{3.785cm}= P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_0 \right) = \operatorname{Potencia}\left(\theta | \theta \in \Omega_0 \right)$$
-
 > Por otra parte la probabilidad de cometer Error Tipo II, denotada como $\beta(\delta)$, se define como: 
-
 > $$\beta(\delta) = P(\text{no rechazar } H_{0} \text{ cuando es falsa}  ) = P\left( \textbf{X} \in RC_{\delta}^{c} | \theta \in \Omega_1 \right)$$
 $$\hspace{-0.7cm}= 1 - P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_1 \right) = 1 - \operatorname{Potencia}(\theta |\theta \in \Omega_1 )$$
 	
@@ -193,9 +189,7 @@ $\beta(-1) = 1 - \operatorname{Potencia}(-1) = 1 - 0.977 = 0.023$
 Por pura coincidencia ambos errores tienen la misma probabilidad en el ejemplo anterior. A continuación veremos otra forma de describir un contraste.
 	
 > Definición. **Tamaño del contraste**. Para un contraste de hipótesis $H_{0}: \theta \in \Omega_{0}$ y $H_{1}: \theta \in \Omega_{1}$ se denomina tamaño del contraste al valor $\alpha_c$ dado por:
-
 >  $$\alpha_c = \operatorname{Sup}(\operatorname{Potencia}(\theta|\theta \in \Omega_{0})) = \operatorname{Sup}(\alpha(\delta))$$
-
 >	Es decir, el tamaño de un contraste es la máxima probabilidad de cometer un Error Tipo I.
 	
 ---
@@ -325,5 +319,6 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Contrastes de hipótesis - introducción
+
 
 
