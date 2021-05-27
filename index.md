@@ -127,14 +127,14 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
    <tr>
     <td> 25 de mayo </td>
     <td>  <a href="XS3310-I20_12.html">Clase 15</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a></td> 
+    <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a></td>
+    <td>  <a href="https://www.youtube.com/watch?v=PucB1LgjOsE">Funci&oacute;n potencia</a><br> 
+    <a href="https://www.youtube.com/watch?v=Qlrs2gd8JbI">Regiones de rechazo y tipos de errores</a><br>
     <td> Ejercicios: Mendenhall 10.88  - 10.104  <br> </td>
   </tr>
     <tr>
     <td> 28 de mayo </td>
     <td>  <a href="XS3310-I20_13.html">Clase 16</a> </td>
-    <td>  <a href="https://www.youtube.com/watch?v=PucB1LgjOsE">Funci&oacute;n potencia</a><br> 
-    <a href="https://www.youtube.com/watch?v=Qlrs2gd8JbI">Regiones de rechazo y tipos de errores</a><br>
     <a href="https://www.youtube.com/watch?v=fr96C4YVTlU">Ejemplo de prueba de hip&oacute;tesis sobre la distribuci&oacute;n Bernoulli</a><br> 
     <a href="https://www.youtube.com/watch?v=MDgWCNLi8zw">Ejemplos de pruebas de hip&oacute;tesis sobre la distribuci&oacute;n normal</a><br>
     </td> 
