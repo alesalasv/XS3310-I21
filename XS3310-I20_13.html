@@ -1,139 +1,263 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>XS3310 Teoría Estadística</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-05-28" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+# XS3310 Teoría Estadística
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-05-28
 
-<head>
-<title>XS3310-I20_13.html</title>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  /><meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'><style> body { box-sizing: border-box; max-width: 740px; width: 100%; margin: 40px auto; padding: 0 10px; } </style><script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script><script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script><script>document.addEventListener('DOMContentLoaded', () => { document.body.classList.add('markdown-body'); document.querySelectorAll('pre[lang] > code').forEach((code) => { code.classList.add(code.parentElement.lang); }); document.querySelectorAll('pre > code').forEach((code) => { hljs.highlightBlock(code); }); });</script>
-</head>
-
-<body>
-
-<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE) library(tidyverse)</code></p>
-<p>class: center, middle</p>
-<h1 id="qué-hemos-visto-hasta-ahora">¿Qué hemos visto hasta ahora?</h1>
-<p>Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap y una introducción a los contrastes de hipótesis.</p>
-<h1 id="qué-vamos-a-discutir-hoy">¿Qué vamos a discutir hoy?</h1>
-<p>Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor p.</p>
-<hr />
-<h2 id="valor-p">Valor p</h2>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9jW9G8MO4PQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</center>
-<hr />
-<h2 id="valor-p-1">Valor p</h2>
-<p>El Valor p es una herramienta que se puede utilizar para contrastar hipótesis que tiene características que pueden solucionar algunos problemas con los contrastes anteriores. Por ejemplo, no todos los contrastes van a tener un tamaño de contraste exacto (como en los casos donde las variables aleatorias son discretas.) Por otro lado, ni el tamaño ni la potencia están directamente relacionados con los datos observados. El valor p corrige estos problemas. Para propósitos del curso definiremos el valor p como:</p>
-<blockquote>
-<p>Definición. <strong>Valor p:</strong> Sea <span class="math inline">\(T = T(X_1, X_2, \dots, X_n)\)</span> un estadístico y considere <span class="math inline">\(H_0: \theta = \theta_0\)</span> contra <span class="math inline">\(H1: \theta &lt; \theta_0\)</span> (o <span class="math inline">\(H1: \theta &gt; \theta_0\)</span>, <span class="math inline">\(H1: \theta \neq \theta_0\)</span>). Suponga que el contraste rechaza H0 si <span class="math inline">\(T \leq k\)</span> (o <span class="math inline">\(T &gt; k\)</span>, <span class="math inline">\(|T|&gt;k\)</span>). Sea <span class="math inline">\(t = T(x_1, x_2, \dots, x_n\)</span>) un valor observado de T. Entonces se define el valor p (denotado pval(t)) como: <span class="math display">\[pval(t) = P(T \leq t|\theta = \theta_0)\]</span><br />
-<span class="math display">\[pval(t) = P(T &gt; t|\theta = \theta_0)\]</span> <span class="math display">\[pval(t) = 2 P(T &gt; t|\theta = \theta_0)\]</span></p>
-</blockquote>
-<hr />
-<h2 id="valor-p-2">Valor p</h2>
-<p>Nótese que de esta manera no hay ningún problema si la distribución de T es discreta o continua, pues la probabilidad puede ser calculada sin ningún problema. Formalmente, el valor p se conoce como la probabilidad, bajo la hipótesis nula, de observar nuestro estadístico de prueba o un valor más extremo. Esto significa que si el valor p es grande entonces nuestro estadístico de prueba es un valor muy común de T y se sitúa en el centro de la distribución, brindando así evidencia a favor de la hipótesis nula. Por otra parte, si el valor p es pequeño entonces el estadístico de prueba es un valor poco común de T, situándose en las colas de su distribución, y por lo tanto brindando evidencia en contra de <span class="math inline">\(H_0\)</span> y a favor de <span class="math inline">\(H_1\)</span>. Existe la posibilidad de que el valor de t haya sido un punto extremo de la distribución de T bajo <span class="math inline">\(H_0\)</span>, pero esto se considera algo como sumamente improbable.</p>
-<p>Como altos valores p dan evidencia a favor de H0 y bajos valores dan evidencia en contra, sería posible idear un contraste de hipótesis que consista en rechazar H0 si (pval(t) ). Si la distribución de T es continua entonces el valor de () sería un tamaño de contraste exacto. En la práctica así es cómo se utiliza el valor p, comparándolo contra el nivel de significancia (tamaño del contraste) y decidiendo si se rechaza o no la hipótesis nula.</p>
-<hr />
-<h2 id="valor-p-3">Valor p</h2>
-<!-- **Ejemplo:** Encuentre el valor p para la prueba anterior, suponiendo que $\bar{x} = 5,21$ y $n = 4$. -->
-<!-- **Solución:** Recordemos que el contraste consistía en rechazar $H_0: \mu = 5$ a favor de $H_1:\mu > 5$ si $x > 5 + \frac{1,28}{\sqrt{n}}$. Por lo tanto el valor p consiste en encontrar la siguiente probabilidad: -->
-<!-- $$\operatorname{pval}(5,21) = P(\bar{X} > 5,21|\mu = 5) = P(Z > \sqrt{4}(5,21 - 5)))$$ -->
-<!-- $$= P(Z > 0,42) = 0,337$$ -->
-<!-- Por lo tanto si comparamos este valor contra el tamaño de contraste que utilizamos anteriormente ($0.10$), decimos que no hay suficiente evidencia estadística para rechazar la hipótesis nula de que $\mu = 5$, ya que $\operatorname{pval}(5,21) = 0,337 > 0,10 = \alpha_0$. Esta conclusión es consistente con el -->
-<!-- contraste que consiste en comparar $\bar{x}$ contra $5 + \frac{1,28}{\sqrt{n}}$. En este caso el valor crítico sería $5.64$, por lo que nuestro estadístico de prueba es menor y entonces no rechazamos la hipótesis nula. -->
-<p><strong>Ejemplo</strong> Se rechaza <span class="math inline">\(H_0: \mu = \mu_0\)</span> si (|Z|&gt;z_{1-2})</p>
-<p>Ahora si (= 0.05) y (z_{1-2} = 1.96), entonces para (Z = 1.97) y (Z = 2.78 ) y ( Z = 6.97) todos cumplen esa condición.</p>
-<p>¿Entonces la pregunta es cuál es mejor?</p>
-<p>Una forma de estimar esa “fuerza”, es partir del cuantil real de la distribución</p>
-<p><span class="math display">\[\begin{align*}
-\Phi(Z) &amp;&gt; 1-\dfrac{\alpha}2 \\
-\alpha &amp;&gt; 2(1-\Phi(Z)) 
-\end{align*}\]</span></p>
-<ul>
-<li>Si <span class="math inline">\(Z=1.97\)</span> entonces (=<code>r 2*(1-pnorm(1.97))</code>)</li>
-<li>Si <span class="math inline">\(Z=2.78\)</span> entonces (=<code>r 2*(1-pnorm(2.78))</code>)</li>
-<li>Si <span class="math inline">\(Z=6.97\)</span> entonces (=<code>r 2*(1-pnorm(6.97))</code>)</li>
-</ul>
-<p>En cada caso se estimó usando el comando <code>2*(1-pnorm(1.97))</code> por ejemplo.</p>
-<hr />
-<h2 id="valor-p-4">Valor p</h2>
-<p>Existen algunas malas interpretaciones del valor p que no debemos cometer en la práctica. Por lo tanto concluyo esta discusión con dos advertencias:</p>
-<ul>
-<li><p>El valor p no es la probabilidad de que la hipótesis nula sea cierta. La hipótesis nula es un valor de () fijo y por lo tanto es cierta o no lo es; no existen probabilidades en este ámbito.</p></li>
-<li><p>El valor p no es la probabilidad de cometer un Error Tipo I, dado los datos. El cálculo del valor p no tiene nada que ver con la decisión de aceptar o rechazar la hipótesis nula; es simplemente la probabilidad de una cola de la distribución muestral de T que se puede usar para cuantificar la evidencia de los datos a favor de H0. No obstante, sí se puede usar el valor p para tomar decisiones, pero entonces obviamente en esos caso no sería la probabilidad de Error Tipo I.</p></li>
-<li><p>En algunos casos el valor p se conoce como el “tamaño del contraste observado” pues su cálculo es similar al del tamaño del contraste pero utilizando el estadístico de prueba en lugar del valor crítico. No obstante esta es una interpretación que no me gusta pues tiende a confundir la interpretación de un valor p con las interpretaciones erróneas mencionadas anteriormente.</p></li>
-</ul>
-<hr />
-<figure>
-<img src="figs/Fisher0.05.png" alt="Lo que Fisher dijo de p &lt; 0.05" /><figcaption aria-hidden="true">Lo que Fisher dijo de p &lt; 0.05</figcaption>
-</figure>
-<hr />
-<h1 id="un-ejemplo-numérico">Un ejemplo numérico</h1>
-<p>Los datos de la cantidad de lluvia para este experimento están acá. <code>{r 09-pruebas-hipotesis-1 } nubes &lt;- read.table(file = "./data/clouds.txt", sep = "\t", header = TRUE) head(nubes)</code></p>
-<hr />
-<p>Sin embargo usaremos los datos en escala logarítmica para facilitar el cálculo</p>
-<p><code>{r 09-pruebas-hipotesis-2 } lognubes &lt;- log(nubes) head(lognubes)</code></p>
-<hr />
-<p>Observe que el comportamiento es distinto en ambos casos.</p>
-<p>```{r 09-pruebas-hipotesis-3, echo=FALSE } df &lt;- as.data.frame(nubes) %&gt;% pivot_longer( cols = everything(), names_to = “tratamiento”, values_to = “lluvia” ) %&gt;% mutate(log_lluvia = log(lluvia)) ggplot(data = df) + geom_histogram(aes( x = lluvia, y = ..density.., fill = tratamiento ), color = “black”, bins = 10 ) + facet_wrap(. ~ tratamiento)</p>
-<pre><code>
 ---
 
-```{r, echo=FALSE}
-ggplot(data = df) +
-  geom_histogram(aes(
-    x = log_lluvia,
-    y = ..density..,
-    fill = tratamiento
-  ), color = &quot;black&quot;, bins = 10) +
-  facet_wrap(. ~ tratamiento)
-</code></pre>
-<hr />
-<p>En este caso supondremos que la variable <code>log_lluvia</code> se puede modelar como una <span class="math inline">\(N(\mu,\sigma^2)\)</span>, <span class="math inline">\(\mu,\sigma\)</span> desconocidos.</p>
-<p>Preguntamos lo siguiente:</p>
-<p>En este caso sería <span class="math inline">\(\theta = (\mu,\sigma^2)\)</span>, ¿Será cierto que para <span class="math inline">\(\theta\in\{(\mu,\sigma^2):\mu&gt;4\}\)</span>?</p>
-<p>El valor de <span class="math inline">\(\mu&gt;4\)</span> nace a partir de una pregunta de investigación y se fórmula una <strong>hipótesis</strong> con respecto a los datos.</p>
-<p>En este caso el valor donde decrece la curva es cercano a 0. Eso quiere decir que antes de ese valor, nos encontramos en la región de rechazo. Luego esa región se va haciendo cada vez más pequeña ( - ).</p>
-<hr />
-<p>Ojo lo que pasaría si por ejemplo cambiamos a <span class="math inline">\(\mu = 4\)</span>, asumiento que tenemos una población <span class="math inline">\(N(2,9)\)</span>.</p>
-<p>```{r 09-pruebas-hipotesis-5, echo=FALSE } X &lt;- matrix(rnorm(1000 * 1000, mean = 2, sd = 3), ncol = 1000)</p>
-<p>Xbar &lt;- apply(X, 2, mean)</p>
-<p>mu0 &lt;- 4 T &lt;- abs(Xbar - mu0) c &lt;- seq(-0.25, 3, length.out = 1000) df &lt;- data.frame(c = numeric(), test = logical(), region = character()) for (k in 1:length(c)) { df &lt;- rbind( df, data.frame(c = c[k], test = mean(T &gt;= c[k]), region = “Omega_1”) ) } df &lt;- rbind(df, data.frame(c, test = 1 - df$test, region = “Omega_0”)) ggplot(df, aes(x = c, y = test, color = region)) + geom_line(size = 2) + ylab(“Promedio de veces donde T &gt;= c”) + theme_minimal()</p>
-<pre><code>---
 
-El valor donde comienza a crecer la curva se desvía a un valor cercano a 2. 
+
+
+
+class: center, middle
+
+# ¿Qué hemos visto hasta ahora?
+
+Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap y una introducción a los contrastes de hipótesis.
+
+# ¿Qué vamos a discutir hoy?
+
+Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor p.
+
+
+---
+## Valor p
+
+&lt;center&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/9jW9G8MO4PQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt;
+
+---
+
+## Valor p
+
+El Valor `\(p\)` es una herramienta que se puede utilizar para contrastar hipótesis que tiene características que pueden solucionar algunos problemas con los contrastes anteriores. Por ejemplo, no todos los contrastes van a tener un tamaño de contraste exacto (como en los casos donde las variables aleatorias son discretas.) Por otro lado, ni el tamaño ni la potencia están directamente relacionados con los datos observados. El valor `\(p\)` corrige estos problemas. Para propósitos del curso definiremos el valor `\(p\)` como:
+
+&gt; Definición. **Valor p:** Sea `\(T = T(X_1, X_2, \dots, X_n)\)` un estadístico y considere `\(H_0: \theta = \theta_0\)` contra `\(H_1: \theta &lt; \theta_0\)` ( `\(H_1:\theta&gt;\theta_0\)` o `\(H_1:\theta\neq\theta_0\)`). Suponga que el contraste rechaza `\(H_0\)` si `\(T \leq k\)` ( `\(T &gt; k\)` o `\(|T|&gt;k\)`  ). Sea `\(t = T(x_1, x_2, \dots, x_n\)`) un valor observado de `\(T\)`. Entonces se define el valor `\(p\)` (denotado pval(t)) como:
+`$$pval(t) = P(T \leq t|\theta = \theta_0)$$` 
+`$$pval(t) = P(T &gt; t|\theta = \theta_0)$$`
+`$$pval(t) = 2P(T &gt; t|\theta = \theta_0)$$`
+
+---
+
+## Valor p
+
+Nótese que de esta manera no hay ningún problema si la distribución de `\(T\)` es discreta o continua, pues la probabilidad puede ser calculada sin ningún problema. Formalmente, *el valor `\(p\)` se conoce como la probabilidad, bajo la hipótesis nula, de observar nuestro estadístico de prueba o un valor más extremo*. Esto significa que si el valor `\(p\)` es grande entonces nuestro estadístico de prueba es un valor muy común de `\(T\)` y se sitúa en el centro de la distribución, brindando así evidencia a favor de la hipótesis nula. Por otra parte, si el valor `\(P\)` es pequeño entonces el estadístico de prueba es un valor poco común de `\(t\)`, situándose en las colas de su distribución, y por lo tanto brindando evidencia en contra de `\(H_0\)` y a favor de `\(H_1\)`. Existe la posibilidad de que el valor de `\(t\)` haya sido un punto extremo de la distribución de `\(T\)` bajo `\(H_0\)`, pero esto se considera algo como sumamente improbable.
+
+Como altos valores `\(p\)` dan evidencia a favor de `\(H_0\)` y bajos valores dan evidencia en contra, sería posible idear un contraste de hipótesis que consista en rechazar `\(H_0\)` si `\(pval(t) \leq \alpha\)`. Si la distribución de `\(T\)` es continua entonces el valor de `\(\alpha\)` sería un tamaño de contraste exacto. En la práctica así es cómo se utiliza el valor `\(p\)`, comparándolo contra el nivel de significancia (tamaño del contraste) y decidiendo si se rechaza o no la hipótesis nula.
+
+---
+
+### Ejemplo 
+
+Encuentre el valor `\(p\)` para la prueba anterior, suponiendo que `\(\bar{X} = 5.21\)` y `\(n = 4\)`.
+
+**Solución:** 
+
+Recordemos que el contraste consistía en rechazar `\(H_0: \mu = 5\)` a favor de `\(H_1:\mu &gt; 5\)` si `\(\overline{X} &gt; 5 + \frac{1.28}{\sqrt{n}}\)`. Por lo tanto el valor `\(p\)` consiste en encontrar la siguiente probabilidad:
+
+`$$\operatorname{pval}(5.21) = P(\bar{X} &gt; 5.21|\mu = 5) = P(Z &gt; \sqrt{4}(5.21 - 5)))$$`
+`$$= P(Z &gt; 0.42) = 0.337$$`
+
+Por lo tanto si comparamos este valor contra el tamaño de contraste que utilizamos anteriormente `\(0.10\)`, decimos que no hay suficiente evidencia estadística para rechazar la hipótesis nula de que `\(\mu = 5\)`, ya que `\(\operatorname{pval}(5.21) = 0.337 &gt; 0.10 = \alpha_0\)`. Esta conclusión es consistente con el
+contraste que consiste en comparar `\(\bar{X}\)` contra `\(5 + \frac{1.28}{\sqrt{n}}\)`. En este caso el valor crítico sería `\(5.64\)`, por lo que nuestro estadístico de prueba es menor y entonces no rechazamos la hipótesis nula.
+
+---
+
+### Ejemplo 
+
+Para `\(H_0: \mu = \mu_0\)` vs `\(H_1: \mu \neq \mu_0\)`, se rechaza `\(H_0\)` si `\(|Z|&gt;z_{1-\frac{\alpha_0}2}\)`
+
+Ahora si `\(\alpha = 0.05\)` y `\(z_{1-\frac{\alpha}2}= z_{0.975} = 1.96\)`, entonces para
+`\(Z = 1.97\)` y `\(Z = 2.78\)` y `\(Z = 6.97\)` todos cumplen esa condición. 
+
+¿Entonces la pregunta es cuál es mejor?
+
+Una forma de estimar esa "fuerza", es partir del cuantil real de la distribución 
+
+`\begin{align*}
+\Phi(Z) &amp;&gt; 1-\dfrac{\alpha '}2 \\
+\alpha ' &amp;&gt; 2(1-\Phi(Z)) 
+\end{align*}`
+
+
+- Si `\(Z=1.97\)` entonces `\(\alpha' =0.0488384\)`
+- Si `\(Z=2.78\)` entonces `\(\alpha'  =0.0054359\)`
+- Si `\(Z=6.97\)` entonces `\(\alpha'  =3.1694647\times 10^{-12}\)`
+
+
+En cada caso se estimó usando el comando `2*(1-pnorm(1.97))` por ejemplo. 
+
+---
+
+## Valor p
+
+Existen algunas malas interpretaciones del valor `\(p\)` que no debemos cometer en la práctica. Por lo tanto concluyo esta discusión con dos advertencias: 
+
+* El valor `\(p\)` no es la probabilidad de que la hipótesis nula sea cierta. La hipótesis nula es un valor de `\(\theta\)` fijo y por lo tanto es cierta o no lo es; no existen probabilidades en este ámbito.
+
+* El valor `\(p\)` no es la probabilidad de cometer un Error Tipo I, dado los datos. El cálculo del valor `\(p\)` no tiene nada que ver con la decisión de aceptar o rechazar la hipótesis nula; es simplemente la probabilidad de una cola de la distribución muestral de T que se puede usar para cuantificar la evidencia de los datos a favor de `\(H_0\)`. No obstante, sí se puede usar el valor `\(p\)` para tomar decisiones, pero entonces obviamente en esos caso no sería la probabilidad de Error Tipo I.
+
+* En algunos casos el valor `\(p\)` se conoce como el "*tamaño del contraste observado*" pues su cálculo es similar al del tamaño del contraste pero utilizando el estadístico de prueba en lugar del valor crítico. No obstante esta es una interpretación que no me gusta pues tiende a confundir la interpretación de un valor `\(p\)` con las interpretaciones erróneas mencionadas anteriormente.
+
+
+---
+
+![Lo que Fisher dijo de p &lt; 0.05](figs/Fisher0.05.png)
+
+---
+
+### Un ejemplo numérico
+
+Los datos de la cantidad de lluvia para este experimento están acá. 
+
+```r
+nubes &lt;- read.table(file = "./data/clouds.txt", sep = "\t",header = TRUE)
+head(nubes)
+```
+
+```
+##   Unseeded.Clouds Seeded.Clouds
+## 1          1202.6        2745.6
+## 2           830.1        1697.8
+## 3           372.4        1656.0
+## 4           345.5         978.0
+## 5           321.2         703.4
+## 6           244.3         489.1
+```
+Sin embargo usaremos los datos en escala logarítmica para facilitar el cálculo 
+
+
+```r
+lognubes &lt;- log(nubes)
+head(lognubes)
+```
+
+```
+##   Unseeded.Clouds Seeded.Clouds
+## 1        7.092241      7.917755
+## 2        6.721546      7.437089
+## 3        5.919969      7.412160
+## 4        5.844993      6.885510
+## 5        5.772064      6.555926
+## 6        5.498397      6.192567
+```
+---
+Observe que el comportamiento es distinto en ambos casos.
+
+
+
+```r
+df &lt;- as.data.frame(nubes) %&gt;%
+    pivot_longer(cols = everything(),
+        names_to = "tratamiento", values_to = "lluvia") %&gt;%
+    mutate(log_lluvia = log(lluvia))
+
+g1 = ggplot(data = df) +
+    geom_histogram(aes(
+        x = lluvia,
+        y = ..density..,
+        fill = tratamiento),
+    color = "black", bins = 10) +
+    facet_wrap(. ~ tratamiento)
+g2 = ggplot(data = df) +
+    geom_histogram(aes(
+        x = log_lluvia,
+        y = ..density..,
+        fill = tratamiento
+    ), color = "black", bins = 10) +
+    facet_wrap(. ~ tratamiento)
+
+ggarrange(g1, g2, 
+          labels = c("x=lluvia", "x=log_lluvia"))
+```
+---
+
+&lt;img src="XS3310-I20_13_files/figure-html/09-pruebas-hipotesis-3-1.png" style="display: block; margin: auto;" /&gt;
+---
+
+En este caso supondremos que la variable `log_lluvia` se puede modelar como una
+`\(N(\mu,\sigma^2)\)`, `\(\mu,\sigma\)` desconocidos.
+
+
+Preguntamos lo siguiente: 
+
+En este caso sería `\(\theta = (\mu,\sigma^2)\)`, ¿Será cierto que  para `\(\theta\in\{(\mu,\sigma^2):\mu&gt;4\}\)`?
+
+El valor de `\(\mu&gt;4\)` nace a partir de una pregunta de investigación y se fórmula
+una  **hipótesis** con respecto a los datos. 
+
+En este caso el valor donde decrece la curva es cercano a 0. Eso quiere decir
+que antes de ese valor, nos encontramos en la región de rechazo. Luego esa
+región se va haciendo cada vez más pequeña 
+
+$$\vert \overline{X} - \mu \vert \approx 0. $$
+
+
+---
+Ojo lo que pasaría si por ejemplo cambiamos a `\(\mu = 4\)`, 
+
+
+```r
+X &lt;- matrix(rnorm(1000 * 1000, mean = 2, sd = 3), ncol = 1000)
+Xbar &lt;- apply(X, 2, mean)
+mu0 &lt;- 4
+T &lt;- abs(Xbar - mu0)
+c &lt;- seq(-0.25, 3, length.out = 1000)
+df &lt;- data.frame(c = numeric(), test = logical(), region = character())
+
+for (k in 1:length(c)) {
+  df &lt;- rbind(df, data.frame(c = c[k], test = mean(T &gt;= c[k]), 
+                             region = "S_1"))
+}
+
+df &lt;- rbind(df, data.frame(c, test = 1 - df$test, region = "S_0"))
+ggplot(df, aes(x = c, y = test, color = region)) +
+  geom_line(size = 2) + ylab("Promedio de veces donde T &gt;= c") +
+  theme_minimal()
+```
+---
+
+&lt;img src="XS3310-I20_13_files/figure-html/09-pruebas-hipotesis-5-1.png" style="display: block; margin: auto;" /&gt;
+
+El valor donde comienza a crecer la curva se desvía a un valor cercano a 2.
+
+---
 
 Para el caso del ejemplo de la lluvia definimos
 que
 
 
-$$H_0: \mu \leq 4 \text{ versus } H_1: \mu &gt; 4$$
+`$$H_0: \mu \leq 4 \text{ versus } H_1: \mu &gt; 4$$`
 
 
-En este caso podríamos decir que rechazamos \( H_0 \) si la media empírica
-es &quot;más grande&quot; que 4 y no rechazamos \( H_0 \) si la media empírica es &quot;más
-pequeña&quot; que 4.
+En este caso podríamos decir que rechazamos `\(H_0\)` si la media empírica
+es "más grande" que 4 y no rechazamos `\(H_0\)` si la media empírica es "más
+pequeña" que 4.
 
-El problema acá es que &quot;más grande&quot; y &quot;más pequeña&quot; no son términos precisos. 
-
-
----
-
+El problema acá es que "más grande" y "más pequeña" no son términos precisos. 
 
 Tenemos dos opciones 
 
 Construya la región de critica de la forma 
 
-$$\Omega_{0}=\left\{\boldsymbol{x}:\leq \bar{X}_{n}-\mu_{0} \leq
-  c\right\}, \quad \text { y } \quad \Omega_{1}=\Omega_{0}^{C}$$
+`$$\begin{equation} \Omega_{0}=\left\{\boldsymbol{x}:\leq \bar{X}_{n}-\mu_{0} \leq c\right\}, \quad \text { y } \quad \Omega_{1}=\Omega_{0}^{C} \end{equation}$$`
 
-y observe cuál es la probabilidad que ocurra para cada tipo de \( c \).  El
+y observe cuál es la probabilidad que ocurra para cada tipo de `\(c\)`.  El
 problema con esta construcción es que requiere conocer todos los posibles
-vectores de datos \( \mathbf{X} \) y construir los conjuntos \(\Omega_0 \) y \(\Omega_1
-\). 
+vectores de datos `\(\mathbf{X}\)` y construir los conjuntos `\(\Omega_0\)` y `\(\Omega_1\)`. 
 
 Una mejor opción es tener un estadístico sencillo que cumpla dos condiciones: 
 
@@ -141,112 +265,582 @@ Una mejor opción es tener un estadístico sencillo que cumpla dos condiciones:
 eficiente. 
 2. Un estadístico con una distribución conocida. 
 
-
-En ese caso \(\overline{X}_{n} \) funciona muy bien, porque tiene todas las
+---
+En ese caso `\(\overline{X}_{n}\)` funciona muy bien, porque tiene todas las
 buenas propiedades de sufiencia, minimalidad y eficiencia, y además sabemos su
 distribución según lo estudiando en capítulos pasados. Entonces 
 
-\begin{equation*}
-U = \frac{n ^{1/2} (\overline{X}_{n} - \mu_0)}{s} \sim t_{n-1}
-\end{equation*}
+`$$\begin{equation*}U = \frac{n ^{1/2} (\overline{X}_{n} - \mu_0)}{s} \sim t_{n-1}\end{equation*}$$`
 
-Lo natural debería ser rechazar \( H_{0} \) si \( U \) es grande. 
+Lo natural debería ser rechazar `\(H_{0}\)` si `\(U\)` es grande. 
 
----
 
-```{r 09-pruebas-hipotesis-6,warning=FALSE }
+
+```r
 colnames(lognubes)
+```
+
+```
+## [1] "Unseeded.Clouds" "Seeded.Clouds"
+```
+
+```r
 Xbarra1 &lt;- mean(lognubes[, 1])
 Xbarra2 &lt;- mean(lognubes[, 2])
 sigma_prima1 &lt;- sd(lognubes[, 1])
 sigma_prima2 &lt;- sd(lognubes[, 2])
 n &lt;- dim(lognubes)[1]
 (U1 &lt;- sqrt(n) * (Xbarra1 - 4) / sigma_prima1)
+```
+
+```
+## [1] -0.02979683
+```
+
+```r
 (U2 &lt;- sqrt(n) * (Xbarra2 - 4) / sigma_prima2)
-</code></pre>
-<hr />
-<p><code>{r, echo=FALSE} ggplot(data = data.frame(x = (c(-1, 4))), mapping = aes(x)) +   stat_function(     fun = dt, args = list(df = n - 1),     mapping = aes(color = "Distribucioń t-student"), size = 2   ) +   geom_vline(mapping = aes(     xintercept = U1,     color = "Nubes no tratadas"   ), size = 2) +   geom_vline(mapping = aes(     xintercept = U2,     color = "Nubes tratadas"   ), size = 2) +   theme_minimal()</code></p>
-<ul>
-<li><p>Estadístico de prueba: <span class="math inline">\(T = |\bar X_n-\mu_0|\)</span>.</p></li>
-<li><p>Región de rechazo: <span class="math inline">\(R = (c,\infty)\)</span>.</p></li>
-</ul>
-<p>Como <span class="math inline">\(X_1,\dots, X_n \sim N(\mu, \sigma^2)\)</span>, <span class="math inline">\(\mu\)</span> desconocido, <span class="math inline">\(\sigma^2\)</span> conocido entonces <span class="math inline">\(\bar X_n \sim N\left(\mu,\dfrac{\sigma^2}{n}\right)\)</span></p>
-<ul>
-<li>Función de potencia:</li>
-</ul>
-<p><span class="math display">\[\begin{align*}
-Potencia(\theta) =  \mathbb P[T\in R|\mu] &amp; = \mathbb P [|\bar X_n -\mu_0|&gt;c|\mu] \\ &amp;= \mathbb P [\bar X_n &gt; \mu_0+c|\mu] + \mathbb P [\bar X_n &lt; \mu_0-c|\mu]\\
+```
+
+```
+## [1] 3.615624
+```
+
+---
+
+
+```r
+ggplot(data = data.frame(x = (c(-1, 4))), mapping = aes(x)) +
+  stat_function(fun = dt, args = list(df = n - 1),
+                mapping = aes(color = "Distribucioń t-student"), size = 2)+
+  geom_vline(mapping = aes(xintercept = U1,
+                           color = "Nubes no tratadas"), size = 2) +
+  geom_vline(mapping = aes(xintercept = U2,
+                           color = "Nubes tratadas"), size = 2) +
+  theme_minimal()
+```
+
+&lt;img src="XS3310-I20_13_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* Estadístico de prueba: `\(T = |\bar X_n-\mu_0|\)`.
+
+* Región de rechazo: `\(R = (c,\infty)\)`.
+
+Como `\(X_1,\dots, X_n \sim N(\mu, \sigma^2)\)`, `\(\mu\)` desconocido, `\(\sigma^2\)` conocido entonces `\(\bar X_n \sim N\left(\mu,\dfrac{\sigma^2}{n}\right)\)`  
+
+* Función de potencia:
+
+`\begin{align*}
+&amp;\operatorname{Potencia}(\mu)\\
+&amp;=  \mathbb P[T\in R|\mu]\\ &amp; = \mathbb P [|\bar X_n -\mu_0|&gt;c|\mu] \\ &amp;= \mathbb P [\bar X_n &gt; \mu_0+c|\mu] + \mathbb P [\bar X_n &lt; \mu_0-c|\mu]\\
 &amp; =  \mathbb P \bigg[\sqrt n \dfrac{(\bar X_n-\mu)}{\sigma}&gt; \dfrac{(\mu_0+c-\mu)}{\sigma}\sqrt n \bigg|\mu\bigg] +  \mathbb P \bigg[\sqrt n \dfrac{(\bar X_n-\mu)}{\sigma}&lt; \dfrac{(\mu_0-c-\mu)}{\sigma}\sqrt n \bigg|\mu\bigg] \\
 &amp; = 1-\Phi\left(\sqrt n \dfrac{(\mu_0+c-\mu)}{\sigma} \right) + \Phi\left(\sqrt n \dfrac{(\mu_0-c-\mu)}{\sigma} \right) 
-\end{align*}\]</span></p>
-<p>```{r 09-pruebas-hipotesis-7 } mu0 &lt;- 4 c &lt;- 2 n &lt;- 100 sigma &lt;- 3 mu &lt;- seq(0, 8, length.out = 1000) funcion_de_poder &lt;- 1 - pnorm(sqrt(n) * (mu0 + c - mu) / sigma) + pnorm(sqrt(n) * (mu0 - c - mu) / sigma) df &lt;- data.frame(mu, funcion_de_poder, tipo = “Función de poder”) df &lt;- rbind(df, data.frame(mu, funcion_de_poder = 1 - df$funcion_de_poder, tipo = “1 - Función de poder” )) ggplot(df, aes(mu, funcion_de_poder, color = tipo)) + geom_line(size = 2) + theme_minimal() mu &lt;- seq(0, 8, length.out = 100) c &lt;- seq(0, 4, length.out = 100) mu_c &lt;- expand.grid(mu, c) funcion_de_poder_n_c &lt;- 1 - pnorm(sqrt(n) * (mu0 + mu_c[, 2] - mu_c[, 1]) / sigma) + pnorm(sqrt(n) * (mu0 - mu_c[, 2] - mu_c[, 1]) / sigma)</p>
-<pre><code>
+\end{align*}`
+
+---
+
+
+```r
+mu0 &lt;- 4
+c &lt;- 2
+n &lt;- 100
+sigma &lt;- 3
+mu &lt;- seq(0, 8, length.out = 1000)
+funcion_de_poder &lt;- 1 -
+    pnorm(sqrt(n) * (mu0 + c - mu) / sigma) +
+    pnorm(sqrt(n) * (mu0 - c - mu) / sigma)
+df &lt;- data.frame(mu, funcion_de_poder, tipo = "Función de poder")
+df &lt;- rbind(df, data.frame(mu,
+    funcion_de_poder = 1 - df$funcion_de_poder,
+    tipo = "1 - Función de poder"))
+ggplot(df, aes(mu, funcion_de_poder, color = tipo)) +
+    geom_line(size = 2) +theme_minimal()
+mu &lt;- seq(0, 8, length.out = 100)
+c &lt;- seq(0, 4, length.out = 100)
+mu_c &lt;- expand.grid(mu, c)
+funcion_de_poder_n_c &lt;- 1 -
+    pnorm(sqrt(n) * (mu0 + mu_c[, 2] - mu_c[, 1]) / sigma) +
+    pnorm(sqrt(n) * (mu0 - mu_c[, 2] - mu_c[, 1]) / sigma)
+```
+
+---
+
+&lt;img src="XS3310-I20_13_files/figure-html/09-pruebas-hipotesis-7-1.png" style="display: block; margin: auto;" /&gt;
+---
+
 
 **Tipos de error**:
 
 En este tipo de pruebas se puede cometer dos tipos de errores, 
 
-* *Error Tipo I*: error de rechazar $H_0$ si $\theta \in \Omega_0$.
+* **Error Tipo I**: error de rechazar `\(H_0\)` si `\(\theta \in \Omega_0\)`.
 
-* *Error Tipo II*: error de no rechazar $H_0$ si $\theta\in\Omega_1$ en términos de la función de potencia.
+* **Error Tipo II**: error de no rechazar `\(H_0\)` si `\(\theta\in\Omega_1\)` en términos de la función de potencia.
 
 En términos de la función de poder tenemos que 
 
-- Si $\theta \in \Omega_0$: $Potencia(\theta|\delta)$ es el error tipo I. 
-- Si $\theta \in \Omega_1$: $1-Potencia(\theta|\delta)$ es el error tipo II.
+- Si `\(\theta \in \Omega_0\)`: `\(\operatorname{Potencia}(\theta|\delta)\)` es el error tipo I. 
+- Si `\(\theta \in \Omega_1\)`: `\(1-\operatorname{Potencia}(\theta|\delta)\)` es el error tipo II.
 
- El objetivo es hacer $Potencia(\theta|\delta)$ pequeño cuando $\theta\in\Omega_0$.
-También se requiere que $Potencia(\theta|\delta)$ sea grande cuando $\theta
-\in\Omega_1$. Una forma de alcanzar ese balance es seleccionar $\alpha_0 \in
-(0,1)$ tal que
 
-\[Potencia(\theta|\delta) \leq \alpha_0\;\forall \theta\in\Omega_0\quad(*)\]
-y entre todas las pruebas que cumplan $(*)$ se selecciona aquella que maximice la potencia para $\theta \in \Omega_1$.
+El objetivo es hacer `\(\operatorname{Potencia}(\theta|\delta)\)` pequeño cuando `\(\theta\in\Omega_0\)`.
+También se requiere que `\(\operatorname{Potencia}(\theta|\delta)\)` sea grande cuando `\(\theta\in\Omega_1\)`. Una forma de alcanzar ese balance es seleccionar `\(\alpha_0 \in(0,1)\)` tal que
 
-En nuestro ejemplo suponga que elegimos \(\alpha_{0} = 0.1\). La región roja
-  indica donde estaría ubicado \(Potencia(\theta\vert \delta)\leq \alpha_{0} \). 
+`$$\operatorname{Potencia}(\theta|\delta) \leq \alpha_0\;\forall \theta\in\Omega_0\quad(*)$$`
+
+y entre todas las pruebas que cumplan `\((*)\)` se selecciona aquella que maximice la potencia para `\(\theta \in \Omega_1\)`.
+
+---
+
+En nuestro ejemplo suponga que elegimos `\(\alpha_{0} = 0.1\)`. La región roja
+  indica donde estaría ubicado `\(\operatorname{Potencia}(\theta\vert \delta)\leq \alpha_{0}\)`. 
   
-```{r 09-pruebas-hipotesis-8 }
-ggplot() +
-  geom_line(
-    data = df,
-    mapping = aes(x = mu, y = funcion_de_poder, color = tipo), size = 2
-  ) +
-  geom_rect(
-    data = data.frame(xmin = 0, xmax = 8, ymin = 0, ymax = 0.10),
-    mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
-    alpha = 0.5, fill = &quot;red&quot;
-  ) +
-  geom_hline(yintercept = 0.05) +
-  theme_minimal()</code></pre>
-<hr />
-<h1 id="valor-p-5">Valor p</h1>
-<p>El estadístico de prueba para las nubes tratadas</p>
-<pre class="{r}"><code>(n &lt;- length(lognubes$Seeded.Clouds))
+
+```r
+ggplot() + 
+  geom_line(data = df,
+      mapping = aes(x = mu, y = funcion_de_poder, color = tipo), size=2) +
+  geom_rect(data = data.frame(xmin = 0, xmax = 8, ymin = 0, ymax = 0.10),
+      mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+        alpha = 0.5, fill = "red") +
+  geom_hline(yintercept = 0.05) + theme_minimal()
+```
+
+&lt;img src="XS3310-I20_13_files/figure-html/09-pruebas-hipotesis-8-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+### Valor p 
+
+
+El estadístico de prueba para las nubes tratadas
+
+
+```r
+(n &lt;- length(lognubes$Seeded.Clouds))
+```
+
+```
+## [1] 26
+```
+
+```r
 (Xbarra &lt;- mean(lognubes$Seeded.Clouds))
+```
+
+```
+## [1] 5.134187
+```
+
+```r
 (sigma &lt;- sd(lognubes$Seeded.Clouds))
- 
-(T &lt;- (Xbarra - 4)/(sigma/sqrt(n)))</code></pre>
-<pre class="{r}"><code>2 * (1 - pt(T, df = n - 1))</code></pre>
-<hr />
-<h1 id="valor-p-6">Valor p</h1>
-<p>El estadístico de prueba para las lognubes no tratadas</p>
-<pre class="{r}"><code>(n &lt;- length(lognubes$Unseeded.Clouds))
+```
+
+```
+## [1] 1.599514
+```
+
+```r
+(T &lt;- (Xbarra - 4)/(sigma/sqrt(n)))
+```
+
+```
+## [1] 3.615624
+```
+
+```r
+(1 - pt(T, df = n - 1))
+```
+
+```
+## [1] 0.0006598562
+```
+
+
+
+---
+
+### Valor p 
+
+
+El estadístico de prueba para las lognubes no tratadas
+
+
+```r
+(n &lt;- length(lognubes$Unseeded.Clouds))
+```
+
+```
+## [1] 26
+```
+
+```r
 (Xbarra &lt;- mean(lognubes$Unseeded.Clouds))
+```
+
+```
+## [1] 3.990406
+```
+
+```r
 (sigma &lt;- sd(lognubes$Unseeded.Clouds))
+```
 
-(T &lt;- (Xbarra - 4) / (sigma / sqrt(n)))</code></pre>
-<pre class="{r}"><code>2 * (1 - pt(T, df = n - 1))</code></pre>
-<hr />
-<h1 id="en-r">En R</h1>
-<pre class="{r}"><code>t.test(lognubes$Seeded.Clouds, mu = 4)</code></pre>
-<hr />
-<h1 id="en-r-1">En R</h1>
-<pre class="{r}"><code>t.test(lognubes$Unseeded.Clouds, mu = 4)</code></pre>
-<hr />
-<p>class: center, middle</p>
-<h1 id="qué-discutimos-hoy">¿Qué discutimos hoy?</h1>
-<p>Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor p.</p>
+```
+## [1] 1.641847
+```
 
-</body>
+```r
+(T &lt;- (Xbarra - 4) / (sigma / sqrt(n)))
+```
+
+```
+## [1] -0.02979683
+```
+
+```r
+(1 - pt(T, df = n - 1))
+```
+
+```
+## [1] 0.5117672
+```
+
+
+---
+
+### En R 
+
+
+```r
+t.test(lognubes$Seeded.Clouds, mu = 4, alternative = "greater")
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  lognubes$Seeded.Clouds
+## t = 3.6156, df = 25, p-value = 0.0006599
+## alternative hypothesis: true mean is greater than 4
+## 95 percent confidence interval:
+##  4.598359      Inf
+## sample estimates:
+## mean of x 
+##  5.134187
+```
+
+ 
+---
+
+
+### En R
+
+
+
+```r
+t.test(lognubes$Unseeded.Clouds, mu = 4, alternative = "greater")
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  lognubes$Unseeded.Clouds
+## t = -0.029797, df = 25, p-value = 0.5118
+## alternative hypothesis: true mean is greater than 4
+## 95 percent confidence interval:
+##  3.440397      Inf
+## sample estimates:
+## mean of x 
+##  3.990406
+```
+&lt;!-- ## Contrastes de hipótesis --&gt;
+	
+&lt;!-- Tenemos un parámetro `\(\theta\)` que es desconocido pero podemos decir que pertenece a un espacio paramétrico `\(\Omega\)`; este espacio incluye todos los posibles valores que `\(\theta\)` podría tomar. Suponga que dividimos `\(\Omega\)` en dos subconjuntos disjuntos: --&gt;
+
+&lt;!-- `\(\Omega_0\)` y `\(\Omega_1\)` tales que `\(\Omega_{0} \cap \Omega_{1} = \emptyset\)` y `\(\Omega_{0} \cup \Omega_{1} = \Omega\)`.  --&gt;
+
+&lt;!-- Si dividimos `\(\Omega\)` de esta manera entonces es de esperar que `\(\theta\)` se encuentre en `\(\Omega_{0}\)` o en `\(\Omega_{1}\)` (no puede estar en los dos al mismo tiempo).  --&gt;
+	
+&lt;!-- Así, podemos tener: --&gt;
+
+&lt;!--  * una **hipótesis nula** tal que `\(H_{0}: \theta \in \Omega_{0}\)` --&gt;
+&lt;!--  * y una **hipótesis alternativa** tal que `\(H_{1}: \theta \in \Omega_{1}\)`.  --&gt;
+ 
+
+&lt;!-- El procedimiento que sigue consiste en *contrastar* estas hipótesis mediante una *regla de decisión* que favorece una hipótesis sobre la otra al cumplirse cierta condición y viceversa si la condición no se cumple.  --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Regiones de rechazo y tipos de errores --&gt;
+
+&lt;!-- &lt;center&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Qlrs2gd8JbI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt; --&gt;
+
+&lt;!-- --- --&gt;
+
+
+&lt;!-- ## Regiones de rechazo y tipos de errores --&gt;
+
+
+&lt;!-- ### Error Tipo I y Error Tipo II. --&gt;
+
+
+&lt;!-- |		             | `\(H_0\)` cierto  |  `\(H_0\)` falso   | --&gt;
+&lt;!-- |:-------------- |:-------------:|:--------------:| --&gt;
+&lt;!-- |	Aceptar `\(H_0\)`  | Acierto       |  Error Tipo II | --&gt;
+&lt;!-- |	Rechazar `\(H_0\)` | Error Tipo I  |  Acierto       | --&gt;
+
+
+
+	
+&lt;!-- &gt;Definición. **Probabilidad de Error Tipo I y Error Tipo II:** Para un espacio paramétrico `\(\Omega\)`, dividido en dos subconjuntos `\(\Omega_0\)` y `\(\Omega_1\)`, de un parámetro `\(\theta\)`, se define la probabilidad de cometer Error Tipo I, denotada como `\(\alpha(\delta)\)` como:  --&gt;
+
+&lt;!-- &gt; `\(\alpha(\delta) = P(\text{rechazar } H_{0} \text{ cuando es cierta})\)`  --&gt;
+&lt;!-- `\(\hspace{1.3cm}= P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_0 \right) = \operatorname{Potencia}\left(\theta | \theta \in \Omega_0 \right)\)` --&gt;
+
+&lt;!-- &gt; Por otra parte la probabilidad de cometer Error Tipo II, denotada como `\(\beta(\delta)\)`, se define como:  --&gt;
+
+&lt;!-- &gt; `\(\beta(\delta) = P(\text{no rechazar } H_{0} \text{ cuando es falsa}  ) = P\left( \textbf{X} \in RC_{\delta}^{c} | \theta \in \Omega_1 \right)\)` --&gt;
+&lt;!-- `\(\hspace{1.3cm}= 1 - P\left( \textbf{X} \in RC_{\delta} | \theta \in \Omega_1 \right) = 1 - \operatorname{Potencia}(\theta |\theta \in \Omega_1 )\)` --&gt;
+	
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Función potencia --&gt;
+	
+&lt;!-- Dos características que tienen los contrastes: la potencia y el tamaño. El enfoque está en encontrar un "buen" contraste según estas características.  A continuación se define la potencia de la prueba:  --&gt;
+	
+&lt;!-- &gt; Definición. **Función potencia:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria de una población con parámetro desconocido `\(\theta\)` y sea `\(RC_{\delta}\)` la región crítica de un contraste `\(\delta\)` respecto a `\(\theta\)`. La **potencia del contraste**, denotada `\(\operatorname{Potencia}(\theta)\)`, es la probabilidad que el contraste indique rechazar `\(H_{0}\)` para un valor dado de `\(\theta\)` es decir,  --&gt;
+&lt;!-- `\(\operatorname{Potencia}(\theta) = P(\textbf{X} \in RC | \theta)\)` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Función de Potencia --&gt;
+
+&lt;!-- &lt;center&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PucB1LgjOsE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;&lt;/center&gt; --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Tamaño del contraste --&gt;
+
+&lt;!-- En el ejemplo anterior podemos observar que solo tenemos un valor para la probabilidad de cada tipo de error. En ese caso: --&gt;
+	
+&lt;!-- `\(\alpha(1) = \operatorname{Potencia}(1) = 0.023\)` --&gt;
+	
+&lt;!-- `\(\beta(-1) = 1 - \operatorname{Potencia}(-1) = 1 - 0.977 = 0.023\)` --&gt;
+	
+&lt;!-- Por pura coincidencia ambos errores tienen la misma probabilidad en el ejemplo anterior. A continuación veremos otra forma de describir un contraste. --&gt;
+	
+&lt;!-- &gt; Definición. **Tamaño del contraste.** Para un contraste de hipótesis `\(H_{0}: \theta \in \Omega_{0}\)` y `\(H_{1}: \theta \in \Omega_{1}\)` se denomina tamaño del contraste al valor `\(\alpha_c\)` dado por: --&gt;
+
+&lt;!-- &gt; `$$\alpha_c = \operatorname{Sup}(\operatorname{Potencia}(\theta|\theta \in \Omega_{0})) = \operatorname{Sup}(\alpha(\delta))$$` --&gt;
+
+&lt;!-- &gt;	Es decir, el tamaño de un contraste es la máxima probabilidad de cometer un Error Tipo I. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Tamaño del contraste --&gt;
+
+&lt;!-- **Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_j \sim N(\mu, 1)\)`. Se desea contrastar las hipótesis `\(H_{0}: \mu = 5\)` contra la alternativa `\(H_{1}: \mu &gt; 5\)`. La región crítica se define como `\(RC_{\delta} = \left\lbrace \textbf{X} | \overline{X} &gt; c \right\rbrace\)`. Encuentre el valor de `\(c\)` para que este contraste tenga un tamaño igual a 0.10.  --&gt;
+	
+&lt;!-- **Solución:** Note que el contraste se rechaza cuando `\(\overline{X}\)` es mayor que `\(c\)`, por lo tanto podemos definir la potencia de la siguiente forma: --&gt;
+	
+&lt;!-- `$$\operatorname{Potencia}(\mu) = P(\overline{X} &gt; c | \mu) = P\left( Z &gt; \sqrt{n}(c-\mu) \right)$$` --&gt;
+	
+&lt;!-- Sabemos que el tamaño del contraste se define como la máxima probabilidad de cometer Error Tipo I, pero en este caso solo tenemos una probabilidad de Error Tipo I, que sucede cuando `\(\mu = 5\)`. Por lo tanto: --&gt;
+	
+&lt;!-- `$$\alpha_c = \operatorname{Potencia}(5) = P\left( Z &gt; \sqrt{n}(c-5) \right) = 0.10$$` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Contrastes de hipótesis --&gt;
+
+&lt;!-- Podemos utilizar las tablas para buscar el valor de la normal estándar que acumula a su derecha una probabilidad de 0.10 (que equivale a una probabilidad acumulada a su izquierda de 0.90). Por lo tanto tenemos que  --&gt;
+	
+&lt;!-- `\(\sqrt{n}(c-5) = 1.28\)`  --&gt;
+
+&lt;!-- `\(\Rightarrow c = 5 + \frac{1.28}{\sqrt{n}}\)` --&gt;
+	
+&lt;!-- Una observación importante de resaltar es que si tenemos una distribución de probabilidad discreta no es posible encontrar un tamaño de contraste para cualquier valor de `\(c\)`, ya que las variable aleatorias discretas tienen probabilidades acumuladas a solo ciertos valores. Esto se puede solucionar por medio de contrastes aleatorizados, que dependen del lanzamiento de una moneda con cierta probabilidad de caer escudo, o con bootstrap (que veremos al final de esta sección).  --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Contrastes de hipótesis --&gt;
+
+&lt;!-- Otro punto importante de destacar es que en la práctica usualmente utilizamos la hipótesis nula puntual `\(H_{0}: \theta = \theta_0\)` ya que esta no pierde generalidad. Supongamos que se quiere contrastar `\(H_{0}: \theta \leq \theta_0\)` contra `\(H_{1}: \theta &gt; \theta_0\)`. En casi todos los casos la función potencia de un contraste es monótona en todo el dominio de `\(\theta\)`; en este caso sería una función creciente. Ya que el tamaño se define como la máxima potencia en `\(\Omega_{0}\)` esto va a suceder en su extremo derecho, el cual es `\(\theta_0\)`. Esto ocasiona que el contraste tenga el mismo tamaño a que si la hipótesis nula hubiera sido `\(H_{0}: \theta = \theta_0\)`. Por lo tanto en la práctica es más común encontrar la hipótesis nula formulada en `\(\theta_0\)`, siendo este el valor de `\(\Omega_{0}\)` más próximo a `\(\Omega_{1}\)`.  --&gt;
+
+&lt;!-- --- --&gt;
+
+
+&lt;!--
+class: middle, inverse
+
+### Pero antes: artículos para el ensayo acerca del valor p
+
+[The ASA's Statement on p-Values: Context, Process, and Purpose de Ronald L. Wasserstein &amp;Nicole A. Lazar](https://amstat.tandfonline.com/doi/full/10.1080/00031305.2016.1154108)
+
+[The American Statistical Association statement on P-values explained, de Lakshmi Narayana Yaddanapudi](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5187603/)
+
+[The reproducibility of research and the misinterpretation of p-values, de David Colquhoun](https://royalsocietypublishing.org/doi/full/10.1098/rsos.171085)
+
+[An introduction to Second-generation p-values de Jeffrey D. Blume, Lucy D’Agostino McGowan, William D. Dupont, Robert A. Greevy Jr.](https://www.tandfonline.com/doi/full/10.1080/00031305.2018.1537893)
+
+También pueden elegir *cualquiera* de esta edición especial: https://www.tandfonline.com/toc/utas20/73/sup1 --&gt;
+
+&lt;!--
+class: middle, inverse
+
+### Instrucciones para el ensayo:
+
+
+- Tienen más de 40 artículos a su disposición, pueden repartirlos entre el grupo, pueden leerlos todos o escoger sus preferidos. 
+
+- En grupos que se asignaron aleatoriamente [aquí](https://docs.google.com/spreadsheets/d/152uhams6SDZ6xYrGyzOCW1t8724JP4eyVI-xgN3wpN8/edit?usp=sharing), tendrán que escribir 2 ensayos: uno a favor del uso del valor p y otro en contra del uso del valor p en la práctica de la estadística. La escritura debe usar citas de los artículos recomendados, y deberá tener un argumento sólido y congruente.
+
+- Máximo de 2 páginas por cada ensayo, con letra Arial 11, a espacio 1.5, archivos pdf **solamente**. Grupos de 6 personas.
+
+- Los rubros de calificación serán los similares a los del examen:
+
+    * Originalidad y claridad en los argumentos 2 pt
+
+    * Línea lógica de argumentación 2 pt
+
+    * Uso de referencias, supuestos y no solo opiniones 4 pts
+
+    * Correcto uso de conceptos de inferencia estadística 2 pts
+
+&lt;!-- Fecha de entrega: Viernes 19 de junio a las 7am vía Mediación Virtual. Ese día tendremos una discusión de los ensayos en clase. --&gt;
+
+---
+class: center, middle
+
+# ¿Qué discutimos hoy?
+
+Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor `\(p\)`.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
 </html>
