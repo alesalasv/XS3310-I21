@@ -44,34 +44,60 @@ Sin embargo usaremos los datos en escala logarítmica para facilitar el cálculo
 lognubes <- log(nubes)
 head(lognubes)
 ```
-
+---
 Observe que el comportamiento es distinto en ambos casos.
 
 
-```{r 09-pruebas-hipotesis-3 }
+```{r eval = FALSE}
 df <- as.data.frame(nubes) %>%
-    pivot_longer(
-        cols = everything(),
-        names_to = "tratamiento", values_to = "lluvia"
-    ) %>%
+    pivot_longer(cols = everything(),
+        names_to = "tratamiento", values_to = "lluvia") %>%
     mutate(log_lluvia = log(lluvia))
-ggplot(data = df) +
+
+g1 = ggplot(data = df) +
     geom_histogram(aes(
         x = lluvia,
         y = ..density..,
-        fill = tratamiento
-    ),
-    color = "black", bins = 10
-    ) +
+        fill = tratamiento),
+    color = "black", bins = 10) +
     facet_wrap(. ~ tratamiento)
-ggplot(data = df) +
+g2 = ggplot(data = df) +
     geom_histogram(aes(
         x = log_lluvia,
         y = ..density..,
         fill = tratamiento
     ), color = "black", bins = 10) +
     facet_wrap(. ~ tratamiento)
+
+ggarrange(g1, g2, 
+          labels = c("x=lluvia", "x=log_lluvia"))
 ```
+---
+
+```{r 09-pruebas-hipotesis-3, echo=FALSE, fig.align='center', fig.width=12, fig.height=5}
+df <- as.data.frame(nubes) %>%
+    pivot_longer(cols = everything(),
+        names_to = "tratamiento", values_to = "lluvia") %>%
+    mutate(log_lluvia = log(lluvia))
+
+g1 = ggplot(data = df) +
+    geom_histogram(aes(
+        x = lluvia,
+        y = ..density..,
+        fill = tratamiento),
+    color = "black", bins = 10) +
+    facet_wrap(. ~ tratamiento)
+g2 = ggplot(data = df) +
+    geom_histogram(aes(
+        x = log_lluvia,
+        y = ..density..,
+        fill = tratamiento
+    ), color = "black", bins = 10) +
+    facet_wrap(. ~ tratamiento)
+library(ggpubr)
+ggarrange(g1, g2)
+```
+---
 
 En este caso supondremos que la variable `log_lluvia` se puede modelar como una
 $N(\mu,\sigma^2)$, $\mu,\sigma$ desconocidos.
@@ -87,47 +113,65 @@ una  **hipótesis** con respecto a los datos.
 En este caso el valor donde decrece la curva es cercano a 0. Eso quiere decir
 que antes de ese valor, nos encontramos en la región de rechazo. Luego esa
 región se va haciendo cada vez más pequeña 
-\(\vert \overline{X} - \mu \vert \approx 0 \).
+
+$$\vert \overline{X} - \mu \vert \approx 0. $$
 
 
+---
+Ojo lo que pasaría si por ejemplo cambiamos a $\mu = 4$, 
 
-Ojo lo que pasaría si por ejemplo cambiamos a \(\mu = 4\), 
-
-```{r 09-pruebas-hipotesis-5 }
+```{r eval=FALSE }
 X <- matrix(rnorm(1000 * 1000, mean = 2, sd = 3), ncol = 1000)
-
 Xbar <- apply(X, 2, mean)
-
 mu0 <- 4
 T <- abs(Xbar - mu0)
 c <- seq(-0.25, 3, length.out = 1000)
 df <- data.frame(c = numeric(), test = logical(), region = character())
+
 for (k in 1:length(c)) {
-    df <- rbind(
-        df,
-        data.frame(c = c[k], test = mean(T >= c[k]), region = "S_1")
-    )
+  df <- rbind(df, data.frame(c = c[k], test = mean(T >= c[k]), 
+                             region = "S_1"))
 }
+
 df <- rbind(df, data.frame(c, test = 1 - df$test, region = "S_0"))
 ggplot(df, aes(x = c, y = test, color = region)) +
-    geom_line(size = 2) +
-    ylab("Promedio de veces donde T >= c") +
-    theme_minimal()
+  geom_line(size = 2) + ylab("Promedio de veces donde T >= c") +
+  theme_minimal()
+```
+---
+
+```{r 09-pruebas-hipotesis-5, echo=FALSE, fig.align='center'}
+X <- matrix(rnorm(1000 * 1000, mean = 2, sd = 3), ncol = 1000)
+Xbar <- apply(X, 2, mean)
+mu0 <- 4
+T <- abs(Xbar - mu0)
+c <- seq(-0.25, 3, length.out = 1000)
+df <- data.frame(c = numeric(), test = logical(), region = character())
+
+for (k in 1:length(c)) {
+  df <- rbind(df, data.frame(c = c[k], test = mean(T >= c[k]), 
+                             region = "S_1"))
+}
+
+df <- rbind(df, data.frame(c, test = 1 - df$test, region = "S_0"))
+ggplot(df, aes(x = c, y = test, color = region)) +
+  geom_line(size = 2) + ylab("Promedio de veces donde T >= c") +
+  theme_minimal()
 ```
 
-El valor donde comienza a crecer la curva se desvía a un valor cercano a 2. 
+El valor donde comienza a crecer la curva se desvía a un valor cercano a 2.
+
+---
 
 Para el caso del ejemplo de la lluvia definimos
 que
 
 
-\[
-H_0: \mu \leq 4 \text{ versus } H_1: \mu > 4
-\]
+$$H_0: \mu \leq 4 \text{ versus } H_1: \mu > 4$$
 
 
-En este caso podríamos decir que rechazamos \( H_0 \) si la media empírica
-es "más grande" que 4 y no rechazamos \( H_0 \) si la media empírica es "más
+En este caso podríamos decir que rechazamos $H_0$ si la media empírica
+es "más grande" que 4 y no rechazamos $H_0$ si la media empírica es "más
 pequeña" que 4.
 
 El problema acá es que "más grande" y "más pequeña" no son términos precisos. 
@@ -136,15 +180,11 @@ Tenemos dos opciones
 
 Construya la región de critica de la forma 
 
-\begin{equation} 
-S_{0}=\left\{\boldsymbol{x}:\leq \bar{X}_{n}-\mu_{0} \leq
-c\right\}, \quad \text { y } \quad S_{1}=S_{0}^{C} 
-\end{equation}
+$$\begin{equation} S_{0}=\left\{\boldsymbol{x}:\leq \bar{X}_{n}-\mu_{0} \leq c\right\}, \quad \text { y } \quad S_{1}=S_{0}^{C} \end{equation}$$
 
-y observe cuál es la probabilidad que ocurra para cada tipo de \( c \).  El
+y observe cuál es la probabilidad que ocurra para cada tipo de $c$.  El
 problema con esta construcción es que requiere conocer todos los posibles
-vectores de datos \( \mathbf{X} \) y construir los conjuntos \( S_0 \) y \( S_1
-\). 
+vectores de datos $\mathbf{X}$ y construir los conjuntos $S_0$ y $S_1$. 
 
 Una mejor opción es tener un estadístico sencillo que cumpla dos condiciones: 
 
@@ -152,16 +192,14 @@ Una mejor opción es tener un estadístico sencillo que cumpla dos condiciones:
 eficiente. 
 2. Un estadístico con una distribución conocida. 
 
-
-En ese caso \(\overline{X}_{n} \) funciona muy bien, porque tiene todas las
+---
+En ese caso $\overline{X}_{n}$ funciona muy bien, porque tiene todas las
 buenas propiedades de sufiencia, minimalidad y eficiencia, y además sabemos su
 distribución según lo estudiando en capítulos pasados. Entonces 
 
-\begin{equation*}
-U = \frac{n ^{1/2} (\overline{X}_{n} - \mu_0)}{\sigma^\prime} \sim t_{n-1}
-\end{equation*}
+$$\begin{equation*}U = \frac{n ^{1/2} (\overline{X}_{n} - \mu_0)}{\sigma^\prime} \sim t_{n-1}\end{equation*}$$
 
-Lo natural debería ser rechazar \( H_{0} \) si \( U \) es grande. 
+Lo natural debería ser rechazar $H_{0}$ si $U$ es grande. 
 
 
 ```{r 09-pruebas-hipotesis-6,warning=FALSE }
@@ -173,22 +211,22 @@ sigma_prima2 <- sd(lognubes[, 2])
 n <- dim(lognubes)[1]
 (U1 <- sqrt(n) * (Xbarra1 - 4) / sigma_prima1)
 (U2 <- sqrt(n) * (Xbarra2 - 4) / sigma_prima2)
-ggplot(data = data.frame(x = (c(-1, 4))), mapping = aes(x)) +
-    stat_function(
-        fun = dt, args = list(df = n - 1),
-        mapping = aes(color = "Distribucioń t-student"), size = 2
-    ) +
-    geom_vline(mapping = aes(
-        xintercept = U1,
-        color = "Nubes no tratadas"
-    ), size = 2) +
-    geom_vline(mapping = aes(
-        xintercept = U2,
-        color = "Nubes tratadas"
-    ), size = 2) +
-    theme_minimal()
 ```
 
+---
+
+```{r fig.align='center', fig.width=8, fig.height=5}
+ggplot(data = data.frame(x = (c(-1, 4))), mapping = aes(x)) +
+  stat_function(fun = dt, args = list(df = n - 1),
+                mapping = aes(color = "Distribucioń t-student"), size = 2)+
+  geom_vline(mapping = aes(xintercept = U1,
+                           color = "Nubes no tratadas"), size = 2) +
+  geom_vline(mapping = aes(xintercept = U2,
+                           color = "Nubes tratadas"), size = 2) +
+  theme_minimal()
+```
+
+---
 
 * Estadístico de prueba: $T = |\bar X_n-\mu_0|$.
 
@@ -199,13 +237,15 @@ Como $X_1,\dots, X_n \sim N(\mu, \sigma^2)$, $\mu$ desconocido, $\sigma^2$ conoc
 * Función de potencia:
 
 \begin{align*}
-\pi(\theta \vert \delta) =  \mathbb P[T\in R|\mu] & = \mathbb P [|\bar X_n -\mu_0|>c|\mu] \\ &= \mathbb P [\bar X_n > \mu_0+c|\mu] + \mathbb P [\bar X_n < \mu_0-c|\mu]\\
+&\pi(\theta \vert \delta)\\
+&=  \mathbb P[T\in R|\mu]\\ & = \mathbb P [|\bar X_n -\mu_0|>c|\mu] \\ &= \mathbb P [\bar X_n > \mu_0+c|\mu] + \mathbb P [\bar X_n < \mu_0-c|\mu]\\
 & =  \mathbb P \bigg[\sqrt n \dfrac{(\bar X_n-\mu)}{\sigma}> \dfrac{(\mu_0+c-\mu)}{\sigma}\sqrt n \bigg|\mu\bigg] +  \mathbb P \bigg[\sqrt n \dfrac{(\bar X_n-\mu)}{\sigma}< \dfrac{(\mu_0-c-\mu)}{\sigma}\sqrt n \bigg|\mu\bigg] \\
 & = 1-\Phi\left(\sqrt n \dfrac{(\mu_0+c-\mu)}{\sigma} \right) + \Phi\left(\sqrt n \dfrac{(\mu_0-c-\mu)}{\sigma} \right) 
 \end{align*}
 
+---
 
-```{r 09-pruebas-hipotesis-7 }
+```{r eval = FALSE}
 mu0 <- 4
 c <- 2
 n <- 100
@@ -217,11 +257,9 @@ funcion_de_poder <- 1 -
 df <- data.frame(mu, funcion_de_poder, tipo = "Función de poder")
 df <- rbind(df, data.frame(mu,
     funcion_de_poder = 1 - df$funcion_de_poder,
-    tipo = "1 - Función de poder"
-))
+    tipo = "1 - Función de poder"))
 ggplot(df, aes(mu, funcion_de_poder, color = tipo)) +
-    geom_line(size = 2) +
-    theme_minimal()
+    geom_line(size = 2) +theme_minimal()
 mu <- seq(0, 8, length.out = 100)
 c <- seq(0, 4, length.out = 100)
 mu_c <- expand.grid(mu, c)
@@ -231,44 +269,67 @@ funcion_de_poder_n_c <- 1 -
 
 ```
 
+---
+
+```{r 09-pruebas-hipotesis-7, echo = FALSE, fig.align='center'}
+mu0 <- 4
+c <- 2
+n <- 100
+sigma <- 3
+mu <- seq(0, 8, length.out = 1000)
+funcion_de_poder <- 1 -
+    pnorm(sqrt(n) * (mu0 + c - mu) / sigma) +
+    pnorm(sqrt(n) * (mu0 - c - mu) / sigma)
+df <- data.frame(mu, funcion_de_poder, tipo = "Función de poder")
+df <- rbind(df, data.frame(mu,
+    funcion_de_poder = 1 - df$funcion_de_poder,
+    tipo = "1 - Función de poder"))
+ggplot(df, aes(mu, funcion_de_poder, color = tipo)) +
+    geom_line(size = 2) +theme_minimal()
+mu <- seq(0, 8, length.out = 100)
+c <- seq(0, 4, length.out = 100)
+mu_c <- expand.grid(mu, c)
+funcion_de_poder_n_c <- 1 -
+    pnorm(sqrt(n) * (mu0 + mu_c[, 2] - mu_c[, 1]) / sigma) +
+    pnorm(sqrt(n) * (mu0 - mu_c[, 2] - mu_c[, 1]) / sigma)
+```
+---
+
 
 **Tipos de error**:
 
 En este tipo de pruebas se puede cometer dos tipos de errores, 
 
-* *Error Tipo I*: error de rechazar $H_0$ si $\theta \in \Omega_0$.
+* **Error Tipo I**: error de rechazar $H_0$ si $\theta \in \Omega_0$.
 
-* *Error Tipo II*: error de no rechazar $H_0$ si $\theta\in\Omega_1$ en términos de la función de potencia.
+* **Error Tipo II**: error de no rechazar $H_0$ si $\theta\in\Omega_1$ en términos de la función de potencia.
 
 En términos de la función de poder tenemos que 
 
 - Si $\theta \in \Omega_0$: $\pi(\theta|\delta)$ es el error tipo I. 
 - Si $\theta \in \Omega_1$: $1-\pi(\theta|\delta)$ es el error tipo II.
 
- El objetivo es hacer $\pi(\theta|\delta)$ pequeño cuando $\theta\in\Omega_0$.
-También se requiere que $\pi(\theta|\delta)$ sea grande cuando $\theta
-\in\Omega_1$. Una forma de alcanzar ese balance es seleccionar $\alpha_0 \in
-(0,1)$ tal que
 
-\[\pi(\theta|\delta) \leq \alpha_0\;\forall \theta\in\Omega_0\quad(*)\]
+El objetivo es hacer $\pi(\theta|\delta)$ pequeño cuando $\theta\in\Omega_0$.
+También se requiere que $\pi(\theta|\delta)$ sea grande cuando $\theta\in\Omega_1$. Una forma de alcanzar ese balance es seleccionar $\alpha_0 \in(0,1)$ tal que
+
+$$\pi(\theta|\delta) \leq \alpha_0\;\forall \theta\in\Omega_0\quad(*)$$
+
 y entre todas las pruebas que cumplan $(*)$ se selecciona aquella que maximice la potencia para $\theta \in \Omega_1$.
 
-En nuestro ejemplo suponga que elegimos \(\alpha_{0} = 0.1\). La región roja
-  indica donde estaría ubicado \(\pi(\theta\vert \delta)\leq \alpha_{0} \). 
+---
+
+En nuestro ejemplo suponga que elegimos $\alpha_{0} = 0.1$. La región roja
+  indica donde estaría ubicado $\pi(\theta\vert \delta)\leq \alpha_{0}$. 
   
-```{r 09-pruebas-hipotesis-8 }
-ggplot() +
-    geom_line(
-        data = df,
-        mapping = aes(x = mu, y = funcion_de_poder, color = tipo), size = 2
-    ) +
-    geom_rect(
-        data = data.frame(xmin = 0, xmax = 8, ymin = 0, ymax = 0.10),
-        mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
-        alpha = 0.5, fill = "red"
-    ) +
-    geom_hline(yintercept = 0.05) +
-    theme_minimal()
+```{r 09-pruebas-hipotesis-8, fig.align='center', fig.width= 8, fig.height= 5}
+ggplot() + 
+  geom_line(data = df,
+      mapping = aes(x = mu, y = funcion_de_poder, color = tipo), size=2) +
+  geom_rect(data = data.frame(xmin = 0, xmax = 8, ymin = 0, ymax = 0.10),
+      mapping = aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax),
+        alpha = 0.5, fill = "red") +
+  geom_hline(yintercept = 0.05) + theme_minimal()
 ```
 
 <!-- ## Contrastes de hipótesis -->
@@ -387,7 +448,7 @@ ggplot() +
 <!-- Otro punto importante de destacar es que en la práctica usualmente utilizamos la hipótesis nula puntual $H_{0}: \theta = \theta_0$ ya que esta no pierde generalidad. Supongamos que se quiere contrastar $H_{0}: \theta \leq \theta_0$ contra $H_{1}: \theta > \theta_0$. En casi todos los casos la función potencia de un contraste es monótona en todo el dominio de $\theta$; en este caso sería una función creciente. Ya que el tamaño se define como la máxima potencia en $\Omega_{0}$ esto va a suceder en su extremo derecho, el cual es $\theta_0$. Esto ocasiona que el contraste tenga el mismo tamaño a que si la hipótesis nula hubiera sido $H_{0}: \theta = \theta_0$. Por lo tanto en la práctica es más común encontrar la hipótesis nula formulada en $\theta_0$, siendo este el valor de $\Omega_{0}$ más próximo a $\Omega_{1}$.  -->
 
 <!-- --- -->
-
+---
 ## Valor p
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/9jW9G8MO4PQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
@@ -398,7 +459,7 @@ ggplot() +
 
 El Valor p es una herramienta que se puede utilizar para contrastar hipótesis que tiene características que pueden solucionar algunos problemas con los contrastes anteriores. Por ejemplo, no todos los contrastes van a tener un tamaño de contraste exacto (como en los casos donde las variables aleatorias son discretas.) Por otro lado, ni el tamaño ni la potencia están directamente relacionados con los datos observados. El valor p corrige estos problemas. Para propósitos del curso definiremos el valor p como:
 
-> Definición. **Valor p:** Sea $T = T(X_1, X_2, \dots, X_n)$ un estadístico y considere $H_0: \theta = \theta_0$ contra $H1: \theta < \theta_0$ (o $H1: \theta > \theta_0$). Suponga que el contraste rechaza H0 si $T \leq k$ (o $T > k$). Sea $t = T(x_1, x_2, \dots, x_n$) un valor observado de T. Entonces se define el valor p (denotado pval(t)) como:
+> Definición. **Valor p:** Sea $T = T(X_1, X_2, \dots, X_n)$ un estadístico y considere $H_0: \theta = \theta_0$ contra $H_1: \theta < \theta_0$ (o $H_1: \theta > \theta_0$). Suponga que el contraste rechaza $H_0$ si $T \leq k$ (o $T > k$). Sea $t = T(x_1, x_2, \dots, x_n$) un valor observado de T. Entonces se define el valor p (denotado pval(t)) como:
 $$pval(t) = P(T \leq t|\theta = \theta_0)$$ o 
 $$pval(t) = P(T > t|\theta = \theta_0)$$
 
@@ -406,9 +467,9 @@ $$pval(t) = P(T > t|\theta = \theta_0)$$
 
 ## Valor p
 
-Nótese que de esta manera no hay ningún problema si la distribución de T es discreta o continua, pues la probabilidad puede ser calculada sin ningún problema. Formalmente, el valor p se conoce como la probabilidad, bajo la hipótesis nula, de observar nuestro estadístico de prueba o un valor más extremo. Esto significa que si el valor p es grande entonces nuestro estadístico de prueba es un valor muy común de T y se sitúa en el centro de la distribución, brindando así evidencia a favor de la hipótesis nula. Por otra parte, si el valor p es pequeño entonces el estadístico de prueba es un valor poco común de T, situándose en las colas de su distribución, y por lo tanto brindando evidencia en contra de $H_0$ y a favor de $H_1$. Existe la posibilidad de que el valor de t haya sido un punto extremo de la distribución de T bajo $H_0$, pero esto se considera algo como sumamente improbable.
+Nótese que de esta manera no hay ningún problema si la distribución de $T$ es discreta o continua, pues la probabilidad puede ser calculada sin ningún problema. Formalmente, el valor p se conoce como la probabilidad, bajo la hipótesis nula, de observar nuestro estadístico de prueba o un valor más extremo. Esto significa que si el valor $p$ es grande entonces nuestro estadístico de prueba es un valor muy común de $T$ y se sitúa en el centro de la distribución, brindando así evidencia a favor de la hipótesis nula. Por otra parte, si el valor $P$ es pequeño entonces el estadístico de prueba es un valor poco común de $t$, situándose en las colas de su distribución, y por lo tanto brindando evidencia en contra de $H_0$ y a favor de $H_1$. Existe la posibilidad de que el valor de $t$ haya sido un punto extremo de la distribución de $T$ bajo $H_0$, pero esto se considera algo como sumamente improbable.
 
-Como altos valores p dan evidencia a favor de H0 y bajos valores dan evidencia en contra, sería posible idear un contraste de hipótesis que consista en rechazar H0 si \(pval(t) \leq \alpha\). Si la distribución de T es continua entonces el valor de \(\alpha\) sería un tamaño de contraste exacto. En la práctica así es cómo se utiliza el valor p, comparándolo contra el nivel de significancia (tamaño del contraste) y decidiendo si se rechaza o no la hipótesis nula.
+Como altos valores $p$ dan evidencia a favor de $H_0$ y bajos valores dan evidencia en contra, sería posible idear un contraste de hipótesis que consista en rechazar $H_0$ si $pval(t) \leq \alpha$. Si la distribución de $T$ es continua entonces el valor de $\alpha$ sería un tamaño de contraste exacto. En la práctica así es cómo se utiliza el valor $p$, comparándolo contra el nivel de significancia (tamaño del contraste) y decidiendo si se rechaza o no la hipótesis nula.
 
 ---
 
@@ -428,16 +489,13 @@ contraste que consiste en comparar $\bar{x}$ contra $5 + \frac{1,28}{\sqrt{n}}$.
 
 ## Valor p
 
-Existen algunas malas interpretaciones del valor p que no debemos cometer en la práctica. Por lo tanto concluyo esta discusión con dos advertencias: 
+Existen algunas malas interpretaciones del valor $p$ que no debemos cometer en la práctica. Por lo tanto concluyo esta discusión con dos advertencias: 
 
-* El valor p no es la probabilidad de que la hipótesis nula sea cierta. La hipótesis nula es un valor de \(\theta\) fijo y por lo tanto es cierta o no lo es; no existen probabilidades en este ámbito.
+* El valor $p$ no es la probabilidad de que la hipótesis nula sea cierta. La hipótesis nula es un valor de $\theta$ fijo y por lo tanto es cierta o no lo es; no existen probabilidades en este ámbito.
 
-* El valor p no es la probabilidad de cometer un Error Tipo I, dado los datos. El cálculo del valor p no tiene nada que ver con la decisión de aceptar o rechazar la hipótesis nula;
-es simplemente la probabilidad de una cola de la distribución muestral de T que se puede usar para cuantificar la evidencia de los datos a favor de H0. No obstante, sí se puede
-usar el valor p para tomar decisiones, pero entonces obviamente en esos caso no sería la probabilidad de Error Tipo I.
+* El valor $p$ no es la probabilidad de cometer un Error Tipo I, dado los datos. El cálculo del valor $p$ no tiene nada que ver con la decisión de aceptar o rechazar la hipótesis nula; es simplemente la probabilidad de una cola de la distribución muestral de T que se puede usar para cuantificar la evidencia de los datos a favor de H0. No obstante, sí se puede usar el valor $p$ para tomar decisiones, pero entonces obviamente en esos caso no sería la probabilidad de Error Tipo I.
 
-* En algunos casos el valor p se conoce como el "tamaño del contraste observado" pues su cálculo es similar al del tamaño del contraste pero utilizando el estadístico de prueba en lugar del valor crítico. No obstante esta es una interpretación que no me gusta pues tiende a confundir
-la interpretación de un valor p con las interpretaciones erróneas mencionadas anteriormente.
+* En algunos casos el valor $p$ se conoce como el "*tamaño del contraste observado*" pues su cálculo es similar al del tamaño del contraste pero utilizando el estadístico de prueba en lugar del valor crítico. No obstante esta es una interpretación que no me gusta pues tiende a confundir la interpretación de un valor $p$ con las interpretaciones erróneas mencionadas anteriormente.
 
 
 ---
@@ -488,5 +546,5 @@ class: center, middle
 
 # ¿Qué discutimos hoy?
 
-Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor p.
+Contrastes de hipótesis: función de potencia, tamaño del contraste, el valor $p$.
 
