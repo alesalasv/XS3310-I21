@@ -141,7 +141,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="XS3310-I20_13.html">Clase 16</a> </td>
     <td> <a href="https://www.youtube.com/watch?v=fr96C4YVTlU">Ejemplo de prueba de hip&oacute;tesis sobre la distribuci&oacute;n Bernoulli</a><br>
     <a href="https://www.youtube.com/watch?v=MDgWCNLi8zw">Ejemplos de pruebas de hip&oacute;tesis sobre la distribuci&oacute;n normal</a><br></td>
-    </td> 
+    <td>  <br> </td> 
   </tr>
     <tr>
     <td> 02 de junio  </td>
