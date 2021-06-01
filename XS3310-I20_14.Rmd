@@ -27,70 +27,79 @@ Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap 
 
 # ¿Qué vamos a discutir hoy?
 
-Contrastes de hipótesis: Dualidad en pruebas de hipótesis,  contrastes más potentes y uniformemente más potentes. Cocientes de verosimilitud.
+Contrastes de hipótesis: Dualidad en pruebas de hipótesis,  constrastes más potentes y uniformemente más potentes. Cocientes de verosimilitud.
 
 ---
 
 # Dualidad en pruebas
 
-Suponga que se tiene una prueba de hipótesis y se encuentra la región crítica (o región de rechazo) \(RC_\delta\) de un contraste \(\delta\) sobre \(\theta\) con nivel \(\alpha\). 
+Suponga que se tiene una prueba de hipótesis y se encuentra la región crítica (o región de rechazo) $RC_\delta$ de un contraste $\delta$ sobre $\theta$ con nivel $\alpha$. 
 
-Entonces un intervalo de confianza con nivel \(\alpha\) de este parámetro, esta dado por \(RC_\delta^c\).
+Entonces un intervalo de confianza con nivel $1-\alpha$ de este parámetro, está dado por $RC_\delta^c$.
 
 
 
 ---
 
 
-**Ejemplo** Supongamos que tenemos datos \(X_1, \dots, X_n\) con distribución Bernoulli con parámetro \(p\). 
+### Ejemplo 
+
+Supongamos que tenemos datos $X_1, \dots, X_n$ con distribución Bernoulli con parámetro $p$. 
 
 Tenemos la hipótesis 
 
-\[ H_0: p < p_0 \text{ vs } H_1: p\geq p_0.\]
+$$ H_0: p < p_0 \text{ vs } H_1: p\geq p_0.$$
 
 El criterio de rechazo al nivel $\alpha$ es 
 
-\[Y = \sum_{i=1}^nX_i\geq c.\]
+$$Y = \sum_{i=1}^nX_i\geq c.$$
 
-El valor \(c\) debe ser el menor valor que cumpla que 
+El valor $c$ debe ser el menor valor que cumpla que 
 
 \begin{equation*}
 \operatorname{Pr}\left(Y \geq c \mid p=p_{0}\right) \leq \alpha_{0}
 \end{equation*}
 
-Suponga que \(n=10\) , \(p_0 = 0.3\), \(Y=6\) y \(\alpha = 0.1\). Los valores de \(P(Y>y)\) son 
+---
+
+Suponga que $n=10$ , $p_0 = 0.3$, $Y=6$ y $\alpha = 0.1$. Los valores de $P(Y>y)$ son 
 
 ```{r, warning=FALSE}
-x <- matrix(pbinom(0:10, size = 10, prob = 0.3, lower.tail = FALSE), nrow = 1)
+x <- matrix(pbinom(0:10, size = 10, prob = 0.3, 
+                   lower.tail = FALSE), nrow = 1)
 colnames(x) <- 0:10
 knitr::kable(x, digits = 4)
 ```
 
-La regla decisión es "Rechazamos \(H_0\) si $Y \geq c$". En este caso rechazamos si \(Y \geq 5 \). 
+La regla decisión es "Rechazamos $H_0$ si $Y \geq c$". En este caso rechazamos si $Y \geq 5$. 
 
 
-Entonces el intervalo de confianza sería la región donde \(Y < 5\) o donde \(p-valor > \alpha\).
+Entonces el intervalo de confianza sería la región donde $Y < 5$ o donde $p-valor > \alpha$.
 
 En este caso tenemos
 
-\[
-[0.01503, 1]
-\]
+$$
+[0.1503, 1]
+$$
 
 
 ---
 
-**Ejemplo**. $X = (X_1,\dots, X_n)\sim N(\mu,\sigma^2)$, $\theta = (\mu,\sigma^2)$ desconocido. Queremos probar
-\[ H_0: \mu \leq \mu_0 \text{ vs } H_1: \mu > \mu_0.\]
+### Ejemplo 
+
+$X = (X_1,\dots, X_n)\sim N(\mu,\sigma^2)$, $\theta = (\mu,\sigma^2)$ desconocido. Queremos probar
+
+$$H_0:\mu\leq\mu_0 \ \text{vs} \ H_1: \mu>\mu_0.$$
+
 Por dualidad, basta con conocer un IC unilateral para $\mu$:
 
-\[ \left(\bar X_n-t_{n-1,\alpha}\dfrac{s}{\sqrt n},\infty\right).\]
+$$\left(\bar X_n-t_{n-1,\alpha}\dfrac{s}{\sqrt n},\infty\right).$$
 
 Rechazamos $H_0$ si 
 
-\[\mu_0\leq \bar X_n-t_{n-1,\alpha }\dfrac{s}{\sqrt n} \Leftrightarrow T = \dfrac{\bar X_n -\mu_0}{s/\sqrt n}\geq t_{n-1,\alpha}\]
+$$\mu_0\leq \bar X_n-t_{n-1,\alpha }\dfrac{s}{\sqrt n} \Leftrightarrow T = \dfrac{\bar X_n -\mu_0}{s/\sqrt n}\geq t_{n-1,\alpha}$$
 
-(rechazando en la cola derecha de T).
+(rechazando en la cola derecha de $T$).
 
 
 ---
@@ -116,7 +125,6 @@ Rechazamos $H_0$ si
   * Para demostrar el procedimiento, vamos a enfocarnos en un tipo de contraste de hipótesis que contrasta una hipótesis simple contra otra hipótesis simple. Una hipótesis simple y una hipótesis compuesta se definen de la siguiente manera:
 	
 > Hipótesis simple e hipótesis compuesta: Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria de una distribución con parámetro $\theta$. Se dice que una hipótesis es **simple** si *especifica de manera única* la distribución de la población. Cualquier hipótesis que no sea simple se denomina **hipótesis compuesta**.
-
 ---
 
 ## Contrastes más potentes
@@ -160,7 +168,9 @@ De acuerdo con el teorema anterior, se rechaza $H_0$ si $\mathcal{L}(\theta_0) <
 	
 Podemos observar que un contraste con esta región crítica tiene sentido con la interpretación de la función de verosimilitud. Recordemos que entre más verosímil es un valor de $\theta$ para la muestra dada, mayor es su función de verosimilitud. Por lo tanto, si $\theta = \theta_0$ entonces se espera que $\mathcal{L}(\theta_0) > \mathcal{L}(\theta_1)$, favoreciendo a $H_0$ sobre $H_1$ y viceversa. De esta manera el contraste más potente consiste en escoger la hipótesis más verosímil para la muestra obtenida, fijando de antemano una máxima probabilidad de cometer Error Tipo I. 
 	
-**Ejemplo:** Suponga que $Y$ representa una sola observación con función de densidad dada por: 
+**Ejemplo:** 
+
+Suponga que $Y$ representa una sola observación con función de densidad dada por: 
 	
 $f_{Y}(y) = \begin{cases}\theta y^{\theta-1} \quad si \quad 0 \leq y \leq 1 \\0 \quad en \quad otros \quad casos \end{cases}$
 	
@@ -190,28 +200,25 @@ Podemos concluir que el contraste más potente consiste en rechazar $H_0$ si $Y 
 	
 **Ejemplo:** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_j \sim N(\mu,1)$. Se desea contrastar las hipótesis $H_{0}: \mu = \mu_0$ contra $H_{1}: \mu = \mu_1$, donde $\mu_0 < \mu_1$. Obtenga el contraste más potente para un tamaño dado $\alpha_0$. 
 	
-Solución: Recordemos que para esta muestra normal la verosimilitud viene dada por la siguiente expresión:
+**Solución:** Recordemos que para esta muestra normal la verosimilitud viene dada por la siguiente expresión:
 	
-$$\mathcal{L}(\mu) = (2\pi)^{-\frac{n}{2}} \exp \left({-\dfrac{\sum(x_{j}-\mu)^{2}}{2}}\right) = (2\pi)^{-\frac{n}{2}} \exp \left({-\dfrac{\sum{x_{j}^{2}} -2n\mu \overline{x} + n\mu^2 }{2}}\right)$$
+$$\mathcal{L}(\mu) = (2\pi)^{-\dfrac{n}{2}} e^{-\dfrac{\sum(x_{j}-\mu)^{2}}{2}} = (2\pi)^{-\dfrac{n}{2}} e^{-\dfrac{\sum{x_{j}^{2}} -2n\mu \overline{x} + n\mu^2 }{2}}$$
 	
 Por lo tanto cuando obtenemos el cociente de las verosimilitudes para encontrar la región crítica según el Lema de Neyman-Pearson obtenemos:
 	
-$$\dfrac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = \dfrac{\exp \left({n\mu_{0} \overline{x} -\frac{n\mu_{0}^{2}}{2}}\right)}{\exp \left({n\mu_{1} \overline{x} -\frac{n\mu_{1}^{2}}{2}}\right)} = \exp \left({n\left( \overline{x}(\mu_0 - \mu_1 )  -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )    \right) }\right) = \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) \cdot \exp \left({ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) < k$$
+$$\dfrac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = \dfrac{e^{n\mu_{0} \overline{x} -\dfrac{n\mu_{0}^{2}}{2}}}{e^{n\mu_{1} \overline{x} -\dfrac{n\mu_{1}^{2}}{2}}} = e^{n\left( \overline{x}(\mu_0 - \mu_1 )  -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )    \right) } = e^{ n\overline{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } < k$$
 
 ---
 
 ## Contrastes más potentes
 
 A partir de esta expresión debemos encontrar el valor crítico de la prueba, ya sabemos que rechazamos $H_{0}$ si:
-
-\begin{align*}
-& \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) \cdot \exp \left({ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) < k 
-\Longrightarrow  \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) < k \exp \left({\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) \\ 
-& \Longrightarrow n\overline{x}(\mu_0 - \mu_1 ) < \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } 
- \Longrightarrow \overline{x} > \frac{ \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } }{n(\mu_0 - \mu_1 )} = k^{\prime} 
-\end{align*}
-
-
+	
+$e^{ n\overline{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } < k$
+$\Rightarrow  e^{ n\overline{x}(\mu_0 - \mu_1 ) } < k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }$
+$\Rightarrow n\overline{x}(\mu_0 - \mu_1 ) < \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  }$
+$\Rightarrow \overline{x} > \frac{ \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } }{n(\mu_0 - \mu_1 )} = k^{\prime}$
+	
 Por lo tanto, nuestro contraste consiste en rechazar $H_0$ si $\overline{X} > k^{\prime}$. Ahora debemos encontrar el valor de $k^{\prime}$ para un tamaño dado $\alpha_0$:
 	
 $$\alpha_0 = P\left( \overline{X} > k^{\prime} | \mu = \mu_{0} \right) = P\left( Z > \sqrt{n}(k^{\prime} - \mu_{0}) \right)$$
@@ -231,21 +238,19 @@ Supongamos que se desea probar las hipótesis $H_{0}: \theta = \theta_0$ contra 
 ## Contrastes uniformemente más potentes
 	
 > **Contraste uniformemente más potente:** Un contraste de tamaño $\alpha_0$ es **uniformemente más potente** (UMP) para contrastar $H_{0}:\theta = \theta_0$ contra $H_{1}: \theta \in \Omega_{1}$ si es más potente para $H_{0}:\theta = \theta_0$ contra $H_{1}: \theta = \theta_1$, para todo $\theta_1 \in \Omega_{1}$.
-
 Bajo esta definición vamos a poder encontrar fácilmente contrastes UMP para las hipótesis alternas $H_{1}: \theta > \theta_0$ o $H_{1}: \theta < \theta_0$, siempre y cuando la distribución poblacional lo permite. Sin embargo, no es posible encontrar un contraste UMP para la hipótesis alterna $H_{1}: \theta \neq \theta_0$ ya que será imposible encontrar el mismo contraste más potente para todo valor de $\theta_1$ diferente de $\theta_0$. 
 
 ---
 
 ## Contrastes uniformemente más potentes
 	
-Ejemplo: Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_j \sim N(\mu,1)$. Se desea contrastar las hipótesis $H_{0}: \mu = \mu_0$ contra $H_{1}: \mu > \mu_0$, con un nivel de significancia de $\alpha_0$. 
+**Ejemplo:** Sea $X_{1}, X_{2}, ... , X_{n}$ una muestra aleatoria tal que $X_j \sim N(\mu,1)$. Se desea contrastar las hipótesis $H_{0}: \mu = \mu_0$ contra $H_{1}: \mu > \mu_0$, con un nivel de significancia de $\alpha_0$. 
 	
-Solución: Empecemos por definir un valor de $\mu_1$ tal que $\mu_1 > \mu_0$. De esta forma podemos re-escribir la hipótesis alterna como $H_{1}: \mu = \mu_1$, $\forall \mu_{1} > \mu_{0}$. Una vez hecho esto el ejercicio se vuelve idéntico al anterior y por lo tanto podemos concluir que el contraste UMP consiste en rechazar $H_0$ si $\overline{X} > \mu_{0} + \dfrac{z_{1-\alpha_0}}{\sqrt{n}}$ para un nivel de significancia $\alpha_0$.
+**Solución:** Empecemos por definir un valor de $\mu_1$ tal que $\mu_1 > \mu_0$. De esta forma podemos re-escribir la hipótesis alterna como $H_{1}: \mu = \mu_1$, $\forall \mu_{1} > \mu_{0}$. Una vez hecho esto el ejercicio se vuelve idéntico al anterior y por lo tanto podemos concluir que el contraste UMP consiste en rechazar $H_0$ si $\overline{X} > \mu_{0} + \dfrac{z_{1-\alpha_0}}{\sqrt{n}}$ para un nivel de significancia $\alpha_0$.
 	
 Cuando se da el caso de que exista un contraste UMP (que será el caso para los ejemplos vistos en clases), existe una definición y un teorema que nos facilita la obtención del contraste. 
 
 > **Cociente de verosimilitudes monótono:** Una muestra aleatoria con función de verosimilitud $\mathcal{L}(\theta)$ tiene un **cociente de verosimilitudes monótono** (CVM) en un estadístico $T = T(X_{1}, X_{2}, ... , X_{n})$ si, para $\theta_0 < \theta_1$, el cociente $\dfrac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}$ es una función monótona de $T$. 
-
 ---
 
 ## Contrastes uniformemente más potentes
@@ -267,7 +272,6 @@ Por lo tanto, concluimos que $\mathcal{L}(\mu)$ tiene un CVM en $\overline{X}$.
 
 	
 > Si la distribución tiene un CVM en el estadístico $T$, entonces el contraste UMP para $H_{0}: \theta = \theta_0$ contra $H_{1}: \theta > \theta_0$ o $H_{1}: \theta < \theta_0$ existe y este se puede expresar en términos de $T$, en lugar del cociente $\dfrac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}$. 
-
 	
 	
 Este teorema nos facilita la obtención del contraste UMP pues nos garantiza que la regla de decisión va a depender de $T$. Además, al ser el cociente de verosimilitudes una función monótona de $T$ entonces existe una relación directa entre la hipótesis alternativa y la regla de decisión. Básicamente si $\mathcal{L}(\theta)$ tiene CVM en $T$ y tenemos $H_{1}: \theta > \theta_0$ entonces el teorema anterior nos garantiza que rechazamos $H_0$ si $T > c$, mientras que si $H_{1}: \theta < \theta_0$ entonces rechazamos $H_0$ si $T < c$. El valor de $c$ se obtiene al igual que anteriormente, fijando el tamaño del contraste en $\alpha_0$. 
@@ -291,5 +295,6 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Contrastes de hipótesis - contrastes más potentes, uniformemente más potentes, razón de verosimilitud.
+
 
 
