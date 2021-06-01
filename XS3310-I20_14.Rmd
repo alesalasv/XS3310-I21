@@ -27,15 +27,15 @@ Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap 
 
 # ¿Qué vamos a discutir hoy?
 
-Contrastes de hipótesis: Dualidad en pruebas de hipótesis,  constrastes más potentes y uniformemente más potentes. Cocientes de verosimilitud.
+Contrastes de hipótesis: Dualidad en pruebas de hipótesis,  contrastes más potentes y uniformemente más potentes. Cocientes de verosimilitud.
 
 ---
 
 # Dualidad en pruebas
 
-Suponga que se tiene una prueba de hipotesis y se encuentra la región crítica (o región de rechazo) \(RC_\delta\) de un contraste \(\delta\) sobre \(\theta\) con nivel \(\alpha\). 
+Suponga que se tiene una prueba de hipótesis y se encuentra la región crítica (o región de rechazo) \(RC_\delta\) de un contraste \(\delta\) sobre \(\theta\) con nivel \(\alpha\). 
 
-Entonces un intervalo de confianza con nivel \(\alpha\) de este parametro, esta dado por \(RC_\delta^c\).
+Entonces un intervalo de confianza con nivel \(\alpha\) de este parámetro, esta dado por \(RC_\delta^c\).
 
 
 
@@ -192,23 +192,26 @@ Podemos concluir que el contraste más potente consiste en rechazar $H_0$ si $Y 
 	
 Solución: Recordemos que para esta muestra normal la verosimilitud viene dada por la siguiente expresión:
 	
-$$\mathcal{L}(\mu) = (2\pi)^{-\dfrac{n}{2}} e^{-\dfrac{\sum(x_{j}-\mu)^{2}}{2}} = (2\pi)^{-\dfrac{n}{2}} e^{-\dfrac{\sum{x_{j}^{2}} -2n\mu \overline{x} + n\mu^2 }{2}}$$
+$$\mathcal{L}(\mu) = (2\pi)^{-\frac{n}{2}} \exp \left({-\dfrac{\sum(x_{j}-\mu)^{2}}{2}}\right) = (2\pi)^{-\frac{n}{2}} \exp \left({-\dfrac{\sum{x_{j}^{2}} -2n\mu \overline{x} + n\mu^2 }{2}}\right)$$
 	
 Por lo tanto cuando obtenemos el cociente de las verosimilitudes para encontrar la región crítica según el Lema de Neyman-Pearson obtenemos:
 	
-$$\dfrac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = \dfrac{e^{n\mu_{0} \overline{x} -\dfrac{n\mu_{0}^{2}}{2}}}{e^{n\mu_{1} \overline{x} -\dfrac{n\mu_{1}^{2}}{2}}} = e^{n\left( \overline{x}(\mu_0 - \mu_1 )  -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )    \right) } = e^{ n\overline{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } < k$$
+$$\dfrac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = \dfrac{\exp \left({n\mu_{0} \overline{x} -\frac{n\mu_{0}^{2}}{2}}\right)}{\exp \left({n\mu_{1} \overline{x} -\frac{n\mu_{1}^{2}}{2}}\right)} = \exp \left({n\left( \overline{x}(\mu_0 - \mu_1 )  -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )    \right) }\right) = \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) \cdot \exp \left({ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) < k$$
 
 ---
 
 ## Contrastes más potentes
 
 A partir de esta expresión debemos encontrar el valor crítico de la prueba, ya sabemos que rechazamos $H_{0}$ si:
-	
-$e^{ n\overline{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } < k$
-$\Rightarrow  e^{ n\overline{x}(\mu_0 - \mu_1 ) } < k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }$
-$\Rightarrow n\overline{x}(\mu_0 - \mu_1 ) < \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  }$
-$\Rightarrow \overline{x} > \frac{ \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } }{n(\mu_0 - \mu_1 )} = k^{\prime}$
-	
+
+\begin{align*}
+& \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) \cdot \exp \left({ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) < k 
+\Longrightarrow  \exp \left({ n\overline{x}(\mu_0 - \mu_1 ) }\right) < k \exp \left({\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\right) \\ 
+& \Longrightarrow n\overline{x}(\mu_0 - \mu_1 ) < \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } 
+ \Longrightarrow \overline{x} > \frac{ \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } }{n(\mu_0 - \mu_1 )} = k^{\prime} 
+\end{align*}
+
+
 Por lo tanto, nuestro contraste consiste en rechazar $H_0$ si $\overline{X} > k^{\prime}$. Ahora debemos encontrar el valor de $k^{\prime}$ para un tamaño dado $\alpha_0$:
 	
 $$\alpha_0 = P\left( \overline{X} > k^{\prime} | \mu = \mu_{0} \right) = P\left( Z > \sqrt{n}(k^{\prime} - \mu_{0}) \right)$$
