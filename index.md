@@ -148,7 +148,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>
      <tr>
     <td> 4 de junio  </td>
-    <td>  <a href="XS3310-I20_15.html">Clase 15</a> </td>
+    <td>  <a href="XS3310-I20_15.html">Clase 18</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.1, 8.2, 8.3, 8.5, 8.6, 8.7, 8.8, 8.9
 <br> </td>
