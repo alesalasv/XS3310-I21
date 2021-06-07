@@ -42,8 +42,8 @@ La información del curso está en Mediación Virtual, este repositorio es para 
   <tr>
     <td> 13 y 16 de abril  </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td>
-          <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
-    <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
+    <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
+          <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
           <a href="https://youtu.be/GD4lUmIo9_g">Eficiencia</a> <br>
           <a href="https://youtu.be/7O-an8MOL7g">Información de Fisher</a> <br>
