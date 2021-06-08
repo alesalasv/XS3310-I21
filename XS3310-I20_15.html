@@ -1,221 +1,516 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>XS3310 Teoría Estadística</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-06-08" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+# XS3310 Teoría Estadística
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-06-08
 
-<head>
-<title>XS3310-I20_15.html</title>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
-<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  /><meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'><style> body { box-sizing: border-box; max-width: 740px; width: 100%; margin: 40px auto; padding: 0 10px; } </style><script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script><script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script><script>document.addEventListener('DOMContentLoaded', () => { document.body.classList.add('markdown-body'); document.querySelectorAll('pre[lang] > code').forEach((code) => { code.classList.add(code.parentElement.lang); }); document.querySelectorAll('pre > code').forEach((code) => { hljs.highlightBlock(code); }); });</script>
-</head>
+---
 
-<body>
 
-<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
-<p>class: center, middle</p>
-<h1 id="qué-hemos-visto-hasta-ahora">¿Qué hemos visto hasta ahora?</h1>
-<p>Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap y contrastes de hipótesis (función de potencia, tamaño del contraste, el valor p, contrastes más potentes, uniformemente más potentes).</p>
-<h1 id="qué-vamos-a-discutir-hoy">¿Qué vamos a discutir hoy?</h1>
-<p>Contrastes de hipótesis: cociente de verosimilitud y razón de verosimilitudes.</p>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>&lt;!— class: middle, inverse, center</td>
-</tr>
-<tr class="even">
-<td>## ¿Dudas del ensayo?</td>
-</tr>
-<tr class="odd">
-<td>## Asignación del proyecto 3 –&gt;</td>
-</tr>
-<tr class="even">
-<td># Repaso:</td>
-</tr>
-<tr class="odd">
-<td>_______________________________________________________ &gt; Contraste más potente: Suponga que se desean contrastar las hipótesis simples <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span> basados en una muestra aleatoria de una población con distribución que depende de <span class="math inline">\(\theta\)</span>. Para un valor <span class="math inline">\(\alpha_0 \in \left] 0,1 \right[\)</span> sea <span class="math inline">\(\mathbb{T}_{\alpha_0} = \left\lbrace \delta | \alpha(\delta) = \alpha_0 \right\rbrace\)</span> el conjunto de todos los contrastes <span class="math inline">\(\delta\)</span> que tienen tamaño <span class="math inline">\(\alpha_0\)</span>. Entonces el contraste de tamaño <span class="math inline">\(\alpha_0\)</span> <strong>más potente</strong>, denotado <span class="math inline">\(\delta^*\)</span>, satisface: * <span class="math inline">\(\delta^* \in \mathbb{T}_{\alpha_0}\)</span> * <span class="math inline">\(\beta(\delta^*) \leq \beta(\delta)\)</span>, <span class="math inline">\(\forall \delta \in \mathbb{T}_{\alpha_0}\)</span></td>
-</tr>
-<tr class="even">
-<td>_______________________________________________________</td>
-</tr>
-</tbody>
-</table>
-<h1 id="repaso">Repaso:</h1>
-<hr />
-<blockquote>
-<p>Lema de Neyman-Pearson: Supongamos que se desea contrastar las hipótesis simples <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span> basados en una muestra aleatoria de una población con distribución que depende de <span class="math inline">\(\theta\)</span>. Además, sea <span class="math inline">\(\mathcal{L}(\theta)\)</span> la función de verosimilitud de la muestra para un valor de <span class="math inline">\(\theta\)</span>. Para un tamaño dado <span class="math inline">\(\alpha_0\)</span>, el contraste que minimiza <span class="math inline">\(\beta(\delta)\)</span> tiene una región crítica determinada por: <span class="math inline">\(RC_{\delta^*} = \left\lbrace \mathbf{X} | \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)} &lt; k \right\rbrace\)</span></p>
-</blockquote>
-<hr />
-<hr />
-<h1 id="repaso-1">Repaso:</h1>
-<hr />
-<blockquote>
-<p>Contraste uniformemente más potente: Un contraste de tamaño <span class="math inline">\(\alpha_0\)</span> es <strong>uniformemente más potente</strong> (UMP) para contrastar <span class="math inline">\(H_{0}:\theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta \in \Omega_{1}\)</span> si es más potente para <span class="math inline">\(H_{0}:\theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span>, para todo <span class="math inline">\(\theta_1 \in \Omega_{1}\)</span>.</p>
-</blockquote>
-<hr />
-<hr />
-<h1 id="repaso-2">Repaso:</h1>
-<hr />
-<blockquote>
-<p>Cociente de verosimilitudes monótono: Una muestra aleatoria con función de verosimilitud <span class="math inline">\(\mathcal{L}(\theta)\)</span> tiene un <strong>cociente de verosimilitudes monótono</strong> (CVM) en un estadístico <span class="math inline">\(T = T(X_{1}, X_{2}, ... , X_{n})\)</span> si, para <span class="math inline">\(\theta_0 &lt; \theta_1\)</span>, el cociente <span class="math inline">\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)</span> es una función monótona de <span class="math inline">\(T\)</span>.</p>
-</blockquote>
-<hr />
-<hr />
-<h1 id="repaso-3">Repaso:</h1>
-<hr />
-<blockquote>
-<p>Si la distribución tiene un CVM en el estadístico <span class="math inline">\(T\)</span>, entonces el contraste UMP para <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta &gt; \theta_0\)</span> o <span class="math inline">\(H_{1}: \theta &lt; \theta_0\)</span> existe y este se puede expresar en términos de <span class="math inline">\(T\)</span>, en lugar del cociente <span class="math inline">\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)</span>.</p>
-</blockquote>
-<hr />
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes">Contraste de razón de verosimilitudes</h1>
-<p>En la parte anterior encontramos un método para encontrar la región crítica de un contraste cuando se contrastan dos hipótesis simples (o hipótesis compuestas generalizables) sin embargo, el Lema de Neyman-Pearson no es capaz de encontrar una región crítica cuando las hipótesis son compuestas y no se pueden generalizar a manera de encontrar un contraste UMP.</p>
-<p>Una manera de hacer esto es por medio del contraste de razón de verosimilitudes que nos da una forma más general de trabajar con las propiedades de verosimilitud y aún así obtener un buen contraste a partir de él.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-1">Contraste de razón de verosimilitudes</h1>
-<blockquote>
-<p>Estadístico de la razón de verosimilitudes: Suponga que se tiene una muestra aleatoria <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> de una población con vector de parámetros <span class="math inline">\(\Theta = (\theta_1, \theta_2, ... , \theta_k)\)</span> y con función de verosimilitud <span class="math inline">\(\mathcal{L}(\Theta)\)</span>. Se desea hacer un contraste de hipótesis sobre uno o más de estos parámetros, de forma que las hipótesis sean compuestas, es decir podemos tener hipótesis <span class="math inline">\(H_{0}: \Theta \in \Omega_{0}\)</span> contra <span class="math inline">\(H_{1}: \Theta \in \Omega_{1}\)</span>. Entonces se definen <span class="math inline">\(\mathcal{L}(\hat{\Omega}_{0}) = Max_{\Theta \in \Omega_{0}}\mathcal{L}(\Theta)\)</span> y <span class="math inline">\(\mathcal{L}(\hat{\Omega}) = Max_{\Theta \in \Omega}\mathcal{L}(\Theta)\)</span>. Estos corresponden a las funciones de verosimilitud evaluadas en sus correspondientes máximos de verosimilitud. Se define el <strong>estadístico de la razón de verosimilitudes</strong>, denotado <span class="math inline">\(\lambda\)</span>, como <span class="math inline">\(\frac{\mathcal{L}(\hat{\Omega}_{0})}{\mathcal{L}(\hat{\Omega})}\)</span>.</p>
-</blockquote>
-<p>De esta definición podemos inferir el uso que se le puede dar a dicho estadístico. Se puede demostrar que <span class="math inline">\(0 &lt; \lambda &lt; 1\)</span>. Si <span class="math inline">\(\lambda\)</span> es un valor muy cercano a uno esto significa que la mejor explicación de la verosimilitud está siendo dada por los valores de <span class="math inline">\(\Omega_{0}\)</span>, mientras que pasa lo contrario si <span class="math inline">\(\lambda\)</span> se aproxima mucho a cero. Por lo tanto, un buen contraste consistiría en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\lambda &lt; k\)</span>, donde el <span class="math inline">\(k\)</span> se elije como anteriormente, fijando el tamaño.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-2">Contraste de razón de verosimilitudes</h1>
-<p>Empezaremos mostrando la técnica con un ejemplo sencillo que consiste de solo un parámetro desconocido. Bajo este esquema podemos definir el estadístico <span class="math inline">\(\lambda\)</span> como <span class="math inline">\(\lambda = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\hat{\theta})}\)</span>, donde <span class="math inline">\(\theta_0\)</span> es el valor especificado en la hipótesis nula y <span class="math inline">\(\hat{\theta}\)</span> es el EMV de <span class="math inline">\(\theta\)</span>.</p>
-<p>Ejemplo: Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim N(\mu,\sigma^2)\)</span> donde <span class="math inline">\(\mu\)</span> es desconocido y <span class="math inline">\(\sigma^2\)</span> es conocido. Se desean contrastar las siguientes hipótesis:</p>
-<p><span class="math display">\[H_{0}: \mu = \mu_0 \text{ contra } H_{1}: \mu \neq \mu_0\]</span></p>
-<p>Obtenga un contraste con un nivel de significancia de <span class="math inline">\(\alpha_0\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-3">Contraste de razón de verosimilitudes</h1>
-<p>Solución: Lo primero que se puede notar es que la hipótesis alterna es compuesta y no existe un contraste UMP para todo <span class="math inline">\(\mu \neq \mu_0\)</span>, por lo que no podemos usar el Lema de Neyman-Pearson y deberemos usar la razón de verosimilitudes. Sabemos de antemano que <span class="math inline">\(\mathcal{L}(\mu) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}}\)</span> Por lo tanto:</p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}_0) = \mathcal{L}(\mu_0) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(X_{j} -\mu_0)^2}{2\sigma^2}} = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\mu_{0} \overline{X} + n\mu_{0}^2 }{2\sigma^2}}\)</span></p>
-<p>También sabemos, de temas anteriories del curso, que el estimador de máxima verosimilitud para <span class="math inline">\(\mu\)</span> es <span class="math inline">\(\hat{\mu} = \overline{X}\)</span>. Evaluando esto en la verosimilitud de todo Omega obtenemos:</p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}) = \mathcal{L}(\hat{\mu}) = \mathcal{L}(\overline{X}) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\overline{X} \cdot \overline{X} + n\overline{X}^2 }{2\sigma^2}} = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - n\overline{X}^2 }{2\sigma^2}}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-4">Contraste de razón de verosimilitudes</h1>
-<p>De esta manera tenemos:</p>
-<p><span class="math inline">\(\lambda = \frac{\mathcal{L}(\mu_0)}{\mathcal{L}(\hat{\mu})} = \frac{(2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\mu_{0} \overline{X} + n\mu_{0}^2 }{2\sigma^2}}}{(2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - n\overline{X}^2 }{2\sigma^2}}} = e^{\frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2}}\)</span></p>
-<p>Sabemos que el contraste consiste en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\lambda &lt; k\)</span>, es decir</p>
-<p><span class="math inline">\(e^{\frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2}} &lt; k\)</span></p>
-<p><span class="math inline">\(\Rightarrow \frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2} &lt; \ln(k)\)</span></p>
-<p><span class="math inline">\(\Rightarrow \frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} &gt; -2\ln(k) = k^{\prime}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-5">Contraste de razón de verosimilitudes</h1>
-<p>Nótese que cuando <span class="math inline">\(H_0\)</span> es cierto entonces <span class="math inline">\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} \sim \chi^{2}(1)\)</span>. Por lo tanto el valor de <span class="math inline">\(k^{\prime}\)</span> es el valor de la tabla de la ji-cuadrada con un grado de libertad que acumula una probabilidad de <span class="math inline">\(\alpha_0\)</span> a su derecha, es decir <span class="math inline">\(k^{\prime} = \chi^{2}_{1,\alpha_0}\)</span>. Por lo tanto el contraste consiste en rechazar la hipótesis nula cuando <span class="math inline">\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} &gt; \chi^{2}_{1,\alpha_0}\)</span>.</p>
-<p>Observen que si le sacamos la raíz cuadrada a <span class="math inline">\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2}\)</span> esta va a ser positiva si <span class="math inline">\(\overline{X} &gt; \mu_0\)</span> o negativa si <span class="math inline">\(\overline{X} &lt; \mu_0\)</span>. Dada la hipótesis alterna, nosotros sabemos que <span class="math inline">\(\overline{X}\)</span> es tanto menor como mayor a <span class="math inline">\(\mu_0\)</span>, por lo que podríamos decir que rechazamos <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c\)</span> o <span class="math inline">\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-6">Contraste de razón de verosimilitudes</h1>
-<p>Si <span class="math inline">\(H_0\)</span> es cierta entonces <span class="math inline">\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} \sim N(0,1)\)</span>. Si queremos encontrar el valor de <span class="math inline">\(c\)</span> lo podemos despejar igual que anteriormente, por medio del tamaño fijo:</p>
-<p><span class="math inline">\(\alpha_0 = P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c \right) + P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c \right)\)</span></p>
-<p>Como el valor que estamos intentando encontrar es el mismo en valor absoluto eso significa que: <span class="math inline">\(P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c \right) = P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c \right) = \frac{\alpha_0}{2}\)</span></p>
-<p>Esto quiere decir que <span class="math inline">\(c = z_{1-\frac{\alpha_0}{2}}\)</span>. Entonces el contraste anterior es equivalente a rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; z_{1-\frac{\alpha_0}{2}}\)</span> o <span class="math inline">\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -z_{1-\frac{\alpha_0}{2}}\)</span> por lo que podemos ver que esta es la prueba que normalmente se utiliza en la práctica.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-7">Contraste de razón de verosimilitudes</h1>
-<p>Ahora procedamos a generalizar este ejemplo:</p>
-<p>Ejemplo: Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim N(\mu,\sigma^2)\)</span> donde <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span> son desconocidos. Se desean contrastar las siguientes hipótesis:</p>
-<p><span class="math display">\[H_{0}: \mu = \mu_0 \text{ contra } H_{1}: \mu \neq \mu_0\]</span></p>
-<p>Obtenga un contraste con un nivel de significancia de <span class="math inline">\(\alpha_0\)</span>.</p>
-<p>Solución: A diferencia del caso pasado, ahora ambas hipótesis son compuestas. En este caso tenemos que <span class="math inline">\(\Theta = (\mu, \sigma^2)\)</span>, a diferencia del caso anterior en donde solo teníamos un parámetro desconocido. Por lo tanto vamos a requerir los EMV de cada parámetro:</p>
-<p><span class="math inline">\(\hat{\mu} = \overline{X}\)</span> <span class="math inline">\(\hat{\sigma}^2 =\frac{\sum(x_{j} -\overline{X})^2}{n}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-8">Contraste de razón de verosimilitudes</h1>
-<p>Sin embargo, si definimos <span class="math inline">\(\Theta_{0}\)</span> como el vector de parámetros definidos por <span class="math inline">\(H_0\)</span> tendríamos que <span class="math inline">\(\Theta_0 = (\mu_0 , \sigma^2)\)</span>. Por lo tanto, la verosimilitud definida para <span class="math inline">\(\Theta_{0}\)</span> es:</p>
-<p><span class="math inline">\(\mathcal{L}(\Theta_0) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(X_{j} -\mu_0)^2}{2\sigma^2}}\)</span></p>
-<p>Nótese que <span class="math inline">\(\sigma^2\)</span> sigue siendo desconocido, por lo que vamos a tener que estimarlo. Resulta que su estimador máximo verosimil viene dado por <span class="math inline">\(\hat{\sigma}^{2}_{0} = \frac{\sum(x_{j} -\mu_0)^2}{n}\)</span>. Ahora procedamos a obtener las funciones de verosimilitud evaluadas en sus respectivos máximos verosímiles:</p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}_0) = (2\pi)^{-\frac{n}{2}} (\hat{\sigma}^{2}_{0})^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu_0)^2}{2\hat{\sigma}^{2}_{0}}} = (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n\sum(x_{j} -\mu_0)^2}{2\sum(x_{j} -\mu_0)^2}}\)</span></p>
-<p><span class="math inline">\(= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}\)</span></p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}) = (2\pi)^{-\frac{n}{2}} (\hat{\sigma}^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\overline{X})^2}{2\hat{\sigma}^2}} = (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X})^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n\sum(x_{j} -\overline{X})^2}{2\sum(x_{j} -\overline{X})^2}}= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X} )^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-9">Contraste de razón de verosimilitudes</h1>
-<p>Por lo tanto, el estadístico de la razón de verosimilitudes sería:</p>
-<p><span class="math inline">\(\lambda = \frac{(2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}}{(2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X} )^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}} = \left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k\)</span></p>
-<p>Por lo tanto podemos decir que rechazamos la hipótesis nula si <span class="math inline">\(\left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k\)</span>. No obstante, podemos hacer ciertos desarrollos matemáticos a esta desigualdad para llegar a un estadístico con distribución conocida.</p>
-<p><span class="math inline">\(\left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k\)</span> <span class="math inline">\(\Rightarrow \left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2} \right)^{\frac{n}{2}} &lt; k\)</span> <span class="math inline">\(\Rightarrow \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2} &lt; k^{\frac{2}{n}}\)</span> <span class="math inline">\(\Rightarrow \frac{1}{ \frac{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2} } &lt; k^{\frac{2}{n}}\)</span> <span class="math inline">\(\Rightarrow \frac{1}{ 1 + \frac{n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2} } &lt; k^{\frac{2}{n}}\)</span> <span class="math inline">\(\Rightarrow \frac{n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2} &gt; k^{-\frac{2}{n}} - 1\)</span> <span class="math inline">\(\Rightarrow \frac{n(\overline{X} - \mu_0)^2}{ \frac{1}{n-1} \sum(x_{j} -\overline{X} )^2} &gt; (n-1) \left( k^{-\frac{2}{n}} - 1\right)\)</span> <span class="math inline">\(\Rightarrow \frac{n(\overline{X} - \mu_0)^2}{ S^2} &gt; (n-1) \left( k^{-\frac{2}{n}} - 1\right) = k^{\prime}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-10">Contraste de razón de verosimilitudes</h1>
-<p>De esta forma llegamos a una distribución conocida. Hemos demostrado en el curso anterior que <span class="math inline">\(\frac{n(\overline{X} - \mu_0)^2}{ S^2} \sim F(1,n-1)\)</span>. Por lo tanto, utilizando el nivel de significancia <span class="math inline">\(\alpha_0\)</span> obtenemos que <span class="math inline">\(k^{\prime} = F_{1,n-1,\alpha_0}\)</span>. Es decir, rechazamos la hipótesis nula si <span class="math inline">\(\frac{n(\overline{X} - \mu_0)^2}{ S^2} &gt; F_{1,n-1,\alpha_0}\)</span>. Si sacamos la raíz cuadrada del contraste anterior obtenemos que vamos a rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S} &gt; c\)</span> o si <span class="math inline">\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S} &lt; -c\)</span> donde <span class="math inline">\(c = \sqrt{F_{1,n-1,\alpha_0}}\)</span>. No obstante podemos reconocer la distribución de <span class="math inline">\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S}\)</span> la cual es una t-Student con <span class="math inline">\(n-1\)</span> grados de libertad. Por lo tanto, equivale decir que <span class="math inline">\(c=t_{n-1,\alpha_0}\)</span>. Esta región crítica corresponde la prueba T utilizada en la práctica para este problema.</p>
-<p>El método de la razón de verosimilitudes tiene un inconveniente y es que en muchas ocasiones es imposible generar un estadístico con distribución conocida a partir de <span class="math inline">\(\lambda\)</span>. Sin embargo, podemos hacer uso del Teorema de Wilks que veremos a continuación.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-11">Contraste de razón de verosimilitudes</h1>
-<blockquote>
-<p>Teorema de Wilks: Suponga que <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> tiene una función de verosimilitud <span class="math inline">\(\mathcal{L}(\Theta)\)</span> y se tienen las hipótesis <span class="math inline">\(H_{0}: \Theta \in \Omega_0\)</span> contra <span class="math inline">\(H_{1}: \Theta \in \Omega_1\)</span>. Sea <span class="math inline">\(\Theta\)</span> el vector de parámetros y <span class="math inline">\(\Theta_0\)</span> el vector de parámetros definidos en <span class="math inline">\(\Omega_0\)</span>, de forma que podemos definir <span class="math inline">\(d = \dim(\Theta)\)</span> y <span class="math inline">\(d_0 = \dim(\Theta_0)\)</span>. Si <span class="math inline">\(n \to +\infty\)</span> entonces <span class="math inline">\(G=-2\ln(\lambda) \xrightarrow{\text{d}} \chi^{2}(d-d_0)\)</span></p>
-</blockquote>
-<p>El resultado de este teorema es inmediato pues podemos ver que para cualquier contraste de tamaño <span class="math inline">\(\alpha_0\)</span> vamos a poder rechazar la hipótesis nula si <span class="math inline">\(G=-2\ln(\lambda) &gt; \chi^{2}_{d-d_{0},\alpha_0}\)</span>. De esta forma tenemos una región crítica genérica que dependerá del tamaño del contraste y de <span class="math inline">\(d\)</span> y <span class="math inline">\(d_0\)</span>. Empecemos haciendo un ejemplo con un solo parámetro desconocido donde podemos encontrar tanto el contraste exacto como el aproximado por medio del Teorema de Wilks.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-12">Contraste de razón de verosimilitudes</h1>
-<p>Ejemplo: Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Exp(\theta)\)</span> y suponga que se desean contrastar las hipótesis <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta \neq \theta_0\)</span>. Encuentre el contraste de razón de verosimilitudes para un tamaño de <span class="math inline">\(\alpha_0\)</span>.</p>
-<p>Solución: Empecemos definiendo <span class="math inline">\(\Theta\)</span> y <span class="math inline">\(\Theta_0\)</span>. Tenemos que <span class="math inline">\(\Theta = \left\lbrace \theta \right\rbrace\)</span> y que <span class="math inline">\(\Theta_{0} = \left\lbrace \theta_0 \right\rbrace\)</span>. Por lo tanto <span class="math inline">\(\dim(\Theta) = 1\)</span> y <span class="math inline">\(\dim(\Theta_0) = 0\)</span>. Sigamos obteniendo la verosimilitud para este problema:</p>
-<p><span class="math inline">\(\mathcal{L}(\Theta) = \mathcal{L}(\theta) = \theta^{-n} e^{-\frac{\sum x_j}{\theta}} = \theta^{-n} e^{-\frac{n \overline{x}}{\theta}}\)</span></p>
-<p>De este resultado podemos demostrar fácilmente que el EMV de <span class="math inline">\(\theta\)</span> es <span class="math inline">\(\overline{X}\)</span>. Por lo tanto tenemos las siguientes verosimilitudes evaluadas en sus máximos verosímiles:</p>
-<p><span class="math inline">\(\mathcal{L}(\theta_0) = \theta_{0}^{-n} e^{-\frac{n \overline{x}}{\theta_0}}\)</span> <span class="math inline">\(\mathcal{L}(\hat{\theta}) = \mathcal{L}(\overline{X}) = \overline{X}^{-n} e^{-n}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-13">Contraste de razón de verosimilitudes</h1>
-<p>Por lo tanto tenemos que el estadístico de la razón de verosimilitudes es</p>
-<p><span class="math inline">\(\lambda = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\hat{\theta})} = \frac{\theta_{0}^{-n} e^{-\frac{n \overline{x}}{\theta_0}}}{\overline{X}^{-n} e^{-n}} = \left( \frac{\overline{X}}{\theta_0} \right)^{n} e^{-n\left( \frac{\overline{X}}{\theta_0} - 1 \right) }\)</span></p>
-<p>Si aplicamos el teorema de Wilks tenemos la siguiente estadística:</p>
-<p><span class="math inline">\(G = -2\ln(\lambda) = -2n\left[ \ln(\overline{X}) - \ln(\theta_0) + 1 - \frac{\overline{X}}{\theta_0} \right]\)</span></p>
-<p>Por lo tanto, vamos a rechazar la hipótesis nula si <span class="math inline">\(G &gt; \chi^{2}_{1,\alpha_0}\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-14">Contraste de razón de verosimilitudes</h1>
-<p>Sin embargo, para este contraste podemos encontrar una región crítica exacta, sin necesidad de aplicar el Teorema de Wilks. Sea <span class="math inline">\(T = \frac{n\overline{X}}{\theta_0}\)</span>, de forma que</p>
-<p><span class="math inline">\(\lambda = g(T) = n^{-n} T^{n} e^{-(T-n)}\)</span></p>
-<p>Recuerde que el contraste de la razón de verosimilitudes consiste en rechazar la hipótesis nula si <span class="math inline">\(\lambda &lt; k\)</span> es decir, si <span class="math inline">\(g(T) &lt; k\)</span>. En la Figura 3a podemos observar la gráfica de <span class="math inline">\(g(T)\)</span> para <span class="math inline">\(T &gt;0\)</span>. La línea punteada en el gráfico corresponde al valor teórico de <span class="math inline">\(k\)</span>. Nótese que <span class="math inline">\(g(T) &lt; k\)</span> si <span class="math inline">\(T &lt; k_1\)</span> o si <span class="math inline">\(T &gt; k_2\)</span>, donde <span class="math inline">\(k_1\)</span> y <span class="math inline">\(k_2\)</span> se eligen utilizando el tamaño del contraste. Por lo tanto, vamos a rechazar la hipótesis nula si <span class="math inline">\(T &lt; k_1\)</span> o <span class="math inline">\(T &gt; k_2\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-15">Contraste de razón de verosimilitudes</h1>
-<figure>
-<img src="figs/graf_T.png" alt="Gráfico de g(T)" /><figcaption aria-hidden="true">Gráfico de g(T)</figcaption>
-</figure>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-16">Contraste de razón de verosimilitudes</h1>
-<figure>
-<img src="figs/graf_potenc.png" alt="Comparación de potencias" /><figcaption aria-hidden="true">Comparación de potencias</figcaption>
-</figure>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-17">Contraste de razón de verosimilitudes</h1>
-<p>Figuras para el ejemplo anterior con <span class="math inline">\(n=7\)</span>, <span class="math inline">\(\alpha_0 = 0.05\)</span> y <span class="math inline">\(\theta_{0} = 1\)</span></p>
-<p>Para obtener los valores <span class="math inline">\(k_1\)</span> y <span class="math inline">\(k_2\)</span> los despejamos de la siguiente ecuación:</p>
-<p><span class="math inline">\(P\left( T &lt; k_1 | \theta_0 \right) = P\left( T &gt; k_2 | \theta_0 \right) = \frac{\alpha_0 }{2}\)</span></p>
-<p>Sabemos que bajo <span class="math inline">\(H_0\)</span> cierto <span class="math inline">\(T \sim Gamma(n,1)\)</span>, por lo tanto <span class="math inline">\(W = 2T \sim \chi^{2}(2n)\)</span>. Por lo tanto la ecuación anterior equivale a</p>
-<p><span class="math inline">\(P\left( W &lt; k_{1}^{\prime} | \theta_0 \right) = P\left( W &gt; k_{2}^{\prime} | \theta_0 \right) = \frac{\alpha_0 }{2}\)</span></p>
-<p>Por lo tanto <span class="math inline">\(k_{1}^{\prime} = \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}\)</span> y <span class="math inline">\(k_{2}^{\prime} = \chi^{2}_{2n,\frac{\alpha_0 }{2}}\)</span>. Es decir, vamos a rechazar la hipótesis nula si <span class="math inline">\(\frac{2n\overline{X}}{\theta_0} &lt; \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}\)</span> o si <span class="math inline">\(\frac{2n\overline{X}}{\theta_0} &gt; \chi^{2}_{2n,\frac{\alpha_0 }{2}}\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-18">Contraste de razón de verosimilitudes</h1>
-<p>En la Figura 3b podemos ver una comparación de la potencia exacta y aproximada para este ejemplo, utilizando <span class="math inline">\(n=7\)</span>, <span class="math inline">\(\alpha_0 = 0.05\)</span> y <span class="math inline">\(\theta_{0} = 1\)</span>. Nótese como la prueba aproximada tiene un perdida en potencia para <span class="math inline">\(\theta &gt; 1\)</span>.</p>
-<p>A continuación veremos un ejemplo de la aplicación del Teorema de Wilks para un problema con más de un parámetro desconocido.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-19">Contraste de razón de verosimilitudes</h1>
-<p>Ejemplo: Sean <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> y <span class="math inline">\(Y_{1}, Y_{2}, ... , Y_{n}\)</span> dos muestras aleatorias independientes tales que <span class="math inline">\(X_{j} \sim Poisson(\theta_1)\)</span> y <span class="math inline">\(Y_{j} \sim Poisson(\theta_2)\)</span>. Se desea contrastar las hipótesis <span class="math inline">\(H_{0}: \theta_1 = \theta_2\)</span> contra <span class="math inline">\(H_{1}: \theta_1 \neq \theta_2\)</span>. Encuentre un contraste para estas hipótesis utilizando el Teorema de Wilks.</p>
-<p>Solución: Empecemos por definir los espacios paramétricos para tener una mejor idea del problema. En el caso de <span class="math inline">\(\Omega_{0}\)</span> tenemos que este se define como <span class="math inline">\(\Omega_{0} = \left\lbrace (\theta_1 , \theta_2) | \theta_1 = \theta_2 = \theta \right\rbrace\)</span>. Por otra parte, <span class="math inline">\(\Omega = \left\lbrace (\theta_1 , \theta_2) | \theta_1 , \theta_2 \in \mathbb{R}^{+} \right\rbrace\)</span>. Por lo tanto tenemos que <span class="math inline">\(\Theta_{0} = \theta\)</span> y <span class="math inline">\(\Theta = (\theta_1 , \theta_2)\)</span> y sus dimensiones son 1 y 2, respectivamente. Procedamos a encontrar la verosimilitud:</p>
-<p><span class="math inline">\(\mathcal{L}(\Theta) = \mathcal{L}(\theta_1 , \theta_2) = \mathcal{L}(\theta_1) \mathcal{L}(\theta_2) = \frac{\theta_{1}^{\sum X_{j}} e^{-n\theta_{1}}}{\prod X_{j}!} \frac{\theta_{2}^{\sum Y_{j}} e^{-n\theta_{2}}}{\prod Y_{j}!} = \frac{\left( \theta_{1}^{\overline{X}} \theta_{2}^{\overline{Y}} \right)^{n} e^{-n(\theta_{1}+\theta_{2})} }{\prod X_{j}! \prod Y_{j}!}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-20">Contraste de razón de verosimilitudes</h1>
-<p>Se puede demostrar que de esta expresión se obtiene <span class="math inline">\(\overline{X}\)</span> como EMV de <span class="math inline">\(\theta_1\)</span> y <span class="math inline">\(\overline{Y}\)</span> como EMV de <span class="math inline">\(\theta_2\)</span>. Ahora procedamos a encontrar la verosimilitud evaluada en <span class="math inline">\(\Theta_{0}\)</span>:</p>
-<p><span class="math inline">\(\mathcal{L}(\Theta_0) = \mathcal{L}(\theta) = \frac{\theta^{ n(\overline{X} + \overline{Y}) } e^{-2n\theta} }{\prod X_{j}! \prod Y_{j}!}\)</span></p>
-<p>Ahora debemos encontrar el EMV de <span class="math inline">\(\theta\)</span>. Para ello sacamos primero la log-verosimilitud:</p>
-<p><span class="math inline">\(\ell(\theta) = n(\overline{X} + \overline{Y})\ln(\theta) - 2n\theta - \ln\left( \prod X_{j}! \prod Y_{j}! \right)\)</span></p>
-<p><span class="math inline">\(\Rightarrow \frac{\partial \ell (\theta)}{\partial \theta} = \frac{ n(\overline{X} + \overline{Y}) }{\theta} - 2n = 0\)</span></p>
-<p><span class="math inline">\(\Rightarrow \hat{\theta} = \frac{\overline{X} + \overline{Y}}{2}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-21">Contraste de razón de verosimilitudes</h1>
-<p>La segunda derivada con respecto a <span class="math inline">\(\theta\)</span> sería negativa, por lo que <span class="math inline">\(\hat{\theta}\)</span> es el EMV. Ahora procedemos a encontrar <span class="math inline">\(\mathcal{L}(\hat{\Omega})\)</span> y <span class="math inline">\(\mathcal{L}(\hat{\Omega}_0)\)</span>.</p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}_0) = \frac{ \left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ n(\overline{X} + \overline{Y}) } e^{-n(\overline{X} + \overline{Y})} }{\prod X_{j}! \prod Y_{j}!}\)</span></p>
-<p><span class="math inline">\(\mathcal{L}(\hat{\Omega}) = \frac{\left( \overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}} \right)^{n} e^{-n(\overline{X}+\overline{Y})} }{\prod X_{j}! \prod Y_{j}!}\)</span></p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-22">Contraste de razón de verosimilitudes</h1>
-<p>Por lo tanto, el estadístico <span class="math inline">\(\lambda\)</span> sería:</p>
-<p><span class="math inline">\(\lambda = \frac{\mathcal{L}(\hat{\Omega}_0)}{\mathcal{L}(\hat{\Omega})} = \left( \frac{\left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ (\overline{X} + \overline{Y}) }}{\overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}}} \right)^{n}\)</span></p>
-<p>Ya con esto podemos encontrar una expresión para la estadística <span class="math inline">\(G\)</span>:</p>
-<p><span class="math inline">\(G = -2\ln(\lambda) = -2\ln \left( \frac{\left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ (\overline{X} + \overline{Y}) }}{\overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}}} \right)^{n} = -2n\left[ (\overline{X} + \overline{Y}) \ln\left( \frac{\overline{X} + \overline{Y}}{2}\right) - \overline{X} \ln(\overline{X}) - \overline{Y} \ln(\overline{Y}) \right]\)</span></p>
-<p>Por el Teorema de Wilks, rechazamos la hipótesis nula si este valor es mayor a <span class="math inline">\(\chi^{2}_{1,\alpha_0}\)</span>.</p>
-<hr />
-<h1 id="contraste-de-razón-de-verosimilitudes-23">Contraste de razón de verosimilitudes</h1>
-<p>Como parte adicional del ejemplo, supongamos que <span class="math inline">\(n=100\)</span>, <span class="math inline">\(\overline{x} = 20\)</span>, <span class="math inline">\(\overline{y} = 22\)</span> y <span class="math inline">\(\alpha_0 = 0.01\)</span>. Utilicemos estos valores para contrastar las hipótesis del ejemplo. Con estos valores se tiene que <span class="math inline">\(G \approx 9.53\)</span> y que <span class="math inline">\(\chi^{2}_{1,0.01} = 6.635\)</span>. Tenemos que <span class="math inline">\(G &gt; \chi^{2}_{1,0.01}\)</span> por lo que rechazamos la hipótesis nula.</p>
-<hr />
-<p>class: center, middle</p>
-<h1 id="qué-discutimos-hoy">¿Qué discutimos hoy?</h1>
-<p>Contrastes de hipótesis: cociente y razón de verosimilitud.</p>
 
-</body>
+
+
+class: center, middle
+
+# ¿Qué hemos visto hasta ahora?
+
+Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap y contrastes de hipótesis (función de potencia, tamaño del contraste, el valor p, contrastes más potentes, uniformemente más potentes).
+
+# ¿Qué vamos a discutir hoy?
+
+Contrastes de hipótesis: cociente de verosimilitud y razón de verosimilitudes.
+
+---
+
+# Repaso:
+
+&gt; **Contraste más potente:** Suponga que se desean contrastar las hipótesis simples `\(H_{0}: \theta = \theta_0\)` contra `\(H_{1}: \theta = \theta_1\)` basados en una muestra aleatoria de una población con distribución que depende de `\(\theta\)`. Para un valor  `\(\alpha_0 \in \left] 0,1 \right[\)` sea
+`\(\mathbb{T}_{\alpha_0}  =   \left\lbrace  \delta | \alpha(\delta) = \alpha_0 \right\rbrace\)`
+el conjunto de todos los contrastes `\(\delta\)` que tienen tamaño `\(\alpha_0\)`. Entonces el contraste de tamaño `\(\alpha_0\)` **más potente**, denotado `\(\delta^*\)`, satisface:
+&gt;
+&gt; - `\(\delta^* \in \mathbb{T}_{\alpha_0}\)`
+&gt; - `\(\beta(\delta^*) \leq \beta(\delta)\)`, `\(\forall \delta \in \mathbb{T}_{\alpha_0}\)`
+
+
+---
+
+# Repaso:
+
+&gt; **Lema de Neyman-Pearson:** Supongamos que se desea contrastar las hipótesis simples `\(H_{0}: \theta = \theta_0\)` contra `\(H_{1}: \theta = \theta_1\)` basados en una muestra aleatoria de una población con distribución que depende de `\(\theta\)`. Además, sea `\(\mathcal{L}(\theta)\)` la función de verosimilitud de la muestra para un valor de `\(\theta\)`. Para un tamaño dado `\(\alpha_0\)`, el contraste que minimiza `\(\beta(\delta)\)` tiene una región crítica determinada por: `\(RC_{\delta^*} = \left\lbrace \mathbf{X} | \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)} &lt; k \right\rbrace\)`
+
+
+---
+
+# Repaso:
+
+&gt; **Contraste uniformemente más potente:** Un contraste de tamaño `\(\alpha_0\)` es **uniformemente más potente** (UMP) para contrastar `\(H_{0}:\theta = \theta_0\)` contra `\(H_{1}: \theta \in \Omega_{1}\)` si es más potente para `\(H_{0}:\theta = \theta_0\)` contra `\(H_{1}: \theta = \theta_1\)`, para todo `\(\theta_1 \in \Omega_{1}\)`.
+
+
+---
+
+# Repaso:
+
+&gt; **Cociente de verosimilitudes monótono:** Una muestra aleatoria con función de verosimilitud `\(\mathcal{L}(\theta)\)` tiene un **cociente de verosimilitudes monótono** (CVM) en un estadístico `\(T = T(X_{1}, X_{2}, ... , X_{n})\)` si, para `\(\theta_0 &lt; \theta_1\)`, el cociente `\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)` es una función monótona de `\(T\)`. 
+
+
+---
+
+# Repaso:
+
+&gt; Si la distribución tiene un CVM en el estadístico `\(T\)`, entonces el contraste UMP para `\(H_{0}: \theta = \theta_0\)` contra `\(H_{1}: \theta &gt; \theta_0\)` o `\(H_{1}: \theta &lt; \theta_0\)` existe y este se puede expresar en términos de `\(T\)`, en lugar del cociente `\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)`. 
+
+
+---
+
+### Contraste de razón de verosimilitudes
+
+En la parte anterior encontramos un método para encontrar la región crítica de un contraste cuando se contrastan dos hipótesis simples (o hipótesis compuestas generalizables) sin embargo, el **Lema de Neyman-Pearson** no es capaz de encontrar una región crítica cuando las hipótesis son compuestas y no se pueden generalizar a manera de encontrar un contraste UMP. 
+
+Una manera de hacer esto es por medio del contraste de razón de verosimilitudes que nos da una forma más general de trabajar con las propiedades de verosimilitud y aún así obtener un buen contraste a partir de él. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+&gt; **Estadístico de la razón de verosimilitudes:** Suponga que se tiene una muestra aleatoria `\(X_{1}, X_{2}, ... , X_{n}\)` de una población con vector de parámetros `\(\Theta = (\theta_1, \theta_2, ... , \theta_k)\)` y con función de verosimilitud `\(\mathcal{L}(\Theta)\)`. Se desea hacer un contraste de hipótesis sobre uno o más de estos parámetros, de forma que las hipótesis sean compuestas, es decir podemos tener hipótesis `\(H_{0}: \Theta \in \Omega_{0}\)` contra `\(H_{1}: \Theta \in \Omega_{1}\)`. Entonces se definen `\(\mathcal{L}(\hat{\Omega}_{0}) = Max_{\Theta \in \Omega_{0}}\mathcal{L}(\Theta)\)` y `\(\mathcal{L}(\hat{\Omega}) = Max_{\Theta \in \Omega}\mathcal{L}(\Theta)\)`. Estos corresponden a las funciones de verosimilitud evaluadas en sus correspondientes máximos de verosimilitud. Se define el **estadístico de la razón de verosimilitudes**, denotado `\(\lambda\)`, como `\(\frac{\mathcal{L}(\hat{\Omega}_{0})}{\mathcal{L}(\hat{\Omega})}\)`. 
+
+De esta definición podemos inferir el uso que se le puede dar a dicho estadístico. Se puede demostrar que `\(0 &lt; \lambda &lt; 1\)`. Si `\(\lambda\)` es un valor muy cercano a uno esto significa que la mejor explicación de la verosimilitud está siendo dada por los valores de `\(\Omega_{0}\)`, mientras que pasa lo contrario si `\(\lambda\)` se aproxima mucho a cero. Por lo tanto, un buen contraste consistiría en rechazar `\(H_0\)` si `\(\lambda &lt; k\)`, donde el `\(k\)` se elije como anteriormente, fijando el tamaño.
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Empezaremos mostrando la técnica con un ejemplo sencillo que consiste de solo un parámetro desconocido. Bajo este esquema podemos definir el estadístico `\(\lambda\)` como `\(\lambda = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\hat{\theta})}\)`, donde `\(\theta_0\)` es el valor especificado en la hipótesis nula y `\(\hat{\theta}\)` es el EMV de `\(\theta\)`. 
+
+**Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu,\sigma^2)\)` donde `\(\mu\)` es desconocido y `\(\sigma^2\)` es conocido. Se desean contrastar las siguientes hipótesis: 
+
+`$$H_{0}: \mu = \mu_0 \text{ contra } H_{1}: \mu \neq \mu_0$$` 
+
+Obtenga un contraste con un nivel de significancia de `\(\alpha_0\)`.
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+**Solución:** Lo primero que se puede notar es que la hipótesis alterna es compuesta y no existe un contraste UMP para todo `\(\mu \neq \mu_0\)`, por lo que no podemos usar el Lema de Neyman-Pearson y deberemos usar la razón de verosimilitudes. Sabemos de antemano que `\(\mathcal{L}(\mu) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu)^2}{2\sigma^2}}\)` Por lo tanto:
+
+`$$\mathcal{L}(\hat{\Omega}_0) = \mathcal{L}(\mu_0) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(X_{j} -\mu_0)^2}{2\sigma^2}} = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\mu_{0} \overline{X} + n\mu_{0}^2 }{2\sigma^2}}$$`
+
+También sabemos, de temas anteriories del curso, que el estimador de máxima verosimilitud para `\(\mu\)` es `\(\hat{\mu} = \overline{X}\)`. Evaluando esto en la verosimilitud de todo Omega obtenemos:
+
+`$$\mathcal{L}(\hat{\Omega}) = \mathcal{L}(\hat{\mu}) =  \mathcal{L}(\overline{X}) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\overline{X} \cdot \overline{X} + n\overline{X}^2 }{2\sigma^2}} = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - n\overline{X}^2 }{2\sigma^2}}$$`
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+De esta manera tenemos:
+
+`$$\lambda = \frac{\mathcal{L}(\mu_0)}{\mathcal{L}(\hat{\mu})} = \frac{(2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - 2n\mu_{0} \overline{X} + n\mu_{0}^2 }{2\sigma^2}}}{(2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{ \sum{X_{j}^{2}} - n\overline{X}^2 }{2\sigma^2}}} = e^{\frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2}}$$`
+
+Sabemos que el contraste consiste en rechazar `\(H_0\)` si `\(\lambda &lt; k\)`, es decir 
+
+`\begin{align*}
+&amp; e^{\frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2}} &lt; k \\ 
+&amp; \Rightarrow \frac{-n\left( \overline{X} - \mu_0\right) ^2}{2\sigma^2} &lt; \ln(k) \\
+&amp; \Rightarrow \frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} &gt; -2\ln(k) = k^{\prime} 
+\end{align*}`
+
+
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Nótese que cuando `\(H_0\)` es cierto entonces `\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} \sim \chi^{2}(1)\)`. Por lo tanto el valor de `\(k^{\prime}\)` es el valor de la tabla de la `\(\chi^2\)`-cuadrada con un grado de libertad que acumula una probabilidad de `\(\alpha_0\)` a su derecha, es decir `\(k^{\prime} = \chi^{2}_{1,\alpha_0}\)`. Por lo tanto el contraste consiste en rechazar la hipótesis nula cuando `\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2} &gt; \chi^{2}_{1,\alpha_0}\)`. 
+
+Observen que si le sacamos la raíz cuadrada a `\(\frac{n\left( \overline{X} - \mu_0\right) ^2}{\sigma^2}\)` esta va a ser positiva si `\(\overline{X} &gt; \mu_0\)` o negativa si `\(\overline{X} &lt; \mu_0\)`. Dada la hipótesis alterna, nosotros sabemos que `\(\overline{X}\)` es tanto menor como mayor a `\(\mu_0\)`, por lo que podríamos decir que rechazamos `\(H_0\)` si `\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c\)` o `\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c\)`. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Si `\(H_0\)` es cierta entonces `\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} \sim N(0,1)\)`. Si queremos encontrar el valor de `\(c\)` lo podemos despejar igual que anteriormente, por medio del tamaño fijo:
+
+`\(\alpha_0 = P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c  \right) +  P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c  \right)\)`
+
+Como el valor que estamos intentando encontrar es el mismo en valor absoluto eso significa que:
+`\(P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; c  \right) = P\left( \frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -c  \right) = \frac{\alpha_0}{2}\)`
+
+Esto quiere decir que `\(c = z_{1-\frac{\alpha_0}{2}}\)`. Entonces el contraste anterior es equivalente a rechazar `\(H_0\)` si `\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &gt; z_{1-\frac{\alpha_0}{2}}\)` o `\(\frac{\sqrt{n}\left( \overline{X} - \mu_0\right)}{\sigma} &lt; -z_{1-\frac{\alpha_0}{2}}\)` por lo que podemos ver que esta es la prueba que normalmente se utiliza en la práctica. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+Ahora procedamos a generalizar este ejemplo: 
+
+**Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim N(\mu,\sigma^2)\)` donde `\(\mu\)` y `\(\sigma^2\)` son desconocidos. Se desean contrastar las siguientes hipótesis: 
+
+`$$H_{0}: \mu = \mu_0 \text{ contra } H_{1}: \mu \neq \mu_0$$` 
+
+Obtenga un contraste con un nivel de significancia de `\(\alpha_0\)`. 
+
+**Solución:** A diferencia del caso pasado, ahora ambas hipótesis son compuestas. En este caso tenemos que `\(\Theta = (\mu, \sigma^2)\)`, a diferencia del caso anterior en donde solo teníamos un parámetro desconocido. Por lo tanto vamos a requerir los EMV de cada parámetro:
+
+`$$\hat{\mu} = \overline{X}$$`
+
+`$$\hat{\sigma}^2 =\frac{\sum(x_{j} -\overline{X})^2}{n}$$`
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Sin embargo, si definimos `\(\Theta_{0}\)` como el vector de parámetros definidos por `\(H_0\)` tendríamos que `\(\Theta_0 = (\mu_0 , \sigma^2)\)`. Por lo tanto, la verosimilitud definida para `\(\Theta_{0}\)` es:
+
+`$$\mathcal{L}(\Theta_0) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum(X_{j} -\mu_0)^2}{2\sigma^2}}$$`
+
+Nótese que `\(\sigma^2\)` sigue siendo desconocido, por lo que vamos a tener que estimarlo. Resulta que su estimador máximo verosimil viene dado por `\(\hat{\sigma}^{2}_{0} = \frac{\sum(x_{j} -\mu_0)^2}{n}\)`. Ahora procedamos a obtener las funciones de verosimilitud evaluadas en sus respectivos máximos verosímiles:
+
+`\begin{align*}
+\mathcal{L}(\hat{\Omega}_0) &amp;= (2\pi)^{-\frac{n}{2}} (\hat{\sigma}^{2}_{0})^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\mu_0)^2}{2\hat{\sigma}^{2}_{0}}} \\
+&amp;= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n\sum(x_{j} -\mu_0)^2}{2\sum(x_{j} -\mu_0)^2}} \\
+&amp;= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}
+\end{align*}`
+---
+
+### Contraste de razón de verosimilitudes
+
+`\begin{align*}
+\mathcal{L}(\hat{\Omega}) &amp;= (2\pi)^{-\frac{n}{2}} (\hat{\sigma}^2)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j} -\overline{X})^2}{2\hat{\sigma}^2}} \\ 
+&amp;= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X})^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n\sum(x_{j} -\overline{X})^2}{2\sum(x_{j} -\overline{X})^2}} \\
+&amp;= (2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X} )^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}
+\end{align*}`
+
+
+Por lo tanto, el estadístico de la razón de verosimilitudes sería:
+
+`$$\lambda = \frac{(2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\mu_0)^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}}{(2\pi)^{-\frac{n}{2}} \left( \frac{\sum(x_{j} -\overline{X} )^2}{n}\right) ^{-\frac{n}{2}} e^{-\frac{n}{2}}} = \left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k$$`
+
+Por lo tanto podemos decir que rechazamos la hipótesis nula si `\(\left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k\)`. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+No obstante, podemos hacer ciertos desarrollos matemáticos a esta desigualdad para llegar a un estadístico con distribución conocida. 
+
+
+`\begin{multline*}
+\left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\mu_0)^2} \right)^{\frac{n}{2}} &lt; k 
+ \Rightarrow  \left( \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2} \right)^{\frac{n}{2}} &lt; k \\
+\hspace{1cm}\Rightarrow  \frac{\sum(x_{j} -\overline{X} )^2}{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2}  &lt; k^{\frac{2}{n}} \Rightarrow  \frac{1}{  \frac{\sum(x_{j} -\overline{X})^2 + n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2}   } &lt; k^{\frac{2}{n}} \\  
+\hspace{-0.7cm}\Rightarrow  \frac{1}{ 1 + \frac{n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2}   } &lt; k^{\frac{2}{n}} 
+\Rightarrow  \frac{n(\overline{X} - \mu_0)^2}{\sum(x_{j} -\overline{X} )^2} &gt;   k^{-\frac{2}{n}} - 1 \hspace{1.5cm} \\
+\Rightarrow  \frac{n(\overline{X} - \mu_0)^2}{ \frac{1}{n-1} \sum(x_{j} -\overline{X} )^2} &gt;  (n-1) \left( k^{-\frac{2}{n}} - 1\right) \hspace{3.8cm} \\
+\Rightarrow  \frac{n(\overline{X} - \mu_0)^2}{ S^2} &gt;  (n-1) \left( k^{-\frac{2}{n}} - 1\right) = k^{\prime} \hspace{5.5cm}
+\end{multline*}`
+
+
+
+---
+
+### Contraste de razón de verosimilitudes
+
+De esta forma llegamos a una distribución conocida. Hemos demostrado en el curso anterior que `\(\frac{n(\overline{X} - \mu_0)^2}{ S^2} \sim F(1,n-1)\)`. Por lo tanto, utilizando el nivel de significancia `\(\alpha_0\)` obtenemos que `\(k^{\prime} = F_{1,n-1,\alpha_0}\)`. Es decir, rechazamos la hipótesis nula si `\(\frac{n(\overline{X} - \mu_0)^2}{ S^2} &gt; F_{1,n-1,\alpha_0}\)`. 
+Si sacamos la raíz cuadrada del contraste anterior obtenemos que vamos a rechazar `\(H_0\)` si `\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S} &gt; c\)` o si `\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S} &lt; -c\)` donde `\(c = \sqrt{F_{1,n-1,\alpha_0}}\)`. No obstante podemos reconocer la distribución de `\(\frac{\sqrt{n}(\overline{X} - \mu_0)}{S}\)` la cual es una t-Student con `\(n-1\)` grados de libertad. Por lo tanto, equivale decir que `\(c=t_{n-1,\alpha_0}\)`. Esta región crítica corresponde la prueba T utilizada en la práctica para este problema. 
+
+El método de la razón de verosimilitudes tiene un inconveniente y es que en muchas ocasiones es imposible generar un estadístico con distribución conocida a partir de `\(\lambda\)`. Sin embargo, podemos hacer uso del Teorema de Wilks que veremos a continuación. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+&gt; **Teorema de Wilks:**	Suponga que `\(X_{1}, X_{2}, ... , X_{n}\)` tiene una función de verosimilitud `\(\mathcal{L}(\Theta)\)` y se tienen las hipótesis `\(H_{0}: \Theta \in \Omega_0\)` contra `\(H_{1}: \Theta \in \Omega_1\)`. Sea `\(\Theta\)` el vector de parámetros y `\(\Theta_0\)` el vector de parámetros definidos en `\(\Omega_0\)`, de forma que podemos definir `\(d = \dim(\Theta)\)` y `\(d_0 = \dim(\Theta_0)\)`. Si `\(n \to +\infty\)` entonces
+	`\(G=-2\ln(\lambda)  \xrightarrow{\text{d}} \chi^{2}(d-d_0)\)`
+	 
+El resultado de este teorema es inmediato pues podemos ver que para cualquier contraste de tamaño `\(\alpha_0\)` vamos a poder rechazar la hipótesis nula si `\(G=-2\ln(\lambda) &gt; \chi^{2}_{d-d_{0},\alpha_0}\)`. De esta forma tenemos una región crítica genérica que dependerá del tamaño del contraste y de `\(d\)` y `\(d_0\)`. Empecemos haciendo un ejemplo con un solo parámetro desconocido donde podemos encontrar tanto el contraste exacto como el aproximado por medio del Teorema de Wilks. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+**Ejemplo:** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una muestra aleatoria tal que `\(X_{j} \sim Exp(\theta)\)` y suponga que se desean contrastar las hipótesis `\(H_{0}: \theta = \theta_0\)` contra `\(H_{1}: \theta \neq \theta_0\)`. Encuentre el contraste de razón de verosimilitudes para un tamaño de `\(\alpha_0\)`. 
+
+**Solución:** Empecemos definiendo `\(\Theta\)` y `\(\Theta_0\)`. Tenemos que `\(\Theta = \left\lbrace \theta \right\rbrace\)` y que `\(\Theta_{0} = \left\lbrace \theta_0 \right\rbrace\)`. Por lo tanto `\(\dim(\Theta) = 1\)` y `\(\dim(\Theta_0) = 0\)`. Sigamos obteniendo la verosimilitud para este problema:
+
+`$$\mathcal{L}(\Theta) = \mathcal{L}(\theta) = \theta^{-n} e^{-\frac{\sum x_j}{\theta}} =  \theta^{-n} e^{-\frac{n \overline{x}}{\theta}}$$`
+
+De este resultado podemos demostrar fácilmente que el EMV de `\(\theta\)` es `\(\overline{X}\)`. Por lo tanto tenemos las siguientes verosimilitudes evaluadas en sus máximos verosímiles:
+
+`\begin{align*}
+\mathcal{L}(\theta_0) &amp;= \theta_{0}^{-n} e^{-\frac{n \overline{x}}{\theta_0}} \\
+\mathcal{L}(\hat{\theta}) &amp;= \mathcal{L}(\overline{X}) = \overline{X}^{-n} e^{-n}
+\end{align*}`
+---
+
+### Contraste de razón de verosimilitudes
+
+Por lo tanto tenemos que el estadístico de la razón de verosimilitudes es
+
+`$$\lambda = \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\hat{\theta})} = \frac{\theta_{0}^{-n} e^{-\frac{n \overline{x}}{\theta_0}}}{\overline{X}^{-n} e^{-n}} = \left( \frac{\overline{X}}{\theta_0}  \right)^{n} e^{-n\left( \frac{\overline{X}}{\theta_0} - 1 \right) }$$`
+
+Si aplicamos el teorema de Wilks tenemos la siguiente estadística:
+
+`$$G = -2\ln(\lambda) = -2n\left[  \ln(\overline{X}) - \ln(\theta_0) + 1 - \frac{\overline{X}}{\theta_0} \right]$$`
+
+Por lo tanto, vamos a rechazar la hipótesis nula si `\(G &gt; \chi^{2}_{1,\alpha_0}\)`. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Sin embargo, para este contraste podemos encontrar una región crítica exacta, sin necesidad de aplicar el Teorema de Wilks. Sea `\(T = \frac{n\overline{X}}{\theta_0}\)`, de forma que 
+
+`$$\lambda = g(T) = n^{-n} T^{n} e^{-(T-n)}$$`
+
+Recuerde que el contraste de la razón de verosimilitudes consiste en rechazar la hipótesis nula si `\(\lambda &lt; k\)` es decir, si `\(g(T) &lt; k\)`. En la Figura 3a podemos observar la gráfica de `\(g(T)\)` para `\(T &gt;0\)`. La línea punteada en el gráfico corresponde al valor teórico de `\(k\)`. Nótese que `\(g(T) &lt; k\)` si `\(T &lt; k_1\)` o si `\(T &gt; k_2\)`, donde `\(k_1\)` y `\(k_2\)` se eligen utilizando el tamaño del contraste. Por lo tanto, vamos a rechazar la hipótesis nula si `\(T &lt; k_1\)` o `\(T &gt; k_2\)`. 
+
+---
+
+# Contraste de razón de verosimilitudes
+
+![Gráfico de g(T)](figs/graf_T.png)
+
+---
+
+# Contraste de razón de verosimilitudes
+
+![Comparación de potencias](figs/graf_potenc.png)
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+Figuras para el ejemplo anterior con `\(n=7\)`, `\(\alpha_0 = 0.05\)` y `\(\theta_{0} = 1\)`
+
+Para obtener los valores `\(k_1\)` y `\(k_2\)` los despejamos de la siguiente ecuación:
+
+`$$P\left( T &lt; k_1 | \theta_0 \right) = P\left( T &gt; k_2 | \theta_0 \right) = \frac{\alpha_0 }{2}$$`
+
+Sabemos que bajo `\(H_0\)` cierto  `\(T \sim Gamma(n,1)\)`, por lo tanto `\(W = 2T \sim \chi^{2}(2n)\)`. Por lo tanto la ecuación anterior equivale a
+
+`$$P\left( W &lt; k_{1}^{\prime} | \theta_0 \right) = P\left( W &gt; k_{2}^{\prime} | \theta_0 \right) = \frac{\alpha_0 }{2}$$`
+
+Por lo tanto `\(k_{1}^{\prime} = \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}\)` y `\(k_{2}^{\prime} = \chi^{2}_{2n,\frac{\alpha_0 }{2}}\)`. Es decir, vamos a rechazar la hipótesis nula si `\(\frac{2n\overline{X}}{\theta_0} &lt; \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}\)` o si `\(\frac{2n\overline{X}}{\theta_0} &gt; \chi^{2}_{2n,\frac{\alpha_0 }{2}}\)`. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+En la Figura 3b podemos ver una comparación de la potencia exacta y aproximada para este ejemplo, utilizando `\(n=7\)`, `\(\alpha_0 = 0.05\)` y `\(\theta_{0} = 1\)`. Nótese como la prueba aproximada tiene un perdida en potencia para `\(\theta &gt; 1\)`. 
+
+A continuación veremos un ejemplo de la aplicación del Teorema de Wilks para un problema con más de un parámetro desconocido.
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+**Ejemplo:** Sean `\(X_{1}, X_{2}, ... , X_{n}\)` y `\(Y_{1}, Y_{2}, ... , Y_{n}\)` dos muestras aleatorias independientes tales que `\(X_{j} \sim Poisson(\theta_1)\)` y `\(Y_{j} \sim Poisson(\theta_2)\)`. Se desea contrastar las hipótesis `\(H_{0}: \theta_1 = \theta_2\)` contra `\(H_{1}: \theta_1 \neq \theta_2\)`. Encuentre un contraste para estas hipótesis utilizando el Teorema de Wilks. 
+
+**Solución:** Empecemos por definir los espacios paramétricos para tener una mejor idea del problema. En el caso de `\(\Omega_{0}\)` tenemos que este se define como `\(\Omega_{0} = \left\lbrace (\theta_1 , \theta_2) | \theta_1 = \theta_2 = \theta \right\rbrace\)`. Por otra parte, `\(\Omega = \left\lbrace (\theta_1 , \theta_2) | \theta_1 , \theta_2 \in \mathbb{R}^{+}  \right\rbrace\)`. Por lo tanto tenemos que `\(\Theta_{0}  = \theta\)` y `\(\Theta = (\theta_1 , \theta_2)\)` y sus dimensiones son 1 y 2, respectivamente. Procedamos a encontrar la verosimilitud:
+
+`$$\mathcal{L}(\Theta) = \mathcal{L}(\theta_1 , \theta_2) = \mathcal{L}(\theta_1) \mathcal{L}(\theta_2) = \frac{\theta_{1}^{\sum X_{j}} e^{-n\theta_{1}}}{\prod X_{j}!} \frac{\theta_{2}^{\sum Y_{j}} e^{-n\theta_{2}}}{\prod Y_{j}!} = \frac{\left( \theta_{1}^{\overline{X}} \theta_{2}^{\overline{Y}}  \right)^{n} e^{-n(\theta_{1}+\theta_{2})} }{\prod X_{j}! \prod Y_{j}!}$$`
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+Se puede demostrar que de esta expresión se obtiene `\(\overline{X}\)` como EMV de `\(\theta_1\)` y `\(\overline{Y}\)` como EMV de `\(\theta_2\)`. Ahora procedamos a encontrar la verosimilitud evaluada en `\(\Theta_{0}\)`:
+
+`$$\mathcal{L}(\Theta_0) = \mathcal{L}(\theta) = \frac{\theta^{ n(\overline{X} + \overline{Y}) } e^{-2n\theta} }{\prod X_{j}! \prod Y_{j}!}$$`
+
+Ahora debemos encontrar el EMV de `\(\theta\)`. Para ello sacamos primero la log-verosimilitud:
+
+`$$\ell(\theta) = n(\overline{X} + \overline{Y})\ln(\theta) - 2n\theta - \ln\left( \prod X_{j}! \prod Y_{j}! \right)$$`
+
+`$$\Rightarrow \frac{\partial \ell (\theta)}{\partial \theta} = \frac{ n(\overline{X} + \overline{Y}) }{\theta} - 2n = 0$$`
+
+`$$\Rightarrow \hat{\theta} = \frac{\overline{X} + \overline{Y}}{2}$$`
+
+---
+
+### Contraste de razón de verosimilitudes
+
+
+La segunda derivada con respecto a `\(\theta\)` sería negativa, por lo que `\(\hat{\theta}\)` es el EMV. Ahora procedemos a encontrar `\(\mathcal{L}(\hat{\Omega})\)` y `\(\mathcal{L}(\hat{\Omega}_0)\)`.
+
+`$$\mathcal{L}(\hat{\Omega}_0) = \frac{ \left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ n(\overline{X} + \overline{Y}) } e^{-n(\overline{X} + \overline{Y})} }{\prod X_{j}! \prod Y_{j}!}$$`
+
+`$$\mathcal{L}(\hat{\Omega}) = \frac{\left( \overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}}  \right)^{n} e^{-n(\overline{X}+\overline{Y})} }{\prod X_{j}! \prod Y_{j}!}$$`
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Por lo tanto, el estadístico `\(\lambda\)` sería:
+
+`$$\lambda = \frac{\mathcal{L}(\hat{\Omega}_0)}{\mathcal{L}(\hat{\Omega})} = \left( \frac{\left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ (\overline{X} + \overline{Y}) }}{\overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}}} \right)^{n}$$`
+
+Ya con esto podemos encontrar una expresión para la estadística `\(G\)`:
+
+`$$G = -2\ln(\lambda) = -2\ln \left( \frac{\left( \frac{\overline{X} + \overline{Y}}{2} \right) ^{ (\overline{X} + \overline{Y}) }}{\overline{X}^{\overline{X}} \overline{Y}^{\overline{Y}}} \right)^{n}\hspace{4.5cm}$$`
+
+`$$= -2n\left[ (\overline{X} + \overline{Y}) \ln\left( \frac{\overline{X} + \overline{Y}}{2}\right)  - \overline{X} \ln(\overline{X}) - \overline{Y} \ln(\overline{Y}) \right]$$`
+
+Por el Teorema de Wilks, rechazamos la hipótesis nula si este valor es mayor a `\(\chi^{2}_{1,\alpha_0}\)`. 
+
+---
+
+### Contraste de razón de verosimilitudes
+
+Como parte adicional del ejemplo, supongamos que `\(n=100\)`, `\(\overline{x} = 20\)`, `\(\overline{y} = 22\)` y `\(\alpha_0 = 0.01\)`. Utilicemos estos valores para contrastar las hipótesis del ejemplo. Con estos valores se tiene que `\(G \approx 9.53\)` y que `\(\chi^{2}_{1,0.01} = 6.635\)`. Tenemos que `\(G &gt; \chi^{2}_{1,0.01}\)` por lo que rechazamos la hipótesis nula. 
+
+---
+class: center, middle
+
+# ¿Qué discutimos hoy?
+
+Contrastes de hipótesis: cociente y razón de verosimilitud.
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
 </html>
