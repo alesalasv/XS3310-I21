@@ -42,8 +42,8 @@ La información del curso está en Mediación Virtual, este repositorio es para 
   <tr>
     <td> 13 y 16 de abril  </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td>
-          <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
-    <td>  <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
+    <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
+          <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
           <a href="https://youtu.be/ya03V8ySoBI">Sesgo y error cuadrático medio</a> <br>
           <a href="https://youtu.be/GD4lUmIo9_g">Eficiencia</a> <br>
           <a href="https://youtu.be/7O-an8MOL7g">Información de Fisher</a> <br>
@@ -144,27 +144,27 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <br> </td> 
   </tr>
     <tr>
-    <td> 01 de junio  </td>
-    <td>  <a href="XS3310-I20_14.html">Clase 17</a> </td>
+    <td> 01 y 04 de junio  </td>
+    <td>  <a href="XS3310-I20_14.html">Clase 17 y 18 </a> </td>
     <td>   <a href="https://www.youtube.com/watch?v=lam4GyjVeJs">Lema de Neyman-Pearson</a><br> 
 <a href="https://www.youtube.com/watch?v=l_oQUwp_2hM">Ejemplo de aplicaci&oacute;n del lema de Neyman-Pearson</a><br> </td> 
     <td> Ejercicios: <a href="https://www.probabilitycourse.com/chapter8/8_4_6_solved_probs.php">Extras</a> <br> </td>
   </tr>
     <tr>
-    <td> 4 de junio  </td>
-    <td>  <a href="XS3310-I20_15.html">Clase 18</a> </td>
+    <td> 08 de junio  </td>
+    <td>  <a href="XS3310-I20_15.html">Clase 19</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.1, 8.2, 8.3, 8.5, 8.6, 8.7, 8.8, 8.9
 <br> </td>
   </tr>
-     <!--<tr>
-    <td> 9 de junio  </td>
-    <td>  <a href="XS3310-I20_16.html">Clase 16</a> </td>
+     <tr>
+    <td> 11 de junio  </td>
+    <td>  <a href="XS3310-I20_16.html">Clase 20</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28
 <br> </td>
   </tr>
-        <tr>
+      <!--<tr>
     <td> 16 de junio  </td>
     <td>  <a href="XS3310-I20_17.html">Clase 17</a> </td>
     <td>  </td> 
