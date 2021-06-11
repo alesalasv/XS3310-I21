@@ -281,30 +281,31 @@ Recuerde que el contraste de la razón de verosimilitudes consiste en rechazar l
 
 ---
 
-# Contraste de razón de verosimilitudes
+### Contraste de razón de verosimilitudes
 
-![Gráfico de g(T)](figs/graf_T.png)
+Función $g(t)$ con $n=7$, $\alpha_0 = 0.05$ y $\theta_{0} = 1$
 
----
-
-# Contraste de razón de verosimilitudes
-
-![Comparación de potencias](figs/graf_potenc.png)
+<center>![Gráfico de g(T)](figs/graf_T.png)<center/>
 
 ---
 
 ### Contraste de razón de verosimilitudes
 
+Podemos ver una comparación de la potencia exacta y aproximada para este ejemplo, utilizando $n=7$, $\alpha_0 = 0.05$ y $\theta_{0} = 1$. Nótese como la prueba aproximada tiene un perdida en potencia para $\theta > 1$. 
 
-Figuras para el ejemplo anterior con $n=7$, $\alpha_0 = 0.05$ y $\theta_{0} = 1$
+<center>![Comparación de potencias](figs/graf_potenc.png)<center/>
+
+---
+
+### Contraste de razón de verosimilitudes
 
 Para obtener los valores $k_1$ y $k_2$ los despejamos de la siguiente ecuación:
 
-$$P\left( T < k_1 | \theta_0 \right) = P\left( T > k_2 | \theta_0 \right) = \frac{\alpha_0 }{2}$$
+$$P\left( T < k_1 | \theta = \theta_0 \right) = P\left( T > k_2 |\theta = \theta_0 \right) = \frac{\alpha_0 }{2}$$
 
-Sabemos que bajo $H_0$ cierto  $T \sim Gamma(n,1)$, por lo tanto $W = 2T \sim \chi^{2}(2n)$. Por lo tanto la ecuación anterior equivale a
+Sabemos que bajo $H_0$ cierto  $T \sim Gamma(n,1)$, por lo tanto $W = 2T \sim \chi^{2}_{(2n)}$. Por lo tanto la ecuación anterior equivale a
 
-$$P\left( W < k_{1}^{\prime} | \theta_0 \right) = P\left( W > k_{2}^{\prime} | \theta_0 \right) = \frac{\alpha_0 }{2}$$
+$$P\left( W < k_{1}^{\prime} | \theta = \theta_0 \right) = P\left( W > k_{2}^{\prime} | \theta =\theta_0 \right) = \frac{\alpha_0 }{2}$$
 
 Por lo tanto $k_{1}^{\prime} = \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}$ y $k_{2}^{\prime} = \chi^{2}_{2n,\frac{\alpha_0 }{2}}$. Es decir, vamos a rechazar la hipótesis nula si $\frac{2n\overline{X}}{\theta_0} < \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}$ o si $\frac{2n\overline{X}}{\theta_0} > \chi^{2}_{2n,\frac{\alpha_0 }{2}}$. 
 
@@ -312,18 +313,11 @@ Por lo tanto $k_{1}^{\prime} = \chi^{2}_{2n,1-\frac{\alpha_0 }{2}}$ y $k_{2}^{\p
 
 ### Contraste de razón de verosimilitudes
 
-En la Figura 3b podemos ver una comparación de la potencia exacta y aproximada para este ejemplo, utilizando $n=7$, $\alpha_0 = 0.05$ y $\theta_{0} = 1$. Nótese como la prueba aproximada tiene un perdida en potencia para $\theta > 1$. 
-
 A continuación veremos un ejemplo de la aplicación del Teorema de Wilks para un problema con más de un parámetro desconocido.
-
----
-
-### Contraste de razón de verosimilitudes
-
 
 **Ejemplo:** Sean $X_{1}, X_{2}, ... , X_{n}$ y $Y_{1}, Y_{2}, ... , Y_{n}$ dos muestras aleatorias independientes tales que $X_{j} \sim Poisson(\theta_1)$ y $Y_{j} \sim Poisson(\theta_2)$. Se desea contrastar las hipótesis $H_{0}: \theta_1 = \theta_2$ contra $H_{1}: \theta_1 \neq \theta_2$. Encuentre un contraste para estas hipótesis utilizando el Teorema de Wilks. 
 
-**Solución:** Empecemos por definir los espacios paramétricos para tener una mejor idea del problema. En el caso de $\Omega_{0}$ tenemos que este se define como $\Omega_{0} = \left\lbrace (\theta_1 , \theta_2) | \theta_1 = \theta_2 = \theta \right\rbrace$. Por otra parte, $\Omega = \left\lbrace (\theta_1 , \theta_2) | \theta_1 , \theta_2 \in \mathbb{R}^{+}  \right\rbrace$. Por lo tanto tenemos que $\Theta_{0}  = \theta$ y $\Theta = (\theta_1 , \theta_2)$ y sus dimensiones son 1 y 2, respectivamente. Procedamos a encontrar la verosimilitud:
+**Solución:** Empecemos por definir los espacios paramétricos para tener una mejor idea del problema. En el caso de $\hat{\Omega}_{0}$ tenemos que este se define como $\hat{\Omega}_{0} = \left\lbrace (\theta_1 , \theta_2) | \theta_1 = \theta_2 = \theta \right\rbrace$. Por otra parte, $\hat{\Omega} = \left\lbrace (\theta_1 , \theta_2) | \theta_1 , \theta_2 \in \mathbb{R}^{+}  \right\rbrace$. Por lo tanto tenemos que $\Theta_{0}  = \{\theta\}$ y $\Theta = \{\theta_1 , \theta_2\}$ y sus dimensiones son 1 y 2, respectivamente. Procedamos a encontrar la verosimilitud:
 
 $$\mathcal{L}(\Theta) = \mathcal{L}(\theta_1 , \theta_2) = \mathcal{L}(\theta_1) \mathcal{L}(\theta_2) = \frac{\theta_{1}^{\sum X_{j}} e^{-n\theta_{1}}}{\prod X_{j}!} \frac{\theta_{2}^{\sum Y_{j}} e^{-n\theta_{2}}}{\prod Y_{j}!} = \frac{\left( \theta_{1}^{\overline{X}} \theta_{2}^{\overline{Y}}  \right)^{n} e^{-n(\theta_{1}+\theta_{2})} }{\prod X_{j}! \prod Y_{j}!}$$
 
