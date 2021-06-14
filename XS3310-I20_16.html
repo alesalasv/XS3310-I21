@@ -449,7 +449,7 @@ head(X)
 ```
 
 ```
-## [1] -0.4215539  5.7969433  2.4562601  0.6666700  0.5662409 -4.2586068
+## [1] -3.7664340 -3.7354714 -4.4184774  5.3063592 -1.2604056 -0.6934259
 ```
 
 ```r
@@ -459,7 +459,7 @@ head(Y)
 ```
 
 ```
-## [1]  7.759759 12.324552  7.686420  9.663145  8.721893  9.126461
+## [1] 11.067878 12.324949 11.664390  7.859451  9.114373  9.566568
 ```
 
 ---
@@ -485,7 +485,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 7.698397
+## [1] 6.497787
 ```
 
 ```r
@@ -493,7 +493,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 1.773473
+## [1] 2.296912
 ```
 
 ```r
@@ -501,7 +501,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 4.340859
+## [1] 2.828923
 ```
 
 ---
@@ -535,7 +535,7 @@ y el valor-*p* de la prueba es
 ```
 
 ```
-## [1] 5.182208e-05
+## [1] 0.002942774
 ```
 
 **Interpretación:** Rechazamos la hipótesis que `\(\sigma_{1}^{2} \leq \sigma_{2}^{2}\)` con un valor-$p$ de 0.02.
@@ -894,7 +894,9 @@ Tboot_b[b] &lt;- (mean(xb)-mean(yb))/sqrt(var(xb)/n1+var(yb)/n2)}
 ## [1] 0.127
 ```
 
-El valor observado de `\(T\)` es `\(t=1.06\)`. Con `\(B=1000\)` iteraciones bootstrap de `\(T\)`, 127 eran mayores o iguales a `\(t\)`, entonces `\(\hat{P}(T \geq t)=0.127\)` y no encontramos evidencia para rechazar la hipótesis nula. 
+El valor observado de `\(T\)` es `\(t=1.06\)`. Con `\(B=1000\)` iteraciones bootstrap de `\(T\)`, 127 eran mayores o iguales a `\(t\)`, entonces `\(\hat{P}(T \geq t)=0.127\)`.
+
+*Interpretación:* No se puede rechazar `\(H_0\)` si tomamos un error tipi I menor a 0.127.
 ---
 
 ### Bootstrap
