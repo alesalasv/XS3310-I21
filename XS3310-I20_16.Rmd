@@ -27,7 +27,7 @@ Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap 
 
 # ¿Qué vamos a discutir hoy?
 
-Contrastes de hipótesis: Razón de verosimilitudes para muestras grandes. Bootstrap para contrastes.
+Pruebas de hipótesis para el caso de diferencia de medias o cociente de varianzas. Bootstrap para contrastes.
 
 ---
 
@@ -666,13 +666,69 @@ Específicamente, en el ejemplo de los ratones, el valor observado de $T$ era $t
 
 ---
 
+
+```{r}
+# datos observados
+trat <- c(94, 197, 16, 38, 99, 141, 23)
+cont <- c(52, 104, 146, 10, 51, 30, 40, 27, 46)
+
+# Tamaño de las muestras
+(n1 <- length(trat))
+(n2 <- length(cont))
+
+#
+d <- data.frame(c(trat, cont), c(rep("t", length(trat)), rep("c", length(cont))))
+names(d) <- c("dias", "grupo")
+
+knitr::kable(d)
+
+# BoxPlot de los días de superviviencia por grupo
+boxplot(d$dias ~ d$grupo,
+  las = 1, ylab = "Días",
+  xlab = "Grupo", main = "Supervivencia por grupo"
+)
+
+# Valor observado del estadístico de prueba
+(t <- (mean(trat) - mean(cont)) / sqrt(var(trat) / n1 + var(cont) / n2))
+
+# Inicio del bootstrap
+set.seed(112358) # Semilla
+B <- 1000 # número de muestras bootstrap
+
+# Transformación de los datos
+(Z <- (sum(trat) + sum(cont)) / (n1 + n2))
+
+Xi <- trat - mean(trat) + Z
+head(Xi)
+mean(Xi)
+
+Yi <- cont - mean(cont) + Z
+head(Yi)
+mean(Yi)
+
+Tboot_b <- NULL
+
+for (b in 1:B) {
+  xb <- sample(Xi, size = n1, replace = TRUE)
+  yb <- sample(Yi, size = n2, replace = TRUE)
+  Tboot_b[b] <- (mean(xb) - mean(yb)) / sqrt(var(xb) / n1 + var(yb) / n2)
+}
+
+
+# Cálculo del p-valor
+(p <- mean(Tboot_b>=t))
+```
+
+_Interpretación:_ No se puede rechazar la hipótesis nula si tomamos un error tipo I menor a `r p`. 
+
+
 # Bootstrap
 
-* Útil cuando no tenemos la distribución empírica del estadístico de prueba. 
+- Útil cuando no tenemos la distribución empírica del estadístico de prueba. 
+- Puede ser difícil encontrar la transformación que permita remuestrear de una muestra asumiendo la hipótesis nula como cierta.
+- Recuerden que tanto en este caso como en los ejercicios de simulación, estamos calculando el valor p con aproximaciones empíricas.
 
-* Puede ser difícil encontrar la transformación que permita remuestrear de una muestra asumiendo la hipótesis nula como cierta.
 
-* Recuerden que tanto en este caso como en los ejercicios de simulación, estamos calculando el valor p con aproximaciones empíricas.
 ---
 
 # Ejercicio para la siguiente clase:
