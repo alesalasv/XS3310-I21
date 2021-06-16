@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-06-14" />
+    <meta name="date" content="2021-06-15" />
     <script src="libs/header-attrs-2.8/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-06-14
+### 2021-06-15
 
 ---
 
@@ -39,14 +39,14 @@ Contrastes de hipótesis: Razón de verosimilitudes para muestras grandes. Boots
     
 ### Comparación de medias normales
 
-Asuma que `\(X_1,\dots, X_n\overset{i.i.d}{\sim} N(\mu_1,\sigma^2)\)` y `\(Y_1,\dots, Y_n\overset{i.i.d}{\sim} N(\mu_2,\sigma^2)\)`. Los parámetros desconocidos son
+Asuma que `\(X_1,\dots, X_m\overset{i.i.d}{\sim} N(\mu_1,\sigma^2)\)` y `\(Y_1,\dots, Y_n\overset{i.i.d}{\sim} N(\mu_2,\sigma^2)\)`. Los parámetros desconocidos son
 `\(\mu_1,\mu_2,\sigma^2\)`. Asuma que `\((X_i,Y_i)\)` son independientes y la varianza
 es la misma (homocedasticidad).
 
 **Hipótesis**: `\(H_0: \mu_1\leq\mu_2\)` vs  `\(H_1: \mu_1&gt;\mu_2\)`.
 
 **Notación**: `\(\bar X_m,\bar Y_n\)`, `\(\displaystyle S_X^2 = \sum_{i=1}^m(X_i-\bar X_m)^2\)`,
-`\(\displaystyle S_Y^2 = \sum_{i=1}^m(Y_i-\bar Y_n)^2\)`.
+`\(\displaystyle S_Y^2 = \sum_{i=1}^n(Y_i-\bar Y_n)^2\)`.
 
 **Teorema**. Considere 
 `$$U = \dfrac{(m+n-2)^{1/2}(\bar X_m-\bar Y_n)}{\left(\dfrac 1m+\dfrac 1n\right)^{1/2}(S_X^2+S_Y^2)^{1/2}}.$$` Si
@@ -255,7 +255,7 @@ U &gt; qnt
 * Valor-*p*: `\(2[1-P[U\leq |u| |\mu_1=\mu_2,\sigma^2])]\)` donde `\(U=u\)`.
 
 **Ejemplo**. Minas de cobre. Sean `\(X_1,\dots,X_8\)` la cantidad de cobre (gramos)
-en 8 minas en un lugar 1, y `\(X_1,\dots,X_{10}\)` en 10 minas en  un lugar 2.
+en 8 minas en un lugar 1, y `\(Y_1,\dots,Y_{10}\)` en 10 minas en  un lugar 2.
 Después de recolectar los datos se obtiene lo siguiente 
 
 - `\(\bar X_8 = 2.6\)` y `\(\bar Y_{10} = 2.3\)` 
@@ -314,7 +314,7 @@ Si `\(\alpha_0 = 1\%\)`
 
 ---
 
-Entonces, ¿Rechazamos \( H_0\)?
+Entonces, ¿Rechazamos `\(H_0\)`?
 
 
 ```r
@@ -325,7 +325,7 @@ abs(U) &gt; qnt
 ## [1] TRUE
 ```
 
-El valor \( p\) es `\(2[1-T_{16}(|3.442|)]\)`
+El valor `\(p\)` es `\(2[1-P(U≤|3.442|)]\)`
 
 
 ```r
@@ -344,8 +344,7 @@ localización.
 
 ### Prueba `\(F\)`
 
-**Definición** Si `\(Y\)` y `\(W\)` son variables aleatorias independientes, $Y\sim
-\chi^2_m$ y `\(W\sim \chi ^2_n\)`, `\(m,n\in \mathbb Z^+\)`. Defina 
+**Definición** Si `\(Y\)` y `\(W\)` son variables aleatorias independientes, `\(Y\sim\chi^2_m\)` y `\(W\sim \chi ^2_n\)`, `\(m,n\in \mathbb Z^+\)`. Defina 
 
 `$$X = \dfrac{Y/m}{W/n}\sim F_{m,n}$$`
 
@@ -355,13 +354,12 @@ localización.
 
 La función de densidad es 
 
-\begin{equation}
-f(x)= 
-\begin{cases} 
-\displaystyle \frac{\Gamma\left[\frac{1}{2}(m+n)\right] m^{m / 2} n^{n / 2}}{\Gamma\left(\frac{1}{2} m\right) \Gamma\left(\frac{1}{2} n\right)} \cdot \frac{x^{(m / 2)-1}}{(m x+n)^{(m+n) / 2}} &amp; x&gt;0 \\
+`$$\begin{equation}
+f(x)= \begin{cases} 
+\displaystyle \frac{\Gamma\left[\frac{1}{2}(m+n)\right] m^{m / 2} n^{n / 2}}{\Gamma\left(\frac{1}{2} m\right) \Gamma\left(\frac{1}{2}n\right)} \cdot \frac{x^{(m / 2)-1}}{(m x+n)^{(m+n) / 2}} &amp; x&gt;0 \\
 0 &amp; x\leq 0.
 \end{cases}
-\end{equation}
+\end{equation}$$`
 
 **Propiedades**:
 
@@ -373,12 +371,12 @@ Sean  `\(X_1,\dots, X_n\overset{i.i.d}{\sim} N(\mu_1,\sigma_1^2)\)` y `\(Y_1,\do
 
 Considere el esquema
 
-`\(\begin{align*}U\sim t_{n-1}\text{  }&amp; \quad \quad U^2\sim F_{1,n-1}\\H_0: \mu=\mu_0\text{  } &amp; \Leftrightarrow \text{  }  H_0: \mu=\mu_0 \\|U|\geq |c|\text{  } &amp; \quad \quad  U^2\geq c^* \end{align*}\)`
+`$$\begin{align*}U\sim t_{n-1}\text{  }&amp; \quad \quad U^2\sim F_{1,n-1}\\H_0: \mu=\mu_0\text{  } &amp; \Leftrightarrow \text{  }  H_0: \mu=\mu_0 \\|U|\geq |c|\text{  } &amp; \quad \quad  U^2\geq c^* \end{align*}$$`
 
 Bajo el esquema anterior y si `\((X,Y)\)` son independientes, considere:
 
 `$$H_0: \sigma_1^2\leq \sigma_2^2 \text { vs } H_1: \sigma_1^2&gt; \sigma_2^2$$`
-y tome `\(\alpha_0 \in (0,1)\)`.
+y tome `\(\alpha_0 \in ]0,1[\)`.
 
 ---
 
@@ -396,10 +394,10 @@ Bajo el supuesto de homocedasticidad,
 
 Usando el `\(\delta\)` anterior
 
-`$$\sup_{\sigma_1^2\leq\sigma^2_2}\mathbb P[V\geq c|\mu_1\mu_2,\sigma^2_1,\sigma_2^2]\leq \alpha_0,$$`
+`$$\sup_{\sigma_1^2\leq\sigma^2_2}\mathbb P[V\geq c|\mu_1,\mu_2,\sigma^2_1,\sigma_2^2]\leq \alpha_0,$$`
 resuelve
 
-`$$\mathbb P[V\geq c|\mu_1,\mu_2,\sigma_1^2,\sigma_2^2] = \alpha_0 \implies c = F_{1-\alpha_0,m-1,n-1} = F_{1-\alpha_0,m-1,n-1}.$$`
+`$$\mathbb P[V\geq c|\mu_1,\mu_2,\sigma_1^2,\sigma_2^2] = \alpha_0 \implies c = F_{1-\alpha_0,m-1,n-1}.$$`
 
 &lt;!-- **Teorema**. si `\(\delta\)` se define según lo anterior,  --&gt;
 
@@ -426,11 +424,11 @@ El valor-*p* es `\(1-\mathbb P_{m,n}(V \leq v \vert \sigma_1 = \sigma_2 )\)` y c
 
 ---
 
-**Ejemplo**. `\(X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)\)`, `\(S_X ^2 =30\)`, `\(Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)\)`, `\(S_Y^2=30\)`.
+**Ejemplo**. `\(X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)\)`, `\(S_X ^2 =30\)`, `\(Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)\)`, `\(S_Y^2=40\)`.
 
 La hipótesis nula es `\(H_0: \sigma_1^2\leq \sigma_2^2\)`.
 
-Se calcula `\(V = \dfrac{30/5}{40/20} = 3\)` y `\(F{1-0.05, 5,20}(1-0.05)\)`. 
+Se calcula `\(V = \dfrac{30/5}{40/20} = 3\)` y `\(F_{1-0.05, 5,20}\)`. 
 
 El valor-*p* corresponde a `\(1-\mathbb P_{5,20}(V &lt; 3 \vert \sigma_1 = \sigma_2 ) = 0.035.\)`
 
@@ -449,7 +447,7 @@ head(X)
 ```
 
 ```
-## [1] -3.7664340 -3.7354714 -4.4184774  5.3063592 -1.2604056 -0.6934259
+## [1] -0.4556775  2.7964320  0.1278590 -0.8710449  2.7462284 -1.3602498
 ```
 
 ```r
@@ -459,14 +457,14 @@ head(Y)
 ```
 
 ```
-## [1] 11.067878 12.324949 11.664390  7.859451  9.114373  9.566568
+## [1]  9.999431  8.205454 12.728228  9.301506 11.297984 10.602414
 ```
 
 ---
 
-Es decir tener 20 datos normales con \(\sigma_1^2 = 6\) y 40 datos normales con `\(\sigma_2^2= 2\)`.  
+Es decir tener 20 datos normales con `\(\sigma_1^2 = 6\)` y 40 datos normales con `\(\sigma_2^2= 2\)`.  
 
-En todo caso asuma que \(\sigma\) es desconocidos para cada caso y solo tenemos
+En todo caso asuma que `\(\sigma\)` es desconocidos para cada caso y solo tenemos
 los datos. Además queremos hacer la prueba de hipótesis
 
 
@@ -475,7 +473,7 @@ H_{0}: &amp; \sigma_{1}^{2} \leq \sigma_{2}^{2} \\
 H_{1}: &amp; \sigma_{1}^{2}&gt;\sigma_{2}^{2}
 \end{array}$$`
 
-**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar `\(H_0\)` ya que `\(\sigma_1^2 = 6 &gt; 2  = \sigma_2^2\)`**
+**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar `\(H_0\)` ya que `\(\sigma_1^2 = 6 &gt; \sigma_2^2 = 2\)`**
 
 Calculamos el estadístico `\(V\)`
 
@@ -485,7 +483,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 6.497787
+## [1] 4.002388
 ```
 
 ```r
@@ -493,7 +491,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 2.296912
+## [1] 1.833294
 ```
 
 ```r
@@ -501,7 +499,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 2.828923
+## [1] 2.183168
 ```
 
 ---
@@ -535,10 +533,10 @@ y el valor-*p* de la prueba es
 ```
 
 ```
-## [1] 0.002942774
+## [1] 0.01933349
 ```
 
-**Interpretación:** Rechazamos la hipótesis que `\(\sigma_{1}^{2} \leq \sigma_{2}^{2}\)` con un valor-$p$ de 0.02.
+**Interpretación:** Rechazamos la hipótesis que `\(\sigma_{1}^{2} \leq \sigma_{2}^{2}\)` con un valor-*p* de 0.02.
 
 ---
 
@@ -664,7 +662,7 @@ El *p*-valor es
 ---
 
 **Interpretación:** La prueba de hipótesis no rechaza la hipótesis de
-homocedasticidad con un nivel de confianza del 5%.
+homocedasticidad con un nivel de significancia del 5%.
 
 **Propiedad**. La prueba `\(F\)` es un LRT.
 
