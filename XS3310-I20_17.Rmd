@@ -51,15 +51,15 @@ Un breve repaso de inferencia estadística para entender los errores conceptuale
 
 ---
 
-# (Paréntesis)
+<!-- # (Paréntesis) -->
 
-¿Por qué en estas semanas han están tratando de quitarle el nombre de Fisher a un premio muy prestigioso?
+<!-- ¿Por qué en estas semanas han están tratando de quitarle el nombre de Fisher a un premio muy prestigioso? -->
 
-Fisher era eugenista, lo que significa que era parte de un movimiento en el estudio de la genética que abogaba por una raza superior. Los estudios de ese grupo han sido muy cuestionados en la ciencia moderna, por lo que, aunque los descrubrimientos de Fisher fueron seminales y muy importantes para la estadística, la gente que pide el cambio de nombre argumenta que no podemos glorificar a una persona racista, como Fisher. 
+<!-- Fisher era eugenista, lo que significa que era parte de un movimiento en el estudio de la genética que abogaba por una raza superior. Los estudios de ese grupo han sido muy cuestionados en la ciencia moderna, por lo que, aunque los descrubrimientos de Fisher fueron seminales y muy importantes para la estadística, la gente que pide el cambio de nombre argumenta que no podemos glorificar a una persona racista, como Fisher.  -->
 
-Pueden leer más aquí: https://twitter.com/EKTBenn/status/1268869989785796610?s=20
+<!-- Pueden leer más aquí: https://twitter.com/EKTBenn/status/1268869989785796610?s=20 -->
 
----
+<!-- --- -->
 
 # La propuesta de Fisher 
 
@@ -113,11 +113,11 @@ A priori:
 
 * *Paso 2:* seleccione una prueba óptima.
 
-* *Paso 3:* configure la hipótesis principal (HM). Error tipo I. Alfa (α). La región crítica (CRtest) y el valor crítico (CVtest, Testcrit) de una prueba.
+* *Paso 3:* configure la hipótesis principal (HM). Error tipo I. Alfa ($\alpha$). La región crítica (CRtest) y el valor crítico (CVtest, Testcrit) de una prueba.
 
-* *Paso 4:* configure la hipótesis alternativa (HA). Error tipo II Beta (β).
+* *Paso 4:* configure la hipótesis alternativa (HA). Error tipo II Beta ($\beta$).
 
-* *Paso 5:* calcule el tamaño de muestra (N) requerido para una buena potencia (1 – β)
+* *Paso 5:* calcule el tamaño de muestra (N) requerido para una buena potencia (1 – $\beta$)
 
 * *Paso 6:* calcule el valor crítico de la prueba.
 
@@ -141,7 +141,7 @@ A posteriori:
 
 * Informar el valor de la prueba de investigación observada es relevante bajo el enfoque de Neyman-Pearson, ya que sirve para comparar el valor observado con el valor crítico a priori.
 
-* También se supone que las hipótesis de Neyman-Pearson son ciertas. Esto significa que HM y HA no pueden ser, al mismo tiempo, falsas, ni demostrarse o falsificarse a posteriori. El único camino a seguir es actuar como si la conclusión a la que llegara la prueba fuera cierta, sujeto a una probabilidad α o β de cometer un error de Tipo I o Tipo II, respectivamente (Neyman y Pearson, 1933; Cortina y Dunlap, 1997).
+* También se supone que las hipótesis de Neyman-Pearson son ciertas. Esto significa que HM y HA no pueden ser, al mismo tiempo, falsas, ni demostrarse o falsificarse a posteriori. El único camino a seguir es actuar como si la conclusión a la que llegara la prueba fuera cierta, sujeto a una probabilidad $\alpha$ o $\beta$ de cometer un error de Tipo I o Tipo II, respectivamente (Neyman y Pearson, 1933; Cortina y Dunlap, 1997).
 
 ---
 
@@ -159,11 +159,11 @@ A posteriori:
 
 * Menos flexible que el enfoque de Fisher. Debido a que la mayor parte del trabajo se realiza a priori, este enfoque es menos flexible para acomodar pruebas no pensadas de antemano y para realizar investigaciones exploratorias (Macdonald, 2002).
 
-* Por defecto se adapta fácilmente al enfoque de Fisher. Como este enfoque parece superficialmente similar al de Fisher, es fácil confundir ambos y olvidar lo que hace que el enfoque de Neyman-Pearson sea único (Lehman, 1993). Si la información proporcionada por la hipótesis alternativa (ES y β) no se tiene en cuenta para diseñar una investigación con buena potencia, el análisis de datos se basa en la prueba de significancia de Fisher.
+* Por defecto se adapta fácilmente al enfoque de Fisher. Como este enfoque parece superficialmente similar al de Fisher, es fácil confundir ambos y olvidar lo que hace que el enfoque de Neyman-Pearson sea único (Lehman, 1993). Si la información proporcionada por la hipótesis alternativa (ES y $\beta$) no se tiene en cuenta para diseñar una investigación con buena potencia, el análisis de datos se basa en la prueba de significancia de Fisher.
 
 ---
 
-# NHST - el método híbrido
+# Null hypothesis significance testing (NHST) - el método híbrido
 
 * El NHST es el procedimiento más común utilizado para probar datos hoy en día, aunque bajo el supuesto falso de probar hipótesis sustantivas (Carver, 1978; Nickerson, 2000; Hubbard, 2004; Hager, 2013). 
 
@@ -177,24 +177,21 @@ A posteriori:
 
 # Tabla comparativa
 
-![](figs/tabla1.1.png)
-Fuente: https://www.frontiersin.org/files/Articles/135153/fpsyg-06-00223-HTML/image_m/fpsyg-06-00223-t001.jpg
+![Fuente: https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00223/full](figs/tabla1.1.png)
 
 
 ---
 
 # Tabla comparativa (continuación)
 
-![](figs/tabla1.2.png)
+![Fuente: https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00223/full](figs/tabla1.2.png)
 
-Fuente: https://www.frontiersin.org/files/Articles/135153/fpsyg-06-00223-HTML/image_m/fpsyg-06-00223-t001.jpg
 ---
 
 # Tabla comparativa (continuación)
 
-![](figs/tabla1.3.png)
+![Fuente: https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00223/full](figs/tabla1.3.png)
 
-Fuente: https://www.frontiersin.org/files/Articles/135153/fpsyg-06-00223-HTML/image_m/fpsyg-06-00223-t001.jpg
 ---
 
 # Ejercicio para pensar
@@ -204,8 +201,6 @@ Fuente: https://www.frontiersin.org/files/Articles/135153/fpsyg-06-00223-HTML/im
 * Otros ejercicios:
 
 * Práctica de contrastes (para hacerla en sus casas): http://math.arizona.edu/~jwatkins/r-composite.pdf
-
-* Tarea moral en Mediación Virtual (Potencia de dos contrastes de hipótesis para la diferencia de mediasArchivo).
 
 ---
 
@@ -217,8 +212,4 @@ Repaso de la inferencia clásica, específicamente las pruebas de hipótesis.
 
 # ¿Qué nos falta para el II Parcial?
 
-Discusión de ensayos de valores p.
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
-
+Estadística Bayesiana.
