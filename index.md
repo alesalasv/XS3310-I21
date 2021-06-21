@@ -160,20 +160,20 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> Ejercicios: Casella: 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28<br>
          Ejercicios: DeGroot: 9.1: 2,3,11; 9.2: 2,4,7; 9.3: 2,3,8,13; 9.41,3,4; 9.5: 2,3,8,9; 9.6: 2,5,11; 9.7: 1,7,9<br><br> </td>
   </tr>      
-      <!--<tr>
-    <td> 16 de junio  </td>
+      <tr>
+    <td> 22 de junio  </td>
     <td>  <a href="XS3310-I20_17.html">Clase 17</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.28, 8.29, 8.30, 8.31, 8.32, 8.33, 8.37, 8.38, 8.39, 8.40, 8.41
 <br> </td>
   </tr>
           <tr>
-    <td> 23 de junio  </td>
+    <td> 25 de junio  </td>
     <td>  <a href="XS3310-I20_18.html">Clase 18</a> </td>
     <td>  </td> 
     <td> Lista de ejercicios en las notas de clase </td>
   </tr>
-          <tr>
+      <!--    <tr>
     <td> 30 de junio  </td>
     <td>  <a href="XS3310-I20_19.html">Clase 19</a> </td>
     <td>  </td> 
