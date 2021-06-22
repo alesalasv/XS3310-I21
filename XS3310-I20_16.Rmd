@@ -27,30 +27,25 @@ Todo sobre estimadores puntuales + pivotes e intervalos de confianza. Bootstrap 
 
 # ¿Qué vamos a discutir hoy?
 
-Pruebas de hipótesis para el caso de diferencia de medias o cociente de varianzas. Bootstrap para contrastes.
+Contrastes de hipótesis: Razón de verosimilitudes para muestras grandes. Bootstrap para contrastes.
 
 ---
 
-
-
-# Prueba de comparación de medias en 2 poblaciones
+## Prueba de comparación de medias en 2 poblaciones
     
-## Comparación de medias normales
+### Comparación de medias normales
 
-Asuma que $X_1,\dots, X_n\overset{i.i.d}{\sim} N(\mu_1,\sigma^2)$ y $Y_1,\dots,
-Y_n\overset{i.i.d}{\sim} N(\mu_2,\sigma^2)$. Los parámetros desconocidos son
+Asuma que $X_1,\dots, X_m\overset{i.i.d}{\sim} N(\mu_1,\sigma^2)$ y $Y_1,\dots, Y_n\overset{i.i.d}{\sim} N(\mu_2,\sigma^2)$. Los parámetros desconocidos son
 $\mu_1,\mu_2,\sigma^2$. Asuma que $(X_i,Y_i)$ son independientes y la varianza
 es la misma (homocedasticidad).
 
 **Hipótesis**: $H_0: \mu_1\leq\mu_2$ vs  $H_1: \mu_1>\mu_2$.
 
 **Notación**: $\bar X_m,\bar Y_n$, $\displaystyle S_X^2 = \sum_{i=1}^m(X_i-\bar X_m)^2$,
-$\displaystyle S_Y^2 = \sum_{i=1}^m(Y_i-\bar Y_n)^2$.
+$\displaystyle S_Y^2 = \sum_{i=1}^n(Y_i-\bar Y_n)^2$.
 
 **Teorema**. Considere 
-\[
-U = \dfrac{(m+n-2)^{1/2}(\bar X_m-\bar Y_n)}{\left(\dfrac 1m+\dfrac 1n\right)^{1/2}(S_X^2+S_Y^2)^{1/2}}.
-\] Si
+$$U = \dfrac{(m+n-2)^{1/2}(\bar X_m-\bar Y_n)}{\left(\dfrac 1m+\dfrac 1n\right)^{1/2}(S_X^2+S_Y^2)^{1/2}}.$$ Si
 $\mu_1=\mu_2 \implies U\sim t_{m+n-2}.$
 
 
@@ -86,26 +81,22 @@ $\mu_1=\mu_2 \implies U\sim t_{m+n-2}.$
 <!-- 1{m+n-2}\left(\dfrac{S_X^2+S_Y^2}{\sigma^2}\right)}}\sim t_{m+n-1}.\] -->
 
 
+---
 
-## Prueba $t$ de dos muestras
+### Prueba $t$ de dos muestras
 
 Para el caso de una prueba de una cola, se define la región de rechazo como $U\geq c$, 
 
-\begin{align*} \sup_{\mu_1\leq
-\mu_2}\mathbb P[U\geq c|\mu_1,\mu_2,\sigma^2]\leq \alpha_0 & \implies 
-\mathbb P[U\geq c|\mu_1=\mu_2,\sigma^2] = 1-\mathbb P[U\leq c|\mu_1=\mu_2,\sigma^2] \leq \alpha_0 \\ 
-& \implies  P[U\leq c|\mu_1=\mu_2,\sigma^2] \geq 1-\alpha_0 \\
-& \implies c = t_{1-\alpha_0,n+m-2} 
-\end{align*}
+$\begin{align*} \sup_{\mu_1\leq\mu_2}\mathbb P[U\geq c|\mu_1,\mu_2,\sigma^2]\leq \alpha_0 & \implies \mathbb P[U\geq c|\mu_1=\mu_2,\sigma^2] = 1-\mathbb P[U\leq c|\mu_1=\mu_2,\sigma^2] \leq \alpha_0 \\ & \implies  P[U\leq c|\mu_1=\mu_2,\sigma^2] \geq 1-\alpha_0 \\ & \implies c = t_{1-\alpha_0,n+m-2}\end{align*}$
 
 Rechazo $H_0$ si $U>  t_{1-\alpha_0,n+m-2}$.
 
 
 si observamos $U = u$, los *p*-valores son:
 
-* Si \(H_1: \mu_1 - \mu_2 > 0 \) entonces  $1-P[U\leq c|\mu_1=\mu_2,\sigma^2]$.
+* Si $H_1: \mu_1 - \mu_2 > 0$ entonces  $1-P[U\leq c|\mu_1=\mu_2,\sigma^2]$.
 
-* Si \(H_1: \mu_1 - \mu_2 < 0 \) entonces $P[U\leq c|\mu_1=\mu_2,\sigma^2]$.
+* Si $H_1: \mu_1 - \mu_2 < 0$ entonces $P[U\leq c|\mu_1=\mu_2,\sigma^2]$.
 
 
 
@@ -150,20 +141,16 @@ si observamos $U = u$, los *p*-valores son:
 
 <!-- y el valor-*p*: $1-T_{50}(2.544) = 0.007$. -->
 
+---
 
 **Ejemplo:** En el caso de las lluvia suponga que queremos probar 
 
-\[
-H_0: \mu_{\text{con trat.}} \leq \mu_{\text{sin trat.}} \quad
+$$H_0: \mu_{\text{con trat.}} \leq \mu_{\text{sin trat.}} \quad
 vs \quad
-H_1: \mu_{\text{con trat.}} > \mu_{\text{sin trat.}} 
-\]
+H_1: \mu_{\text{con trat.}} > \mu_{\text{sin trat.}}$$
 
 ```{r 11-comparacion-medias-1 }
-nubes <- read.table(
-    file = "./data/clouds.txt",
-    sep = "\t", header = TRUE
-)
+nubes <- read.table(file = "./data/clouds.txt", sep = "\t", header = TRUE)
 log_lluvia <- log(nubes)
 
 n <- nrow(nubes)
@@ -178,37 +165,39 @@ sin_tratamiento <- log_lluvia$Unseeded.Clouds
 (S2_Y <- (n - 1) * var(sin_tratamiento))
 ```
 
-Entonces el estadístico que queremos construir para comparar la medias es (OJO en este caso \( m=n\) porque tienen la misma cantidad de datos:
-)
+---
+
+Entonces el estadístico que queremos construir para comparar la medias es (OJO en este caso $m=n$ porque tienen la misma cantidad de datos:
 
 ```{r 11-comparacion-medias-2 }
-(U <- sqrt(n + n - 2) * (Xbar - Ybar) /
-    (sqrt(1 / n + 1 / n) * sqrt(S2_X + S2_Y)))
+(U <- sqrt(n+n-2)*(Xbar - Ybar)/(sqrt(1/n+1/n)*sqrt(S2_X+S2_Y)))
 ```
 
-Por tanto se debe comparar con una \(t\)-student con \( 26+26 - 2 = 50\) grados
-de libertad. Asuma un \( \alpha = 0.01\)
+Por tanto, se debe comparar con una $t$-student con $26+26 - 2 = 50$ grados
+de libertad. Asuma un $\alpha = 0.01$.
 
 
 ```{r 11-comparacion-medias-3 }
 (qnt <- qt(p = 1 - 0.01, df = n + n - 2))
 ```
 
-¿ Rechazamos \( H_0\)?
+¿Rechazamos $H_0$?
 
 ```{r 11-comparacion-medias-4 }
 U > qnt
 ```
 
-¿Cuál es el \( p\)-valor?
+¿Cuál es el $p$-valor?
 
 ```{r 11-comparacion-medias-5 }
 1 - pt(q = U, df = n + n - 2)
 ```
 
+---
+
 *Interpretación*: rechazamos al nivel 1% de significancia la hipótesis de que las nubes irradiadas tienen una log-precipitación media menor a la de las nubes no irradiadas.
 
-## Prueba de 2 colas
+### Prueba de 2 colas
 
 **Hipótesis**. $H_0: \mu_1=\mu_2$ vs  $H_1: \mu_1\ne\mu_2$ (Prueba ANOVA).
 
@@ -217,13 +206,11 @@ U > qnt
 * Valor-*p*: $2[1-P[U\leq |u| |\mu_1=\mu_2,\sigma^2])]$ donde $U=u$.
 
 **Ejemplo**. Minas de cobre. Sean $X_1,\dots,X_8$ la cantidad de cobre (gramos)
-en 8 minas en un lugar 1, y $X_1,\dots,X_{10}$ en 10 minas en  un lugar 2.
+en 8 minas en un lugar 1, y $Y_1,\dots,Y_{10}$ en 10 minas en  un lugar 2.
 Después de recolectar los datos se obtiene lo siguiente 
 
-- $\bar X_8 = 2.6$ 
-- $\bar Y_{10} = 2.3$ 
-- $S_X^2 = 0.32$ y 
-- $S_Y^2=0.22$ 
+- $\bar X_8 = 2.6$ y $\bar Y_{10} = 2.3$ 
+- $S_X^2 = 0.32$ y $S_Y^2=0.22$ 
 
 El ingeniero de la mina se pregunta: ¿Las dos localizaciones generan el mismo
 nivel de cobre?
@@ -231,9 +218,8 @@ nivel de cobre?
 
 Entonces plantea hacer la prueba de hipótesis 
 
-\[
-H_0: \mu_1=\mu_2 \quad H_1: \mu_1\neq\mu_2 
-\]
+$$H_0: \mu_1=\mu_2 \quad H_1: \mu_1\neq\mu_2$$
+---
 
 Con el supuesto que $X_i\sim N(\mu_1,\sigma^2)$, $Y_j\sim N(\mu_2,\sigma^2)$. 
 
@@ -261,13 +247,15 @@ Si $\alpha_0 = 1\%$
 (qnt <- qt(p = 1 - 0.01 / 2, df = n + m - 2))
 ```
 
-Entonces, ¿Rechazamos \( H_0\)?
+---
+
+Entonces, ¿Rechazamos $H_0$?
 
 ```{r 11-comparacion-medias-8 }
 abs(U) > qnt
 ```
 
-El valor \( p\) es $2[1-T_{16}(|3.442|)]$
+El valor $p$ es $2[1-P(U≤|3.442|)]$
 
 ```{r 11-comparacion-medias-9 }
 2 * (1 - pt(q = U, df = n + m - 2))
@@ -279,25 +267,24 @@ localización.
 
 **Ejercicio**. La prueba $t$ de 2 muestras es un LRT.
 
-## Prueba $F$
+### Prueba $F$
 
-**Definición** Si $Y$ y $W$ son variables aleatorias independientes, $Y\sim
-\chi^2_m$ y $W\sim \chi ^2_n$, $m,n\in \mathbb Z^+$. Defina 
+**Definición** Si $Y$ y $W$ son variables aleatorias independientes, $Y\sim\chi^2_m$ y $W\sim \chi ^2_n$, $m,n\in \mathbb Z^+$. Defina 
 
-\[X = \dfrac{Y/m}{W/n}\sim F_{m,n}\]
+$$X = \dfrac{Y/m}{W/n}\sim F_{m,n}$$
 
-$X$ tiene una distribución $F$ con $m$ y
-$n$ grados de libertad.
+$X$ tiene una distribución $F$ con $m$ y $n$ grados de libertad.
+
+---
 
 La función de densidad es 
 
-\begin{equation}
-f(x)= 
-\begin{cases} 
-\displaystyle \frac{\Gamma\left[\frac{1}{2}(m+n)\right] m^{m / 2} n^{n / 2}}{\Gamma\left(\frac{1}{2} m\right) \Gamma\left(\frac{1}{2} n\right)} \cdot \frac{x^{(m / 2)-1}}{(m x+n)^{(m+n) / 2}} & x>0 \\
+$$\begin{equation}
+f(x)= \begin{cases} 
+\displaystyle \frac{\Gamma\left[\frac{1}{2}(m+n)\right] m^{m / 2} n^{n / 2}}{\Gamma\left(\frac{1}{2} m\right) \Gamma\left(\frac{1}{2}n\right)} \cdot \frac{x^{(m / 2)-1}}{(m x+n)^{(m+n) / 2}} & x>0 \\
 0 & x\leq 0.
 \end{cases}
-\end{equation}
+\end{equation}$$
 
 **Propiedades**:
 
@@ -308,16 +295,15 @@ f(x)=
 Sean  $X_1,\dots, X_n\overset{i.i.d}{\sim} N(\mu_1,\sigma_1^2)$ y $Y_1,\dots, Y_n\overset{i.i.d}{\sim} N(\mu_2,\sigma_2^2)$.
 
 Considere el esquema
-\begin{align*}
-U\sim t_{n-1}\text{  }& \quad \quad U^2\sim F_{1,n-1}\\
-H_0: \mu=\mu_0\text{  } & \Leftrightarrow \text{  }  H_0: \mu=\mu_0 \\
-|U|\geq |c|\text{  } & \quad \quad  U^2\geq c^* 
-\end{align*}
+
+$$\begin{align*}U\sim t_{n-1}\text{  }& \quad \quad U^2\sim F_{1,n-1}\\H_0: \mu=\mu_0\text{  } & \Leftrightarrow \text{  }  H_0: \mu=\mu_0 \\|U|\geq |c|\text{  } & \quad \quad  U^2\geq c^* \end{align*}$$
 
 Bajo el esquema anterior y si $(X,Y)$ son independientes, considere:
 
-\[H_0: \sigma_1^2\leq \sigma_2^2 \text { vs } H_1: \sigma_1^2> \sigma_2^2 \]
-y tome $\alpha_0 \in (0,1)$.
+$$H_0: \sigma_1^2\leq \sigma_2^2 \text { vs } H_1: \sigma_1^2> \sigma_2^2$$
+y tome $\alpha_0 \in ]0,1[$.
+
+---
 
 La lógica de esta prueba es, como $\dfrac{S_X^2}{\sigma_1^2} \sim \chi^2_{m-1}$
 y $\dfrac{S_Y^2}{\sigma_2^2} \sim \chi^2_{n-1}$, calculamos
@@ -333,10 +319,10 @@ $\delta:$ Rechazo $H_0$ si $V\geq c$.
 
 Usando el $\delta$ anterior
 
-\[\sup_{\sigma_1^2\leq\sigma^2_2}\mathbb P[V\geq c|\mu_1\mu_2,\sigma^2_1,\sigma_2^2]\leq \alpha_0,\]
+$$\sup_{\sigma_1^2\leq\sigma^2_2}\mathbb P[V\geq c|\mu_1,\mu_2,\sigma^2_1,\sigma_2^2]\leq \alpha_0,$$
 resuelve
 
-\[\mathbb P[V\geq c|\mu_1,\mu_2,\sigma_1^2,\sigma_2^2] = \alpha_0 \implies c = F_{1-\alpha_0,m-1,n-1} = F_{1-\alpha_0,m-1,n-1}.\]
+$$\mathbb P[V\geq c|\mu_1,\mu_2,\sigma_1^2,\sigma_2^2] = \alpha_0 \implies c = F_{1-\alpha_0,m-1,n-1}.$$
 
 <!-- **Teorema**. si $\delta$ se define según lo anterior,  -->
 
@@ -361,11 +347,13 @@ resuelve
 
 El valor-*p* es $1-\mathbb P_{m,n}(V \leq v \vert \sigma_1 = \sigma_2 )$ y con $V=v$.
 
-**Ejemplo**. $X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)$, $S_X ^2 =30$, $Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)$, $S_Y^2=30$.
+---
+
+**Ejemplo**. $X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)$, $S_X ^2 =40$, $Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)$, $S_Y^2=30$.
 
 La hipótesis nula es $H_0: \sigma_1^2\leq \sigma_2^2$.
 
-Se calcula $V = \dfrac{30/5}{40/20} = 3$ y $F{1-0.05, 5,20}(1-0.05)$. 
+Se calcula $V = \dfrac{30/5}{40/20} = 3$ y $F_{1-0.05, 5,20}$. 
 
 El valor-*p* corresponde a $1-\mathbb P_{5,20}(V < 3 \vert \sigma_1 = \sigma_2 ) = 0.035.$
 
@@ -387,22 +375,22 @@ Y <- rnorm(n = n, mean = 10, sd = sqrt(2))
 head(Y)
 ```
 
-Es decir tener `r m` datos normales con \(\sigma_1^2 = 6\) y `r n` datos normales con \(\sigma_2^2
-= 2\).  
+---
 
-En todo caso asuma que \(\sigma\) es desconocidos para cada caso y solo tenemos
+Es decir tener `r m` datos normales con $\sigma_1 = 6$ y `r n` datos normales con $\sigma_2= 2$.  
+
+En todo caso asuma que $\sigma$ es desconocidos para cada caso y solo tenemos
 los datos. Además queremos hacer la prueba de hipótesis
 
-\[
-\begin{array}{ll}
+
+$$\begin{array}{ll}
 H_{0}: & \sigma_{1}^{2} \leq \sigma_{2}^{2} \\
 H_{1}: & \sigma_{1}^{2}>\sigma_{2}^{2}
-\end{array}
-\]
+\end{array}$$
 
-**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar \(H_0\) ya que \(\sigma_1^2 = 6 > 2  = \sigma_2^2 \)**
+**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar $H_0$ ya que $\sigma_1 = 6 > \sigma_2 = 2$**
 
-Calculamos el estadístico \(V\)
+Calculamos el estadístico $V$
 
 ```{r 11-comparacion-medias-12 }
 (S2_X_divido_m_1 <- var(X))
@@ -411,25 +399,28 @@ Calculamos el estadístico \(V\)
 (V <- S2_X_divido_m_1 / S2_Y_divido_n_1)
 ```
 
-Para calcular un cuantil te tamaño \(1-\alpha = 0.95\) se usa la siguiente función 
+---
+
+Para calcular un cuantil te tamaño $1-\alpha = 0.95$ se usa la siguiente función 
 
 ```{r 11-comparacion-medias-13 }
 (qnt <- qf(p = 1 - 0.05, df1 = m - 1, df2 = n - 1))
 ```
 
-¿Rechazamos \(H_0\)?
+¿Rechazamos $H_0$?
 ```{r 11-comparacion-medias-14 }
 V > qnt
 ```
 
-y el valor-\(p\) de la prueba es 
+y el valor-*p* de la prueba es 
 
 ```{r 11-comparacion-medias-15 }
 1 - pf(q = V, df1 = m - 1, df2 = n - 1)
 ```
 
-**Interpretación:** Rechazamos la hipótesis que \(\sigma_{1}^{2} \leq
-\sigma_{2}^{2}\) con un valor-$p$ de 0.02.
+**Interpretación:** Rechazamos la hipótesis que $\sigma_{1}^{2} \leq \sigma_{2}^{2}$ con un valor-*p* de 0.02.
+
+---
 
 ### Prueba de 2 colas (prueba de homocedasticidad)
 
@@ -437,32 +428,29 @@ Bajo las hipótesis $H_0: \sigma^2_1=\sigma^2_2$ vs
 $H_1: \sigma^2_1\ne\sigma^2_2$, se rechaza si $V\geq c_2$ o $V\leq c_1$ con
 $c_1,c_2$ tales que
                                                      
-\[\mathbb P[V\leq c_1] = \dfrac{\alpha_0}{2} \text{ y } \mathbb P[V\geq c_2] =
+$$\mathbb P[V\leq c_1] = \dfrac{\alpha_0}{2} \text{ y } \mathbb P[V\geq c_2] =
 \dfrac{\alpha_0}{2} \implies c_1 =
 F_{\frac{\alpha_{0}}{2}, m-1,n-1} \text{ y } c_2 =
-F_{1-\frac{\alpha_{0}}{2},m-1,n-1}\]
+F_{1-\frac{\alpha_{0}}{2},m-1,n-1}$$
 
 **Ejemplo**. Mismo ejemplo de las nubes.
 
-\[
-H_0: \sigma^{2}_{\text{con trat.}} = \sigma^{2}_{\text{sin trat.}} \quad
-vs \quad
-H_1: \sigma^{2}_{\text{con trat.}} \neq \sigma^{2}_{\text{sin trat.}} 
-\]
+$$H_0: \sigma^{2}_{\text{con trat.}} = \sigma^{2}_{\text{sin trat.}} \quad vs \quad H_1: \sigma^{2}_{\text{con trat.}} \neq \sigma^{2}_{\text{sin trat.}}$$
 
 ```{r 11-comparacion-medias-16 }
 (m <- length(con_tratamiento))
 (n <- length(sin_tratamiento))
 (S2_X_divido_m_1 <- var(con_tratamiento))
+```
+
+---
+
+```{r 11.1-comparacion-medias-16 }
 (S2_Y_divido_n_1 <- var(sin_tratamiento))
 (V <- S2_X_divido_m_1 / S2_Y_divido_n_1)
 ```
 
-
-\[V = \dfrac{\dfrac{63.96}{25}}{\dfrac{67.39}{25}} = 0.9491\]
-
-
-
+$$V = \dfrac{\dfrac{63.96}{25}}{\dfrac{67.39}{25}} = 0.9491$$
 
 Se tiene que $c_1 = F_{0.025, 25,25} = 0.4484$ y $c_2 =F_{0.975, 25,25} = 2.23$.
 
@@ -471,34 +459,35 @@ Se tiene que $c_1 = F_{0.025, 25,25} = 0.4484$ y $c_2 =F_{0.975, 25,25} = 2.23$.
 (c2 <- qf(0.975, df1 = m - 1, df2 = n - 1))
 ```
 
-¿Rechazamos \(H_0\)?
+---
+
+¿Rechazamos $H_0$?
 
 ```{r 11-comparacion-medias-18 }
-V < c1
-V > c2
+V < c1;V > c2
 ```
 
-No rechazamos la hipótesis nula. 
+No rechazamos la hipótesis nula. Si observamos $V=v$, podemos rechazar si
 
-Si observamos $V=v$, podemos rechazar si
-\[
-v\leq F_{\frac{\alpha_0}2, m-1,n-1} \implies 2 \mathbb P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 )\leq \alpha_0
-\]
+$$v\leq F_{\frac{\alpha_0}2, m-1,n-1} \implies 2 \mathbb P_{m-1,n-1}(V \leq v \vert\sigma_1 = \sigma_2 )\leq \alpha_0$$
 
 o tambien si
 
-\[v\geq F_{1-\frac{\alpha_0}2, m-1,n-1} \implies P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 ) \geq 1-\dfrac{\alpha_0}2 \implies \alpha_0\geq 2 (1- P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 )) \]
+$$v\geq F_{1-\frac{\alpha_0}2, m-1,n-1} \implies P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 ) \geq 1-\dfrac{\alpha_0}2$$ 
+$$\hspace{5.3cm}\implies \alpha_0\geq 2 (1- P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 ))$$
 
 El *p*-valor es
-\[2\min[1-\mathbb P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 ) ,\mathbb P_{m,n}(V \leq v \vert \sigma_1 = \sigma_2 )]\]
+$$2\min[1-\mathbb P_{m-1,n-1}(V \leq v \vert \sigma_1 = \sigma_2 ) ,\mathbb P_{m,n}(V \leq v \vert \sigma_1 = \sigma_2 )]$$
 
 ```{r 11-comparacion-medias-19 }
 2 * min(1 - pf(q = V, df1 = m - 1, df2 = n - 1),
         pf(q = V, df1 = m - 1, df2 = n - 1))
 ```
 
+---
+
 **Interpretación:** La prueba de hipótesis no rechaza la hipótesis de
-homocedasticidad con un nivel de confianza del 5\%.
+homocedasticidad con un nivel de confianza del 5%.
 
 **Propiedad**. La prueba $F$ es un LRT.
 
@@ -582,7 +571,7 @@ class: inverse, center, middle
 
 ---
 
-# Bootstrap
+### Bootstrap
 
 ¿Qué pasa cuando una aproximación no es suficiente, o cuando queremos una segunda opinión?
 
@@ -599,7 +588,7 @@ bajo la hipótesis nula.
 
 ---
 
-# Bootstrap
+### Bootstrap
 
 En muchas aplicaciones, la distribución muestral del estadístico de prueba $T$ no es conocido (o exactamente conocido), y el valor p no se puede calcular. Esto sugiere el uso de bootstrap para estimar el valor p con:
 
@@ -617,7 +606,7 @@ $$\hat{P}(T \geq t) = \frac{1}{B}\sum_{b=1}^{B} 1 { \{ T^{*(b)} \geq t \}}$$.
 
 ---
 
-# Bootstrap
+## Bootstrap
 
 ### Ejemplo 1: Datos de ratones.
 
@@ -636,7 +625,7 @@ A diferencia de la hipótesis general que vimos antes, en este caso la hipótesi
 
 ---
 
-# Bootstrap
+### Bootstrap
 
 Como las medias son distintas y necesitamos generar datos asumiendo que la hipótesis nula es cierta, entonces podemos hacer una pequeña transformación a los datos originales (para poder generar datos bajo el supuesto de que la hipótesis nula es cierta):
 
@@ -651,7 +640,7 @@ Ahora, con esa transformación, la distribución empírica de las dos variables 
 
 ---
 
-# Algoritmo de Bootstrap
+### Algoritmo de Bootstrap
 
 1. Remuestree $X_1^{*(b)}, \dots X_{n_X}^{*(b)}$ independientemente de $\tilde{X}$.
 2. Remuestree $Y_1^{*(b)}, \dots Y_{n_X}^{*(b)}$ independientemente de $\tilde{Y}$.
@@ -662,73 +651,71 @@ $$\hat{P}(T\geq t)= \frac{1}{B}\sum_{b=1}^{B}1{\{T^{*(b)}\geq t \}}$$
 
 donde $t$ es el valor observado del contraste usando el estadístico t. 
 
-Específicamente, en el ejemplo de los ratones, el valor observado de $T$ era $t=1.06$. Con $B=1000$ iteraciones bootstrap de $T$, 133 eran mayores o iguales a $t$, entonces $\hat{P}(T \geq t)=0.133$ y no encontramos evidencia para rechazar la hipótesis nula. 
+---
+### Bootstrap
 
+```{r 12 boostrap}
+
+# datos observados
+trat <- c(94,197,16,38,99,141,23)
+cont <- c(52,104,146,10,51,30,40,27,46)
+
+# Tamaño de las muestras
+n1 <- length(trat)
+n2 <- length(cont)
+
+# Creación de un cuadro de datos
+d <- data.frame(c(trat,cont), 
+                c(rep("t", length(trat)),rep("c", length(cont))))
+names(d) <- c("dias","grupo")
+
+```
+
+---
+```{r}
+# BoxPlot de los días de superviviencia por grupo
+boxplot(d$dias~d$grupo, las=1, ylab="Días",
+xlab="Grupo",main="Supervivencia por grupo")
+```
 ---
 
 
+
 ```{r}
-# datos observados
-trat <- c(94, 197, 16, 38, 99, 141, 23)
-cont <- c(52, 104, 146, 10, 51, 30, 40, 27, 46)
-
-# Tamaño de las muestras
-(n1 <- length(trat))
-(n2 <- length(cont))
-
-#
-d <- data.frame(c(trat, cont), c(rep("t", length(trat)), rep("c", length(cont))))
-names(d) <- c("dias", "grupo")
-
-knitr::kable(d)
-
-# BoxPlot de los días de superviviencia por grupo
-boxplot(d$dias ~ d$grupo,
-  las = 1, ylab = "Días",
-  xlab = "Grupo", main = "Supervivencia por grupo"
-)
-
 # Valor observado del estadístico de prueba
-(t <- (mean(trat) - mean(cont)) / sqrt(var(trat) / n1 + var(cont) / n2))
+(t <- (mean(trat)-mean(cont))/sqrt(var(trat)/n1+var(cont)/n2))
 
 # Inicio del bootstrap
 set.seed(112358) # Semilla
 B <- 1000 # número de muestras bootstrap
 
 # Transformación de los datos
-(Z <- (sum(trat) + sum(cont)) / (n1 + n2))
-
+Z <- (sum(trat)+sum(cont))/(n1+n2)
 Xi <- trat - mean(trat) + Z
-head(Xi)
-mean(Xi)
-
 Yi <- cont - mean(cont) + Z
-head(Yi)
-mean(Yi)
 
 Tboot_b <- NULL
-
-for (b in 1:B) {
-  xb <- sample(Xi, size = n1, replace = TRUE)
-  yb <- sample(Yi, size = n2, replace = TRUE)
-  Tboot_b[b] <- (mean(xb) - mean(yb)) / sqrt(var(xb) / n1 + var(yb) / n2)
-}
-
+for(b in 1:B) {
+xb <- sample(Xi, size = n1, replace = TRUE)
+yb <- sample(Yi, size = n2, replace = TRUE)
+Tboot_b[b] <- (mean(xb)-mean(yb))/sqrt(var(xb)/n1+var(yb)/n2)}
 
 # Cálculo del p-valor
 (p <- mean(Tboot_b>=t))
 ```
 
-_Interpretación:_ No se puede rechazar la hipótesis nula si tomamos un error tipo I menor a `r p`. 
+El valor observado de $T$ es $t=1.06$. Con $B=1000$ iteraciones bootstrap de $T$, 127 eran mayores o iguales a $t$, entonces $\hat{P}(T \geq t)=0.127$.
 
+*Interpretación:* No se puede rechazar $H_0$ si tomamos un error tipi I menor a 0.127.
+---
 
-# Bootstrap
+### Bootstrap
 
-- Útil cuando no tenemos la distribución empírica del estadístico de prueba. 
-- Puede ser difícil encontrar la transformación que permita remuestrear de una muestra asumiendo la hipótesis nula como cierta.
-- Recuerden que tanto en este caso como en los ejercicios de simulación, estamos calculando el valor p con aproximaciones empíricas.
+* Útil cuando no tenemos la distribución empírica del estadístico de prueba. 
 
+* Puede ser difícil encontrar la transformación que permita remuestrear de una muestra asumiendo la hipótesis nula como cierta.
 
+* Recuerden que tanto en este caso como en los ejercicios de simulación, estamos calculando el valor p con aproximaciones empíricas.
 ---
 
 # Ejercicio para la siguiente clase:
