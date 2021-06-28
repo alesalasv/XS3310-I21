@@ -27,44 +27,12 @@ Inferencia para estadística clásica: estimadores puntuales, estimadores por in
 
 Introducción a la Estadística Bayesiana: filosofía, historia y un poco de cálculo.
 
----
-class: middle, inverse
-
-# Detalles del proyecto de Bayes
-
-**Tema:** Diferencias entre la inferencia clásica y la Bayesiana (ventajas y desventajas de cada una)
-
-* Opciones de formato:
-
-  - App de Shiny (nuevo o arreglar versiones betas): https://andreavargasmontero.github.io/apps_shiny_bayes/ Si quieren mejorar versiones Beta, pueden solicitarle el código a Andrea.
-  - Vídeo 5 minutos (que incluya a todos los miembros del grupo) con la explicación, editado y listo para subirlo a YouTube.
-
-* Dinámica: Uds hacen los grupos de 6 o 7 personas, de acuerdo a su preferencia, y eligen una persona coordinadora del grupo, deben especificar su grupo aquí:
-
-https://docs.google.com/spreadsheets/d/152uhams6SDZ6xYrGyzOCW1t8724JP4eyVI-xgN3wpN8/edit?usp=sharing
-
----
-class: middle, inverse
-
-* Si prefieren trabajar con grupos más pequeños o individualmente, serán responsables de llevar a cabo el proyecto de manera individual, pero con las mismas exigencias de un trabajo grupal. La propuesta del trabajo (con un plan concreto de cómo llevarlo a cabo, y con los miembros del grupo confirmados) será entregada el 3 de julio y tendrá un valor de 3%. El proyecto terminado se entrega a más tardar el 14 de julio, por medio de un link al app de shiny, al vídeo en YouTube o al ensayo.
-
-**Propuesta:** Máximo 1 página con los siguientes elementos:
-Miembros del grupo, con nombre completo y carné, y con la persona coordinadora con un *
-Elección del formato (App de Shiny o Vídeo)
-Plan para realizarlo (objetivos, herramientas disponibles, en el caso de vídeo un guión, en el caso del App de Shiny un dibujo con el diseño final).
-
-**Calificación:**
-
-* Originalidad y claridad 2 pt
-* Línea lógica 2 pt
-* Uso de referencias, supuestos y no solo opiniones 2 pts
-* Uso correcto de conceptos de estadística clásica y Bayesiana 4 pts
 
 ---
 
 ## Un poco de historia
 
-![http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf](timeline.png)
+![http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf](figs/timeline.png)
 
 Para ver figura completa, haga click [aquí](http://www.statslife.org.uk/images/pdf/timeline-of-statistics.pdf).
 
@@ -72,13 +40,15 @@ Para ver figura completa, haga click [aquí](http://www.statslife.org.uk/images/
 
 ## Un poco de historia
 
+La estimación de parámetros tuvo un camino largo:
+
 * Bayes (1763): lo propuesto por Bayes era complicado y Legendre y Gaus (1804-1809) dijeron: "minimicemos el error al cuadrado" lo cual fue más sencillo pero no era algo general y no se basaba en probabilidad. 
 
 * Fisher (1922-1925) dijo 'maximicemos la verosimilitud'. 
 
 * Savage y De Finetti (1950-1970) consideraron que la probabilidad era algo subjetivo, y lo propusieron a la comunidad científica, pero no fue muy bien recibido. 
 
-* Un tiempo después, Gelfand y Smith (1990) propusieron la forma de encontrar numéricamente distribuciones marginales, y a apartir de esto la estadística Bayesiana se convirtió en una herramienta de uso común entre todas las personas que practican la estadística.
+* Un tiempo después, Gelfand y Smith (1990) propusieron la forma de encontrar numéricamente distribuciones marginales, y a partir de esto la estadística Bayesiana se convirtió en una herramienta de uso común entre todas las personas que practican la estadística.
 
 ---
 
@@ -86,7 +56,7 @@ Para ver figura completa, haga click [aquí](http://www.statslife.org.uk/images/
 
 ¿Hubo resistencia? Claro que si. El teorema de Bayes era aceptado como una herramienta general de probabilidad, pero no para modelar datos. En los años 90s se presentaron muchas situaciones en las que los resultados Bayesianos eran desestimados de entrada.
 
-![FisherBayes.png](Fisher_Bayes.png)
+![FisherBayes.png](figs/Fisher_Bayes.png)
 
 Cita completa, [aquí](https://books.google.co.cr/books?id=T3FQDwAAQBAJ&pg=PA13&lpg=PA13&dq=%22all+fisher+said+about+bayesian+analysis%22&source=bl&ots=vsnwy9Sd4V&sig=ACfU3U0e-jP_R0sc0b_sC2p_pFoWQJ7vRA&hl=en&sa=X&ved=2ahUKEwiW-rLV_LLiAhUGnKwKHbfxBKoQ6AEwAHoECAUQAQ#v=onepage&q=%22all%20fisher%20said%20about%20bayesian%20analysis%22&f=false)
 
@@ -154,7 +124,7 @@ Toda esta información es posible medirla mediante una distribución Beta. Podr�
 
 $$Beta(\alpha = 10, \beta = 90)$$
 
-denotado como $\theta \sim Beta(10,90)$. Esta distribución está centrada en $0.10$ y tiene una variancia de $8.91\cdot 10^{-4}$, es decir muy poco probable. Podemos apreciar de siguiente figura como este modelo para la incertidumbre alrededor de $\theta$ parece cumplir con el conocimiento que teníamos de dicho parámetro. En estadística Bayesiana este modelo lleva el nombre de la **distribución a priori**.
+denotado como $\theta \sim Beta(10,90)$. Esta distribución está centrada en $0.10$ y tiene una varianza de $8.91\cdot 10^{-4}$, es decir muy poco probable. Podemos apreciar de siguiente figura como este modelo para la incertidumbre alrededor de $\theta$ parece cumplir con el conocimiento que teníamos de dicho parámetro. En estadística Bayesiana este modelo lleva el nombre de la **distribución a priori**.
 
 ---
 
@@ -208,7 +178,7 @@ Podemos ver que por medio del teorema de Bayes estamos combinando nuestro conoci
 ## ¿Qué es estadística Bayesiana?
 
 
-![Figura 1](12.jpg)
+![Figura 1](figs/12.jpg){width=70%}
 
 ---
 
@@ -315,7 +285,7 @@ Por último hay unos puntos importantes de mencionar del análisis Bayesiano. En
 
 ---
 
-![](FreqvsBayes.png)
+![](figs/FreqvsBayes.png)
 
 
 ---
@@ -329,7 +299,4 @@ Introducción a la Estadística Bayesiana.
 # ¿Qué nos falta para terminar el curso?
 
 Estadística Bayesiana: cálculo, previas, inferencia (estimación puntual, intervalos de credibilidad y contrastes de hipótesis).
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
 
