@@ -98,7 +98,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     Práctica Casella: Capítulo 6 Ejercicios  <br> (pp. 300 to 307): 6.1, 6.2, 6.3, 6.9, 6.15(b) sin completitud. <br>
 Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.12, 7.19, 7.20, 7.21, 7.37, 7.38, 7.49 </td>
   </tr>   
-  
+
 
  <tr>
     <td> 04 de mayo </td>
@@ -162,8 +162,12 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="XS3310-I20_16.html">Clase 21 y 22</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28<br> 
-         Ejercicios: DeGroot: 9.1: 2,3,11; 9.2: 2,4,7; 9.3: 2,3,8,13; 9.41,3,4; 9.5: 2,3,8,9; 9.6: 2,5,11; 9.7: 1,7,9<br><br> 
+         Ejercicios: DeGroot: 9.1: 2,3,11; 9.2: 2,4,7; 9.3: 2,3,8,13; 9.41,3,4; 9.5: 2,3,8,9; 9.6: 2,5,11; 9.7: 1,7,9<br><br>
+
+18.49, 18.70, 18.72, 18.82 y 18.83 de este archivo https://statweb.stanford.edu/~tibs/stat315a/Supplements/bootstrap.pdf
+
       </td>
+
   </tr>
      <tr>
     <td> 22 y 25 de junio  </td>
@@ -190,8 +194,4 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  </td> 
     <td>  Lista de ejercicios en las notas de clase </td>
   </tr> 
-</table> 
-
-
-
-  
+</table>
