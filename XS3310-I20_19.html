@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-07-06" />
+    <meta name="date" content="2021-07-09" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-07-06
+### 2021-07-09
 
 ---
 
@@ -389,7 +389,7 @@ entonces decimos que `\(\psi\)` es una familia conjugada de previas.
 
 La función de densidad de una Poisson es `\(P(X_i = k) = e^{-\lambda}\dfrac{\lambda^k}{k!}\)`. La verosimilitud corresponde a 
 
-`$$f_n(X|\lambda) = \prod_{i=1}^{n}e^{-\lambda}\dfrac{\lambda^X_i}{X_i!}= \dfrac{e^{-n\lambda^y}}{\prod_{i=1}^n X_i}.$$`
+`$$f_n(X|\lambda) = \prod_{i=1}^{n}e^{-\lambda}\dfrac{\lambda^X_i}{X_i!}= \dfrac{\lambda^{\sum X_i} e^{-n}}{\prod_{i=1}^n X_i}= \dfrac{\lambda^{y} e^{-n}}{\prod_{i=1}^n X_i}.$$`
 La previa de `\(\lambda\)` está definida por `\(\pi(\lambda)\propto\lambda^{\alpha-1}e^{-\beta\lambda}\)`. Por lo tanto, la posterior es
 
 `$$\pi(\lambda|X) \propto \lambda^{y+\alpha-1}e^{-(\beta+n)\lambda} \implies\lambda|X \sim\Gamma(y+\alpha,\beta+n)$$` 
@@ -405,13 +405,14 @@ Combina de manera ponderada la previa y la de los datos.
 
 **Ejemplo**
 
-Considere una verosimilitud Poisson($\lambda$) y una previa
-`$$\pi(\lambda) = \begin{cases}2e^{-2\lambda} &amp; \lambda&gt; 0 \\ 0 &amp; \lambda \geq 0\end{cases} \quad \lambda \sim \Gamma(1,2)$$`
+Considere una verosimilitud Poisson( `\(\lambda\)`) y una previa
+`$$\pi(\lambda) = \begin{cases}2e^{-2\lambda} &amp; \lambda&gt; 0 \\ 0 &amp; \lambda \leq 0\end{cases} \quad \lambda \sim \Gamma(1,2)$$`
 
 Supongamos que es una muestra aleatoria de tamaño `\(n\)`. ¿Cuál es el número de observciones para reducir la varianza, a lo sumo, a 0.01?
 
 Por teorema de Bayes, la posterior `\(\lambda|x \sim \Gamma(y+1,n+2)\)`. Luego, la varianza de la Gamma es
-`$$\dfrac{\alpha}{\beta^2} = \dfrac{\sum x_i + 1}{(n+2)^2} \leq 0.01 \implies \dfrac{1}{(n+2)^2} \leq \dfrac{\sum x_i + 1}{(n+2)^2} \leq 0.01 \implies 100 \leq (n+2)^2 \implies n\geq 8$$`
+`$$\dfrac{\alpha}{\beta^2} = \dfrac{\sum x_i + 1}{(n+2)^2} \leq 0.01 \implies \dfrac{1}{(n+2)^2} \leq \dfrac{\sum x_i + 1}{(n+2)^2} \leq 0.01$$`
+`$$\hspace{5.5 cm}\implies 100 \leq (n+2)^2 \implies n\geq 8$$`
 
 
 ---
@@ -424,7 +425,7 @@ Por teorema de Bayes, la posterior `\(\lambda|x \sim \Gamma(y+1,n+2)\)`. Luego, 
 
 * **Verosimilitud**:
 
-`$$f_n(X|\theta) \propto \exp\left[- \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(X_i\theta)^2\right]$$`
+`$$f_n(X|\theta) \propto \exp\left[- \dfrac{1}{2\sigma^2} \sum_{i=1}^{n}(X_i-\theta)^2\right]$$`
 Luego, 
 `\(\begin{align*}\sum_{i=1}^n (X_i-\theta)^2 &amp; = \sum_{i=1}^n (X_i-\bar X + \bar X - \theta)^2 \\&amp; = n(\bar X + \theta)^2 + \sum_{i=1}^n (X_i-\bar X)^2 + \underbrace{2 \sum_{i=1}^n (X_i-\bar X)(\bar X - \theta)}_{= 0 \text{ pues } \sum Xi = n\bar X)}\end{align*}\)`
 
@@ -544,9 +545,9 @@ Donde `\(c\)` es una constante positiva mayor a cero que asegura que esta funci�
 
 ### Previas no informativas
 	
-Ejemplo: Sea `\(X_1 , X_2 , ... , X_n\)` una muestra aleatoria tal que `\(X_j \sim N(\mu,1)\)`. Encuentre la previa de Jeffreys para `\(\mu\)`. 
+**Ejemplo:** Sea `\(X_1 , X_2 , ... , X_n\)` una muestra aleatoria tal que `\(X_j \sim N(\mu,1)\)`. Encuentre la previa de Jeffreys para `\(\mu\)`. 
 	
-Solución: Recordemos la función de densidad de una Normal:
+**Solución:** Recordemos la función de densidad de una Normal:
 	
 `$$f_{X}(x|\mu) = \sqrt{2\pi} e^{-\frac{(x-\mu)^{2}}{2}}$$`
 	
@@ -604,7 +605,7 @@ Hay un par de puntos importantes de destacar cuando se usa la previa de Jeffreys
 
 Sustituyendo, `\(\alpha=\beta = 0\)`
 
-`\(\begin{align*}\pi(\lambda) &amp;= \dfrac{1}{\Gamma(\alpha)}\beta^\alpha\lambda^{\alpha-1}e^{\beta\lambda}  \\ \\ \propto \lambda^{\alpha-1}e^{-\lambda\beta} \\&amp;=\dfrac{1}{\lambda}\end{align*}\)`
+`\(\begin{align*}\pi(\lambda) &amp;= \dfrac{1}{\Gamma(\alpha)}\beta^\alpha\lambda^{\alpha-1}e^{-\beta\lambda}  \\ \\ \propto \lambda^{\alpha-1}e^{-\lambda\beta} \\&amp;=\dfrac{1}{\lambda}\end{align*}\)`
 
 donde `\(\displaystyle\int_{0}^{\infty}\dfrac{1}{\lambda} d\lambda = \infty\)`. 
 
@@ -645,7 +646,7 @@ $$ \delta^*(X_1,\dots, X_n) = \mathbb{E}[\theta|X] \text{ cuando } L(\theta,a) =
 
 **Ejemplo**: `\(X_1,\dots, X_n \sim \text{Ber}(\theta)\)`, `\(\theta \sim \text{Beta}(\alpha,\beta) \implies \theta|X \sim \text{Beta}(\alpha+y,\beta+n-y)\)`.
 
-El estimador de `\(\theta\)` es
+El estimador bayesiano de `\(\theta\)` es
 $$ \delta^*(X_1,\dots, X_n) = \dfrac{\alpha+y}{\alpha + \beta + n} = \overbrace{\dfrac{\alpha}{\alpha + \beta} }^{\text{Esperanza previa}}\cdot \dfrac{\alpha +\beta}{\alpha +\beta + n} + \overbrace{\dfrac{y}{n}}^{\bar X}\cdot \dfrac{n}{\alpha +\beta + n}.  $$
 
 
@@ -655,12 +656,15 @@ $$ \delta^*(X_1,\dots, X_n) = \dfrac{\alpha+y}{\alpha + \beta + n} = \overbrace{
 $$ L(\theta,a) = |\theta-a|$$
 
 La pérdida esperada es
-`$$f(a) = \mathbb{E}[L(\theta,a)|X] = \int_{-\infty}^{+\infty}|\theta-a|\pi(\theta|X)\;d\theta = \int_{a}^{+\infty}(\theta-a)\pi(\theta|X)\;d\theta + \int_{-\infty}^{a}(a-\theta)\pi(\theta|X)\;d\theta$$`
+`$$f(a) = \mathbb{E}[L(\theta,a)|X] = \int_{-\infty}^{+\infty}|\theta-a|\pi(\theta|X)\;d\theta$$` 
+`$$\hspace{3.6cm}= \int_{a}^{+\infty}(\theta-a)\pi(\theta|X)\;d\theta + \int_{-\infty}^{a}(a-\theta)\pi(\theta|X)\;d\theta$$`
 
 Usando el teorema fundamental del cálculo,
 `$$F_{\pi}(a|X) = \int_{-\infty}^{\hat a}\pi(\theta|X)\;d\theta = \dfrac12 \Leftrightarrow \hat a= \operatorname*{argmin}_a f(a)$$`
 
 La **mediana** es el punto de `\(X_{0.5}\)` tal que `\(F(X_{0.5}) = \dfrac{1}{2}\)`.
+
+---
 
 **Corolario**. Bajo la función de pérdida absoluta, el estimador bayesiano es la mediana posterior.
 
@@ -668,7 +672,6 @@ La **mediana** es el punto de `\(X_{0.5}\)` tal que `\(F(X_{0.5}) = \dfrac{1}{2}
 `$$\dfrac{1}{\text{Beta}(\alpha+y, \beta+n-y)}\int_{-\infty}^{X_{0.5}}\theta^{\alpha+y-1} (1-\theta)^{\beta+n-y-1}\;d\theta = \dfrac12$$`
 Resuelva para `\(X_{0.5}\)`.
 
----
 
 ### Otras funciones de pérdida
 
@@ -703,11 +706,11 @@ La media es `\(\bar X_n = \dfrac{10}{100} = 0.1\)`.
 
 Bajo pérdida cuadrática, `\(\mathbb{E}[\theta|X] = W_1\mathbb{E}[\theta] + X_2\bar X_n = \delta^*\)`. Sabemos, por ley de grandes números, que `\(\bar X_n \xrightarrow[n\to \infty]{\mathbb{P}}\theta\)`. Además, `\(W_1\xrightarrow[n\to \infty]{}0\)` y  `\(W_2\xrightarrow[n\to \infty]{}1\)`. 
 
-En los ejemplos que hemos analizado 
-$$\delta^* \xrightarrow[n\to \infty]{\mathbb{P}}\theta $$
+En los ejemplos que hemos analizado `\(\delta^* \xrightarrow [n\to \infty]{\mathbb{P}}\theta\)`
+
 **Teorema**. Bajo condiciones generales, los estimadores bayesianos son consistentes.
 
-**Estimador**. Si `\(X_1,\dots, X_n\)` es una muestra en un modelo indexado por `\(\theta\)`, `\(\theta \in \Omega\)` ($k$-dimensiones), sea
+**Estimador**. Si `\(X_1,\dots, X_n\)` es una muestra en un modelo indexado por `\(\theta\)`, `\(\theta \in \Omega\)` ( `\(k\)` -dimensiones), sea
 
 `$$h:\Omega \to H \subset \mathbb{R}^d.$$`
 Sea `\(\psi = h(\theta)\)`. Un **estimador** de `\(\psi\)` es un estadístico `\(\delta^*(X_1,\dots, X_n) \in H\)`. A `\(\delta^*(X_1,\dots, X_n)\)` estimador de `\(\psi\)` se puede evaluar y construir estimadores nuevos.
@@ -899,7 +902,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 8.571889
+## [1] 10.1084
 ```
 
 ```r
@@ -907,7 +910,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 1.14847
+## [1] 0.3205709
 ```
 
 ```r
@@ -944,7 +947,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 5.954103
+## [1] 9.773607
 ```
 
 ```r
@@ -952,7 +955,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 0.305392
+## [1] 0.03312068
 ```
 
 
@@ -985,7 +988,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 9.849961
+## [1] 9.816121
 ```
 
 ```r
@@ -993,7 +996,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 0.9768945
+## [1] 0.9740788
 ```
 
 ```r
@@ -1026,7 +1029,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 9.75685
+## [1] 9.723858
 ```
 
 ```r
@@ -1034,7 +1037,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 0.009453017
+## [1] 0.009399114
 ```
 
 ---
@@ -1063,7 +1066,7 @@ x &lt;- rnorm(n = 10, mean = 10, sd = 5)
 ```
 
 ```
-## [1] 10.90021
+## [1] 9.564574
 ```
 
 ```r
@@ -1071,7 +1074,7 @@ x &lt;- rnorm(n = 10, mean = 10, sd = 5)
 ```
 
 ```
-## [1] 4.769221
+## [1] 5.28527
 ```
 
 ```r
@@ -1127,7 +1130,7 @@ mu_posterior
 ```
 
 ```
-## [1] 3.328769
+## [1] 2.521367
 ```
 
 ```r
@@ -1135,7 +1138,7 @@ mu_posterior
 ```
 
 ```
-## [1] 0.6946143
+## [1] 0.7363848
 ```
 
 ---
@@ -1176,13 +1179,13 @@ m &lt;- rgamma(n = 1000, scale = beta, shape = alpha)
 ```
 
 ```
-## [1] 318209.8
+## [1] 317623
 ```
 
 ---
 ### Funciones de pérdida
 
-Y por lo tanto el tiempo promedio del componente electrónico es `\(1/\theta = 3.1425806\times 10^{-6}\)`.
+Y por lo tanto el tiempo promedio del componente electrónico es `\(1/\theta = 3.1483862\times 10^{-6}\)`.
 
 **OJO: En este caso la pérdida cuadrática ajusta mejor ya que la distribución que la pérdida absoluta ya que la distribución NO es simétrica. En el caso simétrico los resultados serían muy similares.** 
 
