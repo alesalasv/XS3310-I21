@@ -4,7 +4,7 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-07-09" />
+    <meta name="date" content="2021-07-13" />
     <script src="libs/header-attrs-2.9/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 # XS3310 Teoría Estadística
 ## I Semestre 2021
 ### Escuela de Estadística
-### 2021-07-09
+### 2021-07-13
 
 ---
 
@@ -692,7 +692,7 @@ Resuelva para `\(X_{0.5}\)`.
 
 $$ \mathbb{E}[\theta|X] = \dfrac{\alpha+y}{\alpha+\beta+n} = \dfrac{1+10}{2+100} = 0.108$$
 
-* Segunda previa. `\(\alpha =1, \beta=2 \implies \pi(\theta) = 2e^{-2\theta}, \theta &gt;0\)`.
+* Segunda previa. `\(\alpha =1, \beta=2\)`.
 
 $$ \mathbb{E}[\theta|X] = \dfrac{1+10}{1+2+100} = \dfrac{11}{103}=0.107$$
 
@@ -704,7 +704,7 @@ La media es `\(\bar X_n = \dfrac{10}{100} = 0.1\)`.
 
 **Definición**. Un estimador de `\(\theta\)` `\(\delta(X_1,\dots, X_n)\)` es consistente si  `$$\delta(X_1,\dots, X_n)\xrightarrow[n\to \infty]{\mathbb{P}}\theta.$$`
 
-Bajo pérdida cuadrática, `\(\mathbb{E}[\theta|X] = W_1\mathbb{E}[\theta] + X_2\bar X_n = \delta^*\)`. Sabemos, por ley de grandes números, que `\(\bar X_n \xrightarrow[n\to \infty]{\mathbb{P}}\theta\)`. Además, `\(W_1\xrightarrow[n\to \infty]{}0\)` y  `\(W_2\xrightarrow[n\to \infty]{}1\)`. 
+Bajo pérdida cuadrática, `\(\mathbb{E}[\theta|X] = W_1\mathbb{E}[\theta] + W_2\bar X_n = \delta^*\)`. Sabemos, por ley de grandes números, que `\(\bar X_n \xrightarrow[n\to \infty]{\mathbb{P}}\theta\)`. Además, `\(W_1\xrightarrow[n\to \infty]{}0\)` y  `\(W_2\xrightarrow[n\to \infty]{}1\)`. 
 
 En los ejemplos que hemos analizado `\(\delta^* \xrightarrow [n\to \infty]{\mathbb{P}}\theta\)`
 
@@ -732,7 +732,7 @@ Por otro lado, vea que `\(\mathbb{E}(\theta|X) = \dfrac{4}{8.6}\)`. El estimador
 
 ### Distribución previa 
 
-En nuestro ejemplo se tenía que `\(\mathbb E [\theta] = 0.0002\)` y `\(\mathrm{Var}(\theta) = 0.001\)`. Suponiendo que `\(\theta\)` es gamma se puede resolver el sistema de ecuaciones obtenemos que `\(\beta=20000\)` y `\(\alpha=4\)`. 
+En nuestro ejemplo se tenía que `\(\mathbb E [\theta] = 0.0002\)` y `\(\mathrm{Var}(\theta) = 0.0001\)`. Suponiendo que `\(\theta\)` es gamma se puede resolver el sistema de ecuaciones obtenemos que `\(\beta=20000\)` y `\(\alpha=4\)`. 
 
 ---
 
@@ -902,7 +902,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 10.1084
+## [1] 10.8927
 ```
 
 ```r
@@ -910,7 +910,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 0.3205709
+## [1] 1.043042
 ```
 
 ```r
@@ -947,7 +947,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 9.773607
+## [1] 7.99379
 ```
 
 ```r
@@ -955,7 +955,7 @@ x &lt;- rnorm(n=3, mean = 10, sd = 1)
 ```
 
 ```
-## [1] 0.03312068
+## [1] 0.2661334
 ```
 
 
@@ -988,7 +988,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 9.816121
+## [1] 10.04699
 ```
 
 ```r
@@ -996,7 +996,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 0.9740788
+## [1] 1.171602
 ```
 
 ```r
@@ -1029,7 +1029,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 9.723858
+## [1] 9.910945
 ```
 
 ```r
@@ -1037,7 +1037,7 @@ x &lt;- rnorm(n = 100, mean = 10, sd = 1);(mu &lt;- mean(x))
 ```
 
 ```
-## [1] 0.009399114
+## [1] 0.01354064
 ```
 
 ---
@@ -1066,7 +1066,7 @@ x &lt;- rnorm(n = 10, mean = 10, sd = 5)
 ```
 
 ```
-## [1] 9.564574
+## [1] 8.701542
 ```
 
 ```r
@@ -1074,7 +1074,7 @@ x &lt;- rnorm(n = 10, mean = 10, sd = 5)
 ```
 
 ```
-## [1] 5.28527
+## [1] 5.463652
 ```
 
 ```r
@@ -1130,7 +1130,7 @@ mu_posterior
 ```
 
 ```
-## [1] 2.521367
+## [1] 2.183492
 ```
 
 ```r
@@ -1138,7 +1138,7 @@ mu_posterior
 ```
 
 ```
-## [1] 0.7363848
+## [1] 0.7490684
 ```
 
 ---
@@ -1156,7 +1156,7 @@ alpha &lt;- 9
 beta &lt;- 36178
 ```
 
-- **Pérdida cuadrática:** Recoremos que la media de una gamma es `\(\alpha/\beta\)` entonces 
+- **Pérdida cuadrática:** Recordemos que la media de una gamma es `\(\alpha/\beta\)` entonces 
 
 
 ```r
@@ -1179,13 +1179,13 @@ m &lt;- rgamma(n = 1000, scale = beta, shape = alpha)
 ```
 
 ```
-## [1] 317623
+## [1] 315152.3
 ```
 
 ---
 ### Funciones de pérdida
 
-Y por lo tanto el tiempo promedio del componente electrónico es `\(1/\theta = 3.1483862\times 10^{-6}\)`.
+Y por lo tanto el tiempo promedio del componente electrónico es `\(1/\theta = 3.1730689\times 10^{-6}\)`.
 
 **OJO: En este caso la pérdida cuadrática ajusta mejor ya que la distribución que la pérdida absoluta ya que la distribución NO es simétrica. En el caso simétrico los resultados serían muy similares.** 
 
@@ -1291,7 +1291,7 @@ hist(horas_sueno,main = "")
 ---
 Ahora supongamos que se tiene quiere ajustar una previa continua a este modelo. Para esto usaremos una distribución Beta con parámetros `\(\alpha\)` y `\(\beta\)`, de la forma 
 
-`$$pi(p\vert \alpha, \beta) \propto p^{1-\alpha} (1-p)^{1-\beta}.$$`
+`$$\pi(p\vert \alpha, \beta) \propto p^{1-\alpha} (1-p)^{1-\beta}.$$`
 
 El ajuste de los paramétros de la Beta depende mucho de la información previa que se tenga del modelo. Una forma fácil de estimarlo es a través de cuantiles con los cuales se puede reescribir estos parámetros. Para una explicación detallada revisar https://stats.stackexchange.com/a/237849
 
