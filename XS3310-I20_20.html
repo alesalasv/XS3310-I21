@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
-    <meta name="author" content="" />
-    <meta name="date" content="2020-06-23" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Escuela de Estadística" />
+    <meta name="date" content="2021-07-16" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2020
-### 2020-06-23
+## I Semestre 2021
+### Escuela de Estadística
+### 2021-07-16
 
 ---
 
@@ -30,77 +31,8 @@ Introducción a la Estadística Bayesiana: filosofía, historia y un poco de cá
 
 # ¿Qué vamos a discutir hoy?
 
-Distribuciones previas (Jeffreys), inferencia Bayesiana.
+Inferencia Bayesiana.
 
-
----
-
-# Previas no informativas
-	
-Este tipo de previa es posiblemente el más utilizado en la práctica. Con modelos relativamente simples utilizar una previa no informativa por lo general brinda resultados muy similares a los resultados frecuentistas, mientras que con modelos jerárquicos más complejos los resultados sí pueden ser más distintos. No obstante, la mayoría del tiempo en que se quiere hacer inferencia sobre parámetros desconocidos no se tiene mucha información al respecto, aparte de un posible rango en donde se puedan encontrar; por esto es más atractivo utilizar una previa no informativa. Diremos que una previa es no informativa si le da la libertad a los datos de encontrar los mejores valores de los parámetros. 
-	
-Por mucho tiempo se tuvo la idea de que las previas no informativas eran exclusivamente las uniformes, pues asignaban probabilidades iguales a cualquier parámetro. Sin embargo, hay quienes criticaron esto, como Fisher, diciendo que no es posible que la uniforme sea siempre no informativa. 
-
----
-
-# Previas no informativas
-	
-
-El argumento de Fisher era algo así:
-	
-&gt;	Supongamos que tenemos un parámetro desconocido `\(\theta\)` que representa la probabilidad de éxito de un experimento Bernoulli. Supongamos que no sabemos nada de `\(\theta\)` entonces decimos que `\(\theta \sim Unif(0,1)\)`. Ahora, si no sabemos nada de `\(\theta\)` entonces tampoco sabemos nada de `\(\lambda = -\ln(\theta)\)`, por lo que también podríamos preferir una previa uniforme para `\(\lambda\)`. Sería lógico pensar que, mediante las técnicas de transformaciones, la transformación aplicada a la previa de `\(\theta\)` llegue a la previa de `\(\lambda\)`. Sin embargo hay un problema lógico pues si aplicamos las técnicas de transformación a la previa de `\(\theta\)` no vamos a llegar a la misma previa de `\(\theta\)`. Esto sugiere que una distribución uniforme no es un buen ejemplo de una previa no informativa. 
-
----
-
-# Previas no informativas
-	
-Un tipo de previa no informativa es la **previa de Jeffreys**. Estas hacen uso de la Información de Fisher, previamente utilizada en el Tema 1. Por lo tanto, si tenemos una muestra aleatoria `\(X_1 , X_2 , ... , X_n\)` de una población con función de densidad `\(f_{X}(x|\theta)\)` entonces la información de Fisher se define como:
-	
-`$$I(\theta) = -E\left[ \frac{\partial^{2} \ln(f_{X}(x|\theta)) }{\partial \theta^{2}} \right]$$`
-	
-Por lo tanto, la previa de Jeffreys se define como:
-	
-`$$\pi_{J}(\theta) = c\sqrt{I(\theta)}$$`
-	
-Donde `\(c\)` es una constante positiva mayor a cero que asegura que esta función de densidad integra a uno. Como `\(c\)` es constante entonces podemos decir que `\(\pi_{J}(\theta) \propto \sqrt{I(\theta)}\)`, por lo que muchas veces no nos importa el valor de `\(c\)` para encontrar la distribución a posteriori a partir de la previa de Jeffreys. 
-
----
-
-# Previas no informativas
-	
-Ejemplo: Sea `\(X_1 , X_2 , ... , X_n\)` una muestra aleatoria tal que `\(X_j \sim N(\mu,1)\)`. Encuentre la previa de Jeffreys para `\(\mu\)`. 
-	
-Solución: Recordemos la función de densidad de una Normal:
-	
-`$$f_{X}(x|\mu) = \sqrt{2\pi} e^{-\frac{(x-\mu)^{2}}{2}}$$`
-	
-Por lo que el logaritmo natural de esta sería:
-	
-`$$\ln(f_{X}(x|\mu))  = \frac{1}{2}\ln(2\pi) - \frac{(x-\mu)^{2}}{2}$$`
-	
-Derivamos dos veces con respecto a `\(\mu\)`:
-	
-`$$\frac{\partial \ln(f_{X}(x|\mu)) }{\partial \mu} = x - \mu$$`
-	
-`$$\Rightarrow \frac{\partial^{2} \ln(f_{X}(x|\mu)) }{\partial \mu^{2}} = -1$$`
-	
----
-
-# Previas no informativas
-	
-
-Finalmente obtenemos
-	
-`$$I(\mu) = 1$$`
-	
-Por lo tanto, podemos concluir que `\(\pi_{J}(\theta) \propto 1\)`, es decir, es proporcional a una constante. Por lo tanto, la previa de Jeffreys para estimar a `\(\mu\)` sería una distribución Uniforme, escogida en un rango bastante amplio. 
-
-Hay un par de puntos importantes de destacar cuando se usa la previa de Jeffreys. El primero de ellos es que no siempre se va a llegar a una función de densidad propia (es decir, una función de densidad que integre a 1 en su dominio). Por lo general se ignora este problema si la posteriori si es propia. Por lo tanto, siempre que se vaya a utilizar una previa impropia hay que revisar que la posteriori sea propia, si no los resultados no tendrían sentido. El segundo punto es un poco más filosófico y trata con el hecho de que las previas se deben elegir antes de ver los datos. La previa de Jeffreys usa la distribución de los datos para encontrar una previa lo que contradice lo que muchos dicen sobre el planteamiento de la previa. 
-
----
-class: center, middle, inverse
-
-# Inferencia Bayesiana
 
 ---
 
@@ -119,13 +51,13 @@ En estadística Bayesiana se tiene el inconveniente de que tenemos incertidumbre
 
 En los ejemplos que vimos anteriormente donde encontrábamos la distribución a posteriori y calculamos los valores esperados de esta, lo que realmente estábamos haciendo era obteniendo el estimador de Bayes. A estos estimadores se le pueden volver a estudiar todas las propiedades que ya vimos en el curso (Insesgado, Eficiente, Consistente y Suficiente) e incluso comparar contra otros estimadores frecuentistas. 
 	
-Por lo general, los estimadores puntuales Bayesianos están asociados a una **función de pérdida**, denotada como `\(\ell(\hat{\theta},\theta)\)`, que mide la penalización en la que se incurre al utilizar `\(\hat{\theta}\)` para estimar `\(\theta\)`. La función de pérdida más común es la de pérdida cuadrática que se define como `\(\ell(\hat{\theta},\theta) = (\hat{\theta}-\theta)^{2}\)`. 
+Por lo general, los estimadores puntuales Bayesianos están asociados a una **función de pérdida**, denotada como `\(L(\hat{\theta},\theta)\)`, que mide la penalización en la que se incurre al utilizar `\(\hat{\theta}\)` para estimar `\(\theta\)`. La función de pérdida más común es la de pérdida cuadrática que se define como `\(L(\hat{\theta},\theta) = (\hat{\theta}-\theta)^{2}\)`. 
 	
 ---
 
 ## Estimación puntual
 
-El objetivo es encontrar el valor de `\(\hat{\theta}\)` que minimice `\(E\left( \ell(\hat{\theta},\theta) \,\middle|\, x \right) = \int \ell(\hat{\theta},\theta) \pi(\theta|x) d\theta\)`, llamado el riesgo Bayesiano a posteriori. Por lo tanto, podemos ver que el estimador de Bayes que minimiza el riesgo Bayesiano utilizando la función de pérdida cuadrática se obtiene minimizando la expresión
+El objetivo es encontrar el valor de `\(\hat{\theta}\)` que minimice `\(E\left( L(\hat{\theta},\theta) \,\middle|\, x \right) = \int L(\hat{\theta},\theta) \pi(\theta|x) d\theta\)`, llamado el riesgo Bayesiano a posteriori. Por lo tanto, podemos ver que el estimador de Bayes que minimiza el riesgo Bayesiano utilizando la función de pérdida cuadrática se obtiene minimizando la expresión
 	
 `$$\int (\hat{\theta}-\theta)^{2} \pi(\theta|x) d\theta = E\left( (\hat{\theta}-\theta)^{2} \,\middle|\, x \right)$$`
 	
@@ -176,9 +108,9 @@ El valor `\(c\)` se encuentra de forma que `\(P(\theta \in H(c) | x) = 1- \alpha
 	
 Veremos un ejemplo para in intervalo de credibilidad de colas iguales: 
 	
-Ejemplo: Sea `\(X_1 , X_2 , ... , X_n\)` una muestra aleatoria tal que `\(X_j \sim N(\mu,\sigma^2)\)`, donde `\(\sigma^{2}\)` es conocido. Obtenga un intervalo de credibilidad de colas iguales para `\(\mu\)` de probabilidad `\(1-\alpha\)` utilizando como priori una distribución Uniforme. 
+**Ejemplo:** Sea `\(X_1 , X_2 , ... , X_n\)` una muestra aleatoria tal que `\(X_j \sim N(\mu,\sigma^2)\)`, donde `\(\sigma^{2}\)` es conocido. Obtenga un intervalo de credibilidad de colas iguales para `\(\mu\)` de probabilidad `\(1-\alpha\)` utilizando como priori una distribución Uniforme. 
 	
-Solución: Lo primero que tenemos que hacer es encontrar la distribución a posteriori para `\(\mu\)`. Como la priori es uniforme entonces tenemos que 
+**Solución:** Lo primero que tenemos que hacer es encontrar la distribución a posteriori para `\(\mu\)`. Como la priori es uniforme entonces tenemos que 
 	
 `$$\pi(\mu|x) \propto \mathcal{L}(\mu|x) = (2\pi)^{-\frac{n}{2}} (\sigma^2)^{-\frac{n}{2}} e^{-\frac{\sum (x_j - \mu)^{2} }{2\sigma^2}} \propto e^{-\frac{\sum (x_j - \mu)^{2} }{2\sigma^2}}$$`
 	
@@ -225,9 +157,9 @@ Por lo tanto un contraste de hipótesis Bayesiano usualmente se reduce a compara
 ## Factor de Bayes
 
 	
-La cantidad `\(\frac{\alpha_{0}}{\alpha_{1}}\)` se define como los *odds* a posteriori de `\(H_0\)` con respecto a `\(H_1\)`. Por otro lado podemos definir `\(\frac{\pi_{0}}{\pi_{1}}\)` como los \textit{odds} a priori. Por lo tanto podemos definir la medida 
+La cantidad `\(\frac{\alpha_{0}}{\alpha_{1}}\)` se define como los *odds* a posteriori de `\(H_0\)` con respecto a `\(H_1\)`. Por otro lado podemos definir `\(\frac{\pi_{0}}{\pi_{1}}\)` como los *odds* a priori. Por lo tanto podemos definir la medida 
 	
-`$$B = \frac{\frac{\alpha_{0}}{\alpha_{1}}}{\frac{\pi_{0}}{\pi_{1}}} = \frac{\alpha_{0}\pi_{1}}{\alpha_{1}pi_{0}}$$`
+`$$B = \frac{\frac{\alpha_{0}}{\alpha_{1}}}{\frac{\pi_{0}}{\pi_{1}}} = \frac{\alpha_{0}\pi_{1}}{\alpha_{1}\pi_{0}}$$`
 	
 como los *odds ratio* a favor de `\(H_0\)`. Este valor se denomina el **factor de Bayes**. En ocasiones este factor se interpreta como "los odds de `\(H_0\)` con respecto a `\(H_1\)` dados por los datos".  Esta interpretación es válida cuando las hipótesis son simples es decir, cuando `\(\Omega_{0} = \left\lbrace \theta_0\right\rbrace\)` y `\(\Omega_{1} = \left\lbrace \theta_1\right\rbrace\)`. En este caso tenemos que 
 	
@@ -248,7 +180,7 @@ Por lo tanto,
 	
 En otras palabras, `\(B\)` equivale a la razón de verosimilitudes de `\(H_0\)` con respecto a `\(H_1\)`, la cual usualmente es interpretada como los odds de `\(H_0\)` con respecto a `\(H_1\)` dados por los datos, incluso por estadísticos frecuentistas. Sin embargo, cuando las hipótesis no son simples resulta que el factor de Bayes es distinto al estadístico de la razón de verosimilitudes pues este cubre todos los posibles valores de `\(\theta\)` en `\(\Omega_{0}\)` y `\(\Omega_{1}\)` en lugar de solo tomar en cuenta sus estimadores máximo verosímiles.
 	
-Si `\(B &gt; 1\)` esto indica que `\(H_0\)` es más apoyado por los datos que `\(H_1\)` mientras que si `\(B &lt; 1\)` entonces los datos apoyan más a `\(H_1\)` que a `\(H_0\)`. El Cuadro 2 presenta la escala que desarrolló Jeffreys, enmendada por Kass y Raftery, para medir la magnitud del apoyo a `\(H_0\)` o `\(H_1\)`.
+Si `\(B &gt; 1\)` esto indica que `\(H_0\)` es más apoyado por los datos que `\(H_1\)`, mientras que, si `\(B &lt; 1\)` los datos apoyan más a `\(H_1\)` que a `\(H_0\)`. El Cuadro 2 presenta la escala que desarrolló Jeffreys, enmendada por Kass y Raftery, para medir la magnitud del apoyo a `\(H_0\)` o `\(H_1\)`.
 
 ---
 
@@ -273,9 +205,9 @@ Factor de Bayes    | Interpretación                  |
 ## Factor de Bayes
 
 
-Ejemplo: Retornemos al ejemplo de los apartamentos donde `\(\theta\)` solo podía tomar los valores 2, 2.5 y 3. Supongamos que se quiere contrastar las hipótesis `\(H_0: \theta = 2\)` contra `\(H_1: \theta &gt; 2\)`. 
+**Ejemplo:** Retornemos al ejemplo de los apartamentos donde `\(\theta\)` solo podía tomar los valores 2, 2.5 y 3. Supongamos que se quiere contrastar las hipótesis `\(H_0: \theta = 2\)` contra `\(H_1: \theta &gt; 2\)`. 
 
-Solución: Como ya para ese ejemplo obtuvimos la función de probabilidad a posteriori entonces podemos calcular las probabilidades de cada hipótesis:
+**Solución:** Como ya para ese ejemplo obtuvimos la función de probabilidad a posteriori entonces podemos calcular las probabilidades de cada hipótesis:
 	
 `$$\alpha_0 = P(\theta = 2|x) = 0.416$$`
 `$$\alpha_1 = P(\theta &gt; 2 | x) = P(\theta = 2.5|x) + P(\theta = 3|x) = 0.311 + 0.273 = 0.584 = 1 - \alpha_0$$` 
@@ -289,42 +221,40 @@ Comparando únicamente estos dos valores vemos que preferimos a `\(H_1\)` sobre 
 	
 `$$\frac{\pi_{0}}{\pi_{1}} = \frac{\pi_0}{1-\pi_0} = \frac{0.50}{0.50} = 1$$`
 
-`$$\frac{\alpha_{0}}{\alpha_{1}} = \frac{\alpha_{0}}{1-\alpha_{0}} = \frac{0.416}{0.584} = 0.713$$`
+`$$\frac{\alpha_{0}}{\alpha_{1}} = \frac{\alpha_{0}}{1-\alpha_{0}} = \frac{0.416}{0.584} = 0.712$$`
 	
-`$$\Rightarrow B = \frac{0.713}{1} = 0.713$$`
+`$$\Rightarrow B = \frac{0.713}{1} = 0.712$$`
 
-Es decir, tenemos que los odds de `\(H_0\)` a posteriori disminuyeron un `\(28.7\%\)` al pasar de la información a priori a la información a posteriori. Es decir, nuestros datos brindaron evidencia a favor de la hipótesis alterna. Viendo la escala del Cuadro 2 vemos que en este caso tenemos evidencia débil a favor de `\(H_1\)`. 
+Es decir, tenemos que los odds de `\(H_0\)` a posteriori disminuyeron un `\(28.8\%\)` al pasar de la información a priori a la información a posteriori. Es decir, nuestros datos brindaron evidencia a favor de la hipótesis alterna. Viendo la escala del Cuadro 2 vemos que en este caso tenemos evidencia débil a favor de `\(H_1\)`. 
 
 ---
 
 ## Factor de Bayes
 
 	
-Ejemplo: Sea `\(X_1 , X_2 , X_3 , X_4\)` una muestra aleatoria tal que `\(X_j \sim N(\mu, 1)\)`. Suponiendo que se utilizó una priori Uniforme(0,30) para `\(\mu\)` y quieren contrastar las hipótesis `\(H_{0}: \mu \geq 14\)` contra `\(H_{1}: \mu &lt; 14\)`, encuentre el factor de Bayes. Suponga que de la muestra se obtuvo que `\(\overline{x} = 15.3\)`. 
+**Ejemplo:** Sea `\(X_1 , X_2 , X_3 , X_4\)` una muestra aleatoria tal que `\(X_j \sim N(\mu, 1)\)`. Suponiendo que se utilizó una priori Uniforme(0,30) para `\(\mu\)` y quieren contrastar las hipótesis `\(H_{0}: \mu \geq 14\)` contra `\(H_{1}: \mu &lt; 14\)`, encuentre el factor de Bayes. Suponga que de la muestra se obtuvo que `\(\overline{x} = 15.3\)`. 
 	
-Solución: Sabemos que con esta priori entonces `\(\mu|x \sim N\left( \overline{x},\frac{1}{n}\right)\)`, por lo tanto con los datos que observamos de la muestra tenemos que
+**Solución:** Sabemos que con esta priori entonces `\(\mu|x \sim N\left( \overline{x},\frac{1}{n}\right)\)`, por lo tanto con los datos que observamos de la muestra tenemos que
 	
 `$$\mu|x \sim N(15.3; 0.25 )$$`
 	
-Ya que conocemos la priori y la posteriori de `\(\mu\)` debemos calcular las probabilidades de las hipótesis a prioi y a posteriori. Como la priori es una uniforme entonces tenemos que `\(\pi_0 = P(\mu \geq 14) = \frac{30-14}{30} = 0.533\)`. Por lo tanto se cumple que `\(\pi_1 = P(\mu &lt; 14) = 1 - \pi_0 = 0.467\)`. Por lo tanto, los odds a priori son `\(\frac{0.533}{0.467} = 1.143\)`. 
+Ya que conocemos la priori y la posteriori de `\(\mu\)` debemos calcular las probabilidades de las hipótesis a priori y a posteriori. Como la priori es una uniforme entonces tenemos que `\(\pi_0 = P(\mu \geq 14) = \frac{30-14}{30} = 0.533\)`. Por lo tanto se cumple que `\(\pi_1 = P(\mu &lt; 14) = 1 - \pi_0 = 0.467\)`. Por lo tanto, los odds a priori son `\(\frac{0.533}{0.467} = 1.143\)`. 
 
 ---
 
 ## Factor de Bayes
 
 	
-Ahora calculamos las probabilidades a posteriori. Como la distribución a posteriori es una Normal vamos a tener que estandarizar para poder calcular probabilidades mediante la tabla de la normal estándar (o usar la calculadora o R). Por lo tanto tenemos que la probabilidad a posteriori de `\(H_0\)` viene dada por `\(\alpha_{0} = P(\mu \geq 14 | x) = P\left( Z \geq 2(14-15.3) | x \right) = 1 - P(Z &lt; -2.6) = 0.9953\)`. Por consiguiente tenemos que `\(\alpha_{1} = 0.0047\)` y los odds a posteriori son `\(213.5376\)`.
+Ahora calculamos las probabilidades a posteriori. Como la distribución a posteriori es una Normal vamos a tener que estandarizar para poder calcular probabilidades mediante la tabla de la normal estándar (o usar la calculadora o R). Por lo tanto tenemos que la probabilidad a posteriori de `\(H_0\)` viene dada por `\(\alpha_{0} = P(\mu \geq 14 | x) = P\left( Z \geq 2(14-15.3) | x \right) = 1 - P(Z &lt; -2.6) = 0.9953\)`. Por consiguiente tenemos que `\(\alpha_{1} = 0.0047\)` y los odds a posteriori son `\(211.77\)`.
 	 
-Esto significa que el factor de Bayes sería `\(\frac{213.5376}{1.143} = 186.8454\)` el cual, según la escala de Jeffreys, muestra evidencia muy fuerte a favor de `\(H_0\)`. 
+Esto significa que el factor de Bayes sería `\(\frac{211.77}{1.143} = 185.276\)` el cual, según la escala de Jeffreys, muestra evidencia muy fuerte a favor de `\(H_0\)`. 
 
 ---
+class: center, middle	
 
 # Ejercicios de práctica
-	
-* Ejercicios al final del handout de Mauricio.
-* No olviden hacer los ejercicios extras que están en mediación
 
-
+![Esta es una imagen de ejemplo](figs/ejercicios_hip_bayes.png)
 
 ---
 
@@ -332,15 +262,12 @@ class: center, middle
 
 # ¿Qué discutimos hoy?
 
-Distribuciones previas o a previa. Estadística Bayesiana: inferencia (estimación puntual, intervalos de credibilidad y factores de Bayes).
+Estadística Bayesiana: Estimación puntual, intervalos de credibilidad y factores de Bayes.
 
 # ¿Qué nos falta para terminar el curso?
 
-El quiz del martes (4to trabajo) y el proyecto de Bayes. El espacio para enviar el link está en Mediación Virtual.
+El quiz #4 y el 2do parcial.
 
-
-
-Slides creadas via R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -387,9 +314,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -398,7 +341,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
