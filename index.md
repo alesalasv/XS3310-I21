@@ -6,7 +6,7 @@
 
 **Aula virtual:** [https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179](https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179)
 
-**Profesores:** M.Sc. Alejandro Salas Vargas, Ph.D. Maikol Solís Chacón
+**Profesores:** M.Sc. Alejandro Salas Vargas, Bach. Pablo Vivas Corrales
 
 La información del curso está en Mediación Virtual, este repositorio es para el material de clase. Los vídeos de los links pertencen a la colección del prof. Luis Rincón de la UNAM. Su página web está aquí: [http://lya.fciencias.unam.mx/lars/0398/index.html](http://lya.fciencias.unam.mx/lars/0398/index.html)
 
