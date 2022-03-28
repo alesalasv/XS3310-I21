@@ -10,7 +10,7 @@
 
 La información del curso está en Mediación Virtual, este repositorio es para el material de clase. Los vídeos de los links pertencen a la colección del prof. Luis Rincón de la UNAM. Su página web está aquí: [http://lya.fciencias.unam.mx/lars/0398/index.html](http://lya.fciencias.unam.mx/lars/0398/index.html)
 
-<!--[Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2020/I_Ciclo/Programa-XS-3310.pdf)-->
+<!--[Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2022/IC/Programa-XS-3310.pdf)-->
 
 [Programa del curso](Programa-XS-3310.pdf)
 
@@ -22,21 +22,21 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <th width="25%">  Por hacer </th>
   </tr>
   <tr>
-    <td> 06 de abril </td>
+    <td> 29 de marzo </td>
     <td>  <a href="XS3310-I20_1.html">Clase 1</a> </td> 
     <td>  <a href="https://youtu.be/JLNaZ1TxS_8">Población y Muestra</a> <br>
           <a href="https://youtu.be/N_Bnk9Wq7E4">¿Qué es la estadística inferencial?</a> </td> 
-     <td> <a href="https://forms.gle/FeDeWU8oE9aVWifP7">Llenar cuestionario</a>, <a href="https://mv1.mediacionvirtual.ucr.ac.cr/login/index.php">Mediación Virtual</a> </td>
+     <td> <a href="https://forms.gle/q8CR77qTxJE8cwoZ8">Llenar cuestionario</a>, <a href="https://mv1.mediacionvirtual.ucr.ac.cr/login/index.php">Mediación Virtual</a> </td>
   </tr>
   <tr>
-    <td> 09 de abril </td>
+    <td>01 de abril </td>
     <td>  <a href="XS3310-I20_2.html">Clase 2</a> </td> 
     <td>  <a href="https://youtu.be/-9who67ocEQ">¿Qué es la estimación puntual?</a> <br>
           <a href="https://youtu.be/muIrBvecff8">Muestras aleatorias, estadísticas y estimadores</a> </td>    
     <td> Práctica: 8.1 - 8.20 de Mendenhall </td>
   </tr>
   <tr>
-    <td> 13 y 16 de abril  </td>
+<!--    <td> 13 y 16 de abril  </td>
     <td>  <a href="XS3310-I20_3.html">Clase 3 y 4</a> </td>
     <td>  <a href="https://youtu.be/-VQvT1ZV8dc">Insesgamiento y eficiencia</a> <br>
           <a href="https://youtu.be/zuuNAjb-fx8">Insesgamiento asintótico</a> <br>
