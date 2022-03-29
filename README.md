@@ -18,8 +18,6 @@ La información del curso está en Mediación Virtual, este repositorio es para 
 
 <!--   -->
 
-[Programa del curso](Programa-XS-3310.pdf)
-
 <table style="width:100%">
   <tr>
     <th width="15%"> Fecha </th>
