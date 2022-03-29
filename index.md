@@ -196,6 +196,6 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  Lista de ejercicios en las notas de clase </td>
   </tr> 
 </table> 
-
+-->
 
 
