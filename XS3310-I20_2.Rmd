@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semestre 2021"  
+subtitle: "I Semestre 2022"  
 author: 
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
@@ -406,16 +406,17 @@ Figura 1. Sesgo y Variancia. Fuente: https://www.slideshare.net/Stratio/lunchlea
 1. Suponga que $X_1, X_2, ..., X_n$ es una muestra aleatoria exponencial con paramétro $\theta$. Se sabe que la esperanza es $1/\theta$ y varianza $1/\theta ^2$. Encuentre una función $g(\theta)$ de modo que la convergencia en distribución de $\overline{X}$ no depende de $\theta$. 
 2. Se desea estimar la media $\mu$ de una variable aleatoria $X$. Para ello se toman $10$ datos y se calcula su media muestral $\bar{X}$ y la varianza de dichos datos $\sigma^2_X$. Comente si son verdaderas o falsas las siguientes afirmaciones:
 
-      a) Por el teorema central del límite sabemos que $\mu$ será una variable aleatoria normal.
+    a) Por el teorema central del límite sabemos que $\mu$ será una variable aleatoria normal.
       
-      b) La media muestral con un conjunto de datos es un número y no una variable aleatoria.
+    b) La media muestral con un conjunto de datos es un número y no una variable aleatoria.
       
-      c) La media muestral $\bar{X}$ tiene siempre una distribución muestral normal.
+    c) La media muestral $\bar{X}$ tiene siempre una distribución muestral normal.
       
-      d) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
+    d) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
       
-      e) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
-<!-- class: center, middle -->
+    e) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
+
+
 
 <!-- # ¿Qué vimos hoy? -->
 

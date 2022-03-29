@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semetre 2021"  
+subtitle: "I Semetre 2022"  
 author: 
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
@@ -34,7 +34,7 @@ options(htmltools.dir.version = FALSE)
 * Teoría Estadística
 * Ciencia de Datos
 
----
+<!--   
 ## Bienvenida
 
 ### Maikol Solís
@@ -53,7 +53,7 @@ Mi trabajo reciente se enfoca en el análisis de sensibilidad en modelos estadí
 * Usando "relative weight analysis". 
 
 Además, como parte de una colaboración interdisciplinaria, estoy colaborando en proyecto para la generación de estrategias de muestreo masivo para la detección de enfermedades virales (SARS-COV2). 
-
+-->
 ---
 
 ## Bienvenida
@@ -68,20 +68,17 @@ Además, como parte de una colaboración interdisciplinaria, estoy colaborando e
 
 ## Mediación virtual 
 
-https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179
+[Mediación Virtual](https://mv1.mediacionvirtual.ucr.ac.cr/course/view.php?id=21179)
 
 ### Carta al estudiante
 
-https://mv1.mediacionvirtual.ucr.ac.cr/pluginfile.php/1543657/mod_resource/content/1/carta_estudiante_XS_3310_I_ciclo_2021.pdf
+[Programa del curso](http://www.estadistica.ucr.ac.cr/images/EEST/Programas/Bachi/2022/IC/Programa-XS-3310.pdf)
 
 ### Pendientes para ustedes: 
 
-* Abrir este documento: https://docs.google.com/document/d/1c-xuJlunQ5uRxs9g4VEnPuQekvxOdBjV9w2voMfa6CQ/edit?usp=sharing
 
-* Rellenar este formulario: https://docs.google.com/forms/d/e/1FAIpQLSfHZKavyow6QlKzFLIeOMEuvxgBtnowpAOJxAzfKz7yznpTTA/viewform
-
-
-
+* Rellenar este formulario: 
+[Llenar el formulario](https://forms.gle/q8CR77qTxJE8cwoZ8)
 
 
 ---
@@ -259,7 +256,7 @@ Si $X_1,\ldots, X_n$ es una muestra aleatoria de tamaño $n$, y la distribución
 
 $$Z_{n} = \frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \stackrel{d}{\longrightarrow} N\left(0,1\right) \quad si\quad n \rightarrow \infty$$
 o lo que es equivalente 
-$$\overline{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty.$$
+$\overline{X} \xrightarrow{\text{d}} N\left(\mu, \frac{\sigma^2}{n}\right) \quad si\quad n \rightarrow \infty.$
 ---
 ## Relaciones entre los modos de convergencia 
 
