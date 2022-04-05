@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semetre 2021"  
+subtitle: "I Semetre 2022"  
 author: 
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
@@ -20,12 +20,10 @@ options(htmltools.dir.version = FALSE)
 
 # ¿Qué vamos a discutir hoy?
 
-* Discusión de la práctica.
-
 * Estimador cuadrático medio y propiedades de los estimadores: insesgado, eficiente, consistente y suficiente.
 
 
----
+<!--
 
 ## Ejercicios
 
@@ -41,6 +39,8 @@ options(htmltools.dir.version = FALSE)
       d) Para disminuir la varianza de $\bar{X}$ a la mitad habría que tomar al menos 100 datos.
       
       e) Como la media muestral es un estimador insesgado, tenemos asegurado que $\bar{X} = \mu$
+
+-->
 
 ---
 
