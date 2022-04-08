@@ -49,7 +49,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
           <a href="https://youtu.be/q0NI2tftYWg">Comentarios sobre la cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/YW1ZG1Hgg_k">Primer ejemplo sobre la cota inferior de Cramér-Rao</a> <br>
           <a href="https://youtu.be/faFsaP1YE4U">Segundo ejemplo sobre la cota inferior de Cramér-Rao</a> </td> 
-    <td> Práctica: 9.1 - 9.8 de Mendenhall </td>
+    <td> Práctica: 9.1 - 9.14 de Mendenhall </td>
   </tr>
   <tr>
 <!--    <td> 20 de abril </td>
