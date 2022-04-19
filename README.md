@@ -54,7 +54,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica: 9.1 - 9.14 de Mendenhall </td>
   </tr>
   <tr>
-<!--     <td> 20 de abril </td>
+     <td> 19 de abril </td>
     <td>  <a href="XS3310-I20_5.html">Clase 5</a> </td>
     <td>  <a href="https://youtu.be/cgKK92xrfqo">Consistencia</a> <br>
           <a href="https://youtu.be/wAQ7zs-TmmY">Relación entre consistencia e insesgamiento</a> <br>
@@ -63,7 +63,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
     <td> Práctica 9.15 - 9.36 de Mendenhall </td>
   </tr>
 <tr>
-    <td> 23 de abril </td>
+    <td> 22 de abril </td>
     <td>  <a href="XS3310-I20_6.html">Clase 6</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Vgn4gdbqd0M">Teorema de factorizaci&oacute;n</a> <br>
           <a href="https://www.youtube.com/watch?v=xI9H4F35eVw">Ejemplos de aplicaci&oacute;n del teorema de factorizaci&oacute;n</a> <br>
@@ -84,7 +84,7 @@ La información del curso está en Mediación Virtual, este repositorio es para 
          7.7: 1-10 <br>
          7.9: 12 y 13 </td>
   </tr>
-   <tr>
+<!--   <tr>
     <td> 27 y 30 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7 y 8</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
