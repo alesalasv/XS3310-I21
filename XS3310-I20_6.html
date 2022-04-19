@@ -4,7 +4,8 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-04-23" />
+    <meta name="date" content="2022-04-19" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -12,9 +13,9 @@
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2021
+## I Semestre 2022
 ### Escuela de Estadística
-### 2021-04-23
+### 2022-04-19
 
 ---
 
@@ -90,7 +91,7 @@ v(U,\theta) &amp;= c(\theta)^{n} e^{-d(\theta)U}
 
 # Suficiencia
 
-**Ejemplo.** Sea `\(X_{1}, X_{2}, ... , X_{n}\)` una m.a. tal que `\(X_i \sim Poisson(\lambda)\)`, encuentre el estadístico suficiente mínimo utilizando la técnica de la familia exponencial.
+**Ejemplo.** Sea `\(X_1,X_2,...,X_n\)` una m.a. tal que `\(X_i \sim Poisson(\lambda)\)`, encuentre el estadístico suficiente mínimo utilizando la técnica de la familia exponencial.
 
 **Solución.** Lo primero consiste en demostrar que la función de probabilidad de una Poisson tiene la forma de la familia exponencial. Viendo la función de probabilidad de una Poisson, `\(f(x|\lambda) = \frac{\lambda^{x}e^{-\lambda}}{x!}\)`, esta pareciera no cumplir la forma de la familia exponencial, no obstante podemos realizar algunas operaciones algebraicas para alcanzar esa forma: 
 
@@ -138,7 +139,6 @@ Supongamos que para este caso si quisieramos saber cuál sería un estadístico 
 # Completitud
 	
 &gt; **Definición 5.1.** Completitud. Sea `\(U\)` un estadístico de una muestra aleatoria `\(X_{1}, X_{2}, ... , X_{n}\)` con función de densidad/probabilidad `\(f_{X}(x|\theta)\)` si `\(a \leq u \leq b\)` y `\(\alpha_{1} \leq \theta \leq \alpha_{2}\)` y sea `\(g(u)\)` una función continua en `\([a,b]\)`. Se dice que el estadístico `\(U\)` es **completo** para la distribución `\(f_{X}(x|\theta)\)` si se cumple que si `\(E(g(U)) = 0 \quad \forall \theta \in [\alpha_{1}, \alpha_{2}]\)`   entonces `\(g(U) = 0\)` con probabilidad 1. 
-
 
 - Con un estadístico que no es completo puede pasar que `\(g(U) \neq 0\)` para algún `\(\theta\)`, pero que  `\(E(g(U))=0\)`. 
 - Es decir, que existe "algo más" aparte del estadístico `\(U\)` que hace que la esperanza sea igual a 0. 
@@ -304,6 +304,7 @@ class: center, middle
 # ¿Qué discutimos hoy?
 
 Suficiencia, técnicas para encontrar estimadores suficientes. Propiedades de los estimadores puntuales: **completitud**. Teorema de Rao-Blackwell, Teorema de Lehmann-Scheffé, EIVM.
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
