@@ -84,8 +84,8 @@ La información del curso está en Mediación Virtual, este repositorio es para 
          7.7: 1-10 <br>
          7.9: 12 y 13 </td>
   </tr>
-<!--   <tr>
-    <td> 27 y 30 de abril </td>
+   <tr>
+    <td> 26 y 29 de abril </td>
     <td>  <a href="XS3310-I20_7.html">Clase 7 y 8</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=aMZupzrioao">M&eacute;todo de momentos</a> <br>
           <a href="https://www.youtube.com/watch?v=Ow582XJJEiM">Comentarios sobre el m&eacute;todo de momentos</a> <br>
@@ -100,7 +100,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>   
 
 
- <tr>
+<!-- <tr>
     <td> 04 de mayo </td>
     <td>  <a href="XS3310-I20_8.html">Clase 9</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
