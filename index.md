@@ -98,8 +98,8 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
   </tr>   
   
 
- <!--<tr>
-    <td> 04 de mayo </td>
+ <tr>
+    <td> 03 de mayo </td>
     <td>  <a href="XS3310-I20_8.html">Clase 9</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=nNZH9FXnjvM">¿Qué es un intervalo de confianza?</a><br>
 <a href="https://www.youtube.com/watch?v=LO2BOtWxMyY">Método pivotal</a><br>
@@ -107,11 +107,11 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> Mendenhall 8.39 - 8.49 <br> </td>
   </tr>
   <tr>
-    <td> 07 de mayo </td>
+    <td> 06 de mayo </td>
     <td>  <a href="XS3310-I20_9.html">Clase 10</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=vWnMWhoKad0">Intervalo de confianza: distribuci&oacute;n Bernoulli</a><br>
 <a href="https://www.youtube.com/watch?v=VTrZ10vbJfw">Intervalo de confianza: distribuci&oacute;n exponencial</a><br>
-</td> 
+<!--</td> 
     <td> Casella: 9.1,9.2,9.3,9.8,9.9, 9.12,9.13 <br> </td>
   </tr>  
     <tr>
