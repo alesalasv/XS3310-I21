@@ -111,17 +111,17 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td>  <a href="XS3310-I20_9.html">Clase 10</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=vWnMWhoKad0">Intervalo de confianza: distribuci&oacute;n Bernoulli</a><br>
 <a href="https://www.youtube.com/watch?v=VTrZ10vbJfw">Intervalo de confianza: distribuci&oacute;n exponencial</a><br>
-<!--</td> 
+</td> 
     <td> Casella: 9.1,9.2,9.3,9.8,9.9, 9.12,9.13 <br> </td>
   </tr>  
     <tr>
-    <td> 11 y 14 de mayo </td>
+    <td> 10 y 13 de mayo </td>
     <td>  <a href="XS3310-I20_10.html">Clase 11 y 12 </a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=D_wakA5YsQc">Intervalos de confianza: distribuci&oacute;n normal</a></td> 
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
   <tr>
-    <td> 18 y 21 de mayo </td>
+  <!--  <td> 18 y 21 de mayo </td>
     <td>  <a href="XS3310-I20_11.html">Clase 13 y 14</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
     <td> Práctica incluida en la presentación <br> </td>
