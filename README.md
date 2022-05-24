@@ -123,13 +123,13 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> <a href="https://docs.google.com/document/d/1sWLL6TrqvdNtNAAGbescTsNRegp-KPn1hQ-CZPmxc1U/edit?usp=sharing">Ejercicios Extra</a> <br> </td>
   </tr>
   <tr>
-   <!-- <td> 18 y 21 de mayo </td>
+    <td> 17 y 20 de mayo </td>
     <td>  <a href="XS3310-I20_11.html">Clase 13 y 14</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=Cx5pgZCdDGM">Bootstrap</a></td> 
     <td> Práctica incluida en la presentación <br> </td>
   </tr>
    <tr>
-    <td> 25 de mayo </td>
+    <td> 24 de mayo </td>
     <td>  <a href="XS3310-I20_12.html">Clase 15</a> </td>
     <td>  <a href="https://www.youtube.com/watch?v=bBjXWspAmbA"> ¿Qu&eacute; es una prueba de hip&oacute;tesis?</a><br>
     <a href="https://www.youtube.com/watch?v=PucB1LgjOsE">Funci&oacute;n potencia</a><br> 
@@ -137,7 +137,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
     <td> Ejercicios: Mendenhall 10.88  - 10.104  <br> </td>
   </tr>
     <tr>
-    <td> 28 de mayo </td>
+   <!-- <td> 28 de mayo </td>
     <td>  <a href="XS3310-I20_13.html">Clase 16</a> </td>
     <td> <a href="https://www.youtube.com/watch?v=fr96C4YVTlU">Ejemplo de prueba de hip&oacute;tesis sobre la distribuci&oacute;n Bernoulli</a><br>
     <a href="https://www.youtube.com/watch?v=MDgWCNLi8zw">Ejemplos de pruebas de hip&oacute;tesis sobre la distribuci&oacute;n normal</a><br></td>
