@@ -1,6 +1,6 @@
 ---
 title: "XS3310 Teoría Estadística"
-subtitle: "I Semestre 2021"
+subtitle: "I Semestre 2022"
 author:
   - "Escuela de Estadística"
 date: '`r Sys.Date()`'
