@@ -4,8 +4,8 @@
     <title>XS3310 Teoría Estadística</title>
     <meta charset="utf-8" />
     <meta name="author" content="Escuela de Estadística" />
-    <meta name="date" content="2021-06-15" />
-    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <meta name="date" content="2022-06-07" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -13,9 +13,9 @@
 class: center, middle, inverse, title-slide
 
 # XS3310 Teoría Estadística
-## I Semestre 2021
+## I Semestre 2022
 ### Escuela de Estadística
-### 2021-06-15
+### 2022-06-07
 
 ---
 
@@ -424,7 +424,7 @@ El valor-*p* es `\(1-\mathbb P_{m,n}(V \leq v \vert \sigma_1 = \sigma_2 )\)` y c
 
 ---
 
-**Ejemplo**. `\(X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)\)`, `\(S_X ^2 =30\)`, `\(Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)\)`, `\(S_Y^2=40\)`.
+**Ejemplo**. `\(X_1,\dots,X_{6}\sim N(\mu_1,\sigma_1^2)\)`, `\(S_X ^2 =40\)`, `\(Y_1,\dots,Y_{21}\sim N(\mu_2,\sigma_2^2)\)`, `\(S_Y^2=30\)`.
 
 La hipótesis nula es `\(H_0: \sigma_1^2\leq \sigma_2^2\)`.
 
@@ -447,7 +447,7 @@ head(X)
 ```
 
 ```
-## [1] -0.4556775  2.7964320  0.1278590 -0.8710449  2.7462284 -1.3602498
+## [1] -1.3293003  1.8547751 -2.2754985 -0.9325033 -2.0254649 -1.7378021
 ```
 
 ```r
@@ -457,12 +457,12 @@ head(Y)
 ```
 
 ```
-## [1]  9.999431  8.205454 12.728228  9.301506 11.297984 10.602414
+## [1] 10.982464 12.825669 12.071368  8.664474 10.632095 10.803825
 ```
 
 ---
 
-Es decir tener 20 datos normales con `\(\sigma_1^2 = 6\)` y 40 datos normales con `\(\sigma_2^2= 2\)`.  
+Es decir tener 20 datos normales con `\(\sigma_1 = 6\)` y 40 datos normales con `\(\sigma_2= 2\)`.  
 
 En todo caso asuma que `\(\sigma\)` es desconocidos para cada caso y solo tenemos
 los datos. Además queremos hacer la prueba de hipótesis
@@ -473,7 +473,7 @@ H_{0}: &amp; \sigma_{1}^{2} \leq \sigma_{2}^{2} \\
 H_{1}: &amp; \sigma_{1}^{2}&gt;\sigma_{2}^{2}
 \end{array}$$`
 
-**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar `\(H_0\)` ya que `\(\sigma_1^2 = 6 &gt; \sigma_2^2 = 2\)`**
+**OJO: Según la forma que planteamos el ejercicio, deberíamos de rechazar `\(H_0\)` ya que `\(\sigma_1 = 6 &gt; \sigma_2 = 2\)`**
 
 Calculamos el estadístico `\(V\)`
 
@@ -483,7 +483,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 4.002388
+## [1] 3.971829
 ```
 
 ```r
@@ -491,7 +491,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 1.833294
+## [1] 1.871322
 ```
 
 ```r
@@ -499,7 +499,7 @@ Calculamos el estadístico `\(V\)`
 ```
 
 ```
-## [1] 2.183168
+## [1] 2.122472
 ```
 
 ---
@@ -533,7 +533,7 @@ y el valor-*p* de la prueba es
 ```
 
 ```
-## [1] 0.01933349
+## [1] 0.02312191
 ```
 
 **Interpretación:** Rechazamos la hipótesis que `\(\sigma_{1}^{2} \leq \sigma_{2}^{2}\)` con un valor-*p* de 0.02.
@@ -662,7 +662,7 @@ El *p*-valor es
 ---
 
 **Interpretación:** La prueba de hipótesis no rechaza la hipótesis de
-homocedasticidad con un nivel de significancia del 5%.
+homocedasticidad con un nivel de confianza del 5%.
 
 **Propiedad**. La prueba `\(F\)` es un LRT.
 
