@@ -158,7 +158,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 <br> </td>
   </tr>
      <tr>
-    <td> 15 y 18 de junio  </td>
+    <td> 14 y 17 de junio  </td>
     <td>  <a href="XS3310-I20_16.html">Clase 21 y 22</a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.20, 8.22, 8.23, 8.24, 8.25, 8.27, 8.28<br> 
@@ -170,14 +170,14 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 
   </tr>
      <tr>
-    <!--<td> 22 y 25 de junio  </td>
-    <td>  <a href="XS3310-I20_17.html">Clase 23 y 24 </a> </td>
+    <td> 17 de junio  </td>
+    <td>  <a href="XS3310-I20_17.html">Clase 22 </a> </td>
     <td>  </td> 
     <td> Ejercicios: Casella: 8.28, 8.29, 8.30, 8.31, 8.32, 8.33, 8.37, 8.38, 8.39, 8.40, 8.41
 <br> </td>
   </tr>
           <tr>
-    <td> 29 de junio y 02 de julio  </td>
+    <!--<td> 29 de junio y 02 de julio  </td>
     <td>  <a href="XS3310-I20_18.html">Clase 25 y 26</a> </td>
     <td>  </td> 
     <td> Lista de ejercicios en las notas de clase </td>
