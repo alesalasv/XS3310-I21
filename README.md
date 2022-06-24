@@ -177,13 +177,13 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
 <br> </td>
   </tr>
           <tr>
-    <!--<td> 29 de junio y 02 de julio  </td>
+    <td> 21 de junio </td>
     <td>  <a href="XS3310-I20_18.html">Clase 25 y 26</a> </td>
     <td>  </td> 
     <td> Lista de ejercicios en las notas de clase </td>
   </tr>
        <tr>
-    <td> 06 y 09 de julio  </td>
+    <td> 24 de junio  </td>
     <td>  <a href="XS3310-I20_19.html">Clase 27 y 28 </a> </td>
     <td>  </td> 
     <td> DeGroot: <br>
@@ -191,7 +191,7 @@ Casella: Capítulo 7 Ejercicios (pp. 355 to 367):  <br> 7.2, 7.6, 7.7, 7.10, 7.1
          - 7.3: 5,6,7,9,12,17,19,21 <br>
          - 7.4: 1,2,5,10 </td> 
   </tr>
-          <tr>
+    <!--      <tr>
     <td> 13 y 16 de julio  </td>
     <td>  <a href="XS3310-I20_20.html">Clase 29 y 30</a></td>
     <td>  </td> 
